@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, ListRenderItemInfo, TextInput } from 'react-native';
+import { FlatList, TouchableOpacity, StyleSheet, ListRenderItemInfo, TextInput, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import himnosData from '@/assets/himnos/lista.json';  
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 interface Himno {
   title: string;
   number: number;
   group: string;
+  isFavorite?: boolean;
 }
 
 type RootStackParamList = {
@@ -23,6 +24,7 @@ const ListComponent: React.FC = () => {
   const [himnos, setHimnos] = useState<Himno[]>([]);
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
+  const [favoritos, setFavoritos] = useState<number[]>([]);
 
   useEffect(() => {
     const cargarHimnos = (): void => {
@@ -50,13 +52,28 @@ const ListComponent: React.FC = () => {
     filtrarHimnos();
   }, [busqueda, himnos]);
 
+  const toggleFavorito = (number: number) => {
+    setFavoritos(prevFavoritos => {
+      if (prevFavoritos.includes(number)) {
+        return prevFavoritos.filter(fav => fav !== number);
+      } else {
+        return [...prevFavoritos, number];
+      }
+    });
+  };
+
   const renderItem = ({ item }: ListRenderItemInfo<Himno>): React.ReactElement => (
-    <TouchableOpacity 
-      style={styles.item}
-      onPress={() => navigation.navigate('HimnoDetail', {number:item.number} )}
-    >
-      <ThemedText>{item.number}. {item.title}</ThemedText>
-    </TouchableOpacity>
+    <View style={styles.itemContainer}>
+      <TouchableOpacity 
+        style={styles.item}
+        onPress={() => navigation.navigate('HimnoDetail', {number:item.number} )}
+      >
+        <ThemedText>{item.number}. {item.title}</ThemedText>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => toggleFavorito(item.number)}>
+      <Ionicons name="bookmark" size={24} color={favoritos.includes(item.number) ? "red" : "gray"} />
+      </TouchableOpacity>
+    </View>
   );
 
   return (
@@ -89,10 +106,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
-  item: {
+  itemContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+  },
+  item: {
+    flex: 1,
   },
   input: {
     height: 40,
