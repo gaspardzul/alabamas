@@ -29,7 +29,7 @@ export default function SettingsScreen() {
           Espero que esta app te sea de utilidad y de bendicion para tu caminar cristiano.
           {' '}
           Se ha realizado con mucho cariño y dedicación para ti por: {' '}
-          <ThemedText type="defaultSemiBold">Gaspar Dzul</ThemedText>
+          <ThemedText type="defaultSemiBold">Hno. Gaspar Dzul</ThemedText>
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>

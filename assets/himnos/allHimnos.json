@@ -1,0 +1,75 @@
+{
+    "1": "1.json",
+    "2": "2.json",
+    "3": "3.json",
+    "4": "4.json",
+    "5": {
+        "title": "Agradecimiento",
+        "number": 5,
+        "lyrics": [
+          {
+            "verse": 1,
+            "text": "En esta vida hermano el cristiano ha de sufrir,\nana gora ega de ivi\nCuando ya estemos reunidos ante el tribunal de Dios, que nos diga bienvenidos el Rey de siglos mi Salvador;\npararais les mi mansión son para mis redimidos entren al gozo de su Señor."
+          },
+          {
+            "verse": 0,
+            "text": "¡Oh! que dicha incomparable será ver a Cristo Rey con sus vestiduras reales que viene a llevar su grey.\nSi de Dios sentís respuesta, nada te cuesta ser fiel, si en Jesús tu vista es puesta tu confianza ponla en Él."
+          },
+          {
+            "verse": 3,
+            "text": "Gloria a mi Cristo daremos en la gran resurrección, todos su santos vendremos en su manifestación.",
+            "repeat": 2
+          }
+        ]
+    },
+    "6": "6.json",
+    "7": "7.json",
+    "8": "8.json",
+    "9": "9.json",
+    "10": "10.json",
+    "11": "11.json",
+    "12": "12.json",
+    "13": "13.json",
+    "14": "14.json",
+    "15": "15.json",
+    "16": "16.json",
+    "17": "17.json",
+    "79": {
+        "title": "Cuando Allá Estemos Reunidos",
+        "number": 79,
+        "lyrics": [
+          {
+            "verse": 1,
+            "text": "En esta vida hermano el cristiano ha de sufrir,\nana gora ega de ivi\nCuando ya estemos reunidos ante el tribunal de Dios, que nos diga bienvenidos el Rey de siglos mi Salvador;\npararais les mi mansión son para mis redimidos entren al gozo de su Señor."
+          },
+          {
+            "verse": 2,
+            "text": "¡Oh! que dicha incomparable será ver a Cristo Rey con sus vestiduras reales que viene a llevar su grey.\nSi de Dios sentís respuesta, nada te cuesta ser fiel, si en Jesús tu vista es puesta tu confianza ponla en Él."
+          },
+          {
+            "verse": 3,
+            "text": "Gloria a mi Cristo daremos en la gran resurrección, todos su santos vendremos en su manifestación.",
+            "repeat": 2
+          }
+        ]
+    },
+    "309": {
+    "title": "LA GRAN TRIBULACION",
+    "number": 309,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Día de tribulación, día de tribulación,\nterrible será deseando la muerte la gente estará,\ndía de angustia será, día de angustia será\npara el pecador, sus malas acciones le condenarán."
+      },
+      {
+        "verse": 0,
+        "text": "Para aquel que vive en Jesús, el principio de una nueva vida,\ncon el Salvador, ya jamás volverá a sufrir,\npor los siglos y siglos, su Nombre ahí alabará.",
+        "repeat": 1
+      },
+      {
+        "verse": 2,
+        "text": "Qué lamentable será, qué lamentable será\nque tener que sufrir, las plagas y pestes, que habrán de venir,\ncuando todo esto suceda, cuando todo esto suceda,\nla Iglesia estará, las bodas del Cordero va a celebrar."
+      }
+    ]
+  }
+}

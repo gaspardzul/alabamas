@@ -4,6 +4,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import himnosData from '@/assets/himnos/lista.json';  
 import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface Himno {
   title: string;
@@ -11,8 +12,14 @@ interface Himno {
   group: string;
 }
 
+type RootStackParamList = {
+  HimnoDetail: { number: number };
+};
+
+type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
+
 const ListComponent: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp>();
   const [himnos, setHimnos] = useState<Himno[]>([]);
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
@@ -46,7 +53,7 @@ const ListComponent: React.FC = () => {
   const renderItem = ({ item }: ListRenderItemInfo<Himno>): React.ReactElement => (
     <TouchableOpacity 
       style={styles.item}
-      onPress={() => navigation.navigate('HimnoDetail' as never )}
+      onPress={() => navigation.navigate('HimnoDetail', {number:item.number} )}
     >
       <ThemedText>{item.number}. {item.title}</ThemedText>
     </TouchableOpacity>

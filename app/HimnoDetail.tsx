@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import HeaderComponent from '@/components/HeaderComponent';
+import { useRoute, RouteProp } from '@react-navigation/native';
+import allHimnos from '@/assets/himnos/allHimnos.json';
+
 
 interface Verso {
   verse: number;
@@ -15,22 +19,34 @@ interface HimnoDetalle {
   lyrics: Verso[];
 }
 
-const HimnoDetail: React.FC<{ route: { params: { number: number } } }> = ({ route }) => {
+type RootStackParamList = {
+  HimnoDetail: { number: string };
+};
+
+const HimnoDetail: React.FC = () => {
   const [himno, setHimno] = useState<HimnoDetalle | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  
+  const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
+  const number = route.params?.number;
 
   useEffect(() => {
-    const cargarHimno = async () => {
-      try {
-        const number = 78;
-        const himnoData = require(`@/assets/himnos/${number}.json`);
-        setHimno(himnoData);
-      } catch (error) {
-        console.error('Error al cargar el himno:', error);
-      }
-    };
+     if (route.params?.number) {
+      cargarHimno(route.params?.number);
+     }
+  }, [route.params?.number]);
 
-    cargarHimno();
-  }, []);
+  const cargarHimno = async (numberHimno: string) => {
+    try {
+      let himno = allHimnos[numberHimno as keyof typeof allHimnos];
+      if (numberHimno && himno) {
+        setHimno(himno as HimnoDetalle);
+      }
+      //setHimno(himnoData);
+    } catch (error) {
+      setError('Error al cargar el himno');
+    }
+  };
 
   if (!himno) {
     return <ThemedText>Cargando...</ThemedText>;
@@ -41,8 +57,15 @@ const HimnoDetail: React.FC<{ route: { params: { number: number } } }> = ({ rout
       <ThemedText style={styles.title}>{himno.number}. {himno.title}</ThemedText>
       {himno.lyrics.map((verso, index) => (
         <ThemedView key={index} style={styles.verseContainer}>
-          <ThemedText style={styles.verseNumber}>Verso {verso.verse}</ThemedText>
-          <ThemedText style={styles.verseText}>{verso.text}</ThemedText>
+          <ThemedText style={styles.verseNumber}>
+            {verso.verse === 0 ? 'Coro' : `Verso ${verso.verse}`}
+          </ThemedText>
+          <ThemedText style={[
+            styles.verseText,
+            verso.verse === 0 && styles.chorusText
+          ]}>
+            {verso.text}
+          </ThemedText>
           {verso.repeat && <ThemedText style={styles.repeat}>(Repetir {verso.repeat} veces)</ThemedText>}
         </ThemedView>
       ))}
@@ -72,6 +95,9 @@ const styles = StyleSheet.create({
   },
   repeat: {
     fontStyle: 'italic',
+  },
+  chorusText: {
+    color: 'red',
   },
 });
 
