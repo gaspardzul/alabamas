@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import HimnoDetail from './HimnoDetail';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -29,9 +30,11 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Alaba+' }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen name="HimnoDetail"  options={{ headerShown: true, title: 'Himno' }} />
       </Stack>
+      
     </ThemeProvider>
   );
 }
