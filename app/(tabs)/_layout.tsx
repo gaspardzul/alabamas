@@ -37,11 +37,11 @@ export default function TabLayout() {
         options={{
           title: 'Favoritos',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'bookmark' : 'bookmark-outline'} color={color} />
+            <TabBarIcon name={focused ? 'star' : 'star-outline'} color={color} />
           ),
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="settings"
         options={{
           title: 'Ajustes',
@@ -49,7 +49,7 @@ export default function TabLayout() {
             <TabBarIcon name={focused ? 'cog' : 'cog-outline'} color={color} />
           ),
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="about"
         options={{
