@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import HeaderComponent from '@/components/HeaderComponent';
@@ -8,7 +8,7 @@ import allHimnos from '@/assets/himnos/allHimnos.json';
 import { Ionicons } from '@expo/vector-icons';
 import useStorage from '@/hooks/useStorage';
 import { Himno } from '@/ts/interfaces';
-import { useVisitedItems } from '@/hooks/useLastViews';
+import { Colors } from '@/constants/Colors';
 
 
 interface Verso {
@@ -32,6 +32,7 @@ const HimnoDetail: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [fontSize, setFontSize] = useState(16);
   const [isFavorite, setIsFavorite] = useState(false);
+  const colorScheme = useColorScheme();
   
   const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
 
@@ -94,17 +95,17 @@ const HimnoDetail: React.FC = () => {
       <ThemedView style={styles.fontSizeControls}>
         <View style={styles.fontSizeButtons}>
           <TouchableOpacity onPress={disminuirFuente} style={styles.fontButton}>
-            <Ionicons name="remove-circle-outline" size={24} color="black" />
+            <Ionicons name="remove-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={aumentarFuente} style={styles.fontButton}>
-            <Ionicons name="add-circle-outline" size={24} color="black" />
+            <Ionicons name="add-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={toggleFavorite}>
           <Ionicons 
             name={isFavorite ? "bookmark" : "bookmark-outline"} 
             size={24} 
-            color={isFavorite ? "#ff002f" : "black"} 
+            color={isFavorite ? "#ff002f" : colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} 
           />
         </TouchableOpacity>
       </ThemedView>
