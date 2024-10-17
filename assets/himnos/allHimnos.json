@@ -1,59 +1,146 @@
 {
-    "1": "1.json",
-    "2": "2.json",
-    "3": "3.json",
-    "4": "4.json",
-    "5": {
-        "title": "Agradecimiento",
-        "number": 5,
-        "lyrics": [
-          {
-            "verse": 1,
-            "text": "En esta vida hermano el cristiano ha de sufrir,\nana gora ega de ivi\nCuando ya estemos reunidos ante el tribunal de Dios, que nos diga bienvenidos el Rey de siglos mi Salvador;\npararais les mi mansión son para mis redimidos entren al gozo de su Señor."
-          },
-          {
-            "verse": 0,
-            "text": "¡Oh! que dicha incomparable será ver a Cristo Rey con sus vestiduras reales que viene a llevar su grey.\nSi de Dios sentís respuesta, nada te cuesta ser fiel, si en Jesús tu vista es puesta tu confianza ponla en Él."
-          },
-          {
-            "verse": 3,
-            "text": "Gloria a mi Cristo daremos en la gran resurrección, todos su santos vendremos en su manifestación.",
-            "repeat": 2
-          }
-        ]
-    },
-    "6": "6.json",
-    "7": "7.json",
-    "8": "8.json",
-    "9": "9.json",
-    "10": "10.json",
-    "11": "11.json",
-    "12": "12.json",
-    "13": "13.json",
-    "14": "14.json",
-    "15": "15.json",
-    "16": "16.json",
-    "17": "17.json",
-    "79": {
-        "title": "Cuando Allá Estemos Reunidos",
-        "number": 79,
-        "lyrics": [
-          {
-            "verse": 1,
-            "text": "En esta vida hermano el cristiano ha de sufrir,\nana gora ega de ivi\nCuando ya estemos reunidos ante el tribunal de Dios, que nos diga bienvenidos el Rey de siglos mi Salvador;\npararais les mi mansión son para mis redimidos entren al gozo de su Señor."
-          },
-          {
-            "verse": 2,
-            "text": "¡Oh! que dicha incomparable será ver a Cristo Rey con sus vestiduras reales que viene a llevar su grey.\nSi de Dios sentís respuesta, nada te cuesta ser fiel, si en Jesús tu vista es puesta tu confianza ponla en Él."
-          },
-          {
-            "verse": 3,
-            "text": "Gloria a mi Cristo daremos en la gran resurrección, todos su santos vendremos en su manifestación.",
-            "repeat": 2
-          }
-        ]
-    },
-    "309": {
+  "33": {
+    "title": "ASI ERA MI VIDA",
+    "number": 33,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Una llaga podrida, era mi vida,\n y tirado entre la basura, Tú me \n encontraste; y ahí extendiste \n tu mano y me rescataste;\n para curar mis heridas, \n que con amor me sanaste."
+      },
+      {
+        "verse": 0,
+        "text": "Que mal agradecido fueras tú \n si a mi Cristo dejáres \n y que cobarde fuera yo \nsi de aquí me regresaré \n estoy a medio camino de la \n jornada, para llegar a Canaán \n donde será mi morada."
+      },
+      { 
+        "verse": 2,
+        "text": "Perdona Señor Jesucristo, soy \n desobediente; y quisiera decirte \ncon canto, lo que mi alma siente,\n quisiera decirles que sanas a todas \nlas gentes; que has transformado \n mi vida, y ahora soy diferente."
+      }
+    ]
+  },
+  "78": {
+    "title": "CUANDO ALLA ESTEMOS REUNIDOS",
+    "number": 78,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En esta vida hermano,\n el cristiano ha de sufrir,\n mas no es de compararse \n a la gloria en que ha de vivir."
+      },
+      {
+        "verse": 0,
+        "text": "Cuando ya estemos reunidos \n ante el tribunal de Dios,\n que nos diga bienvenidos \n el Rey de siglos mi Salvador;\n hay especiales moradas,\n preparadas en mi mansión \nson para mis redimidos \nentren al gozo de su Señor."
+      },
+      {
+        "verse": 2,
+        "text": "¡Oh! que dicha incomparable\nserá ver a Cristo Rey\ncon sus vestiduras reales\nque viene a llevar su grey."
+      },
+      {
+        "verse": 3,
+        "text": "Si de Dios sentís respuesta,\nnada te cuesta ser fiel,\nsi en Jesús tu vista es puesta\ntu confianza ponla en El."
+      },
+      {
+        "verse": 4,
+        "text": "Gloria a mi Cristo daremos\nen la gran resurrección\ntodos su santos vendremos\nen su manifestación."
+      }
+    ]
+  },
+  "151": {
+    "title": "EL HIJO PRODIGO",
+    "number": 151,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Soy aquel hijo pródigo que vengo\nante tus plantas, a confesar mis\nfaltas, a implorar tu perdón, yo\nsoy aquel perdido que ha sido la\ndeshonra, pero que desde ahora\nrindo mi corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Retorno del camino, cansado\ny harapiento hoy lloro\ny me arrepiento, pues mucho\nte ofendí, hoy triste y abatido\ny lleno de vergüenza\nestoy en tu presencia,\nten compasión de mí."
+      },
+      {
+        "verse": 3,
+        "text": "Permite en tu clemencia que more\naquí contigo, que siempre\nagradecido, te sirva en gratitud;\ny pon en mí conciencia la augusta\nfe de un niño, sea humilde y tan\nsencillo como lo fuiste Tú."
+      },
+      {
+        "verse": 4,
+        "text": "Recuerdo que fuí niño\nformado por tu ciencia,\nme diste la inocencia\nque yo la profané;\ny ahora aquí rendido,\nimploro por tu Nombre\nten compasión del hombre\nque se halla ante tus pies."
+      },
+      {
+        "verse": 5,
+        "text": "Tú sales a mi encuentro,\nme abrazas compasivo,\nadviertes que he sufrido,\nla causa de mi error;\ny ordenas al momento\nen vez de mi castigo\nque se me de un vestido de\ngracia por tu amor."
+      },
+      {
+        "verse": 6,
+        "text": "Y dices que haya fiesta,\ncalzadle y dadle abrigo,\neste hijo era el perdido,\ny ha vuelto aquí al hogar;\nyo me uniré a la orquesta\nentonaré los himnos,\npor siempre y por los siglos\npues no saldré jamás."
+      }
+    ]
+  },
+  "176": {
+    "title": "EL TALENTO",
+    "number": 176,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Mi Señor y Rey muy rico es,\nse fué de aquí y un talento me dejó;\nme dejó dicho que va a volver,\nque no esté ocioso, que trabaje con El."
+      },
+      {
+        "verse": 0,
+        "text": "Qué gozo tengo porque lo recibí,\nse me entregó cuando me bauticé;\nse me dijo también, que mis culpas borró,\ny que con su sangre mi alma rescató."
+      },
+      {
+        "verse": 2,
+        "text": "Ahora libre soy para trabajar,\ncon el talento que Cristo me dejó,\nedificado en la casa espiritual,\nmi gozo sea tu Nombre ensalzar."
+      },
+      {
+        "verse": 3,
+        "text": "Unido a mis hermanos, yo siempre estaré,\npues somos la familia, del Autor de la fe,\nusando el talento que Cristo nos dejó,\ny cuando Cristo venga, halle, en las almas fe."
+      }
+    ]
+  },
+  "177": {
+    "title": "EL TIEMPO DE PRUEBAS",
+    "number": 177,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Ya se acerca el tiempo de pruebas,\nel anticristo obrando ya está,\ny después de esta vida de pruebas,\ncosas nuevas Jesús me dará."
+      },
+      {
+        "verse": 0,
+        "text": "Fiel, fiel al Señor yo seré,\ny la corona de vida tendré",
+        "repeat": 2
+      },
+      {
+        "verse": 2,
+        "text": "Los comprado a precio de amor,\ncon la sangre de Cristo Jesús,\nsufrirán con resignación,\ncomo Cristo clavado en la cruz."
+      },
+      {
+        "verse": 3,
+        "text": "Los profetas así lo anunciaron,\nes palabra de la realidad,\ncomo entonces a los santos mataron\nhoy también habrá gran mortandad."
+      },
+      {
+        "verse": 4,
+        "text": "Si tú quieres servir al Señor,\nes necesario buscar el poder,\npara que en ésta persecución,\ntú y yo podamos vencer."
+      }
+    ]
+  },
+  "183": {
+    "title": "EL VOLVERA",
+    "number": 183,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En el mundo perdido me hallaba\ncuando El me encontró,\nno existía esperanza en mi vida,\nno era feliz.\nPero gracias a Dios que nos ama\nEl me libertó,\nesperanza en mi vida, Jesús\nha puesto en mi ser."
+      },
+      {
+        "verse": 0,
+        "text": "Oh que gozo yo siento en mi alma,\nJesús mora en mí,\nes un gozo tan grande, que quiero\nservirle hasta el fin,\nsu Palabra nos dice, que el Hijo\nde Dios volverá,\nEl vendrá por su Iglesia,\nque dicha tan grande será."
+      },
+      {
+        "verse": 2,
+        "text": "Una Iglesia sin mancha, ni arruga\nEl se llevará,\npor lo tanto hay que estar preparados,\nEl nos llevará,\nen las nubes para nuestro encuentro,\ncon el Salvador,\na las bodas de Cristo el Cordero,\nel Hijo de Dios."
+      }
+    ]
+  },
+  "309": {
     "title": "LA GRAN TRIBULACION",
     "number": 309,
     "lyrics": [
@@ -69,6 +156,32 @@
       {
         "verse": 2,
         "text": "Qué lamentable será, qué lamentable será\nque tener que sufrir, las plagas y pestes, que habrán de venir,\ncuando todo esto suceda, cuando todo esto suceda,\nla Iglesia estará, las bodas del Cordero va a celebrar."
+      }
+    ]
+  },
+  "195": {
+    "title": "EN LA CRUZ",
+    "number": 195,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Me hirió el pecado, fui a jesús,\nmostrele mi dolor;\nperdido, errante, vi su luz\nbendijome en su amor."
+      },
+      {
+        "verse": 0,
+        "text": "En la cruz, en la cruz,\ndo primero ví la luz,\ny las manchas de mi alma yo lavé,\nfue allí por fe do vi a Jesús,\ny siempre feliz con El seré."
+      },
+      {
+        "verse": 2,
+        "text": "Sobre una cruz, mi buen Señor,\nsu sangre derramó,\npor este pobre pecador\na quien así salvó."
+      },
+      {
+        "verse": 3,
+        "text": "Venció la muerte con poder,\ny al cielo se exaltó,\nconfiar en El es mi placer,\nmorir no temo yo."
+      },
+      {
+        "verse": 4,
+        "text": "Aunque El se fue solo no estoy;\nmandó al Consolador,\nDivino Espíritu, que hoy,\nme dá perfecto amor."
       }
     ]
   }

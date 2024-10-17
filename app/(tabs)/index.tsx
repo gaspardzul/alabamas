@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, View } from 'react-native';
+import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 
@@ -16,6 +16,10 @@ export default function HomeScreen() {
           <ThemedText type="title" style={styles.titleHeader}>Alaba +</ThemedText>
         </View>
       }>
+      <View style={styles.centeredTextContainer}>
+        <ThemedText type="title" style={{textAlign: 'center'}}>"HIMNARIO ALABANZA Y VICTORIA"</ThemedText>
+        <ThemedText style={styles.centeredText}>Salmo 95:1</ThemedText>
+      </View>
     </ParallaxScrollView>
   );
 }
@@ -53,5 +57,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 20,
+  },
+  centeredTextContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  centeredText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

@@ -1,7 +1,13 @@
 {
     "lista": [
-        { "title": "Agradecimiento", "number": 5, "group": "Gozo" },
-        { "title": "Cuando Allá Estemos Reunidos", "number": 79, "group": "Gozo" },
-        { "title": "La Gran Tribulación", "number": 309, "group": "Gozo" }
+        { "title": "Cuando Allá Estemos Reunidos", "number": 78, "group": "GOZO" },
+        { "title": "La Gran Tribulación", "number": 309, "group": "GOZO" },
+        { "title": "Así Era Mi Vida", "number": 33, "group": "BAUTISMOS" },
+        { "title": "El Hijo Pródigo", "number": 151, "group": "BAUTISMOS" },
+        { "title": "El Talento", "number": 176, "group": "BAUTISMOS" },
+        { "title": "El Tiempo de Pruebas", "number": 177, "group": "BAUTISMOS" },
+        { "title": "El volverá", "number": 183, "group": "BAUTISMOS" },
+        { "title": "En la Cruz", "number": 195, "group": "BAUTISMOS" }
+
     ]
 }
