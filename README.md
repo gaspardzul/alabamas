@@ -1,50 +1,126 @@
 # Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este es un proyecto [Expo](https://expo.dev) creado con [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## Empezar
 
-1. Install dependencies
+1. Instalar dependencias
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Iniciar la aplicación
 
    ```bash
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+En la salida, encontrarás opciones para abrir la aplicación en un
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [build de desarrollo](https://docs.expo.dev/develop/development-builds/introduction/)
+- [emulador de Android](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [simulador de iOS](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), un sandbox limitado para probar el desarrollo de aplicaciones con Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Puedes comenzar a desarrollar editando los archivos dentro del directorio **app**. Este proyecto utiliza [enrutamiento basado en archivos](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Actualización y publicación
 
-When you're ready, run:
+Para actualizar y publicar tu aplicación, sigue estos pasos:
+
+1. Instala EAS CLI globalmente (si aún no lo has hecho):
+
+   ```bash
+   npm install -g eas-cli
+   ```
+
+2. Configura tu proyecto para usar EAS Update (si es la primera vez):
+
+   ```bash
+   npx eas update:configure
+   ```
+
+3. Para publicar una actualización, usa:
+
+   ```bash
+   npx eas update
+   ```
+
+### Subir una actualización de la app
+
+Cuando hayas realizado cambios en tu aplicación y quieras subir una actualización, sigue estos pasos:
+
+1. Asegúrate de haber hecho commit de todos tus cambios en git.
+
+2. Incrementa la versión de tu aplicación en el archivo `app.json`:
+
+   ```json
+   {
+     "expo": {
+       "version": "1.0.1",
+       "android": {
+         "versionCode": 2
+       },
+       "ios": {
+         "buildNumber": "2"
+       }
+     }
+   }
+   ```
+
+3. Crea una nueva compilación de producción:
+
+   ```bash
+   eas build --platform all
+   ```
+
+   Esto creará nuevas compilaciones para iOS y Android.
+
+4. Una vez que las compilaciones estén listas, publica la actualización:
+
+   ```bash
+   eas submit --platform all
+   ```
+
+   Esto enviará las nuevas compilaciones a la App Store y Google Play Store.
+
+5. Después de que la actualización haya sido aprobada y publicada en las tiendas, puedes enviar una actualización OTA (Over The Air) para los usuarios existentes:
+
+   ```bash
+   eas update --branch production --message "Descripción de la actualización"
+   ```
+
+Nota: `expo publish` será descontinuado el 12 de febrero de 2024. Se recomienda migrar a `eas update` como se muestra arriba.
+
+## Comandos útiles
+
+- Para ejecutar cualquier comando de Expo, usa `npx` seguido de `expo`. Por ejemplo:
+
+  ```bash
+  npx expo start
+  ```
+
+## Obtener un proyecto nuevo
+
+Cuando estés listo, ejecuta:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Este comando moverá el código de inicio al directorio **app-example** y creará un directorio **app** en blanco donde puedes comenzar a desarrollar.
 
-## Learn more
+## Aprende más
 
-To learn more about developing your project with Expo, look at the following resources:
+Para aprender más sobre el desarrollo de tu proyecto con Expo, consulta los siguientes recursos:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Documentación de Expo](https://docs.expo.dev/): Aprende los fundamentos o profundiza en temas avanzados con nuestras [guías](https://docs.expo.dev/guides).
+- [Tutorial Aprende Expo](https://docs.expo.dev/tutorial/introduction/): Sigue un tutorial paso a paso donde crearás un proyecto que se ejecuta en Android, iOS y web.
 
-## Join the community
+## Únete a la comunidad
 
-Join our community of developers creating universal apps.
+Únete a nuestra comunidad de desarrolladores que crean aplicaciones universales.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo en GitHub](https://github.com/expo/expo): Ve nuestra plataforma de código abierto y contribuye.
+- [Comunidad de Discord](https://chat.expo.dev): Chatea con usuarios de Expo y haz preguntas.
