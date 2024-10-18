@@ -30,14 +30,13 @@ type RootStackParamList = {
 const HimnoDetail: React.FC = () => {
   const [himno, setHimno] = useState<HimnoDetalle | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(24);
   const [isFavorite, setIsFavorite] = useState(false);
   const colorScheme = useColorScheme();
   
   const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
 
   const { addFavorite, removeFavorite, getFavorites, favorites } = useStorage('favoritos');
-
   useEffect(() => {
     if (route.params?.number) {
       cargarHimno(route.params?.number);

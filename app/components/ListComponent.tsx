@@ -12,7 +12,7 @@ import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
 import { tintColorRed } from '@/constants/Colors';
-
+import { useSettings } from '@/hooks/useSettings';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListComponent: React.FC = () => {
@@ -21,18 +21,36 @@ const ListComponent: React.FC = () => {
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { favorites, addFavorite, removeFavorite , getFavorites} = useStorage('favoritos');
+  const { settings, updateSettingValue, getSettingValue } = useSettings();
+
+  const cargarHimnos = async () => {
+    try {
+      const order = await getSettingValue('order');
+      let himnosOrdenados = [...himnosData.lista];
+      
+      switch (order) {
+        case 'numAsc':
+          himnosOrdenados.sort((a, b) => a.number - b.number);
+          break;
+        case 'numDesc':
+          himnosOrdenados.sort((a, b) => b.number - a.number);
+          break;
+        case 'asc':
+          himnosOrdenados.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case 'desc':
+          himnosOrdenados.sort((a, b) => b.title.localeCompare(a.title));
+          break;
+        // No es necesario un caso por defecto, ya que himnosOrdenados ya contiene la lista original
+      }
+      
+      setHimnos(himnosOrdenados);
+    } catch (error) {
+      console.error('Error al cargar los himnos:', error);
+    }
+  };
 
   useEffect(() => {
-    const cargarHimnos = (): void => {
-      try {
-        // Ordenamos los himnos por número
-        const himnosOrdenados = himnosData.lista.sort((a, b) => a.number - b.number);
-        setHimnos(himnosOrdenados);
-      } catch (error) {
-        console.error('Error al cargar los himnos:', error);
-      }
-    };
-
     cargarHimnos();
     
   }, []);
@@ -49,9 +67,39 @@ const ListComponent: React.FC = () => {
     filtrarHimnos();
   }, [busqueda, himnos]);
 
+  // hacer una funcion para ordenar los himnos, las opciones son:
+  // 1. Por número (numAsc)
+  // 2. Por número (numDesc)
+  // 3. Por título (asc)
+  // 4. Por título (desc)
+  const handleSort = (option: string) => {
+    let _himnosFiltrados = [...himnosFiltrados];
+    updateSettingValue('order', option as 'asc' | 'desc' | 'numAsc' | 'numDesc');
+    switch (option) {
+      case 'numAsc':
+        _himnosFiltrados = _himnosFiltrados.sort((a, b) => a.number - b.number);
+        setHimnosFiltrados(_himnosFiltrados);
+        break;
+      case 'numDesc':
+        _himnosFiltrados = [...himnosFiltrados].sort((a, b) => b.number - a.number);
+        setHimnosFiltrados(_himnosFiltrados);
+        break;
+      case 'asc':
+        _himnosFiltrados = _himnosFiltrados.sort((a, b) => a.title.localeCompare(b.title));
+        setHimnosFiltrados(_himnosFiltrados);
+        break;
+      case 'desc':
+        _himnosFiltrados = _himnosFiltrados.sort((a, b) => b.title.localeCompare(a.title));
+        setHimnosFiltrados(_himnosFiltrados);
+        break;
+      default:
+        break;
+    }
+  };
+
   useFocusEffect(
     useCallback(() => {
-      getFavorites();
+      cargarHimnos();
     }, [])
   );
 
@@ -67,36 +115,20 @@ const ListComponent: React.FC = () => {
     }
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<Himno>): React.ReactElement => (
-    <View style={styles.itemContainer}>
-      <TouchableOpacity 
-        style={styles.item}
-        onPress={() => navigation.navigate('HimnoDetail', {number:item.number} )}
-      >
-        <ThemedText>{item.number}. {item.title}</ThemedText>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => toggleFavorito(item.number)}>
-        <Ionicons 
-          name="bookmark" 
-          size={24} 
-          color={favorites.some(fav => fav.number === item.number) ? "red" : "gray"} 
-        />
-      </TouchableOpacity>
-    </View>
-  );
 
   return (
     <ThemedView style={styles.containerList}>
       <ThemedView style={styles.container}>
         <SearchBar
           value={busqueda}
+          onSort={handleSort}
           onChangeText={setBusqueda}
           placeholder="Buscar por número o título"
         />
       </ThemedView>
       
       <FlatList<Himno>
-        data={himnosFiltrados}
+          data={himnosFiltrados}
           renderItem={(item) => (
             <ListItem
               title={item.item.title}

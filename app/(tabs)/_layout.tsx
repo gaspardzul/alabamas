@@ -37,7 +37,7 @@ export default function TabLayout() {
         options={{
           title: 'Favoritos',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'star' : 'star-outline'} color={color} />
+            <TabBarIcon name={focused ? 'bookmark' : 'bookmark-outline'} color={color} />
           ),
         }}
       />

@@ -11,19 +11,25 @@ import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
 import { tintColorRed } from '@/constants/Colors';
+import { useSettings } from '@/hooks/useSettings';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListFavorites: React.FC = () => {
   const navigation = useNavigation<NavigationProp>();
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
-  const { favorites, removeFavorite, getFavorites } = useStorage('favoritos');
+  const { getSettingValue } = useSettings();
+  const { favorites, removeFavorite, getFavorites, sortFavorites } = useStorage('favoritos');
+
 
   useFocusEffect(
     useCallback(() => {
       getFavorites();
+      
     }, [])
   );
+
+  
 
   useEffect(() => {
     const filtrarHimnos = () => {
@@ -41,30 +47,12 @@ const ListFavorites: React.FC = () => {
     removeFavorite(number);
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<Himno>): React.ReactElement => (
-    <ThemedView style={styles.itemContainer}>
-      <TouchableOpacity 
-        style={styles.item}
-        onPress={() => navigation.navigate('HimnoDetail', {number:item.number} )}
-      >
-        <ThemedText style={styles.itemNumber}>{item.number}</ThemedText>
-        <ThemedText style={styles.itemTitle}>{item.title}</ThemedText>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => toggleFavorito(item.number)} style={styles.favoriteButton}>
-        <Ionicons 
-          name="bookmark" 
-          size={24} 
-          color={favorites.some(fav => fav.number === item.number) ? "#FF6B6B" : "#4f5251"} 
-        />
-      </TouchableOpacity>
-    </ThemedView>
-  );
-
   return (
     <ThemedView style={styles.containerList}>
       <ThemedView style={styles.searchContainer}>
         <SearchBar
           value={busqueda}
+          onSort={(option) => sortFavorites(option as 'asc' | 'desc' | 'numAsc' | 'numDesc')}
           onChangeText={setBusqueda}
           placeholder="Buscar por número o título"
         />

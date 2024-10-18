@@ -7,7 +7,16 @@
         { "title": "El Talento", "number": 176, "group": "BAUTISMOS" },
         { "title": "El Tiempo de Pruebas", "number": 177, "group": "BAUTISMOS" },
         { "title": "El volverá", "number": 183, "group": "BAUTISMOS" },
-        { "title": "En la Cruz", "number": 195, "group": "BAUTISMOS" }
+        { "title": "En la Cruz", "number": 195, "group": "BAUTISMOS" },
+        { "title": "En la Presencia de Jesucristo", "number": 198, "group": "BAUTISMOS" },
+        { "title": "Entera Consagración", "number": 204, "group": "BAUTISMOS" },
+        { "title": "Esperanza PLENA", "number": 208, "group": "BAUTISMOS" },
+        { "title": "Fiesta Alegre en el Señor", "number": 217, "group": "BAUTISMOS" },
+        { "title": "Grandes Cosas Cristo ha Hecho para Mi", "number": 234, "group": "BAUTISMOS" },
+        { "title": "Hay una Senda", "number": 249, "group": "BAUTISMOS" },
+        { "title": "Indeleble", "number": 265, "group": "BAUTISMOS" },
+        { "title": "Iré Si El Va Conmigo", "number": 269, "group": "BAUTISMOS" }
+
 
     ]
 }
