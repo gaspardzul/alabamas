@@ -12,15 +12,12 @@ import { type ComponentProps } from 'react';
 export default function SettingsScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#ec3046', dark: '#1D3D47' }}
       headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
+        <ThemedText type="title" style={{top:60, left: 30}}>Acerca de</ThemedText>
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Hola!</ThemedText>
+        <ThemedText type="title" >Hola!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>

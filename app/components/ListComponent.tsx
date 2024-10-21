@@ -100,6 +100,7 @@ const ListComponent: React.FC = () => {
   useFocusEffect(
     useCallback(() => {
       cargarHimnos();
+      getFavorites();
     }, [])
   );
 

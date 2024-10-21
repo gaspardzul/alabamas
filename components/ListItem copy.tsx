@@ -17,56 +17,62 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, rightIcon }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
-      <View style={styles.iconContainer}>
-        <Ionicons name="musical-note" size={20} color="#888" />
-      </View>
-      <View style={styles.textContainer}>
-        <ThemedText style={styles.itemTitle}>{title}</ThemedText>
-        <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>
-      </View>
+    <ThemedView style={styles.itemContainer}>
+      <TouchableOpacity 
+        style={styles.item}
+        onPress={onPress}
+      >
+        <View>
+          <ThemedText style={styles.itemTitle}>{title}</ThemedText>
+          {subtitle && <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>}
+        </View>
+      </TouchableOpacity>
       {rightIcon && (
         <TouchableOpacity onPress={rightIcon.onPress} style={styles.iconButton}>
           <Ionicons 
             name={rightIcon.name as any}
-            size={20} 
+            size={24} 
             color={rightIcon.color} 
           />
         </TouchableOpacity>
       )}
-    </TouchableOpacity>
+    </ThemedView>
   );
 };
 
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    padding: 16,
+    marginHorizontal: 16,
+    marginVertical: 8,
+    borderRadius: 8,
+    backgroundColor: '#F5F5F5',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-  iconContainer: {
-    marginRight: 12,
-  },
-  textContainer: {
+  item: {
     flex: 1,
   },
   itemTitle: {
     fontSize: 16,
-    fontWeight: 'normal',
+    fontWeight: 'bold',
     color: '#333',
   },
   itemSubtitle: {
     fontSize: 14,
-    paddingTop: 0,
-    margin:0,
-    color: '#888',
+    color: '#555',
+    marginTop: 4,
   },
   iconButton: {
-    padding: 4,
+    padding: 8,
   },
 });
 
 export default ListItem;
+
