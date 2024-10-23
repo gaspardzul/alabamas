@@ -1,8 +1,11 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
+import himnosData from '@/assets/himnos/lista.json'
 
 export default function HomeScreen() {
+  const totalAlabanzas = himnosData.lista.length;
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#1398c0', dark: '#13353f' }}
@@ -19,6 +22,7 @@ export default function HomeScreen() {
       <View style={styles.centeredTextContainer}>
         <ThemedText type="title" style={{textAlign: 'center'}}>"HIMNARIO ALABANZA Y VICTORIA"</ThemedText>
         <ThemedText style={styles.centeredText}>Salmo 95:1</ThemedText>
+        <ThemedText style={styles.totalAlabanzas}>Total de alabanzas: {totalAlabanzas}</ThemedText>
       </View>
     </ParallaxScrollView>
   );
@@ -66,6 +70,11 @@ const styles = StyleSheet.create({
   centeredText: {
     fontSize: 24,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  totalAlabanzas: {
+    fontSize: 18,
+    marginTop: 10,
     textAlign: 'center',
   },
 });

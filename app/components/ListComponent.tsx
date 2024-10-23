@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, ListRenderItemInfo, TextInput, View } from 'react-native';
+import { FlatList, TouchableOpacity, StyleSheet, ListRenderItemInfo, TextInput, View, SectionList } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import himnosData from '@/assets/himnos/lista.json';  
@@ -22,6 +22,7 @@ const ListComponent: React.FC = () => {
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { favorites, addFavorite, removeFavorite , getFavorites} = useStorage('favoritos');
   const { settings, updateSettingValue, getSettingValue } = useSettings();
+  const [seccionesHimnos, setSeccionesHimnos] = useState<Array<{title: string, data: Himno[]}>>([]);
 
   const cargarHimnos = async () => {
     try {
@@ -56,16 +57,63 @@ const ListComponent: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const filtrarHimnos = () => {
+    const filtrarYOrdenarHimnos = () => {
       const filtrados = himnos.filter(himno => 
         himno.number.toString().includes(busqueda) ||
         himno.title.toLowerCase().includes(busqueda.toLowerCase())
-      );    
-      setHimnosFiltrados(filtrados);
+      );
+      
+      const order = settings.order;
+      let himnosOrdenados = [...filtrados];
+      
+      switch (order) {
+        case 'numAsc':
+          himnosOrdenados.sort((a, b) => a.number - b.number);
+          break;
+        case 'numDesc':
+          himnosOrdenados.sort((a, b) => b.number - a.number);
+          break;
+        case 'asc':
+          himnosOrdenados.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case 'desc':
+          himnosOrdenados.sort((a, b) => b.title.localeCompare(a.title));
+          break;
+      }
+
+      const secciones = himnosOrdenados.reduce((acc, himno) => {
+        let seccionTitle;
+        if (order === 'numAsc' || order === 'numDesc') {
+          seccionTitle = `${Math.floor(himno.number / 10) * 10} - ${Math.floor(himno.number / 10) * 10 + 9}`;
+        } else {
+          seccionTitle = himno.title[0].toUpperCase();
+        }
+        
+        const seccionExistente = acc.find(seccion => seccion.title === seccionTitle);
+        if (seccionExistente) {
+          seccionExistente.data.push(himno);
+        } else {
+          acc.push({ title: seccionTitle, data: [himno] });
+        }
+        return acc;
+      }, [] as Array<{title: string, data: Himno[]}>);
+
+      // Ordenar las secciones
+      if (order === 'numAsc' || order === 'numDesc') {
+        secciones.sort((a, b) => {
+          const numA = parseInt(a.title.split('-')[0]);
+          const numB = parseInt(b.title.split('-')[0]);
+          return order === 'numAsc' ? numA - numB : numB - numA;
+        });
+      } else {
+        secciones.sort((a, b) => order === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title));
+      }
+
+      setSeccionesHimnos(secciones);
     };
 
-    filtrarHimnos();
-  }, [busqueda, himnos]);
+    filtrarYOrdenarHimnos();
+  }, [busqueda, himnos, settings.order]);
 
   // hacer una funcion para ordenar los himnos, las opciones son:
   // 1. Por número (numAsc)
@@ -128,20 +176,25 @@ const ListComponent: React.FC = () => {
         />
       </ThemedView>
       
-      <FlatList<Himno>
-          data={himnosFiltrados}
-          renderItem={(item) => (
-            <ListItem
-              title={item.item.title}
-              subtitle={`Himno ${item.item.number}`}
-              onPress={() => navigation.navigate('HimnoDetail', {number: item.item.number})}
-              rightIcon={{
-                name: "bookmark",
-                color: favorites.some(fav => fav.number === item.item.number) ? "#FF6B6B" : "#737373",
-                onPress: () => toggleFavorito(item.item.number)
-              }}
-            />
-          )}
+      <SectionList
+        sections={seccionesHimnos}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            subtitle={`Himno ${item.number}`}
+            onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
+            rightIcon={{
+              name: "bookmark",
+              color: favorites.some(fav => fav.number === item.number) ? "#FF6B6B" : "#737373",
+              onPress: () => toggleFavorito(item.number)
+            }}
+          />
+        )}
+        renderSectionHeader={({ section: { title } }) => (
+          <ThemedView style={styles.sectionHeader}>
+            <ThemedText style={styles.sectionHeaderText}>{title}</ThemedText>
+          </ThemedView>
+        )}
         keyExtractor={(item: Himno) => item.number.toString()}
       />
     </ThemedView>
@@ -175,6 +228,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 10,
     paddingHorizontal: 10,
+  },
+  sectionHeader: {
+    backgroundColor: '#f4f4f4',
+    padding: 8,
+  },
+  sectionHeaderText: {
+    fontWeight: 'bold',
   },
 });
 
