@@ -46,6 +46,24 @@
         { "title": "TE DOY GRACIAS", "number": 558, "group": "BAUTISMOS" },
         { "title": "TODO A CRISTO YO ME RINDO", "number": 570, "group": "BAUTISMOS" },
         { "title": "TUYO SOY JESUS", "number": 584, "group": "BAUTISMOS" },
-        { "title": "YA TODO DEJE", "number": 626, "group": "BAUTISMOS" }
+        { "title": "YA TODO DEJE", "number": 626, "group": "BAUTISMOS" },
+        { "title": "BIENVENIDOS", "number": 40, "group": "BIENVENIDA" },
+        { "title": "GLORIA AL SEÑOR", "number": 223, "group": "BIENVENIDA" },
+        { "title": "GLORIOSA COMUNION", "number": 225, "group": "BIENVENIDA" },
+        { "title": "ALLA QUIERO ESTAR", "number": 20, "group": "CONSOLACIÓN" },
+        { "title": "ALLI ESTARE", "number": 22, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "CUANDO ALLA SE PASE LISTA", "number": 79, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "CUANDO DESPERTARE", "number": 83, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "CUANDO LLEGUE EL FINAL", "number": 88, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "DULCE ESPERANZA", "number": 129, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "EL JORDAN SOLO NO CRUZARE", "number": 155, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "EL SUEÑO DORADO", "number": 175, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "LA VANIDAD DE LA VIDA", "number": 344, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "MAS ALLA DEL SOL", "number": 372, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "QUE HERMOSO", "number": 495, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "TENGO MANSION MAS ALLA DE LOS CIELOS", "number": 560, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "TRAS ESE CIELO AZUL", "number": 578, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "VIVIR CON CRISTO", "number": 617, "group": "HIMNOS DE CONSOLACIÓN" },
+        { "title": "VOY SUBIENDO AL CIELO", "number": 620, "group": "HIMNOS DE CONSOLACIÓN" }
     ]
 }

@@ -1,4 +1,78 @@
 {
+  "15": {
+    "title": "ALEGRATE ALMA TRISTE",
+    "number": 15,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Anhelo en las regias mansiones morar\ndo reina mi Salvador,\nescucha los ecos de un dulce cantar,\nde triunfo de gran loor."
+      },
+      {
+        "verse": 0,
+        "text": "A mi supremo Rey alegre cantaré,\nmis ojos han de ver la playa celestial,\nfeliz y libre soy, y caminando voy,\ncon júbilo, a mi eterno hogar."
+      },
+      {
+        "verse": 2,
+        "text": "Por senda escarpada quizá he de andar,\nel mundo me olvidará\nmás en la ribera del límpido mar,\nlos Santos me esperan ya."
+      },
+      {
+        "verse": 3,
+        "text": "Gloriosa esperanza, inefable paz,\nque siente mi corazón,\nque dulce es tener comunión y solaz\ncon Dios, en adoración."
+      },
+      {
+        "verse": 4,
+        "text": "Eleva tu vista y contempla a Jesús\nse fiel a tu Rey Señor,\nlos nítidos rayos que nimban la cruz,\nte envuelvan en su esplendor."
+      }
+    ]
+  },
+  "20": {
+    "title": "ALLA QUIERO ESTAR",
+    "number": 20,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Oigo decir que más allá hay un bello hogar;\ndonde el alma para siempre puede morar;\ndonde la muerte nunca entra, nunca jamás;\nsino que allá con el Señor todo es solaz."
+      },
+      {
+        "verse": 0,
+        "text": "Allá quiero estar, allá quiero estar,\nver a Jesús, el Salvador y con El morar,\nallá quiero estar, allá quiero estar,\ny alabanzas a Jesús allá entonar."
+      },
+      {
+        "verse": 2,
+        "text": "No puedo dejar de anunciar que salva Jesús;\ntrae al perdido de la noche a su gran luz;\ncalma dará al peregrino en la tempestad;\ncantos por duelo le dará en su gran bondad."
+      },
+      {
+        "verse": 3,
+        "text": "Voy tan feliz en medio de pruebas aquí,\nporque yo se que he de ver a Cristo allí,\ndonde por siglos y por siglos en gloria sin fin;\nloores daré a Dios con arpa y con clarín."
+      }
+    ]
+  },
+  "22": {
+    "title": "ALLI ESTARE",
+    "number": 22,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Paz inmensa siento en mi alma hoy,\nporque ya Cristo me redimió;\nme salvó del mal con Su gran poder,\nen la cruz do Su sangre vertió."
+      },
+      {
+        "verse": 0,
+        "text": "¡Allí estaré! ¡Allí estaré!\ncuando la trompeta suene,\n¡Alli estaré! ¡Allí estaré!\n¡Allí estaré! al llamar mi nombre yo responderé."
+      },
+      {
+        "verse": 2,
+        "text": "Gloria sea a Cristo, el Salvador,\nen verdad El es todo aquí:\nde todo el mundo es el Redentor,\nsu Palabra lo dice así."
+      },
+      {
+        "verse": 3,
+        "text": "Cristo prometió que regresará,\na reinar con sus santos en luz;\nen las nubes pronto aparecerá,\nfue así que lo dijo Jesús."
+      },
+      {
+        "verse": 4,
+        "text": "Hay una Mansión, preparada está,\ndonde mora la felicidad;\ny allí con El, hemos de reinar,\npor toda la eternidad."
+      }
+    ]
+  },
   "33": {
     "title": "ASI ERA MI VIDA",
     "number": 33,
@@ -14,6 +88,32 @@
       { 
         "verse": 2,
         "text": "Perdona Señor Jesucristo, soy \n desobediente; y quisiera decirte \ncon canto, lo que mi alma siente,\n quisiera decirles que sanas a todas \nlas gentes; que has transformado \n mi vida, y ahora soy diferente."
+      }
+    ]
+  },
+  "40": {
+    "title": "BIENVENIDOS",
+    "number": 40,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Todos los siervos de Jesucristo reciban hoy;\nla bienvenida de sus hermanos en el Señor."
+      },
+      {
+        "verse": 0,
+        "text": "Bienvenidos seáis, hermanos,\nen el nombre bendito de Dios,\nhoy reunidos nos gozamos\nal saber que nos une Su amor."
+      },
+      {
+        "verse": 2,
+        "text": "Todo cristiano que ama a su hermano de corazón;\nno ve fronteras, va por la tierra sembrando amor."
+      },
+      {
+        "verse": 3,
+        "text": "Unid contentos todos los cantos con dulce voz;\ncon reverencia, porque en presencia estáis de Dios."
+      },
+      {
+        "verse": 4,
+        "text": "Muy pronto, unidos, los escogidos irán a Dios;\ny alla en el cielo tendran su premio por su labor."
       }
     ]
   },
@@ -40,6 +140,94 @@
       {
         "verse": 4,
         "text": "Gloria a mi Cristo daremos\nen la gran resurrección\ntodos su santos vendremos\nen su manifestación."
+      }
+    ]
+  },
+  "79": {
+    "title": "CUANDO ALLA SE PASE LISTA",
+    "number": 79,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuando la trompeta suene en aquel día final,\ny que el alba eterna rompa en claridad;\ncuando las naciones salvas a su patria lleguen ya,\ny que sea pasada lista, ahí he de estar."
+      },
+      {
+        "verse": 0,
+        "text": "///Cuando allá se pase lista///\na mi nombre yo feliz responderé."
+      },
+      {
+        "verse": 2,
+        "text": "En aquel día sin nieblas en que muerte ya no habrá,\ny su gloria el Salvador impartirá;\ncuando los llamados entren a su celestial hogar,\ny que sea pasada lista ahí he de estar."
+      },
+      {
+        "verse": 3,
+        "text": "Trabajemos por el Maestro desde el alba al vislumbrar;\nsiempre hablemos de su amor y fiel bondad,\ncuando todo aquí fenezca, y nuestra obra cese ya,\ny que sea pasada lista, ahí he de estar."
+      }
+    ]
+  },
+  "83": {
+    "title": "CUANDO DESPERTARE",
+    "number": 83,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuando despertare a su semejanza,\ny sea cumplida mi grande esperanza\nde llegar allá a la patria divina\na morar por la eternidad."
+      },
+      {
+        "verse": 0,
+        "text": "Yo veré a Cristo sentado a su diestra\ny sus santos cantando alabanzas a El,\ny sus cuerpos brillando como las estrellas,\ny seremos su pueblo y El nuestro Rey."
+      },
+      {
+        "verse": 2,
+        "text": "Mientras que le espero en el mundo perdido,\ncomo peregrino en esta jornada,\nandaré en luz y en sus santos caminos,\nguardando en mi ser su palabra."
+      },
+      {
+        "verse": 3,
+        "text": "Cuando se me acerquen las luchas y pruebas,\nde los días malos y de tristeza,\nconfiaré en Dios y en su potencia\ny será El mi fortaleza."
+      },
+      {
+        "verse": 4,
+        "text": "Ya se acerca el día de su venida,\ny se está cumpliendo su Santa Palabra\nque derramaría su Espíritu Santo,\na los que en verdad le alaban."
+      }
+    ]
+  },
+  "88": {
+    "title": "CUANDO LLEGUE EL FINAL",
+    "number": 88,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuando llegue el final, de esta vida fugaz,\nyo diré que Jesús, en mi alma triunfó.\nQue gozoso estaré, en aquella mansión,\nlos que Cristo compró, ahí contemplaré."
+      },
+      {
+        "verse": 0,
+        "text": "Ante el trono de Dios, ahí se reunirán,\ntodos los redimidos, a una voz cantarán."
+      },
+      {
+        "verse": 2,
+        "text": "El Cordero de Dios, nuestro todo será,\nen su grande esplendor, El nos alumbrará.\nLa gran Jerusalem, la ciudad Celestial,\ndesde el cielo de Dios se verá descender."
+      }
+    ]
+  },
+  "129": {
+    "title": "DULCE ESPERANZA",
+    "number": 129,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Dulce esperanza aviva mi ser,\nque a mi alma siempre consuelo le da;\nCristo es mi ayuda, y mi confianza\nEl es mi todo aquí."
+      },
+      {
+        "verse": 0,
+        "text": "El es mi todo aquí, El me salvó a mí,\ncon grande gozo hoy le esperamos\nEl es mi todo aquí."
+      },
+      {
+        "verse": 2,
+        "text": "Dulce esperanza dió Cristo a mi ser,\npor su evangelio de gracia y poder;\nno hay otro nombre bajo del cielo\nque salve, sólo El."
+      },
+      {
+        "verse": 3,
+        "text": "Dulce esperanza aviva mi ser,\npara esperar a mi Rey con placer;\ngrandes señales Cristo ha mostrado\nde un nuevo amanecer."
       }
     ]
   },
@@ -70,6 +258,50 @@
       {
         "verse": 6,
         "text": "Y dices que haya fiesta,\ncalzadle y dadle abrigo,\neste hijo era el perdido,\ny ha vuelto aquí al hogar;\nyo me uniré a la orquesta\nentonaré los himnos,\npor siempre y por los siglos\npues no saldré jamás."
+      }
+    ]
+  },
+  "155": {
+    "title": "EL JORDAN SOLO NO CRUZARE",
+    "number": 155,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuando esté en las riberas del río Jordán,\ny que el mar tempestuoso esté;\nme estará esperando mi Cristo allá\ny el Jordán solo no cruzaré."
+      },
+      {
+        "verse": 0,
+        "text": "El Jordán solo no cruzaré\nmi Jesús redimió ya mi ser,\nlas tinieblas huirán, que combaten mi ser\ny el Jordán solo no cruzaré."
+      },
+      {
+        "verse": 2,
+        "text": "Muchas veces me siento olvidado al mirar,\nmis amigos que tanto estimé,\npero hay uno que siempre conmigo está,\ny el Jordán solo no cruzaré."
+      },
+      {
+        "verse": 3,
+        "text": "Aunque sufra tristezas, dolor y pesar\nsé que Cristo no me dejará,\ny al fin de mi vida gozoso veré,\nque el Jordán solo no cruzaré."
+      }
+    ]
+  },
+  "175": {
+    "title": "EL SUEÑO DORADO",
+    "number": 175,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En este camino, de espinas y abrojos,\nen donde el cristiano lucha con afán,\nlucha por ganarse, una Patria eterna,\nen donde sus penas van a terminar."
+      },
+      {
+        "verse": 0,
+        "text": "El sueño dorado, de todo cristiano,\nes mirarse un día, frente al Salvador,\nsaber que ha cumplido, el pacto eterno,\nque un día contrajo, con el Redentor."
+      },
+      {
+        "verse": 2,
+        "text": "La grande Esperanza que alimenta mi alma,\ny el sueño dorado de mi corazón,\nes vivir, por siempre, con Cristo en la gloria,\nes llegar por siempre, con el Salvador."
+      },
+      {
+        "verse": 3,
+        "text": "Si sufro, si lloro, Cristo está conmigo,\nEl no me dejará, pues El lo ha prometido."
       }
     ]
   },
@@ -285,6 +517,62 @@
       }
     ]
   },
+  "223": {
+    "title": "GLORIA AL SEÑOR",
+    "number": 223,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Hemos venido a buscar, una rica bendición;\nhemos venido a gozarnos, en esta congregación."
+      },
+      {
+        "verse": 0,
+        "text": "Gloria cantemos, al Salvador;\ndad alabanzas al Redentor."
+      },
+      {
+        "verse": 2,
+        "text": "Hemos venido a esta Iglesia, columna de la verdad,\nhemos venido a gozarnos en el amor de Jesús."
+      },
+      {
+        "verse": 3,
+        "text": "Si hay una alma que sienta, darle a Cristo el corazón;\nhoy es el día aceptable, para obtener el perdón."
+      },
+      {
+        "verse": 4,
+        "text": "Su palabra nos enseña, que nos tengamos amor,\nésta es la llave preciosa, para obtener el perdón."
+      },
+      {
+        "verse": 5,
+        "text": "En la Palabra encontramos, la vida y la salvación,\nesto es, si nos consagramos, por medio de la oración."
+      },
+      {
+        "verse": 6,
+        "text": "Gozo tenemos ahora, en esta congregación;\npero más gozo será, que almas vengan al Señor."
+      }
+    ]
+  },
+  "225": {
+    "title": "GLORIOSA COMUNION",
+    "number": 225,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Jesús vino al mundo, a darnos salvación,\ny a darnos el don, de su Espíritu también,\nfundando una patria, y una linda mansión,\ndonde cantan los santos, y a Dios dicen amén."
+      },
+      {
+        "verse": 0,
+        "text": "¡Cuán glorioso! en comunión los Santos,\nalabando al Santo y digno Dios,\nde por siempre entonaremos, cantos\ny vibrará constante, el eco de la voz."
+      },
+      {
+        "verse": 2,
+        "text": "Mi Cristo promete la dicha permanente,\na todo creyente, que le quiera servir,\nen donde se goza y vive eternamente,\ny en comunión el alma con Dios, ha de vivir."
+      },
+      {
+        "verse": 3,
+        "text": "Yo tengo esperanza de vivir en el cielo;\ncon toda confianza, le sirvo a mi Señor,\npues siento al cantarle, un glorioso consuelo,\ny experimenta mi alma la paz y el amor."
+      }
+    ]
+  },
   "234": {
     "title": "GRANDES COSAS CRISTO HA HECHO PARA MI",
     "number": 234,
@@ -423,6 +711,24 @@
       }
     ]
   },
+  "344": {
+    "title": "LA VANIDAD DE LA VIDA",
+    "number": 344,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Meditad oh, pueblos todos, meditad oh, mundo entero,\ndel polvo fuiste tomado y al polvo serás tornado\nasí dice el Creador, como la hierba del campo,\nque florece en la mañana, más cuando llega la tarde,\nsu belleza se marchita y pronto desaparece."
+      },
+      {
+        "verse": 0,
+        "text": "Más el que cree en Jesús, en memoria de Dios estará,\ny una vida eterna gozará, cuando lleguemos a Sión,\ny un himno nuevo entonarán, ante el trono del Supremo Rey,\ny el Señor mismo los guiará, oh que hermoso todo allí será."
+      },
+      {
+        "verse": 2,
+        "text": "Nuestros años son veloces, como nuestro pensamiento,\nnuestra vida es una historia, muy llena de sinsabores,\nde tristezas y dolores, nuestros días son tan cortos,\nque se pasan como un sueño, el tiempo está limitado,\ny las horas son amargas, que nos hacen suspirar."
+      }
+    ]
+  },
   "355": {
     "title": "LLEVAR LA CRUZ DE CRISTO",
     "number": 355,
@@ -472,6 +778,28 @@
       {
         "verse": 4,
         "text": "Sale te pido Maestro, \nque me aumentes más la fe, \npara seguir avanzando \ny animando al que no cree,\nporque el tiempo está muy cerca, \ny hay que predicar la fe."
+      }
+    ]
+  },
+  "372": {
+    "title": "MAS ALLA DEL SOL",
+    "number": 372,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Aunque en esta vida no tenga riquezas,\nse que allá en la gloria tengo mi mansión;\ncual alma perdida entre la pobrezas,\nde mí, Jesucristo tuvo compasión."
+      },
+      {
+        "verse": 0,
+        "text": "// Más allá del sol, más allá del sol,\nyo tengo un hogar, hogar, bello hogar,\nmás allá del sol//"
+      },
+      {
+        "verse": 2,
+        "text": "Y si por el mundo yo voy caminando\nde pruebas rodeado y de tentación,\nsé que Jesucristo que me está llamando\nme llevará salvo hasta su mansión."
+      },
+      {
+        "verse": 3,
+        "text": "A todas las razas del linaje humano\nCristo nos ofrece plena salvación,\ntambién una casa no hecha de manos\nque está preparada allá en su mansión."
       }
     ]
   },
@@ -765,6 +1093,28 @@
       }
     ]
   },
+  "495": {
+    "title": "QUE HERMOSO",
+    "number": 495,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Blancos vestidos bañados de luz,\nrica diadema de gran resplandor,\nbella mansión de sublime quietud\ndonde la noche jamás existió,\nesa ciudad admirable de Dios\nen que estaremos reunidos con El;\ntodo lo que ha preparado Jesús es para mí."
+      },
+      {
+        "verse": 0,
+        "text": "Bello ropaje hermoso hogar\ntierra preciosa dulce cantar,\nbella corona de estrellas mil\nrica mansión de luz do viviré."
+      },
+      {
+        "verse": 2,
+        "text": "Oh cuán preciosa es la meditación\nde vivir siempre por la eternidad,\nestando libres de preocupación,\nlibres de afanes y gran ansiedad,\ntendremos parte en el júbilo aquel\nen que mil voces alaben a Dios,\nPadre permite que no falte yo, es mi oración."
+      },
+      {
+        "verse": 3,
+        "text": "Cosas preciosas tendremos que ver,\nen las regiones más altas que el sol\ncuando abandone del río la ribera,\ny mis tesoros reciba de Dios,\nbello país donde no hay que sufrir\ndulce refugio de santo calor,\nbello lugar donde no hay que morir,\ncasa de amor."
+      }
+    ]
+  },
   "508": {
     "title": "RETORNO DEL HIJO PRODIGO",
     "number": 508,
@@ -893,7 +1243,7 @@
       },
       {
         "verse": 2,
-        "text": "En la mar y en ia nube: vemos en Corintios diez\n\"Todos fueron bautizados\" juntamente en Moisés."
+        "text": "En la mar y en la nube: vemos en Corintios diez\n\"Todos fueron bautizados\" juntamente en Moisés."
       },
       {
         "verse": 3,
@@ -997,7 +1347,7 @@
       },
       {
         "verse": 4,
-        "text": "¡Que importa que yo, no tenga un hogar!\n¡yo tengo un palacio, del sol mas allá!\ny mientras que llegó, yo puedo cantar,\nisoy el hijo de un Rey, Aleluya al Señor!"
+        "text": "¡Que importa que yo no tenga un hogar!\n¡yo tengo un palacio, del sol más allá!\ny mientras que llego, yo puedo cantar,\n¡Soy el hijo de un Rey, Aleluya al Señor!"
       }
     ]
   },
@@ -1027,6 +1377,32 @@
       }
     ]
   },
+  "560": {
+    "title": "TENGO MANSION MAS ALLA DE LOS CIELOS",
+    "number": 560,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Llevóme Cristo, en visiones al cielo,\ny me mostró la Jerusalem;\nciudad hermosa, viene descendiendo,\npara morada de todo fiel."
+      },
+      {
+        "verse": 0,
+        "text": "Tengo mansión, más allá de los cielos,\nen aquel sitio do Cristo está\ny cuando venga, su promesa cumplida,\ncon El al cielo nos llevará."
+      },
+      {
+        "verse": 2,
+        "text": "El primer cielo y la tierra se fueron,\ntambién los mares ya no serán,\ny nuestras penas, dolores y afanes,\nal mismo tiempo terminarán."
+      },
+      {
+        "verse": 3,
+        "text": "Un cielo nuevo, una tierra esplendente,\ncalles de oro, mar de cristal,\npreciosa piedra, muy resplandeciente,\nen esa hermosa y bella ciudad."
+      },
+      {
+        "verse": 4,
+        "text": "Sus doce puertas, son piedras preciosas\ny la ilumina gran claridad;\ny las naciones que fueron salvadas\ncontinuamente allí estarán."
+      }
+    ]
+  },
   "570": {
     "title": "TODO A CRISTO YO ME RINDO",
     "number": 570,
@@ -1053,6 +1429,28 @@
       }
     ]
   },
+  "578": {
+    "title": "TRAS ESE CIELO AZUL",
+    "number": 578,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Tras ese cielo azul he de ver a mi Jesús,\ncuando yo vaya a la patria celestial;\noh, qué placer será, ver su rostro allá;\nallá en el cielo a mi Jesús he de ver."
+      },
+      {
+        "verse": 0,
+        "text": "Tras ese cielo, he de ver a mí Jesús\ncuando yo vaya tras ese cielo azul."
+      },
+      {
+        "verse": 2,
+        "text": "Tras ese cielo azul hay una mansión de amor,\ndonde se adora en espíritu y en verdad;\nallí no irá todo aquel que hace mal;\nallí entrará el que anda en santidad."
+      },
+      {
+        "verse": 3,
+        "text": "Tras ese cielo azul hay una bella ciudad\ntiene sus calles de oro y de cristal,\nla claridad del Señor, será su luz,\ny allí estarán, los creyentes de Jesús."
+      }
+    ]
+  },
   "584": {
     "title": "TUYO SOY JESUS",
     "number": 584,
@@ -1076,6 +1474,50 @@
       {
         "verse": 4,
         "text": "De tu grande amor no comprenderé\ncuál es la profundidad;\nhasta que contigo, Jesús esté,\nen gloriosa eternidad."
+      }
+    ]
+  },
+  "617": {
+    "title": "VIVIR CON CRISTO",
+    "number": 617,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Jesús mi dicha y mi dulce amor,\nes mi consuelo que me asiste aquí,\nno siento pena, no siento dolor,\ny mi plegaria te dirijo a Tí\npaz y confianza te debo pedir,\nque por tu gracia podré recibir;\nla tierna voz escucho aquí,\ny allá contigo iré a vivir."
+      },
+      {
+        "verse": 2,
+        "text": "Vivir con Cristo. ¡Qué dicha será!\nen la mansión que preparada está,\npromesas fieles que no han de faltar,\na los que en Cristo, hemos confiado ya,\ndichoso el hombre que confía en El,\nninguna lucha lo podrá vencer,\nes nuestro amparo, es el sostén,\nde todo aquél que le sea fiel."
+      },
+      {
+        "verse": 3,
+        "text": "Esplenderosa la marcha será,\na la mansión que preparada está,\ninnumerables fieles irán,\ncantando en coro hasta llegar allá;\naunque la lucha penosa será,\nsiempre consuelo podremos hallar\nCristo Jesús, El nos guiará,\ny allá con El iremos a estar."
+      },
+      {
+        "verse": 4,
+        "text": "Siempre cantándole al Señor Jesús\ncon alegría y en plena paz,\nllenos de gozo y su bella luz,\nporque veremos su radiante faz.\nSi somos fieles a nuestro Señor\ny no faltamos a nuestro deber,\nunidos todos en comunión,\nle rendiremos homenaje a El."
+      }
+    ]
+  },
+  "620": {
+    "title": "VOY SUBIENDO AL CIELO",
+    "number": 620,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "¡Oh, mi corazón rebosa de gozo!\nporque Dios me perdonó en Su amor;\nsirviéndole a El soy dichoso,\nvoy al cielo, do está mi Salvador."
+      },
+      {
+        "verse": 0,
+        "text": "Voy subiendo al cielo, en áurea escalera,\nvoy subiendo, do corona me espera;\nvoy subiendo en la luz, voy subiendo con Jesús;\nalabanzas cantaré a Dios allá.\nVoy subiendo al cielo, en áurea escalera,\nvoy subiendo do, corona me espera;\nvoy subiendo en la luz;\nvoy subiendo Jesús, voy subiendo al celeste hogar;\nme voy con Cristo, al celeste hogar."
+      },
+      {
+        "verse": 2,
+        "text": "Cada día quiero amarle, más constante,\ncada día quiero serle más leal;\nayudado por su gracia abundante,\nque procede de mi Padre celestial."
+      },
+      {
+        "verse": 3,
+        "text": "Hallo gran placer llevando pecadores,\npobres, ricos, de cualquier condición,\na Aquel que en la cruz sufrió dolores\npara dar a todos plena salvación."
       }
     ]
   },
