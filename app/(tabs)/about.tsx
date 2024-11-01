@@ -1,10 +1,11 @@
-import { Image, StyleSheet, Platform, Linking } from 'react-native';
+import { Image, StyleSheet, Platform, Linking, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { tintColorBlue } from '@/constants/Colors';
 import { type IconProps } from '@expo/vector-icons/build/createIconSet';
 import { type ComponentProps } from 'react';
 
@@ -12,9 +13,16 @@ import { type ComponentProps } from 'react';
 export default function SettingsScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#ec3046', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: tintColorBlue, dark: '#1E1E1E' }}
       headerImage={
-        <ThemedText type="title" style={{top:60, left: 30}}>Acerca de</ThemedText>
+        <View style={styles.headerContainer}>
+          <Image
+            source={require('@/assets/images/pigeon.png')}
+            style={styles.reactLogo}
+            resizeMode="contain"
+          />
+          <ThemedText type="title" style={styles.titleHeader}>Alaba+</ThemedText>
+        </View>
       }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title" >Hola!</ThemedText>
@@ -66,11 +74,23 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+    width: '100%',
+    height: '120%',
     position: 'absolute',
+    bottom: 0,
+    top: 10,
+  },
+  headerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 20,
+  },
+  titleHeader: {
+    position: 'absolute',
+    bottom: 20,
+    left: 50,
+    color: 'white',
   },
   link: {
     textDecorationLine: 'underline',

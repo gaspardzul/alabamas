@@ -1,28 +1,49 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, ListRenderItemInfo, TextInput, View, SectionList } from 'react-native';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { StyleSheet, SectionList, Animated } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import himnosData from '@/assets/himnos/lista.json';  
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import useStorage from '@/hooks/useStorage';
 import { RootStackParamList } from '@/ts/types';
 import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
-import { tintColorRed } from '@/constants/Colors';
+import {  tintColorBlue } from '@/constants/Colors';
 import { useSettings } from '@/hooks/useSettings';
+import { useColorScheme } from '@/hooks/useColorScheme';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
-const ListComponent: React.FC = () => {
+const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
   const navigation = useNavigation<NavigationProp>();
   const [himnos, setHimnos] = useState<Himno[]>([]);
+  const colorScheme = useColorScheme();
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { favorites, addFavorite, removeFavorite , getFavorites} = useStorage('favoritos');
   const { settings, updateSettingValue, getSettingValue } = useSettings();
   const [seccionesHimnos, setSeccionesHimnos] = useState<Array<{title: string, data: Himno[]}>>([]);
+  const [fontSize, setFontSize] = useState<number>(16);
+  const [mensaje, setMensaje] = useState('');
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const showMessage = (text: string) => {
+    setMensaje(text);
+    Animated.sequence([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.delay(1500),
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
 
   const cargarHimnos = async () => {
     try {
@@ -53,14 +74,21 @@ const ListComponent: React.FC = () => {
 
   useEffect(() => {
     cargarHimnos();
-    
   }, []);
+
+  const loadSettings = async () => {
+    const fontSize = await getSettingValue('fontSize');
+    if(fontSize){
+      setFontSize(fontSize);
+    }
+  } 
 
   useEffect(() => {
     const filtrarYOrdenarHimnos = () => {
       const filtrados = himnos.filter(himno => 
         himno.number.toString().includes(busqueda) ||
-        himno.title.toLowerCase().includes(busqueda.toLowerCase())
+        himno.title.toLowerCase().includes(busqueda.toLowerCase()) ||
+        himno.group?.toLowerCase()===(busqueda.toLowerCase())
       );
       
       const order = settings.order;
@@ -149,8 +177,19 @@ const ListComponent: React.FC = () => {
     useCallback(() => {
       cargarHimnos();
       getFavorites();
+      loadSettings();
     }, [])
   );
+
+  useEffect(() => {
+    console.log('category===>', category);
+    if(category){
+      setBusqueda(category);
+    }
+    return () => {
+      setBusqueda('');
+    }
+  }, [category]);
 
   const toggleFavorito = (number: number) => {
     const himno = himnos.find(h => h.number === number);
@@ -158,8 +197,10 @@ const ListComponent: React.FC = () => {
       const favoritoExistente = favorites.find(fav => fav.number === himno.number);
       if (favoritoExistente) {
         removeFavorite(himno.number);
+        showMessage(`Himno ${himno.number} eliminado de favoritos`);
       } else {
         addFavorite(himno);
+        showMessage(`Himno ${himno.number} agregado a favoritos`);
       }
     }
   };
@@ -167,7 +208,7 @@ const ListComponent: React.FC = () => {
 
   return (
     <ThemedView style={styles.containerList}>
-      <ThemedView style={styles.container}>
+      <ThemedView style={{...styles.container, backgroundColor: colorScheme === 'dark' ? '#1E1E1E' : tintColorBlue}}>
         <SearchBar
           value={busqueda}
           onSort={handleSort}
@@ -180,8 +221,8 @@ const ListComponent: React.FC = () => {
         sections={seccionesHimnos}
         renderItem={({ item }) => (
           <ListItem
-            title={item.title}
-            subtitle={`Himno ${item.number}`}
+            title={`${item.number}. ${item.title}`}
+            fontSize={fontSize - 4}
             onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
             rightIcon={{
               name: "bookmark",
@@ -191,12 +232,26 @@ const ListComponent: React.FC = () => {
           />
         )}
         renderSectionHeader={({ section: { title } }) => (
-          <ThemedView style={styles.sectionHeader}>
+          <ThemedView style={{...styles.sectionHeader, backgroundColor: colorScheme === 'dark' ? '#212121' : '#efefef'}}>
             <ThemedText style={styles.sectionHeaderText}>{title}</ThemedText>
           </ThemedView>
         )}
         keyExtractor={(item: Himno) => item.number.toString()}
       />
+      <Animated.View style={[
+        styles.messageContainer,
+        {
+          opacity: fadeAnim,
+          transform: [{
+            translateY: fadeAnim.interpolate({
+              inputRange: [0, 1],
+              outputRange: [20, 0]
+            })
+          }]
+        }
+      ]}>
+        <ThemedText style={styles.messageText}>{mensaje}</ThemedText>
+      </Animated.View>
     </ThemedView>
   );
 };
@@ -208,7 +263,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     borderBottomWidth: 1,
-    backgroundColor: tintColorRed,
     borderBottomColor: '#ccc',
   },
   itemContainer: {
@@ -230,12 +284,35 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   sectionHeader: {
-    backgroundColor: '#f4f4f4',
-    padding: 8,
+    padding: 8
   },
   sectionHeaderText: {
     fontWeight: 'bold',
   },
+  messageContainer: {
+    position: 'absolute',
+    bottom: 40,
+    alignSelf: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  messageText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
+  }
 });
 
 export default ListComponent;

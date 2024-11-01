@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const HeaderComponent = ({ title }: { title: string }) => {
   const navigation = useNavigation();
+  
 
   return (
     <View style={styles.header}>

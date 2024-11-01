@@ -12,8 +12,34 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "fonts": [
+      {
+        "asset": "assets/fonts/Poppins-Regular.ttf",
+        "family": "Poppins"
+      },
+      {
+        "asset": "assets/fonts/Poppins-Bold.ttf",
+        "family": "Poppins-Bold"
+      },
+      {
+        "asset": "assets/fonts/Poppins-Medium.ttf",
+        "family": "Poppins-Medium"
+      },
+      {
+        "asset": "assets/fonts/CrimsonPro-Medium.ttf",
+        "family": "CrimsonPro-Medium"
+      },
+      {
+        "asset": "assets/fonts/CrimsonPro-Regular.ttf",
+        "family": "CrimsonPro-Regular"
+      }
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "statusBar": {
+        "backgroundColor": "#2196F3",
+        "style": "light"
+      }
     },
     "android": {
       "adaptiveIcon": {

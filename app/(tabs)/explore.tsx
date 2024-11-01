@@ -8,11 +8,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import ListComponent from '../components/ListComponent';
+import { useLocalSearchParams } from 'expo-router';
 
 export default function TabTwoScreen() {
+  const { category } = useLocalSearchParams<{ category: string }>();
+  
+
   return (
     <SafeAreaView style={styles.container}>
-      <ListComponent />
+      <ListComponent category={category} />
     </SafeAreaView>
   );
 }

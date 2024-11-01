@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme, Share } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import HeaderComponent from '@/components/HeaderComponent';
@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import useStorage from '@/hooks/useStorage';
 import { Himno } from '@/ts/interfaces';
 import { Colors } from '@/constants/Colors';
+import { useSettings } from '@/hooks/useSettings';
 
 
 interface Verso {
@@ -33,7 +34,7 @@ const HimnoDetail: React.FC = () => {
   const [fontSize, setFontSize] = useState(24);
   const [isFavorite, setIsFavorite] = useState(false);
   const colorScheme = useColorScheme();
-  
+  const { getSettingValue, updateSettingValue } = useSettings();
   const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
 
   const { addFavorite, removeFavorite, getFavorites, favorites } = useStorage('favoritos');
@@ -41,12 +42,21 @@ const HimnoDetail: React.FC = () => {
     if (route.params?.number) {
       cargarHimno(route.params?.number);
       checkFavoriteStatus(route.params?.number);
+      loadSettings();
       setTimeout(async () => {
         await getFavorites();
         console.log("favorites", favorites)
       }, 1000);
     }
   }, [route.params?.number]);
+
+
+  const loadSettings = async () => {
+    const fontSize = await getSettingValue('fontSize');
+    if(fontSize){
+      setFontSize(fontSize);
+    }
+  }
 
 
   const cargarHimno = async (numberHimno: string) => {
@@ -62,7 +72,6 @@ const HimnoDetail: React.FC = () => {
 
   const checkFavoriteStatus = async (numberHimno: string) => {
     const favs = await getFavorites();
-    console.log("favs", favs)
     setIsFavorite(favs.some((fav: Himno) => fav.number === parseInt(numberHimno)));
   };
 
@@ -79,10 +88,43 @@ const HimnoDetail: React.FC = () => {
 
   const aumentarFuente = () => {
     setFontSize(prevSize => Math.min(prevSize + 2, 48));
+    updateSettingValue('fontSize', fontSize);
   };
 
   const disminuirFuente = () => {
     setFontSize(prevSize => Math.max(prevSize - 2, 12));
+    updateSettingValue('fontSize', fontSize);
+  };
+
+  const resetFontSize = async () => {
+    const defaultSize = 24;
+    setFontSize(defaultSize);
+    updateSettingValue('fontSize', defaultSize);
+  };
+
+  const compartirHimno = async () => {
+    if (!himno) return;
+    
+    // Formatear el contenido del himno
+    let contenido = `${himno.number}. ${himno.title}\n\n`;
+    
+    himno.lyrics?.forEach((verso) => {
+      contenido += `${verso.verse === 0 ? 'Coro' : `Verso ${verso.verse}`}\n`;
+      contenido += `${verso.text}\n`;
+      if (verso.repeat) {
+        contenido += `(Repetir ${verso.repeat} veces)\n`;
+      }
+      contenido += '\n';
+    });
+    
+    try {
+      await Share.share({
+        message: contenido,
+        title: `Himno ${himno.number} - ${himno.title}`,
+      });
+    } catch (error) {
+      console.error('Error al compartir:', error);
+    }
   };
 
   if (!himno) {
@@ -96,27 +138,39 @@ const HimnoDetail: React.FC = () => {
           <TouchableOpacity onPress={disminuirFuente} style={styles.fontButton}>
             <Ionicons name="remove-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
+          <TouchableOpacity onPress={resetFontSize} style={styles.fontButton}>
+            <Ionicons name="refresh-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
+          </TouchableOpacity>
           <TouchableOpacity onPress={aumentarFuente} style={styles.fontButton}>
             <Ionicons name="add-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={toggleFavorite}>
-          <Ionicons 
-            name={isFavorite ? "bookmark" : "bookmark-outline"} 
-            size={24} 
-            color={isFavorite ? "#ff002f" : colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} 
-          />
-        </TouchableOpacity>
+        <View style={styles.rightButtons}>
+          <TouchableOpacity onPress={compartirHimno} style={styles.iconButton}>
+            <Ionicons 
+              name="share-outline" 
+              size={24} 
+              color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} 
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={toggleFavorite} style={styles.iconButton}>
+            <Ionicons 
+              name={isFavorite ? "bookmark" : "bookmark-outline"} 
+              size={24} 
+              color={isFavorite ? "#ff002f" : colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} 
+            />
+          </TouchableOpacity>
+        </View>
       </ThemedView>
       <ScrollView style={styles.scrollView}>
         <View style={styles.contentContainer}>
           <ThemedText style={[styles.title, { fontSize: fontSize + 8 }]}>{himno.number}. {himno.title}</ThemedText>
           {himno.lyrics && himno.lyrics.map((verso, index) => (
             <ThemedView key={index} style={styles.verseContainer}>
-              <ThemedText style={[styles.verseNumber, { fontSize, lineHeight: fontSize + 10 }]}>
+              <ThemedText type="Himno" style={[styles.verseNumber, { fontSize, lineHeight: fontSize + 10 }]}>
                 {verso.verse === 0 ? 'Coro' : `Verso ${verso.verse}`}
               </ThemedText>
-              <ThemedText style={[
+              <ThemedText type="Himno" style={[
                 styles.verseText,
                 verso.verse === 0 && styles.chorusText,
                 { fontSize, lineHeight: fontSize + 10 }
@@ -180,6 +234,13 @@ const styles = StyleSheet.create({
   },
   chorusText: {
     color: 'red',
+  },
+  rightButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconButton: {
+    marginLeft: 15,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, ListRenderItemInfo, TextInput, View } from 'react-native';
+import { FlatList, StyleSheet} from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView'; 
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
@@ -10,32 +10,41 @@ import { RootStackParamList } from '@/ts/types';
 import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
-import { tintColorRed } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme';
+import { tintColorBlue } from '@/constants/Colors';
 import { useSettings } from '@/hooks/useSettings';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListFavorites: React.FC = () => {
   const navigation = useNavigation<NavigationProp>();
+  const colorScheme = useColorScheme();
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { getSettingValue } = useSettings();
+  const [fontSize, setFontSize] = useState<number>(16);
   const { favorites, removeFavorite, getFavorites, sortFavorites } = useStorage('favoritos');
 
 
   useFocusEffect(
     useCallback(() => {
       getFavorites();
-      
+      loadSettings();
     }, [])
   );
 
-  
+  const loadSettings = async () => {
+    const fontSize = await getSettingValue('fontSize');
+    if(fontSize){
+      setFontSize(fontSize);
+    }
+  } 
 
   useEffect(() => {
     const filtrarHimnos = () => {
       const filtrados = favorites.filter(himno => 
         himno.number.toString().includes(busqueda) ||
-        himno.title.toLowerCase().includes(busqueda.toLowerCase())
+        himno.title.toLowerCase().includes(busqueda.toLowerCase()) || 
+        himno.group?.toLowerCase()===(busqueda.toLowerCase())
       );
       setHimnosFiltrados(filtrados);
     };
@@ -49,7 +58,7 @@ const ListFavorites: React.FC = () => {
 
   return (
     <ThemedView style={styles.containerList}>
-      <ThemedView style={styles.searchContainer}>
+      <ThemedView style={{...styles.searchContainer, backgroundColor: colorScheme === 'dark' ? '#1E1E1E' : tintColorBlue}}>
         <SearchBar
           value={busqueda}
           onSort={(option) => sortFavorites(option as 'asc' | 'desc' | 'numAsc' | 'numDesc')}
@@ -63,8 +72,8 @@ const ListFavorites: React.FC = () => {
           data={himnosFiltrados}
           renderItem={(item) => (
             <ListItem
-              title={item.item.title}
-              subtitle={`Himno ${item.item.number}`}
+              title={`${item.item.number}. ${item.item.title}`}
+              fontSize={fontSize - 4}
               onPress={() => navigation.navigate('HimnoDetail', {number: item.item.number})}
               rightIcon={{
                 name: "bookmark",
@@ -91,7 +100,6 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#E0E0E0',
-    backgroundColor: tintColorRed,
   },
   listContent: {
     paddingVertical: 8,

@@ -10,6 +10,7 @@ interface SearchBarProps {
   onSort: (option: string) => void;
 }
 
+
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText, placeholder = 'Buscar...', onSort }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const { settings, updateSettingValue, getSettingValue } = useSettings();

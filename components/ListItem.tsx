@@ -8,6 +8,7 @@ interface ListItemProps {
   title: string;
   subtitle?: string;
   onPress: () => void;
+  fontSize?: number;
   rightIcon?: {
     name: string;
     color: string;
@@ -15,14 +16,11 @@ interface ListItemProps {
   };
 }
 
-const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, rightIcon }) => {
+const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, rightIcon, fontSize=16 }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
-      <View style={styles.iconContainer}>
-        <Ionicons name="musical-note" size={20} color="#888" />
-      </View>
       <View style={styles.textContainer}>
-        <ThemedText style={styles.itemTitle}>{title}</ThemedText>
+        <ThemedText style={[ { fontSize: fontSize }]}>{title}</ThemedText>
         <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>
       </View>
       {rightIcon && (
