@@ -222,7 +222,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
         renderItem={({ item }) => (
           <ListItem
             title={`${item.number}. ${item.title}`}
-            fontSize={fontSize - 4}
+            fontSize={fontSize <= 27 ? fontSize : 27}
             onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
             rightIcon={{
               name: "bookmark",
