@@ -219,9 +219,14 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
       
       <SectionList
         sections={seccionesHimnos}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <ListItem
             title={`${item.number}. ${item.title}`}
+            style={{
+              backgroundColor: index % 2 === 0 
+                ? (colorScheme === 'dark' ? '#2A2A2A' : '#f7f7f7')
+                : (colorScheme === 'dark' ? '#1E1E1E' : '#FFFFFF')
+            }}
             fontSize={fontSize <= 27 ? fontSize : 27}
             onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
             rightIcon={{
@@ -232,7 +237,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
           />
         )}
         renderSectionHeader={({ section: { title } }) => (
-          <ThemedView style={{...styles.sectionHeader, backgroundColor: colorScheme === 'dark' ? '#212121' : '#efefef'}}>
+          <ThemedView style={{...styles.sectionHeader, backgroundColor: colorScheme === 'dark' ? '#212121' : '#e4e4e4'}}>
             <ThemedText style={styles.sectionHeaderText}>{title}</ThemedText>
           </ThemedView>
         )}

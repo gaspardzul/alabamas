@@ -70,15 +70,20 @@ const ListFavorites: React.FC = () => {
       {himnosFiltrados.length > 0 ? (
         <FlatList<Himno>
           data={himnosFiltrados}
-          renderItem={(item) => (
+          renderItem={({item, index}) => (
             <ListItem
-              title={`${item.item.number}. ${item.item.title}`}
-              fontSize={fontSize - 4}
-              onPress={() => navigation.navigate('HimnoDetail', {number: item.item.number})}
+              title={`${item.number}. ${item.title}`}
+              fontSize={fontSize <= 27 ? fontSize : 27}
+              onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
+              style={{
+                backgroundColor: index % 2 === 0 
+                  ? (colorScheme === 'dark' ? '#2A2A2A' : '#f7f7f7')
+                  : (colorScheme === 'dark' ? '#1E1E1E' : '#FFFFFF')
+              }}
               rightIcon={{
                 name: "bookmark",
-                color: favorites.some(fav => fav.number === item.item.number) ? "#FF6B6B" : "#4ECDC4",
-                onPress: () => toggleFavorito(item.item.number)
+                color: favorites.some(fav => fav.number === item.number) ? "#FF6B6B" : "#4ECDC4",
+                onPress: () => toggleFavorito(item.number)
               }}
             />
           )}

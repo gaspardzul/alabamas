@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, View, ViewStyle } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -14,11 +14,12 @@ interface ListItemProps {
     color: string;
     onPress: () => void;
   };
+  style?: ViewStyle;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, rightIcon, fontSize=16 }) => {
+const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, rightIcon, fontSize=16, style }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
+    <TouchableOpacity onPress={onPress} style={[styles.itemContainer, style]}>
       <View style={styles.textContainer}>
         <ThemedText style={[ { fontSize: fontSize }]}>{title}</ThemedText>
         <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>
