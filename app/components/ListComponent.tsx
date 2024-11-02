@@ -65,8 +65,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
           break;
         // No es necesario un caso por defecto, ya que himnosOrdenados ya contiene la lista original
       }
-      
-      setHimnos(himnosOrdenados);
+      setHimnos(himnosOrdenados as Himno[]);
     } catch (error) {
       console.error('Error al cargar los himnos:', error);
     }
@@ -88,7 +87,9 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
       const filtrados = himnos.filter(himno => 
         himno.number.toString().includes(busqueda) ||
         himno.title.toLowerCase().includes(busqueda.toLowerCase()) ||
-        himno.group?.toLowerCase()===(busqueda.toLowerCase())
+        (Array.isArray(himno.group) && himno.group.some(group => 
+          group.toLowerCase().includes(busqueda.toLowerCase())
+        ))
       );
       
       const order = settings.order;

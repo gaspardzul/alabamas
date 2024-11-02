@@ -1,4 +1,3 @@
-
 import { useMemo } from 'react';
 import { Image, StyleSheet, Platform, View, Text, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -33,23 +32,31 @@ export default function HomeScreen() {
 
 
   const categorias = useMemo(() => {
+    // Primero, recolectamos todas las categorías únicas y sus conteos
     const grupos = himnosData.lista.reduce((acc, himno) => {
-      const grupo = himno.group;
-      if (!acc[grupo]) {
-        const colorIndex = getConsistentColorIndex(grupo);
-        acc[grupo] = {
-          count: 0,
-          colors: gradientCombinations[colorIndex]
-        };
+      if (Array.isArray(himno.group)) {
+        // Usamos Set para asegurarnos de que no procesamos categorías duplicadas por himno
+        const categoriasUnicas = new Set(himno.group);
+        categoriasUnicas.forEach(categoria => {
+          if (!acc[categoria]) {
+            const colorIndex = getConsistentColorIndex(categoria);
+            acc[categoria] = {
+              id: `cat_${categoria.replace(/\s+/g, '_')}_${performance.now()}`, // Usando performance.now() para más precisión
+              count: 0,
+              colors: gradientCombinations[colorIndex]
+            };
+          }
+          acc[categoria].count++;
+        });
       }
-      acc[grupo].count++;
       return acc;
-    }, {} as Record<string, { count: number; colors: string[] }>);
+    }, {} as Record<string, { id: string; count: number; colors: string[] }>);
 
     return Object.entries(grupos);
   }, []);
 
   const navegarAAlabanzas = (category: string) => {
+    console.log(category);
     router.push({
       pathname: '/(tabs)/explore',
       params: { category }
@@ -76,9 +83,9 @@ export default function HomeScreen() {
         <ThemedText style={styles.totalAlabanzas}>Total de alabanzas: {totalAlabanzas}</ThemedText>
       </View>
       <View style={styles.grid}>
-        {categorias.map(([categoria, { count, colors }]) => (
+        {categorias.map(([categoria, { id, count, colors }]) => (
           <TouchableOpacity 
-            key={categoria}
+            key={id}
             onPress={() => navegarAAlabanzas(categoria)}
             style={styles.cardWrapper}
           >

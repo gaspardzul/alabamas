@@ -44,7 +44,9 @@ const ListFavorites: React.FC = () => {
       const filtrados = favorites.filter(himno => 
         himno.number.toString().includes(busqueda) ||
         himno.title.toLowerCase().includes(busqueda.toLowerCase()) || 
-        himno.group?.toLowerCase()===(busqueda.toLowerCase())
+        (Array.isArray(himno.group) && himno.group.some(group => 
+          group.toLowerCase().includes(busqueda.toLowerCase())
+        ))
       );
       setHimnosFiltrados(filtrados);
     };

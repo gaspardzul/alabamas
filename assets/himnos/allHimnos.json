@@ -117,6 +117,84 @@
       }
     ]
   },
+  "52": {
+    "title": "CERCA DE TI OH DIOS",
+    "number": 152,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Derrama oh Dios tu espíritu en mi alma\nderrama oh Dios de tu misericordia,\nporque sin Tí Señor no vive mi alma\ntriste será vivir lejos de Ti."
+      },
+      {
+        "verse": 0,
+        "text": "Porque sin Ti Señor no vive mi alma\ntriste será vivir lejos de Ti,\nporque sin Ti no hay misericordia\ntriste será vivir lejos de Ti."
+      },
+      {
+        "verse": 2,
+        "text": "Tu Santo Espíritu me guía hacia la luz\npor el sendero que con tu amor marcaste,\nque con tu sangre mi alma rescataste\nnunca te alejes de mi, Señor Jesús."
+      },
+      {
+        "verse": 3,
+        "text": "Escogeré estar cerca de Ti\ny no caer en manos del impío,\nporque se holga con grande desvarío\nmás Tú tendrás piedad siempre de mí."
+      },
+      {
+        "verse": 4,
+        "text": "Permite oh Dios, mientras que tenga vida,\nque en tu camino siempre te sea fiel,\nque cuando llegue la hora de mi partida,\npuedas decirme, venid, oh siervo fiel."
+      }
+    ]
+  },
+  "59": {
+    "title": "CONTIGO VIVIRE",
+    "number": 59,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "A Cristo quiero servirle, mientras tenga que vivir,\nse Tú mi ayudador, Señor,\nTú eres mi Dios, y Salvador."
+      },
+      {
+        "verse": 0,
+        "text": "Contigo viviré y ya nunca sufriré,\nTú eres refugio del pobre,\npor eso a Ti alabaré."
+      },
+      {
+        "verse": 2,
+        "text": "Tú eres refugio del pobre,\nfirme apoyo es tu amor;\npor eso yo a Ti alabo, Señor,\npor tu bondad que me salvó."
+      },
+      {
+        "verse": 3,
+        "text": "Perdido yo me encontraba,\nmas tu amor me libertó,\ntu muerte en la cruz vida me dio,\nalabaré tu nombre aquí."
+      },
+      {
+        "verse": 4,
+        "text": "Cuando termine la lucha,\na tu lado yo estaré;\ncontigo viviré y gozaré\ndonde Tú estás mi Salvador."
+      }
+    ]
+  },
+  "75": {
+    "title": "CRISTO VIENE",
+    "number": 75,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Como un relámpago Jesús vendrá,\ndesde el oriente resplandecerá,\nhasta el poniente, su luz se verá,\nasí el Hijo del hombre vendrá."
+      },
+      {
+        "verse": 0,
+        "text": "Cristo viene allá en las nubes,\nhay que encontrar al Señor,\nes nuestro buen Salvador,\nÉl lo dijo que de cierto,\nÉl volvería al mundo otra vez."
+      },
+      {
+        "verse": 2,
+        "text": "En una nube de resplandor Él,\ncon sus ángeles se verá,\nsus redimidos en derredor,\nun canto nuevo entonarán."
+      },
+      {
+        "verse": 3,
+        "text": "Libres de error y de todo mal,\ncon Él en gloria por siempre estarán\nnuevo vestido tendrá cada cual,\ny por los siglos la gloria verán."
+      },
+      {
+        "verse": 4,
+        "text": "Toda su Iglesia que ha sido fiel,\nque ha luchado con fidelidad,\nirá por siempre a vivir con Él,\nsiglos y siglos por la eternidad."
+      }
+    ]
+  },
   "78": {
     "title": "CUANDO ALLA ESTEMOS REUNIDOS",
     "number": 78,
@@ -209,6 +287,54 @@
       }
     ]
   },
+  "109": {
+    "title": "DIA ALEGRE",
+    "number": 109,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En pecado me encontró Jesús,\ny me dio rescate, Gloria a Él;\nme limpió de toda iniquidad,\nme llenó con su Espíritu."
+      },
+      {
+        "verse": 0,
+        "text": "Día alegre cuando Él me halló,\nme sacó de la obscuridad,\narrojó mis pecados a la profunda mar,\ny llenó mi alma de gozo y de paz,\ndía de gozo, ¡oh Aleluya!\ndía de gozo fue para mí,\ncantaré y diré: ¡Hosanna en Gloria!\nCuando estemos allá con Él."
+      },
+      {
+        "verse": 2,
+        "text": "Líbrame de toda tentación;\nsálvame de toda persecución;\nlíbrame de toda la perdición,\ny seré siempre fiel, Señor."
+      },
+      {
+        "verse": 3,
+        "text": "Cuando esté con Cristo allá en la Gloria,\ncantaremos en un coro celestial;\ngozaremos de una vida eterna,\ncuando estemos allá con Él."
+      },
+      {
+        "verse": 4,
+        "text": "No me olvides, ¡oh Dios de mi salud!\nAyúdame con tu grande poder,\na mi enemigo entonces podré vencer,\nporque tú eres mi ayudador."
+      }
+    ]
+  },
+  "114": {
+    "title": "DIOS DESCENDIO",
+    "number": 114,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Día tan grande no puedo olvidar\ndía de gloria sin par,\ncando en tinieblas al verme andar\nvino a salvarme el Señor,\ngran compasión tuvo Cristo de mí\nde gozo y paz me llenó\nquitó las sombras ¡oh! gloria a su nombre,\nla noche en día cambió."
+      },
+      {
+        "verse": 0,
+        "text": "Dios descendió y de gloria me llenó,\ncando Jesús, por gracia me salvó,\nfui ciego, me hizo ver\ny en el renacer,\nDios descendió y de gloria me llenó."
+      },
+      {
+        "verse": 2,
+        "text": "Nací de nuevo en virtud de Jesús\na la familia de Dios,\njustificado por Cristo el Señor\ngozo la gran redención,\nBendito sea mi Padre y Dios\nque cuando vine con fe,\nfui adoptado por Cristo el Amado,\nloores por siempre daré."
+      },
+      {
+        "verse": 3,
+        "text": "Tengo esperanza de gloria eterna\nme regocijo en Jesús,\nme ha preparado un bello lugar\nen la mansión celestial,\nsiempre recuerdo con fe y gratitud\nal contemplarle en la cruz,\nque sus heridas me dieron la vida,\nalabo al Bendito Jesús."
+      }
+    ]
+  },
   "129": {
     "title": "DULCE ESPERANZA",
     "number": 129,
@@ -223,7 +349,7 @@
       },
       {
         "verse": 2,
-        "text": "Dulce esperanza dió Cristo a mi ser,\npor su evangelio de gracia y poder;\nno hay otro nombre bajo del cielo\nque salve, sólo El."
+        "text": "Dulce esperanza dio Cristo a mi ser,\npor su evangelio de gracia y poder;\nno hay otro nombre bajo del cielo\nque salve, sólo El."
       },
       {
         "verse": 3,

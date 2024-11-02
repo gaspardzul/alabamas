@@ -1,7 +1,7 @@
 interface Himno {
     title: string;
     number: number;
-    group?: string;
+    group?: string[];
     isFavorite?: boolean;
   }
 
