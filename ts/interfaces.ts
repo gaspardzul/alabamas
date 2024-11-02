@@ -5,4 +5,17 @@ interface Himno {
     isFavorite?: boolean;
   }
 
-  export {Himno}
+  interface Lista {
+    id: number;
+    name: string;
+    himnos: string[];
+    createdAt: Date;
+    updatedAt: Date;
+  }
+
+  interface listaDetail {
+    name: string;
+    himnos: string[];
+  }
+
+  export {Himno, Lista, listaDetail}

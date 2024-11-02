@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Lista } from '../ts/interfaces';
 
 interface Settings {
   fontSize: number;
   order: 'asc' | 'desc' | 'numAsc' | 'numDesc';
+  userLists: Lista[];
   // Puedes agregar más configuraciones aquí en el futuro
 }
+
 
 const initialSettings: Settings = {
   fontSize: 16, // Tamaño de fuente predeterminado
   order: 'numAsc', // Orden predeterminado
+  userLists: [],  // Valor inicial para las listas
 };
 
 export const useSettings = () => {

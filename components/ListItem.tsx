@@ -9,6 +9,12 @@ interface ListItemProps {
   subtitle?: string;
   onPress: () => void;
   fontSize?: number;
+  leftIcon?: {
+    name: string;
+    color: string;
+    onPress: () => void;
+  };
+  sizeIcon?: number;
   rightIcon?: {
     name: string;
     color: string;
@@ -17,18 +23,27 @@ interface ListItemProps {
   style?: ViewStyle;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, rightIcon, fontSize=16, style }) => {
+const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, leftIcon, rightIcon, fontSize=16, style, sizeIcon=20 }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.itemContainer, style]}>
       <View style={styles.textContainer}>
         <ThemedText style={[ { fontSize: fontSize }]}>{title}</ThemedText>
         <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>
       </View>
+      {leftIcon && (
+        <TouchableOpacity onPress={leftIcon.onPress} style={styles.iconButton}>
+          <Ionicons 
+            name={leftIcon.name as any}
+            size={sizeIcon} 
+            color={leftIcon.color} 
+          />
+        </TouchableOpacity>
+      )}
       {rightIcon && (
         <TouchableOpacity onPress={rightIcon.onPress} style={styles.iconButton}>
           <Ionicons 
             name={rightIcon.name as any}
-            size={20} 
+            size={sizeIcon} 
             color={rightIcon.color} 
           />
         </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme, Share } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme, Share, Modal } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import HeaderComponent from '@/components/HeaderComponent';
@@ -7,7 +7,7 @@ import { useRoute, RouteProp } from '@react-navigation/native';
 import allHimnos from '@/assets/himnos/allHimnos.json';
 import { Ionicons } from '@expo/vector-icons';
 import useStorage from '@/hooks/useStorage';
-import { Himno } from '@/ts/interfaces';
+import { Himno, Lista } from '@/ts/interfaces';
 import { Colors } from '@/constants/Colors';
 import { useSettings } from '@/hooks/useSettings';
 
@@ -38,6 +38,9 @@ const HimnoDetail: React.FC = () => {
   const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
 
   const { addFavorite, removeFavorite, getFavorites, favorites } = useStorage('favoritos');
+  const [showListModal, setShowListModal] = useState(false);
+  const [userLists, setUserLists] = useState<Lista[]>([]);
+
   useEffect(() => {
     if (route.params?.number) {
       cargarHimno(route.params?.number);
@@ -50,6 +53,9 @@ const HimnoDetail: React.FC = () => {
     }
   }, [route.params?.number]);
 
+  useEffect(() => {
+    loadUserLists();
+  }, []);
 
   const loadSettings = async () => {
     const fontSize = await getSettingValue('fontSize');
@@ -58,6 +64,36 @@ const HimnoDetail: React.FC = () => {
     }
   }
 
+  const loadUserLists = async () => {
+    const lists = await getSettingValue('userLists');
+    if (lists) {
+      setUserLists(lists);
+    }
+  };
+
+  const addToList = async (lista: Lista) => {
+    if (!himno?.number) return;
+
+    const updatedLists = userLists.map(l => {
+      if (l.id === lista.id) {
+        // Evitar duplicados
+        if (!l.himnos.includes(himno?.number?.toString() ?? '')) {
+          return {
+            ...l,
+            himnos: l.himnos.includes(himno.number?.toString() ?? '') 
+              ? l.himnos 
+              : [...l.himnos, himno.number?.toString() ?? ''],
+            updatedAt: new Date()
+          };
+        }
+      }
+      return l;
+    });
+
+    await updateSettingValue('userLists', updatedLists);
+    setUserLists(updatedLists);
+    setShowListModal(false);
+  };
 
   const cargarHimno = async (numberHimno: string) => {
     try {
@@ -147,21 +183,56 @@ const HimnoDetail: React.FC = () => {
         </View>
         <View style={styles.rightButtons}>
           <TouchableOpacity onPress={compartirHimno} style={styles.iconButton}>
-            <Ionicons 
-              name="share-outline" 
-              size={24} 
-              color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} 
-            />
+            <Ionicons name="share-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setShowListModal(true)} style={styles.iconButton}>
+            <Ionicons name="musical-note" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleFavorite} style={styles.iconButton}>
-            <Ionicons 
-              name={isFavorite ? "bookmark" : "bookmark-outline"} 
-              size={24} 
-              color={isFavorite ? "#ff002f" : colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} 
-            />
+            <Ionicons name={isFavorite ? "bookmark" : "bookmark-outline"} size={24} color={isFavorite ? "#ff002f" : colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
         </View>
       </ThemedView>
+
+      <Modal
+        visible={showListModal}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setShowListModal(false)}
+      >
+        <ThemedView style={styles.modalContainer}>
+          <ThemedView style={styles.modalContent}>
+            <ThemedText style={styles.modalTitle}>Añadir a lista</ThemedText>
+            <ScrollView>
+              {userLists.length > 0 ? (
+                userLists.map((lista) => (
+                  <TouchableOpacity
+                    key={lista.id}
+                    style={styles.listItem}
+                    onPress={() => addToList(lista)}
+                  >
+                    <ThemedText>{lista.name}</ThemedText>
+                    <ThemedText style={styles.listItemCount}>
+                      {lista.himnos.length} himnos
+                    </ThemedText>
+                  </TouchableOpacity>
+                ))
+              ) : (
+                <ThemedText style={styles.noLists}>
+                  No hay listas disponibles
+                </ThemedText>
+              )}
+            </ScrollView>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setShowListModal(false)}
+            >
+              <ThemedText style={styles.closeButtonText}>Cerrar</ThemedText>
+            </TouchableOpacity>
+          </ThemedView>
+        </ThemedView>
+      </Modal>
+
       <ScrollView style={styles.scrollView}>
         <View style={styles.contentContainer}>
           <ThemedText style={[styles.title, { fontSize: fontSize + 8 }]}>{himno.number}. {himno.title}</ThemedText>
@@ -241,6 +312,53 @@ const styles = StyleSheet.create({
   },
   iconButton: {
     marginLeft: 15,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    width: '80%',
+    maxHeight: '70%',
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  listItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEEEEE',
+  },
+  listItemCount: {
+    fontSize: 12,
+    color: '#666666',
+  },
+  closeButton: {
+    marginTop: 15,
+    padding: 10,
+    backgroundColor: '#007AFF',
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  closeButtonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
+  noLists: {
+    textAlign: 'center',
+    marginTop: 20,
+    color: '#666666',
   },
 });
 

@@ -51,6 +51,15 @@ export default function TabLayout() {
         }}
       /> */}
       <Tabs.Screen
+        name="mylists"
+        options={{
+          title: 'Mis Listas',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'list' : 'list-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="about"
         options={{
           title: 'Acerca de',

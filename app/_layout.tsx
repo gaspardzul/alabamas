@@ -31,6 +31,13 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Alaba+' }} />
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="HimnoDetail"  options={{ headerShown: true, title: 'Himno' }} />
+        <Stack.Screen 
+          name="ListDetail" 
+          options={({route}: {route: {params?: {lista?: {name: string}}}}) => ({ 
+            headerShown: true, 
+            title: route.params?.lista?.name || 'Lista' 
+          })} 
+        />
       </Stack>
       
     </ThemeProvider>

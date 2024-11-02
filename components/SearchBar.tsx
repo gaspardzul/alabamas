@@ -2,25 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Modal, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSettings } from '../hooks/useSettings';
+import { useColorScheme } from 'react-native';
 
 interface SearchBarProps {
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
-  onSort: (option: string) => void;
+  onSort?: (option: string) => void;
+  onCreate?: () => void;
 }
 
 
-const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText, placeholder = 'Buscar...', onSort }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText, placeholder = 'Buscar...', onSort, onCreate }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const { settings, updateSettingValue, getSettingValue } = useSettings();
-
+  const colorScheme = useColorScheme();
   const handleClear = () => {
     onChangeText('');
   };
 
   const handleSort = (option: 'asc' | 'desc' | 'numAsc' | 'numDesc') => {
-    onSort(option);
+    onSort && onSort(option);
     updateSettingValue('order', option);
     console.log("updateSettingValue", option);
     setModalVisible(false);
@@ -48,12 +50,31 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText, placeholder 
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity 
-        onPress={() => setModalVisible(true)} 
-        style={styles.sortButton}
-      >
-        <Ionicons name="funnel-outline" size={24} color="#fff" />
-      </TouchableOpacity>
+      {
+        onSort && (
+          <TouchableOpacity 
+              onPress={() => setModalVisible(true)} 
+              style={styles.sortButton}
+            >
+            <Ionicons name="funnel-outline" size={24} color="#fff" />
+          </TouchableOpacity>
+        )
+      }
+
+      {
+        onCreate && (
+          <TouchableOpacity 
+          onPress={onCreate}
+        >
+          <Ionicons 
+            name="add" 
+            size={50} 
+            color={colorScheme === 'dark' ? '#FFFFFF' : '#000000'} 
+          />
+        </TouchableOpacity>
+        )
+      }
+      
 
       <Modal
         animationType="slide"
