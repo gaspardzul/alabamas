@@ -69,6 +69,7 @@
         { "title": "CONTIGO VIVIRE", "number": 59, "group": ["ESPERANZA"] },
         { "title": "CRISTO VIENE", "number": 75, "group": ["ESPERANZA"] },
         { "title": "DIA ALEGRE", "number": 109, "group": ["ESPERANZA"] },
-        { "title": "DIOS DESCENDIO", "number": 114, "group": ["ESPERANZA"] }
+        { "title": "DIOS DESCENDIO", "number": 114, "group": ["ESPERANZA"] },
+        { "title": "LA PEÑA DE HOREB", "number": 321, "group": ["LLAMAMIENTO"] }
     ]
 }
