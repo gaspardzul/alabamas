@@ -1,4 +1,316 @@
 {
+  "1": {
+    "title": "A CADA INSTANTE",
+    "number": 1,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "No sólo en horas de amargo llanto\ntenerte quiero mi buen Salvador,\nni en los momentos de dulce canto\ntan sólo busco tu favor."
+      },
+      {
+        "verse": 0,
+        "text": "A cada instante te necesito\ncomo mi amigo, mi buen Pastor,\nhoy y mañana en pena y calma\nsiempre te anhelo oh Señor."
+      },
+      {
+        "verse": 2,
+        "text": "Yo busco ansioso luz que ilumine\nen la mañana de mi juventud\nquiero tu ayuda, tu fortaleza\nal presentir la senectud."
+      },
+      {
+        "verse": 3,
+        "text": "Jesús tu rostro radiante y puro\nsea de mi vida dulce inspiración,\ny cuando arribe feliz al cielo\ndame tu santa bendición."
+      }
+    ]
+  },
+  "2": {
+    "title": "ACEPTA A CRISTO",
+    "number": 2,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Tan necio caminas en densas tinieblas,\ny Cristo te llama a tí pecador\nóyelo llamando; te dice que vuelvas\nEl quiere llevarte por senda mejor"
+      },
+      {
+        "verse": 2,
+        "text": "Tan necio caminas confiando en tí\nmismo, desprecias la voz de Cristo,\nel Señor, tan necio caminas con\nrumbo al abismo, a donde por\nsiempre, quedará el pecador."
+      },
+      {
+        "verse": 3,
+        "text": "La flor más hermosa marchita la\nhiguera, así es tu vida aquí pecador,\ntu vida presente, es una quimera,\ntan sólo es eterna en Cristo el Señor."
+      },
+      {
+        "verse": 4,
+        "text": "Acepta a Cristo, el Señor de señores\nlugar preparó para tí pecador,\nsi quieres dichoso vivir entre flores,\nallá en glorioso jardín del Edén."
+      }
+    ]
+  },
+  "3": {
+    "title": "A DONDE IRE",
+    "number": 3,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Viviendo aquí en mundo de\nmaldad nunca podreme confortar\narduo es luchar en dura tentación\n¿A dónde iré sino al Señor?"
+      },
+      {
+        "verse": 0,
+        "text": "¡A dónde iré, a dónde iré Señor?\nDonde encuentre protección,\nyo necesito un buen amigo fiel\n¡A dónde iré sino al Señor!"
+      },
+      {
+        "verse": 2,
+        "text": "Hay quienes son muy ricos en\nbondad a los que tanto amo yo,\nmás cuando anhelo el celestial\nmaná, ¿A dónde iré sino al Señor?"
+      },
+      {
+        "verse": 3,
+        "text": "Aunque rodeado esté de amigos\nmil, busco palabras de mi Dios,\ny cuando llegue de mi vida al fin\n¿A dónde iré sino al Señor?"
+      }
+    ]
+  },
+  "4": {
+    "title": "AGRADECIDO ESTOY",
+    "number": 4,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En las tinieblas me encontraba\ntriste, herido, pobre, vil,\nmisericordia has tenido\ny me has traído a tu rebaño."
+      },
+      {
+        "verse": 0,
+        "text": "Agradecido estoy con Cristo con\nque te pagaré Señor, consagraré a tí\nmi vida y te daré mi corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Tu Santo Espíritu me has dado\nme llenaste de tu amor,\nprometes darme vida eterna\ny llevarme a tu mansión."
+      },
+      {
+        "verse": 3,
+        "text": "Agradecido estoy contigo Cristo\nTú eres mi sanador,\ncuando afligido yo me encuentro\nme das tu santa bendición."
+      },
+      {
+        "verse": 4,
+        "text": "Gracias te doy mi Salvador\npor tu muerte en la cruz,\nlimpiaste mi alma del pecado\ncon tu Sangre ¡oh Jesús!"
+      }
+    ]
+  },
+  "5": {
+    "title": "AGRADECIMIENTO",
+    "number": 5,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Al meditar Dios mío en las cosas que me has dado, mi corazón se inflama turbado de emoción, pues no encuentro palabras, con que expresar mi Cristo, el Agradecimiento, de mi alma para Tí, cambiaste tú mi vida, me diste esperanza y desde ese momento, mi alma recibió, un gozo tan sublime, que al paso de los años ha sido cual la fuente de mi felicidad."
+      },
+      {
+        "verse": 0,
+        "text": "Agradecimiento, hay en mi corazón, canto de alegría, elevo con mi voz, muchas son las cosas que mi Dios me ha dado y en agradecimiento, le sirvo a mi Señor."
+      },
+      {
+        "verse": 2,
+        "text": "Las veces que la prueba has puesto en mi camino, en vez de ser derrota, ha sido bendición, pues ni por un instante, Tú me has dejado sólo y así tu Santa mano, ha sido mi sostén."
+      },
+      {
+        "verse": 3,
+        "text": "Permite que mi vida, yo ponga por servirte, que dentro de mi alma presente siempre estén tus múltiples favores, y tus misericordias, que aún sin merecerlo, has tenido para mí."
+      }
+    ]
+  },
+  "6": {
+    "title": "AGUA DE VIDA",
+    "number": 6,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Perdido en el mal, me redimió Jesús y agua de vida El me dió, mi alma la bebió y sana ya quedó en ella la vida encontré."
+      },
+      {
+        "verse": 0,
+        "text": "De agua de vida bebo yo, libre de mal y de dolor, por Cristo en la cruz, yo ando en la luz de agua de vida bebo yo."
+      },
+      {
+        "verse": 2,
+        "text": "Jesús conmigo está y no me faltará, a aguas de vida me llevó, El mi refugio es y alegre a sus pies de agua de vida me sació."
+      },
+      {
+        "verse": 3,
+        "text": "La lucha cesará, la gloria brillará y agua de vida beberé, con mi Buen Salvador, Jesús mi Fiel Pastor, de agua de vida gozaré."
+      }
+    ]
+  },
+  "7": {
+    "title": "AGUA VIVA",
+    "number": 7,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Jesús llegó a Samaria, a la fuente se sentó; manifestando su gloria, a una mujer le habló."
+      },
+      {
+        "verse": 0,
+        "text": "Ven a Jesús a tomar agua de vida, El saciará tu alma que anda perdida. Ven al Señor, te dará consolación, ven, ven a El dale tu corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Agua pidió a la mujer, de la que iba a sacar; y sin darle a comprender, El empezó a platicar."
+      },
+      {
+        "verse": 3,
+        "text": "¿Cómo tú siendo Judío, pides a mí de beber; siendo que uno es impío, para el pueblo de Israel?"
+      },
+      {
+        "verse": 4,
+        "text": "Yo soy el agua de vida, que calma el padecer; y si tú andas perdida, toma y vuelve a nacer."
+      }
+    ]
+  },
+  "8": {
+    "title": "A JESUS CANTA MI ALMA",
+    "number": 8,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "A Dios canto con todas las\nfuerzas de mi juventud\nporque El ha llenado mi alma\nde dicha y quietud,\nle canto, le sirvo, le adoro\ncon solemnidad,\nporque El es quien guia mi vida,\ny mis pasos a la eternidad."
+      },
+      {
+        "verse": 0,
+        "text": "A Jesús, canta mi alma,\nporque en El la calma\npude encontrar,\na Jesús, elevo este canto\nporque siendo Santo\nme dió Santidad,\npara El son mis canciones\nllenas de ilusiones,\ncon integridad,\npara El he de vivir,\nporque ha prometido,\nmorar en mi."
+      },
+      {
+        "verse": 2,
+        "text": "Gozoso camino en la senda,\nporque voy con Dios,\npor fe, puedo ver en los cielos,\nsu bella Mansión,\nescucho a mi lado la voz\nde consolación\ny gozo sintiendo su divina gracia,\nen mi corazón."
+      },
+      {
+        "verse": 3,
+        "text": "El joven que marcha inseguro\na la eternidad,\nin Cristo hallará la confianza\ny seguridad,\nJesús salvar quiere a las almas\nen su juventud,\ny puede salvarlos si a Cristo\nse allegan con solicitud."
+      }
+    ]
+  },
+  "9": {
+    "title": "ALABANZA AL SALVADOR",
+    "number": 9,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cantará mi lengua su Alabanza\ncual ofrenda grata a su Creador\nbuscará mi alma eternamente\nlas glorias de su Salvador."
+      },
+      {
+        "verse": 0,
+        "text": "Jesucristo, Jesucristo,\nmanda tu Consolador,\nquita al alma la tristeza,\nsalva al cuerpo del dolor."
+      },
+      {
+        "verse": 2,
+        "text": "Las tinieblas y desesperanzas\nme rodeaban siempre sin cesar,\nmas la gloria Eterna de mi Cristo,\nnos ofrece Eterna Salvación."
+      },
+      {
+        "verse": 3,
+        "text": "Y la paga del pecado es muerte\nJesucristo así nos lo enseñó\nal vertir su sangre sacrosanta\ndel pecado así nos rescató."
+      }
+    ]
+  },
+  "10": {
+    "title": "AHORA CANTO ALELUYA",
+    "number": 10,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Quiero hablarte de mi buen\nSeñor,\nque mi vida toda transformó\nmis pecados todos El quitó, y mi\nalma redimió; y en mi ser un\nnuevo canto hay porque Cristo\nme salvó, y ahora canto\naleluya... El me redimió."
+      },
+      {
+        "verse": 0,
+        "text": "Es la estrella del amanecer\nes la roca de la eternidad\nes el agua viva que\nmi ser quiere beber,\nel camino de la Salvación,\nes la puerta de la eternidad,\nes el lirio de los valles\nEl es mi amigo fiel."
+      },
+      {
+        "verse": 0,
+        "text": "Ahora canto Aleluya...\nSiempre canto Aleluya,\nahora canto Aleluya...\nA mi Salvador."
+      },
+      {
+        "verse": 2,
+        "text": "Si es tu vida llena de pecar\ny no encuentras la felicidad\nven escucha del Señor la voz...\nEl te quiere libertar...\nEn ningún otro hallarás la paz,\ncomo Cristo te la da\ndel pecado y de la muerte...\nEl te librará"
+      }
+    ]
+  },
+  "11": {
+    "title": "A LA CASA DE JAIRO",
+    "number": 11,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "A la casa de Jairo iba Jesús\nuna gran multitud iba tras El,\nuna pobre mujer llena de fe,\nno miró la multitud fue y lo tocó."
+      },
+      {
+        "verse": 0,
+        "text": "Has tú cual la mujer, que fue y\ntocó, al borde del vestido de Jesús,\nvirtud salió de El y ella sanó\ny si le tocas tú sanas también."
+      },
+      {
+        "verse": 2,
+        "text": "Aquel pueblo era grande y numeroso,\nuna parte creían en el Señor,\npero el resto de enemigos y\ncuriosos, hoy en día no se\nencuentran otro mejor."
+      },
+      {
+        "verse": 3,
+        "text": "Alguno me ha tocado dice Cristo,\nla multitud te oprime, le contestan\npero al tocarme virtud salió de Mí\ny con ella alguno ha sanado."
+      },
+      {
+        "verse": 0,
+        "text": "Yo fui quien te tocó, mi buen\nSeñor, mi mal ningún doctor\npudo sanar, Tu fama llegó a mí,\ny yo vine a Tí y yo sanada estoy,\n¡Perdóname!"
+      }
+    ]
+  },
+  "12": {
+    "title": "AL AMANECER",
+    "number": 12,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Al amanecer de una hermosa\nmañana\ncuando las aves trinos cantan al\nSeñor, puedo oír esa voz que me\ndice, toma tiempo para orar."
+      },
+      {
+        "verse": 0,
+        "text": "En Cristo ahora pongo mi carga,\nEl es más que vida en mí,\nEl cambia mis desalientos\ncada día me acompaña aquí,\n¿qué no oyes la invitación,\nal jardín de oración?,\ntoma tiempo para orar."
+      },
+      {
+        "verse": 2,
+        "text": "Si me buscas, yo enjugaré tu\nllanto, cuando muchos no te\nquieran ayudar,\nborraré tus tristezas y quebrantos,\nsi das tiempo para orar."
+      }
+    ]
+  },
+  "13": {
+    "title": "AL AMPARO DE LA ROCA",
+    "number": 13,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Aunque ruda la tormenta\nse desate en derredor,\nal amparo de la Roca salvo estoy,\naunque el cielo esté sombrío,\nno me invadirá el temor."
+      },
+      {
+        "verse": 0,
+        "text": "Al amparo de la Roca salvo estoy,\nal amparo de la Roca salvo estoy,\nsi a mi lado está el Señor,\nno tendré ningún temor,\nque al amparo de la Roca\nsalvo estoy."
+      },
+      {
+        "verse": 2,
+        "text": "Cuando ruja el mar furioso,\ny agitado esté el turbión,\nal amparo de la roca salvo estoy,\nen el puerto del reposo\ny velando en oración;"
+      },
+      {
+        "verse": 3,
+        "text": "Con ternura Dios me guía,\nen peligro y en dolor,\nal amparo de la Roca salvo estoy\nEl mis penas dulcifica,\nsoy objeto de su amor,\nal amparo de la Roca salvo estoy."
+      }
+    ]
+  },
+  "14": {
+    "title": "ESTOY MARAVILLADO",
+    "number": 14,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Estoy maravillado\nde lo que mi Dios hizo\naquí formo un pantano,\nallá un paraíso\nla rosa de Sarón\nflorece en los pantanos\nhermosas mariposas formó\nde los gusanos,\ndel odio entre las razas\nnos transformó en hermanos."
+      },
+      {
+        "verse": 0,
+        "text": "Estoy maravillado Señor\nde tus grandezas\nme has dado la alegría\nen medio de mis tristezas\nen medio de la lucha,\nen medio del dolor,\ntu sabes que soy débil\nme has hecho un vencedor\nyo te quiero servir\nen el valle de los pantanos\nyo quiero florecer\ndonde me hayas plantado."
+      },
+      {
+        "verse": 2,
+        "text": "Estoy maravillado\nmas no quiero Señor\nentregarte mi canto\nhasta cuando brille el sol\nyo te quiero servir\nen el valle de los pantanos\nyo te amo Señor\naunque todos sean contrarios\nyo te voy a seguir\nsólo o acompañado\nyo quiero florecer\ndonde me hayas plantado."
+      }
+    ]
+  },
   "15": {
     "title": "ALEGRATE ALMA TRISTE",
     "number": 15,
@@ -22,6 +334,144 @@
       {
         "verse": 4,
         "text": "Eleva tu vista y contempla a Jesús\nse fiel a tu Rey Señor,\nlos nítidos rayos que nimban la cruz,\nte envuelvan en su esplendor."
+      }
+    ]
+  },
+  "16": {
+    "title": "ALELUYA AL SEÑOR",
+    "number": 16,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En esta vida esperamos la victoria,\nla que el Señor, El mismo nos\ndará, después iremos a estar\ncon El en gloria\ndonde se goza de eterna libertad."
+      },
+      {
+        "verse": 0,
+        "text": "Aleluya, aleluya, aleluya\naleluya, aleluya, aleluya\nEl nos libra del tentador."
+      },
+      {
+        "verse": 2,
+        "text": "Muchas moradas Jesús ha\npreparado de las que dijo iremos a\nmorar dejando éstas por siempre\nen el olvido jamás de ellas\nnos vamos a acordar."
+      },
+      {
+        "verse": 3,
+        "text": "Mil años dice, la paz será\nabundante al que ha tenido gratuita\nsalvación, su canto siempre dirá\nque fue triunfante, que fue liberado\nde eterna perdición."
+      },
+      {
+        "verse": 4,
+        "text": "Vestido blanco, también corona y\npalma, uno por un al fin recibirán,\nla vida eterna, que Dios al alma da,\nesta promesa nunca faltará."
+      }
+    ]
+  },
+  "17": {
+    "title": "ALELUYA AMEN",
+    "number": 17,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Mil veces con el Maestro\nen Santa comunión,\nescucho los acentos,\nde hermosa agrupación."
+      },
+      {
+        "verse": 0,
+        "text": "Aleluya Amén,\nAleluya Amén,\nAleluya Amén, Amén,\nAmén, Amén."
+      },
+      {
+        "verse": 2,
+        "text": "De aquellos que sufrieron\nsed, hambre y dolor,\nmas hoy glorificados\nestán con el Señor."
+      },
+      {
+        "verse": 3,
+        "text": "Escucho los acentos\ndel canto sin igual;\ny mi alma al punto se une\nal coro celestial."
+      },
+      {
+        "verse": 4,
+        "text": "Unido estoy con ellos\nahora por la fe,\nmas pronto frente al trono,\ncon ellos cantaré."
+      }
+    ]
+  },
+  "18": {
+    "title": "AL PIE DE LA CRUZ",
+    "number": 18,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Fuiste clavado en la cruz\npor causa de mi pecar\ny por eso mi Jesús\nhumilde vengo a tus pies."
+      },
+      {
+        "verse": 2,
+        "text": "Señor, te estoy esperando\nque vengas aquí otra vez,\npor eso estoy orando\nde rodillas a tus pies."
+      },
+      {
+        "verse": 3,
+        "text": "No tengo más que ofrecerte\npor tan grande salvación,\ny humilde vengo a darte\nmi contrito corazón."
+      },
+      {
+        "verse": 4,
+        "text": "Tu sufriste gran pesar \npor el más vil pecador,\ny por venirme a salvar\nno sentiste tu dolor."
+      },
+      {
+        "verse": 5,
+        "text": "Cuando vengas otra vez\ncon tus ángeles de luz,\nme verás allí a tus pies\npor la gloria de tu cruz."
+      },
+      {
+        "verse": 6,
+        "text": "Con el brillo de tu luz\nglorioso al resucitar\nnos trajiste, oh Jesús,\nreposo y vida eterna."
+      }
+    ]
+  },
+  "19": {
+    "title": "ALLA EN LOS OLIVOS",
+    "number": 19,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Allá en los olivos,\nse oyó una plegaria,\nde un hombre postrado en\nhumilde oración;\nen ella imploraba\nel Amparo Divino,\nla angustia era amarga,\nen su corazón."
+      },
+      {
+        "verse": 0,
+        "text": "En soledad, en aquella amarga\nagonía, se vio por su amor, solo\nallí, con las aves formó su\nconcierto alzando su voz."
+      },
+      {
+        "verse": 2,
+        "text": "Los hombres que amaba,\nllevóles consigo;\npara que velasen en cierto lugar,\nmas ellos dudaron\nde aquella agonía,\ny ajenos de todo,\ndurmieron en paz."
+      },
+      {
+        "verse": 3,
+        "text": "Cuando su plegaria\ntermina con llanto,\nregresa a los suyos viene a\ndespertar la hora es llegada,\nmi alma esta triste,\nla muerte se acerca,\nlevantaos ya."
+      },
+      {
+        "verse": 4,
+        "text": "Estando aún hablando,\nla turba se acerca;\nvienen a prenderle\ncomo un malhechor,\nsoldados romanos,\ncon palos y espadas son guiados\npor Judas, el hombre traidor."
+      },
+      {
+        "verse": 5,
+        "text": "Haciendo gran burla\nasí le juzgaron,\ny allá entre los malos,\ncontáronle a El,\nen cambio de vida,\nle dieron la muerte,\npor sus beneficios,\nvinagre con hiel."
+      },
+      {
+        "verse": 6,
+        "text": "Así fue llevado a la cruz del\ncalvario, y en ella el pecado de la\nhumanidad, sus últimas frases\nmuy entrecortadas\n¡Perdónales Padre,\ntoda su maldad!"
+      }
+    ]
+  },
+  "21": {
+    "title": "ALLI QUIERO IR, ¿Y TU?",
+    "number": 21,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Me dicen que hay una bella\nciudad, allí quiero ir, ¿y tú?\nen donde es eterna la felicidad,\nallí quiero ir, ¿y tú?\nJesús las mansiones ya nos\npreparó, allí quiero ir, ¿y tú?\na donde la muerte no puede\nllegar, allí quiero ir, ¿y tú?"
+      },
+      {
+        "verse": 0,
+        "text": "//Allí quiero ir, Allí quiero ir,\nAllí quiero ir, ¿y tú?//"
+      },
+      {
+        "verse": 2,
+        "text": "De perlas sus puertas, su mar de\ncristal, allí quiero ir, ¿y tú?\nEs Cristo la luz del país celestial,\nallí quiero ir, ¿y tú?\nallí los que moran jamás morirán,\nallí quiero ir, ¿y tú?\nen donde terminan congojas y afán\nallí quiero ir, ¿y tú?"
+      },
+      {
+        "verse": 3,
+        "text": "Y cuando navegue la nave de Sión,\nallí quiero ir, ¿y tú?\nal darse a la vela para esa\nmansión, allí quiero ir, ¿y tú?\ny cuando me llame mi Cristo\ntambién, allí quiero ir, ¿y tú?\ny cuando los coros pronuncien\nAmén, allí quiero ir, ¿y tú?"
       }
     ]
   },
@@ -73,6 +523,158 @@
       }
     ]
   },
+  "23": {
+    "title": "ALMAS PERDIDAS",
+    "number": 23,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Una esperanza reina ya en mi ser,\ndesde que vine de la obscuridad,\nvagaba errante y sin dirección,\nmas Cristo a mi alma le dió\nsalvación."
+      },
+      {
+        "verse": 0,
+        "text": "La salvación está en Jesús,\nno dudes más, de su poder,\nven pues a El sin dilación\nentrégale tu corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Yo soy testigo del poder de Dios\nmuchos milagros El ha hecho en mí\nporque era ciego y ahora veo la\nluz, la luz celeste la cual es Jesús."
+      },
+      {
+        "verse": 3,
+        "text": "Almas perdidas, ya no vaguen\nmás, vengan a Cristo,\nEl les da el perdón,\ndejen el mundo y la vanidad\nque sólo Cristo les da salvación."
+      },
+      {
+        "verse": 4,
+        "text": "Cristo, ha pagado ya todo en la\ncruz, el sacrificio hizo por tí y por mí\nresta que vengas al rebaño de Dios\narrepentido de todo mal."
+      }
+    ]
+  },
+  "24": {
+    "title": "ALMAS UNIDAS",
+    "number": 24,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Qué hermoso es que dos almas\nse unan en el Señor,\nes una acto tan solemne\nque Jesucristo aprobó."
+      },
+      {
+        "verse": 0,
+        "text": "Dios bendiga estas dos almas\nunidas en el amor,\nte pedimos que las guíes,\noh Divino Salvador."
+      },
+      {
+        "verse": 2,
+        "text": "Tal vez tendrán muchas pruebas\nen su vida conyugal;\npero Tú les darás fuerza,\nque ellos puedan soportar."
+      },
+      {
+        "verse": 3,
+        "text": "Y si Tú quieres, Señor,\nque prediquen tu verdad,\ndespierta en ellos amor,\npara la humanidad."
+      },
+      {
+        "verse": 4,
+        "text": "Te pedimos los bendigas,\noh Divino Salvador, que el hogar\nque hoy se ha formado,\nsea un ejemplo en su amor."
+      }
+    ]
+  },
+  "25": {
+    "title": "AL SANTUARIO ELEVO MI VOZ",
+    "number": 25,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Al santuario elevo mi voz\nen demanda de consolación\nlucharé, y siempre marcharé\npor tener para siempre mansión."
+      },
+      {
+        "verse": 0,
+        "text": "Quiso Dios que su Hijo muriera,\nsalvación para mi concediera,\npor medio de tan\ncruel sufrimiento,\nque llevó desde su nacimiento."
+      },
+      {
+        "verse": 2,
+        "text": "En mi arco yo no confiaré,\nmi confianza en tí la pondré\nalentado por fe en Jesús,\na su nombre la gloria daré."
+      },
+      {
+        "verse": 3,
+        "text": "Contra el malo mi lucha tendré,\nescudando mi ser por la fe,\ny al final yo mi triunfo tendré,\ny por siempre así cantaré."
+      },
+      {
+        "verse": 4,
+        "text": "Tu consejo siempre guardaré,\ny por tanto a Ti clamaré,\ndame fuerza y aviva mi ser,\ny por siempre así cantaré."
+      }
+    ]
+  },
+  "26": {
+    "title": "A MI ORACION ATIENDE",
+    "number": 26,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Por la grandeza de tu poder,\nmira dentro mi corazón,\nsólo Tú has de saber,\nla causa de mi aflicción."
+      },
+      {
+        "verse": 0,
+        "text": "Oye oh Dios mi clamor,\na mi oración atiende\ndesde el cabo de la tierra\nclamaré a Tí,\ncuando mi corazón desmayaré\na la peña más alta\nquiero me conduzcas\npara no perecer."
+      },
+      {
+        "verse": 2,
+        "text": "No me olvides Dios de bondad,\nse Tú mi amparo Señor\nsólo en Tí hay verdad\nseguro estoy en tu amor."
+      },
+      {
+        "verse": 3,
+        "text": "Por tu misericordia Señor,\ntenme libre de todo afán,\nmira el camino en que voy\nguárdame Tú de satán."
+      }
+    ]
+  },
+  "27": {
+    "title": "TU TODO EN EL ALTAR",
+    "number": 27,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Si anhelas tener gozo, paz y poder\ny has orado al Señor sin cesar:\nsólo habrá bendición, y oirá tu\noración, si tu todo está en el altar."
+      },
+      {
+        "verse": 0,
+        "text": "¿De ofrenda tu todo está en el altar?\n¿Te manda el Consolador?\nSi quieres bendición,\ndale tu corazón,\nsin reserva alma\ny cuerpo al Señor."
+      },
+      {
+        "verse": 2,
+        "text": "Si andamos con Dios y\nescuchamos su voz; paz hallamos,\nreposo y solaz; más reposo habrá,\nsólo en su voluntad,\nmientras todo está en el altar."
+      },
+      {
+        "verse": 3,
+        "text": "Nunca entenderás, cuando\nrecibirás bendiciones que el quiera\nimpartir; alma y cuerpo hay que\ndar, puestos en el altar si de veras\nquieres recibir."
+      },
+      {
+        "verse": 4,
+        "text": "Con cuán grande amor nos amo el\nSeñor; ¿Quién podrá nuestro gozo\nquitar? gozarás eternal comunión\nfraternal, cuando todo esta\nen el altar."
+      }
+    ]
+  },
+  "30": {
+    "title": "ANUNCIA MI EVANGELIO",
+    "number": 30,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Un día de oración,\nal Señor oí hablar\nardió mi corazón\nal oír su voz llamar."
+      },
+      {
+        "verse": 0,
+        "text": "Anuncia mi Evangelio\nal mundo de maldad\npues, mira que el tiempo\nmuy cerca está en verdad."
+      },
+      {
+        "verse": 2,
+        "text": "Su cuerpo en dolor,\nví clavado en la cruz,\ncon lágrimas de amor,\nme decía mi Jesús."
+      },
+      {
+        "verse": 3,
+        "text": "Su rostro ví también;\nla apariencia de un varón,\ngolpeado por el bien,\ny decirme al corazón."
+      },
+      {
+        "verse": 4,
+        "text": "Con gran dolor lloré;\nal oír la petición;\ncontigo yo seré:\nme decía con pasión."
+      }
+    ]
+  },
   "33": {
     "title": "ASI ERA MI VIDA",
     "number": 33,
@@ -89,6 +691,76 @@
         "verse": 2,
         "text": "Perdona Señor Jesucristo, soy \n desobediente; y quisiera decirte \ncon canto, lo que mi alma siente,\n quisiera decirles que sanas a todas \nlas gentes; que has transformado \n mi vida, y ahora soy diferente."
       }
+    ]
+  },
+  "35": {
+    "title": "A SOLAS CON MI CRISTO",
+    "number": 35,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuando sólo y\ntriste me ví yo\ny consuelo y paz\nno encontré,\naclamé al que salva\nlas almas\ny al cuerpo le da sanidad."
+      },
+      {
+        "verse": 0,
+        "text": "A solas hablé con mi Cristo\nle mostré toda mi necesidad,\ny tomando en sus manos\nmis cargas salvación\na mi alma le dió."
+      },
+      {
+        "verse": 2,
+        "text": "Por el mundo vagué\nyo sin Cristo\ndespreciando el amor\ndel Señor,\ncomprendiendo mi\nfalta terrible\nyo busqué el\nperdón del Señor."
+      },
+      {
+        "verse": 3,
+        "text": "Hoy me siento feliz\ny contento\nporque Cristo mi\nalma salvó,\ny si penas y dudas\nme agobian\nsiempre aclamo a\nmi Salvador."
+      },
+      {
+        "verse": 4,
+        "text": "Si tú quieres tener esa dicha\ny hoy mismo salvo quieres ser,\nsigue ahora este humilde consejo\ny entrégale a Cristo tu ser."
+      }
+    ]
+  },
+  "38": {
+    "title": "BENDICIONES GOZARA",
+    "number": 38,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Si tu estás en la presencia de Dios\ngrandes cosas podrás recibir,\nno hagas duro más el corazón\nsu poder Cristo te hará sentir."
+      },
+      {
+        "verse": 0,
+        "text": "Cristo espera pecador\nque vengas\nven recibe su dádiva hoy,\nes quien te ama\ny te ofrece el perdón\nsi te acercas a oír de su voz."
+      },
+      {
+        "verse": 2,
+        "text": "Es quién tu alma\nte puede salvar\nporque cortos los días ya están,\na las puertas se oye su llamar\nsigue a Cristo y\ndesecha a Satan."
+      },
+      {
+        "verse": 3,
+        "text": "Nada vas de éste mundo a sacar\nde lo que siempre anhelas tener,\nsiempre en Cristo te\npuedes salvar\nde este mundo que\ntiene que arder."
+      },
+      {
+        "verse": 4,
+        "text": "No hagas caso, el tentador\nalmas quiere para su lugar,\ndonde está el fuego\nimpetuoso hervor\ndo el maligno\ny los suyos irán."
+      }
+    ]
+  },
+  "39": {
+    "title": "BENDITO MENSAJE",
+    "number": 39,
+    "lyrics": [
+        {
+            "verse": 1,
+            "text": "Que bonito mensaje\noí de la Biblia\nque bonito mensaje\nde Dios escuché,\nque mi Cristo ya viene\nsu pueblo a levantar;\nsi mi alma está limpia\nCristo me llevará,\nde alegría y de gozo\nyo me puse a llorar;\ny ésta carne podrida\ny éste cuerpo vació;\naquí se quedará."
+        },
+        {
+            "verse": 2,
+            "text": "Tú amigo que me\nestás oyendo\nescucha bien lo\nque te estoy diciendo,\nsi deseas entrar a la gloria\ny te quieres librar del infierno,\nya los días se nos\nvan pasando\nal tribunal te\nvas acercando,\nvuelve en tí ya no\nsigas pecando\nporque Cristo\nte estará juzgando."
+        },
+        {
+            "verse": 3,
+            "text": "Cuando estés\nen los cielos\nen presencia de Cristo,\nque tristeza\ntan grande será para tí\ncuando se abran los libros\ny tu nombre no esté;\ny escuches la voz\napartaos de mí por\ntu alma tan sucia,\nCristo te dejará\ny en el lago de fuego,\npagarás tu sentencia\npor la eternidad."
+        }
     ]
   },
   "40": {
@@ -117,9 +789,87 @@
       }
     ]
   },
+  "42": {
+    "title": "BRILLA EN TU LUGAR",
+    "number": 42,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Nunca esperes el momento de,\nuna grande acción;\nni que pueda lejos ir tu luz,\nde la vida a los pequeños actos\nde atención;\nbrilla en el sitio donde estés."
+      },
+      {
+        "verse": 0,
+        "text": "Brilla en el sitio donde estés,\nbrilla en el sitio donde estés,\npuedes con tu luz,\nalgún perdido rescatar\nbrilla en el sitio donde estés."
+      },
+      {
+        "verse": 2,
+        "text": "Puedes en tu cielo alguna nube\ndisipar, haz a un lado tu egoísmo\ncruel; aunque sólo un corazón\npudieres consolar; brilla en el sitio\ndonde estés."
+      },
+      {
+        "verse": 3,
+        "text": "Puede tu talento alguna cosa\ndescubrir\ndo tu luz podrá resplandecer;\nde tu mano el pan de vida puede\naquí venir;\nbrilla en el sitio donde estés."
+      }
+    ]
+  },
+  "43": {
+    "title": "CADA DIA CON CRISTO",
+    "number": 43,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cada día Cristo me llena de\nperfecta paz cada día Cristo le amo más y\nmás; El me salva y guarda, y sé\nque pronto volverá; y vivir con\nCristo, más dulce cada día será."
+      },
+      {
+        "verse": 2,
+        "text": "Cada día con Cristo deseo en\ncomunión estar; cada día de Cristo\nsu nombre ensalzar;\nEl me da la vida y fiel a El le\nseguiré, de mi alma\nperdida en El la salvación hallé."
+      },
+      {
+        "verse": 3,
+        "text": "Cada día Cristo a mí alma da\nseguridad; cada día Cristo me da\nmás santidad; y un día con Cristo\npor siempre mi alma vivirá;\ngozando de dicha\ny eterna felicidad."
+      },
+      {
+        "verse": 4,
+        "text": "Cada día con Cristo mi alma en\ncomunión está;\ncada día Cristo su bendición me\nda; soy feliz por Cristo a El yo\nsiempre serviré; y un día con\nCristo en gloria eterna viviré."
+      },
+      {
+        "verse": 5,
+        "text": "Cada día de Cristo su paz mi alma\ngozará; cada día Cristo su Espíritu\nme da; y un día con Cristo su\nIglesia a El se unirá; viviendo por\nsiglos en una hermosa claridad."
+      },
+      {
+        "verse": 6,
+        "text": "Ven, amigo, a Cristo; acepta de El\nla salvación; ven, sí, ven a Cristo,\nEl te dará el perdón; y la paz de\nCristo siempre estará en tu\ncorazón; e irás con Cristo a gozar,\nsiempre en su mansión."
+      }
+    ]
+  },
+  "44": {
+    "title": "CAMINANDO",
+    "number": 44,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Gozándome yo voy para aquel\nhogar, caminando, caminando,\nyo siempre no me quiero\naquí quedar,\ncaminando para aquel hogar."
+      },
+      {
+        "verse": 0,
+        "text": "Caminando, caminando,\npara aquel hogar en donde está\nJesús, caminando, caminando,\nde la mano del Señor Jesús."
+      },
+      {
+        "verse": 2,
+        "text": "Dejando este mundo y todo mal,\ncaminando, caminando,\nJesús ha prometido conmigo estar,\ncaminando para aquel hogar."
+      },
+      {
+        "verse": 3,
+        "text": "Yo quiero pecadores también\nllevar, caminando, caminando,\npara que Cristo los pueda\nhoy salvar,\ncaminando para aquel hogar."
+      },
+      {
+        "verse": 4,
+        "text": "Entonces yo a Cristo allí veré,\ncaminando, caminando,\npor siempre yo su nombre\nalabaré,\ncaminando para aquel hogar."
+      }
+    ]
+  },
   "52": {
     "title": "CERCA DE TI OH DIOS",
-    "number": 152,
+    "number": 52,
     "lyrics": [
       {
         "verse": 1,
@@ -140,6 +890,72 @@
       {
         "verse": 4,
         "text": "Permite oh Dios, mientras que tenga vida,\nque en tu camino siempre te sea fiel,\nque cuando llegue la hora de mi partida,\npuedas decirme, venid, oh siervo fiel."
+      }
+    ]
+  },
+  "54": {
+    "title": "CON CRISTO YO IRE",
+    "number": 54,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Ya sea en el valle donde el peligro\nesté o que en la luz gloriosa de\npaz habite yo, a mi Jesús diré:\n\"Tu voluntad haré\",\nsi Cristo me guía doquiera yo iré."
+      },
+      {
+        "verse": 0,
+        "text": "Si Cristo conmigo va, yo iré,\nyo no temeré, con gozo iré,\nconmigo va, es grato servir a\nJesús llevar la cruz,\nsi Cristo conmigo va, yo iré."
+      },
+      {
+        "verse": 2,
+        "text": "Si al desierto quiere Jesús que\nvaya yo, llevando buenas\nnuevas de Santa Salvación,\nsi allí en dura lid,\nmi campo señaló,\na Cristo yo sigo sin más dilación."
+      },
+      {
+        "verse": 3,
+        "text": "Aunque mi parte sea mi dura cruz\nllevar, diré a mis hermanos\ntambien su gran poder,\ncontento quedaré, mi\nluz haré brillar, testigo de Cristo,\ndoquiera yo iré."
+      },
+      {
+        "verse": 4,
+        "text": "La voluntad de Cristo yo quiero\nobedecer, pues en la Santa Biblia\nencuentro mi saber, y con su gran\npoder al mundo venceré,\nsi El va conmigo, doquiera yo iré."
+      }
+    ]
+  },
+  "55": {
+    "title": "INVITADO DE HONOR",
+    "number": 55,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Esperamos que estés con nosotros\nte hacemos una invitación\nde rodillas te estaba pidiendo\nhabitaras en mí corazón,\nlas tristezas, dolor y problemas,\nen tus manos las puse Señor\nhoy queremos gozar esta fiesta\ndonde Tú eres el invitado de honor."
+      },
+      {
+        "verse": 0,
+        "text": "Dame Señor, bendición de lo\nalto, dame Señor, de tu Espíritu\nSanto, es que pienso olvidarme\nde todo lo que estorbe en lo\nespiritual dedicarte esta fiesta de\nmi alma que se goce, mi Padre\nCelestial."
+      },
+      {
+        "verse": 3,
+        "text": "Nos unimos para recibirte,\nbienvenida te vamos a dar,\nmuchas gracias por haber venido,\nmuchas gracias oh Rey Celestial\na tí Padre te damos la honra,\nsí mi Cristo te damos loor,\nhoy queremos gozar de esta fiesta\ndonde Tú eres, invitado de honor."
+      }
+    ]
+  },
+  "56": {
+    "title": "CON QUE PAGAREMOS",
+    "number": 56,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Con qué pagaremos, el inmenso\namor que diste tu vida por el vil\npecador,Señor Jesucristo conforta\nmi alma para que yo pueda vencer\nen la lucha, y servirte mejor."
+      },
+      {
+        "verse": 0,
+        "text": "No tengo que darte, por amarme\ntanto recibe este canto,\nmezclado con llanto de mi corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Y cuando la noche extienda su\nmanto mis ojos en llanto en Tí\nfijaré, alzando mis ojos veré a las\nestrellas yo sé que tras ellas cual\nPadre amoroso Tú velas por mí."
+      },
+      {
+        "verse": 3,
+        "text": "No puedo pagarte con\noro ni plata\nel gran sacrificio que hiciste por mí\nen cambio recibe la ofrenda\nhumillada,\nla ofrenda humillada\nSeñor Jesucristo mi fiel corazón."
       }
     ]
   },
@@ -166,6 +982,148 @@
       {
         "verse": 4,
         "text": "Cuando termine la lucha,\na tu lado yo estaré;\ncontigo viviré y gozaré\ndonde Tú estás mi Salvador."
+      }
+    ]
+  },
+  "60": {
+    "title": "CON TU AMOR",
+    "number": 60,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Con tu amor y tu sangre preciosa,\nme limpiaste por siempre,\nioh Jesús!\nhoy camino en tu senda gloriosa,\ncon tu cruz, con tu cruz, ioh, Jesús!"
+      },
+      {
+        "verse": 0,
+        "text": "Me alimenta tu gracia divina,\nme sustenta tu amor que da paz,\namor puro ésta luz que ilumina\nde tu amor, de tu amor, dame más."
+      },
+      {
+        "verse": 2,
+        "text": "No permitas que deje tu senda;\npor pesada que sea tu cruz;\nhaz que en mi alma una llama se\nencienda, con tu luz, con tu luz,\nioh Jesús!"
+      },
+      {
+        "verse": 3,
+        "text": "Cuando suba contigo a los cielos\nen morada feliz viviré;\ndulces cantos de amor y consuelo,\ncantaré, cantaré, cantaré."
+      }
+    ]
+  },
+  "61": {
+    "title": "CORO DE MILLARES",
+    "number": 61,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Siento en mi alma,\nuna gloriosa comunión\ndon perfecto, hay en mi alma,\ndesde que Cristo mis pecados\nperdonó con su sangre El me lavó."
+      },
+      {
+        "verse": 0,
+        "text": "Del fondo de mi alma surgió un\nAleluya! Aleluya ...... Aleluya!\nUn coro de millares contesta en la\nAltura, Aleluya ...... Gloria a Dios!"
+      },
+      {
+        "verse": 2,
+        "text": "Cuando en pecado y en tinieblas\nyo viví con tristeza, en mi alma,\npor mi salud a Jesucristo yo clamé\ny mi vida a El la entregué."
+      },
+      {
+        "verse": 3,
+        "text": "Si persevero hasta el fin en el\nSeñor a la gloria, va mi alma,\nsi su bandera voy alzando con\nvalor sólo en Cristo hay salvación."
+      }
+    ]
+  },
+  "62": {
+    "title": "CORO INFANTIL",
+    "number": 62,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Nació en Belén el Salvador del\nmundo, a mí me trajo la salud,\ny ahora canto con amor profundo,\ncon esperanza, gozo y gratitud."
+      },
+      {
+        "verse": 2,
+        "text": "Estaba el niño dormidito,\nacostado en un pesebre,\ny vinieron del oriente,\nricos dones a ofrecerle."
+      },
+      {
+        "verse": 3,
+        "text": "Hermosa y cierta historia que\nalegra el corazón, nos trae a la\nmemoria su nacimiento y su\ndolor; murió por darnos gloria,\nnuestro amado Salvador,\ny está lleno de contento\nnuestro pobre corazón."
+      }
+    ]
+  },
+  "63": {
+    "title": "CREO EN DIOS",
+    "number": 63,
+    "lyrics": [
+      {
+        "verse": 0,
+        "text": "//Creo en Dios//\ny sé que me ama a mí."
+      },
+      {
+        "verse": 1,
+        "text": "Sin duda mi vida en sus manos\nestá y nunca me abandonará,\nmi vida El cuida y controlará\ny sé que me ama a mí,\n//Creo en Dios//\ny se que me ama a mí."
+      },
+      {
+        "verse": 2,
+        "text": "Creo en Jesucristo y yo sé\nque su promesa en mí cumplirá,\ndonde quiera que vaya El me\ncuidará, y sé que me ama a mí.\n//Creo en Dios// y se que me ama a mí."
+      }
+    ]
+  },
+  "71": {
+    "title": "CRISTO LA FUENTE DE AMOR",
+    "number": 71,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Al contemplarte, Cristo divino,\nmiro el camino de la verdad,\nmi pensamiento pasa violento\ny me recuerda tu gran bondad."
+      },
+      {
+        "verse": 2,
+        "text": "Lejos vagaba yo sin confianza,\nsin esperanza de Salvación,\npero mi Cristo estuvo listo\ntendió su mano de protección."
+      },
+      {
+        "verse": 0,
+        "text": "Porque Tú eres dádiva hermosa\neres la fuente de amor,\ndo mana el Consolador,\neres camino, vida y verdad,\ny el que creyere en Tí Señor\npor siempre vivirá."
+      },
+      {
+        "verse": 3,
+        "text": "Ahora me siento lleno de gozo,\nporque es hermoso el meditar,\nen ese amado crucificado,\nque a mi alma vino El a salvar."
+      }
+    ]
+  },
+  "72": {
+    "title": "CRISTO LA ROCA",
+    "number": 72,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En las olas inmensas de\nembravecido\nmar, que asaltan de mi alma la\npobre embarcación;\nde rodillas a Cristo clamé, y el\nhuracán, deshecho fue al instante\na la voz de Dios."
+      },
+      {
+        "verse": 0,
+        "text": "Es Cristo la Roca, el ancla de mi\nfe; los males, lamentos y ayes de\ntemor, terminan por siempre,\ncon mi supremo Rey,\nes Jesucristo mi refugio."
+      },
+      {
+        "verse": 2,
+        "text": "Me guarda de peligros,\nde pruebas,\nde dolor, El manda que\nlos vientos no agiten, tempestad;\nlos mares se detienen,\nla ola reposó, y en Cristo\nfijo el ancla, confiando más."
+      },
+      {
+        "verse": 3,
+        "text": "Mi dulce Salvador, sí, mi hermoso\namigo, y Dios que libra de\ntristezas y aleja amarga hiel, por fe\nyo iré al cielo, mansión del Ser de\namor, la fuente inagotable\nde dicha y paz."
+      }
+    ]
+  },
+  "73": {
+    "title": "CRISTO RESUCITADO",
+    "number": 73,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuán felices fuimos,\ndesde que creímos,\nen el Cristo amado,\nque fuera inmolado,\n//fue a la tumba fría y resucitado,\nun glorioso día fue glorificado//"
+      },
+      {
+        "verse": 2,
+        "text": "En solemne calma,\nencomienda su alma,\na su Padre amado\nque había dejado,\n//por el vil pecado de un mundo\nsoez y clama angustiado,\nconsumado es//"
+      },
+      {
+        "verse": 3,
+        "text": "En la hora postrera,\ncuando Cristo fuera\na la cruz clavado,\nsiendo hijo amado,\n//y su alma eterna de bondades\nllena, derramaba gracia,\npor el mundo malo//"
       }
     ]
   },
@@ -284,6 +1242,108 @@
       {
         "verse": 2,
         "text": "El Cordero de Dios, nuestro todo será,\nen su grande esplendor, El nos alumbrará.\nLa gran Jerusalem, la ciudad Celestial,\ndesde el cielo de Dios se verá descender."
+      }
+    ]
+  },
+  "90": {
+    "title": "CUAN GRANDE ES DIOS",
+    "number": 90,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "¡Oh Señor! mucho te has\nenaltecido,\nhas puesto tu habitación sobre el\nmonte de Sión, hasta tu mansión,\ncuando veo tus cielos la luna\ny las estrellas digo\n¡Cuán grande es Dios!\ny todas ellas."
+      },
+      {
+        "verse": 0,
+        "text": "Digo ¿Quién es el hombre\npara que los visites?\n¿y el hijo del hombre\npara que tengas memoria de él?\nLo hiciste menor que los ángeles\ndel cielo, coronástelo de gloria,\ntodo pusiste bajo de sus pies."
+      },
+      {
+        "verse": 2,
+        "text": "¡Oh Señor! Mucho te has\nengrandecido, con tu grande\nmajestad, hazte vestido de luz y\nde esplendor; cuando vengas en\ntu gloria cubierto de resplandor,\ndiré cuán grande es Dios y su\npotencia."
+      },
+      {
+        "verse": 3,
+        "text": "¡Oh Señor! Mucho te has\ncompadecido de este mundo tan\natroz, hazle brindado perdón y\nredención, cuando dejaste tu\ntrono y aquí tu vida entregaste,\ncuán admirable es tu amor y tu\nclemencia."
+      }
+    ]
+  },
+  "91": {
+    "title": "CUANDO YO MUERA",
+    "number": 91,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Las campanas suenan tristes\ncomo muestra de dolor\nporque ha muerto una persona\nsin creer en el Señor\ntodo es luto y tristeza\nesperanza ya no hay\nsolo se oyen los lamentos\nlos pesares y tormentos\ny la desesperación."
+      },
+      {
+        "verse": 0,
+        "text": "Más cuando muera yo,\nno deben llorar\nporque viviendo estoy con\nCristo el Señor\nserá un leve dormir\ny un eterno despertar\ncuando en la mansión de gloria\ncoronado de victoria\nCristo me recibirá."
+      },
+      {
+        "verse": 2,
+        "text": "Para aquel que está en Cristo\nel morir ganancia es\npues pasó de muerte a vida\nno hay nada que temer\nla esperanza ya está puesta\nen la gran resurrección\ncuando el Cristo victorioso\nme traslade a los cielos\na vivir en su mansión."
+      }
+    ]
+  },
+  "95": {
+    "title": "DAME MAS SABIDURIA",
+    "number": 95,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Señor manifiesta tu poder, haz que\nvuelva en mí la fe, en mi corazón.\nTú que hiciste los cielos y la tierra,\ny diste paz y gozo a mi corazón."
+      },
+      {
+        "verse": 0,
+        "text": "Señor, dame más sabiduría,\npara que yo cada día, pueda a Tí\ncon alegría, alabarte mi Señor,\nJesús, bendito sea tu nombre,\ntu nombre sea bendito,\ny glorificado por la eternidad."
+      },
+      {
+        "verse": 2,
+        "text": "Señor, eres Tú mi protector, gloria\nsea al Salvador, por tu amor\nmanifiesta tu poder santificado,\npara que yo postrado,\nadore ante tus pies."
+      },
+      {
+        "verse": 3,
+        "text": "Señor, eres Tú mi Redentor, hoy\nte alabo Salvador, por tu amor y te\nimploro de tu misericordia, para\nreinar en la gloria, Divino Salvador."
+      }
+    ]
+  },
+  "96": {
+    "title": "DAME TU GRACIA",
+    "number": 96,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Si a mi alma llegan las tentaciones\ny clamo a Jesús y si me encuentro\nen tribulaciones, voy a su cruz,\nme acerco a Cristo crucificado,\ny clamo a El. Te necesito,\n¡Cristo Bendito! a mi alma ven."
+      },
+      {
+        "verse": 0,
+        "text": "Si sólo sigo en el camino, no\nvenceré y si te alejas de mi alma\n¡oh Cristo!, no te veré.\nJesús divino, Santo Cordero, mi\nRedentor, dame tu gracia para\nvencer al tentador."
+      },
+      {
+        "verse": 2,
+        "text": "Permite, ¡oh Cristo! que siempre en\nmi alma, yo sienta orar, y que las\narmas que Tú me diste, yo pueda\nusar, mi vida enciende como una\nantorcha para alumbrar, a los\nperdidos que viven ciegos en el\npecar."
+      }
+    ]
+  },
+  "97": {
+    "title": "DAME UN NUEVO CORAZON",
+    "number": 97,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Dame un nuevo corazón,\nque te alabe noche y día,\ndame un nuevo corazón,\ny que seas Tú mi guía,\ndame un nuevo corazón,\ny que sea morada tuya,\ndame un nuevo corazón. A-le-lu-ya."
+      },
+      {
+        "verse": 2,
+        "text": "Quiero amarte mi Señor,\nporque estoy agradecido,\nya me diste salvación\ny es un don inmerecido.\nMe cambiaste el corazón,\ny me diste nueva vida,\n¡¡oh! que hermoso amar a Dios//\nAleluya."
+      },
+      {
+        "verse": 3,
+        "text": "Quiero serte fiel Señor,\npor el don que Tú me has dado,\npor tu gracia y tu bondad,\ntu Nombre es glorificado,\nme propongo a Tí servir,\nporque a mí Tú me has amado\n//hoy te doy mi gratitud// Aleluya."
+      },
+      {
+        "verse": 4,
+        "text": "Cuán bello es a Tí confiar,\nnuestras penas y desvelos,\nla angustia pronto se vá,\ny en Tí hallamos el consuelo,\npor el grande amor a Dios\nelevo mi canto al cielo,\n//ya es de Dios mi corazón//Aleluya."
       }
     ]
   },
@@ -471,6 +1531,32 @@
       }
     ]
   },
+  "161": {
+    "title": "EL MUNDO NECESITA A CRISTO",
+    "number": 161,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "El mundo está hambriento de\nCristo y de su amor,\n¿y tú qué haces sin hablarles de el?\nse mueren sin saber, de Cristo el\nSalvador\n¿y tú, qué es lo que vas a hacer?"
+      },
+      {
+        "verse": 0,
+        "text": "Cristo murió por ti y por mí, en la\ncruz, murió por tu prójimo,\n¿cómo podrás vivir ajeno a su\ndolor? ¡que Dios se apiade de ti!"
+      },
+      {
+        "verse": 2,
+        "text": "Millones se mueren, buscando un\nSalvador, que pueda sus vidas\nlibrar, ¿qué esperas que tú no les\nhables de su amor?\n¡si sólo tuvieras compasión!"
+      },
+      {
+        "verse": 3,
+        "text": "Si Cristo te ha dado ésta oportunidad,\n¿por qué no impartes de su amor?\nsalvación eterna es la compensación,\nsi tú les llevares hacia Dios."
+      },
+      {
+        "verse": 4,
+        "text": "Jesús hoy te llama la mies a cosechar\n¿y tú cuándo vas a responder?\nsi Cristo ofreció su vida en expiación,\n¿podrás hoy, tu vida ofrecer?"
+      }
+    ]
+  },
   "175": {
     "title": "EL SUEÑO DORADO",
     "number": 175,
@@ -560,6 +1646,32 @@
       }
     ]
   },
+  "186": {
+    "title": "EN BUSCA DE OBREROS",
+    "number": 186,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cristo está buscando obreros hoy,\nque quieran ir con El,\n¿Quién dirá: \"Señor contigo voy,\nyo quiero serte fiel\"?"
+      },
+      {
+        "verse": 0,
+        "text": "Oh, Señor, es mucha la labor,\ny obreros faltan ya,\ndanos luz, ardiente fe y valor,\ny obreros siempre habrá."
+      },
+      {
+        "verse": 2,
+        "text": "Cristo quiere mensajeros hoy,\nque anuncien su verdad,\n¿Quién dirá: \"Señor yo listo estoy,\nharé tu voluntad\"?"
+      },
+      {
+        "verse": 3,
+        "text": "Hay lugar si quieres trabajar,\nde Cristo es la labor;\npuedes de su gloria al mundo\nhablar, de su bondad y amor."
+      },
+      {
+        "verse": 4,
+        "text": "¿Vives ya salvado por Jesús,\nsu amor conoces ya?\nhabla pues, anuncia que en la luz,\nde Cristo vives ya."
+      }
+    ]
+  },
   "188": {
     "title": "EN CRISTO SE ENCUENTRA LA VIDA",
     "number": 188,
@@ -583,6 +1695,58 @@
       {
         "verse": 4,
         "text": "Cristiano, no vivas errado,\nbuscando tu condenación,\nsi a Cristo ya has aceptado,\nno vivas en más confusión."
+      }
+    ]
+  },
+  "191": {
+    "title": "EN EL SERVICIO DE MI REY",
+    "number": 191,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Soy feliz en el servicio de mi Rey,,\nsoy feliz y estoy contengo,\ntengo gozo, paz y victoriosa fe,\nen el servicio de mi Rey."
+      },
+      {
+        "verse": 0,
+        "text": "A Jesús mi eterno Rey, mis talentos\nllevaré, tengo paz y eterno gozo,\nen el servicio de mi Rey."
+      },
+      {
+        "verse": 2,
+        "text": "Soy feliz en el servicio de mi Rey,\nsoy feliz y estoy contento,\nen la sombra y en la luz yo\ncantaré, en el servicio de mi Rey."
+      },
+      {
+        "verse": 3,
+        "text": "Soy feliz en el servicio de mi Rey,\nsoy feliz y estoy contento,\nplena salvación en Cristo anunciaré,\nen el servicio de mi Rey."
+      },
+      {
+        "verse": 4,
+        "text": "Soy feliz en el servicio de mi Rey,\nsoy feliz y estoy contento,\ny mi vida entera y tiempo\nentregaré, al servicio de mi Rey."
+      }
+    ]
+  },
+  "192": {
+    "title": "EN ESE CIELO AZUL",
+    "number": 192,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Tengo un hogar do Jesús está,\nallá en el cielo azul,\ndo a Dios veré en su majestad,\nallá en ese cielo azul."
+      },
+      {
+        "verse": 0,
+        "text": "Allá en ese cielo azul, feliz yo\nsiempre viviré, allá veré a mi Jesús,\nallá en ese cielo azul,\ncon muchos santos cantaré,\nloores al buen Salvador."
+      },
+      {
+        "verse": 2,
+        "text": "Caminando voy para siempre\nestar, allá en el cielo azul,\ndo iré a morar con mi Salvador,\nallá en ese cielo azul."
+      },
+      {
+        "verse": 3,
+        "text": "Ya no habrá más noche, ni\ntentación, allá en ese cielo azul,\nni enfermedad, ni más dolor,\nallá en ese cielo azul."
+      },
+      {
+        "verse": 4,
+        "text": "Al venir Jesús con su gran poder,\nallá en ese cielo azul,\nlos creyentes fieles, irán con El,\nallá en ese cielo azul."
       }
     ]
   },
@@ -653,6 +1817,68 @@
       }
     ]
   },
+  "201": {
+    "title": "EN LA VIÑA DEL SEÑOR",
+    "number": 201,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Yo quiero trabajar por el Señor,\nconfiando, en su Palabra\ny en su amor,\nquiero yo cantar y orar\ny ocupado siempre estar,\nen la viña del Señor."
+      },
+      {
+        "verse": 0,
+        "text": "Trabajar y orar,\nen la viña, en la viña del Señor,\nsí mi anhelo es orar,\ny ocupado siempre estar,\nen la viña del Señor."
+      },
+      {
+        "verse": 2,
+        "text": "Yo quiero cada día trabajar,\ny esclavos del pecado libertar,\nconducirlos a Jesús,\nnuestro guía, nuestra luz,\nen la viña del Señor."
+      },
+      {
+        "verse": 3,
+        "text": "Yo quiero ser obrero de valor,\nconfiando en el poder del\nSalvador; el que quiera trabajar,\nhallará también lugar,\nen la viña del Señor."
+      }
+    ]
+  },
+  "202": {
+    "title": "EN MI ALMA ESTA",
+    "number": 202,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Algunos cantan,\npara el mundo divertir,\notros a el tiempo, aburridos al pasar\nmás yo porque adoro a mi Señor,\nen mi alma está, en mi alma está."
+      },
+      {
+        "verse": 0,
+        "text": "En mi alma está la melodía del\namor, en mi alma está,\npues pertenezco a mi Señor,\nen mi alma está, en mi alma está."
+      },
+      {
+        "verse": 2,
+        "text": "Yo sé que Cristo con su sangre me\nlimpió, yo sé que Cristo,\nreina en mi corazón,\nmás yo porque adoro a mi Señor,\nen mi alma está, en mi alma está."
+      }
+    ]
+  },
+  "203": {
+    "title": "ENSÉÑAME SEÑOR",
+    "number": 203,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Enséñame Señor,\nhacer siempre tu voluntad,\npermíteme oh, Jesús,\nque sea tu luz, en mi vivir;\nmi vida está en tus manos,\npues solamente soy de Ti,\nenséñame Señor,\nhacer siempre tu voluntad."
+      },
+      {
+        "verse": 0,
+        "text": "Al contemplar, tu obra en la cruz,\nlo hermoso de tu obra en la cruz,\nno puedo menos, que llorar de\ngratitud, diste ahí el ejemplo,\ny una gran inspiración\na todo mortal,\nque quiera hallar vida y solaz."
+      },
+      {
+        "verse": 2,
+        "text": "Siempre pensando estoy, en que\nserá de mi vivir, más si medito en\nTi, duda y pesar huye de mí,\ninspiración me es,\ntu dulce Nombre oh, Jesús,\npor eso soy feliz,\nen tu camino, mi Señor."
+      },
+      {
+        "verse": 3,
+        "text": "Cuando orabas Jesús, en el Monte\ndel Olivar, clamabas a tu Dios,\nque hiciera El su voluntad; quiero\ntambién llegar, a comprender\nésta verdad, ayúdame Señor,\npara cumplir tu voluntad."
+      }
+    ]
+  },
   "204": {
     "title": "ENTERA CONSAGRACION",
     "number": 204,
@@ -663,7 +1889,7 @@
       },
       {
         "verse": 0,
-        "text": "Lávame en tu sangre, Salvador,\nlímpiame de toda mi maldad;\ntraigo a Tí mi vida, para ser\nSeñor tuya por la eternidad."
+        "text": "Lávame en tu sangre, Salvador,\nlímpiame de toda mi maldad,\ntraigo a Tí mi vida, para ser\nSeñor tuya por la eternidad."
       },
       {
         "verse": 2,
@@ -676,6 +1902,10 @@
       {
         "verse": 4,
         "text": "Toma, ioh Dios! mi voluntad,\ny hazla tuya, nada más;\ntoma, si mi corazón,\npor tu trono lo tendrás."
+      },
+      {
+        "verse": 5,
+        "text": "Toma Tú mi amor, que hoy,\na tus pies vengo a poner;\ntoma todo lo que soy,\ntodo tuyo quiero ser."
       }
     ]
   },
@@ -728,6 +1958,62 @@
       {
         "verse": 4,
         "text": "Esperamos su venida\ny el llamado de su voz,\nuniendo los corazones,\npor el fuego de su amor;\ny seremos transportados, para\nsiempre a su mansión; loaremos.\npara siempre al Salvador."
+      }
+    ]
+  },
+  "221": {
+    "title": "GALARDON",
+    "number": 221,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Espera al pecador mi Señor,\nle quiere perdonar su maldad,\nquiere darle hoy de su gran bondad\nno desprecies jamás esta verdad."
+      },
+      {
+        "verse": 0,
+        "text": "Galardón tengo en gloria,\ndonde está mi Jesús, mi Rey,\ngalardón tengo en gloria,\ndonde está mi Jesús, mi Rey."
+      },
+      {
+        "verse": 2,
+        "text": "Espera al pecador mi Señor,\nque venga hasta sus pies con\namor, quiere darle hoy de su gran\nbondad, quiere darle la\nentrada a su mansión."
+      },
+      {
+        "verse": 3,
+        "text": "Si sirvo a mi Señor, con lealtad,\nme espera un galardón más allá,\nsi en la tumba estoy, y si yo fuí fiel\nel Señor de allí me levantará."
+      },
+      {
+        "verse": 4,
+        "text": "Tan cruenta fué la muerte de Jesús\nque en una cruenta cruz expiró,\nfue por tí y por mí, lo que Dios\nsufrió, nunca más le\npodremos a El pagar."
+      }
+    ]
+  },
+  "222": {
+    "title": "GLORIA AL SALVADOR",
+    "number": 222,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Gloria al Salvador,\nRey de las naciones;\ngloria al Salvador\nen todas las naciones."
+      },
+      {
+        "verse": 0,
+        "text": "No hay que desmayar, de lo que es\nverdad antes con más fuerza,\nsiguiendo a Jesús."
+      },
+      {
+        "verse": 2,
+        "text": "La palabra de El nos alumbrará;\nporque es una antorcha,\nque nos da Jesús."
+      },
+      {
+        "verse": 3,
+        "text": "Honremos su Palabra\nen todas las misiones; Dios\nhará la obra, en los corazones."
+      },
+      {
+        "verse": 4,
+        "text": "Dios acepta todo, lo que es de su\nagrado; pero lo que El quiere,\nes un pueblo santificado."
+      },
+      {
+        "verse": 5,
+        "text": "Hay que retener, lo que es del\nSeñor; esto lo obtendremos,\npor la comunión."
       }
     ]
   },
@@ -835,6 +2121,42 @@
       }
     ]
   },
+  "246": {
+    "title": "HAY QUE ESTAR LISTOS",
+    "number": 246,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Ya pronto se llega el día,\ncuando mi Cristo vendrá,\na levantar a su pueblo,\nque le ha servido en verdad,\nque se ha guardado sin mancha\nde este mundo engañador,\ny en santidad ha vivido,\nsiendo fiel a su Señor."
+      },
+      {
+        "verse": 0,
+        "text": "El Rey de gloria ya viene, listos\ndebemos estar, arrepentidos y\nlimpios, que no nos vaya a dejar,\nhay que empezar desde ahora,\na buscar más al Señor, contritos y\nhumillados con reverencia y temor."
+      },
+      {
+        "verse": 2,
+        "text": "Escrito está en su palabra\nque debemos de velar,\norando a El sin cesar,\ntodos queremos ser salvos,\nnadie se quiere quedar,\nSi no estamos preparados,\nEl nos tendrá que dejar."
+      },
+      {
+        "verse": 3,
+        "text": "El mundo no se da cuenta,\nde lo que va a suceder,\nen su Palabra nos dice,\nque Cristo ha de volver,\npues nadie sabe la hora,\ncuando Cristo ha de venir,\nhay que despertar del sueño,\nya no hay tiempo de dormir."
+      }
+    ]
+  },
+  "247": {
+    "title": "HAY UNA CIUDAD",
+    "number": 247,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Hay una ciudad, muy grande y\nhermosa, gloriosa ciudad donde no\nhabrá sol; allí solo irán los que son\nlavados con la sangre preciosa,\nde mi Salvador."
+      },
+      {
+        "verse": 0,
+        "text": "Oh, yo quiero ir, a esa ciudad,\ndonde morarán, los hijos de Dios."
+      }
+    ]
+  },
   "248": {
     "title": "HAY UNA CIUDAD ETERNAL",
     "number": 248,
@@ -879,6 +2201,106 @@
       }
     ]
   },
+  "250": {
+    "title": "HOMBRES DE DIOS",
+    "number": 250,
+    "lyrics": [
+      {
+        "verse": 0,
+        "text": "Hombres de Dios, luchad por su causa,\nvuestra armadura, hoy aprestad;\nsed valerosos, sed los primeros,\nque en la batalla, vais a luchar."
+      },
+      {
+        "verse": 1,
+        "text": "Hombres de Dios, luchad por su causa,\nCristo es el Jefe, de nuestra legión;\nÉl nos anhela, siempre gloriosos,\ny nos anhela, de buen corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Hombres de Dios, luchad por su causa,\nnunca en la lucha, vais a cejar;\nÉl nos da el triunfo, Él nos da el triunfo,\ny nuestras almas, quiere salvar."
+      },
+      {
+        "verse": 3,
+        "text": "Hombres de Dios, luchad por su causa,\nÉl nos da el triunfo, y el galardón;\ny nos corona, de grande gloria,\ny nos da entrada, en su mansión."
+      }
+    ]
+  },
+  "251": {
+    "title": "HUBO QUIEN POR MIS CULPAS",
+    "number": 251,
+    "lyrics": [
+      {
+        "verse": 0,
+        "text": "¡Cuánto le amo! ¡Cuánto le adoro!\nÉl es la vida, y la salud;\nÉl me ha salvado, y me ha guardado,\nde las cadenas, de la esclavitud."
+      },
+      {
+        "verse": 1,
+        "text": "Hubo quien por mis culpas muriera,\naun sin que yo le conociera;\ny es mi anhelo constante a Él servirle,\nmi anhelo es solo, a mi Señor seguirle."
+      },
+      {
+        "verse": 2,
+        "text": "Él es el Lirio de los valles,\nla Rosa blanca de Sarón;\nÉl es la fuente de agua viva,\nla que me trajo, la salvación."
+      },
+      {
+        "verse": 3,
+        "text": "Él ha quebrantado mis prisiones,\ny me ha ceñido de alegría;\npor eso ahora, yo le canto,\ncon toda el alma, y con amor."
+      },
+      {
+        "verse": 4,
+        "text": "Un día en los cielos, yo le veré,\ny con los santos, le alabaré;\ny con los ángeles, yo cantaré,\na mi Jesús, mi Salvador."
+      }
+    ]
+  },
+  "252": {
+    "title": "IGLESIA DE CRISTO",
+    "number": 252,
+    "lyrics": [
+      {
+        "verse": 0,
+        "text": "¡Oh, qué hermosa! la Iglesia de Cristo,\nallá en el cielo, se congregará;\ncantando hosannas, y aleluyas,\na nuestro Padre, que en los cielos está."
+      },
+      {
+        "verse": 1,
+        "text": "Iglesia de Cristo, reanima tu amor,\ny sigue la senda, que Cristo trazó;\nluchando constante, con fe y con valor,\nque ya se aproxima, tu galardón."
+      },
+      {
+        "verse": 2,
+        "text": "Velando y orando, con fe y con tesón,\nsigue la lucha, con todo valor;\nque Cristo te ayuda, en tu aflicción,\ny te da la victoria, en tu tentación."
+      },
+      {
+        "verse": 3,
+        "text": "Aviva tu celo, despierta y levanta,\ntu antorcha encendida, que no se apagará;\nque el Esposo viene, ya no tardará,\ny a su Iglesia amada, arrebatará."
+      }
+    ]
+  },
+  "254": {
+    "title": "HERMANOS A LUCHAR",
+    "number": 254,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Orad fieles hermanos,\nprosigamos la lucha;\nsalgamos a los campos,\na sembrar la verdad;\na buscar nuevas almas,\nque se humillen a Cristo,\ny sacarlas del fango,\ndel mundo de maldad."
+      },
+      {
+        "verse": 0,
+        "text": "Alzad, alzad vuestra\nbandera, vosotros sois testigos\nde su grande poder, un año más\nde afanes, sin duda nos espera;\nla cruz de Jesucristo,\nllevemos por doquier."
+      },
+      {
+        "verse": 2,
+        "text": "Sabéis cuánto se sufre.\nSabéis cuánto se llora\npero el deber impera:\nsalid a trabajar;\nlas almas nos esperan,\nfallecen en pecado;\nesperan el alivio de su\neterno llorar."
+      },
+      {
+        "verse": 3,
+        "text": "Sembremos la semilla,\nsembremos dondequiera,\nquizá encuentre tierra,\ndonde pueda nacer;\nsabemos que no es nada,\nel que siembra o el que riega,\nsino el Dios divino,\nque la hace crecer."
+      },
+      {
+        "verse": 4,
+        "text": "El premio nos espera,\nluchemos con empeño,\nel día ya se acerca,\nla higuera brota ya;\nel clamor de los pueblos,\nse escucha por doquiera,\ny las gentes con ansia,\nbuscan un más allá."
+      },
+      {
+        "verse": 5,
+        "text": "Con grande regocijo,\nunidos estuvimos,\nunidos nos gozamos,\ntodos en comunión;\ny así sus bendiciones,\ntodos las recibimos\nmas el deber nos lleva\na cumplir nuestra misión."
+      }
+    ]
+  },
   "265": {
     "title": "INDELEBLE",
     "number": 265,
@@ -899,6 +2321,62 @@
       {
         "verse": 3,
         "text": "Y por eso te sigo Maestro\ny mi anhelo más grande será,\ndía a día entregarte mi vida,\nsujetándola a tu voluntad;\npues tu gloria y tus maravillas,\nla presencia de tu Majestad,\ntu amor santo, que me ha sostenido\nindeleble en mi vida será."
+      }
+    ]
+  },
+  "267": {
+    "title": "INVOCACION",
+    "number": 267,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Yo vengo a Tí, implorando tu\nbendición, quiero servir en tu viña\nSeñor; dame por siempre la fe e\ninspiración, y llena mi alma\nde tu grande amor."
+      },
+      {
+        "verse": 0,
+        "text": "Oh mi Jesús, dame siempre gran\nvalor, para seguir ocupado en tu\nlabor, quiero lograr, mayor triunfo\nal trabajar, y para siempre,\nen el bien perseverar."
+      },
+      {
+        "verse": 0,
+        "text": "(Segunda voz)\nOh mi Jesús, dame luz, dame\nsiempre de tu amor y valor, para\nseguir y vivir, ocupado en tu labor,\noh Señor, quiero lograr y sacar,\nmayor triunfo al trabajar más y\nmás. Y para siempre,\nen el bien perseverar."
+      },
+      {
+        "verse": 2,
+        "text": "Si tu palabra ilumina siempre mi\nser, podré alcanzar tu grande\nsalvación; y al fin Señor, podré yo\ntu rostro ver, y para siempre vivir\nen tu mansión."
+      },
+      {
+        "verse": 3,
+        "text": "Lámpara es tu Palabra,\naquí a mis pies, que me guiará\npara siempre, oh Señor,\ny Tú recibe oh Dios,\nmi ferviente prez, pues yo te\nimploro buscando tu amor."
+      }
+    ]
+  },
+  "268": {
+    "title": "IREMOS POR TODO EL MUNDO",
+    "number": 268,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Mirad la pobre humanidad,\nque vaga en densa obscuridad\nanhela ver su libertad,\n¿mas cómo la encontrará?"
+      },
+      {
+        "verse": 0,
+        "text": "Iremos, por todo el mundo,\nllevando el mensaje de amor,\nnaciones y pueblos esperan,\nla luz verdadera de Dios."
+      },
+      {
+        "verse": 2,
+        "text": "Oíd, hermanos, el clamor,\nde los que vagan en error,\nperdidos en pecados son,\nsin esperanza y salvación."
+      },
+      {
+        "verse": 3,
+        "text": "Sedientos vemos por doquier\nansiosos ya de conocer\ndel evangelio el gran poder\nque trae luz y libertad."
+      },
+      {
+        "verse": 4,
+        "text": "Oh, mensajeros del Señor,\nlas buenas nuevas proclamad,\ndecid que Cristo vino a dar\nla luz que busca el pecador."
+      },
+      {
+        "verse": 5,
+        "text": "Rogad, hermanos, al Señor,\nque envíe obreros de valor,\nJesús muy pronto volverá,\nnuestros esfuerzos premiará."
       }
     ]
   },
@@ -977,6 +2455,68 @@
       }
     ]
   },
+  "314": {
+    "title": "LA MAÑANA GLORIOSA",
+    "number": 314,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Cuan gloriosa será la mañana,\ncuando venga Jesús el Salvador,\ncuando todos unidos los hermanos,\nbienvenida daremos al Señor."
+      },
+      {
+        "verse": 0,
+        "text": "No habrá necesidad,\nde la luz o resplandor,\nni el sol dará su luz,\nni tampoco su calor,\nahí llanto no habrá,\nni tristeza, ni dolor,\nporque entonces Jesús,\nel Rey del cielo,\npara siempre será el Consolador."
+      },
+      {
+        "verse": 2,
+        "text": "Esperamos la mañana gloriosa,\npara dar la bienvenida,\nal Dios de amor,\ndonde todo será color de rosa,\nen la Santa presencia del Señor."
+      },
+      {
+        "verse": 3,
+        "text": "El cristiano fiel y verdadero,\ny también el obrero de valor,\ny la Iglesia esposa del Cordero,\nestarán en los brazos del Señor."
+      }
+    ]
+  },
+  "315": {
+    "title": "LAMENTO SOBRE JERUSALEN",
+    "number": 315,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Hay una historia muy bella,\nque a mi alma conmueve y llena\nde emoción, fué cuando Cristo\ncon dolor profundo,\nlloraba en silencio por Jerusalén.\nEra una tarde apacible, la noche\ncaía con gran lentitud, aquel varón\ncontemplaba el paisaje y el llanto\nse ahogaba muy dentro de El."
+      },
+      {
+        "verse": 0,
+        "text": "Jerusalén, tu Rey,\ncrucificaste como un malhechor,\ny fué juzgado como pecador,\nel inocente Cordero de Dios,\nJerusalén, tu Rey,\nhe aquí que viene,\ncon gran majestad,\ncomo la aurora El se mostrará,\nasí cual astro su luz se verá."
+      },
+      {
+        "verse": 2,
+        "text": "Oh, cuánto quise librarte,\ndel mal rescatarte, Jesús exclamó,\na los profetas enviados mataste,\nmi voz despreciaste, por tu\nrebelión. Por tanto serás hollada,\ny al fin humillada, oh hija de Sión,\ntus edificios serán derribados,\ntus hijos llevados en cautividad."
+      }
+    ]
+  },
+  "316": {
+    "title": "LAMPARA ES",
+    "number": 316,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Lámpara es a mis pies tu Palabra;\ny lumbrera a mi camino,\nresplandor son a mi alma,\ntus preceptos oh Dios mío."
+      },
+      {
+        "verse": 0,
+        "text": "Nuestro Señor Jesús,\nnos concede la luz,\nnos da el Consolador\ny nos reviste de amor,\npone nueva canción,\ndentro del corazón,\ny luego luego anunciaremos\nque nos sepultamos,\ny nos bautizamos,\nen el Nombre de Cristo Jesús."
+      },
+      {
+        "verse": 2,
+        "text": "Señor Jesús adorna mi alma de\ngracia, revísteme con tu Espíritu\nSanto, coróname de fe y de viva\nesperanza, hincha mis labios,\ntu Nombre glorificado."
+      },
+      {
+        "verse": 3,
+        "text": "Ten el consejo y no lo dejes,\nconsérvalo dentro de tu corazón,\nmis ojos siempre observen tus\nleyes, invocando tu Nombre,\npara obtener salvación."
+      }
+    ]
+  },
   "321": {
     "title": "LA PEÑA DE HOREB",
     "number": 321,
@@ -1043,6 +2583,50 @@
       }
     ]
   },
+  "335": {
+    "title": "LA SIEMBRA",
+    "number": 335,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Sembraré la simiente preciosa,\ndel glorioso evangelio de amor;\nsembraré, sembraré mientras viva,\ndejaré el resultado al Señor."
+      },
+      {
+        "verse": 0,
+        "text": "Sembraré, sembraré,\nmientras viva, simiente de amor,\nsegaré, segaré,\nal hallarme en la casa de Dios."
+      },
+      {
+        "verse": 2,
+        "text": "Sembraré en corazones sensibles,\nla doctrina del Dios de perdón;\nsembraré, sembraré mientras viva,\ndejaré el resultado al Señor."
+      },
+      {
+        "verse": 3,
+        "text": "Sembraré en corazones de\nmármol,\nla bendita Palabra de Dios;\nsembraré, sembraré mientras viva,\ndejaré el resultado al Señor."
+      }
+    ]
+  },
+  "336": {
+    "title": "LAS PISADAS DE CRISTO",
+    "number": 336,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Escucha mi Cristo divino,\nmi humilde oración,\nplegaria que eleva mi alma,\nhasta su mansión,\nmi alma implora clemencia,\nmi Cristo de Tí,\ndeseando la paz,\nque en el mundo,\nno pude encontrar\nJesús Nazareno escucha mi voz,\npues toda mi vida la\nentrego yo a Tí."
+      },
+      {
+        "verse": 2,
+        "text": "Vagué por el mundo,\nperdido sin Dios y sin fe,\nsiguiendo a los dioses ajenos,\nque no dan la paz,\nmi Cristo divino,\nme trajo a su amado redil\nalabo su Nombre bendito,\nque dió la paz,\nla paz que nunca, ni jamás pasará,\nla pude encontrar solamente\nen Jesús."
+      },
+      {
+        "verse": 3,
+        "text": "Rendido a las plantas de Cristo,\nle entregué mi ser,\ncon un corazón humillado,\nyo vine a sus pies,\nla sangre preciosa de Cristo,\nlavó ya mi ser,\nquitando las manchas,\nque había en mi corazón,\nme dió salvación implorando\nperdón,\nJesús Nazareno mi fiel Redentor."
+      },
+      {
+        "verse": 4,
+        "text": "Feliz ahora soy con mi Cristo,\nmi buen Salvador,\nalabo su Nombre bendito,\ncon grande fervor,\nJesús tus pisadas,\nyo quiero seguir con amor,\ntus huellas benditas,\nque llevan hasta su mansión,\nahí no hay dolor ni tristeza,\nni muerte,\nahí cantaré con fervor a mi Dios."
+      }
+    ]
+  },
   "342": {
     "title": "LA TIERRA DE MIS SUEÑOS",
     "number": 342,
@@ -1087,6 +2671,72 @@
       }
     ]
   },
+  "350": {
+    "title": "LLAMAMIENTO DE SAMUEL",
+    "number": 350,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Háblame Señor si estoy durmiendo\nque pueda yo servirte siempre fiel,\nque pueda yo en tu altar,\nestar sirviendo\ny en tu templo vivir como Samuel."
+      },
+      {
+        "verse": 0,
+        "text": "Despiértame del sueño para oírte\ny dame un corazón, como el de\nElías, que yo como Samuel,\npueda decirte\nSeñor tu siervo escucha,\nheme aquí."
+      },
+      {
+        "verse": 2,
+        "text": "Háblame al oído que despierte,\ny yo como Samuel responderé,\nsi útil puedo serte hasta la muerte,\nordena lo que quieras yo lo haré."
+      },
+      {
+        "verse": 3,
+        "text": "Mándame Señor con tu mensaje,\ny dame el aceite de la unción,\nque lleva tu mensaje cual celaje,\ny tendré como Samuel tu\nbendición."
+      }
+    ]
+  },
+  "351": {
+    "title": "LLANTO DE GRATITUD",
+    "number": 351,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Mi llanto embriaga el corazón,\nde gratitud,\npor el recuerdo que ha quedado\nen la cruz, mi alma derrama\nlágrimas de compasión, al recordar\nlo que se hizo en mi favor."
+      },
+      {
+        "verse": 2,
+        "text": "Mi alma contrita no se cansa de\nllorar, llorar con llanto pero es de\ngratitud, siento sollozos en mi\npecho sin cesar, en lo profundo\nclamo siempre sin hablar."
+      },
+      {
+        "verse": 3,
+        "text": "Tengamos siempre muy en cuenta\nese dolor, que Jesucristo padeció\ncon gran amor, llevando encima,\ntodo el peso de maldad, fue\ncastigado hasta la consumación."
+      },
+      {
+        "verse": 4,
+        "text": "Al ver el cruento sacrificio de Jesús\nno puedo menos,\nque llorar de gratitud,\ny no teniendo más que darle\na mi Señor, mi corazón se me\nquebranta en contricción."
+      }
+    ]
+  },
+  "352": {
+    "title": "LLENA DE AMOR MI CAMINO",
+    "number": 352,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Quiero andar mi Señor,\npor tu senda de amor,\nelevándome más y más,\npor doquiera impartiendo,\nalegría y solaz,\npero lleno de tu bondad."
+      },
+      {
+        "verse": 0,
+        "text": "Mi sendero de amor llena hoy,\nque tu Espíritu guíe mis pies,\ny que siempre al cantar,\nlleno esté de tu amor,\nel camino por dónde voy."
+      },
+      {
+        "verse": 2,
+        "text": "Tenme cerca de Tí,\nioh mi buen Salvador!\nno permitas jamás, jamás,\nque yo vague sin luz,\nsin destino y sin paz,\nmi sendero de amor, llena hoy."
+      },
+      {
+        "verse": 3,
+        "text": "La jornada final,\npronto terminará,\ny no habrá más sufrir allá,\npermíteme cantar,\nal augusto Señor,\nmi sendero de amor llena hoy."
+      }
+    ]
+  },
   "355": {
     "title": "LLEVAR LA CRUZ DE CRISTO",
     "number": 355,
@@ -1110,6 +2760,28 @@
       {
         "verse": 4,
         "text": "Divina esperanza, \npara la humanidad;\nvertió en abundancia\n cual luz en claridad."
+      }
+    ]
+  },
+  "365": {
+    "title": "LUCHANDO POR LA FE",
+    "number": 365,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Por Cristo de los reyes Rey,\nlucharemos con valor,\npor la verdad y por el bien,\ncontra todo mal y error,\ne incesante batallar,\nde las huestes la legión,\nde triunfo en triunfo avanzarán;\nhuestes invencibles son."
+      },
+      {
+        "verse": 0,
+        "text": "//Luchando con valor,\nvenciendo por la fe,\nhasta que a Cristo,\nhonor y gloria el mundo dé//"
+      },
+      {
+        "verse": 2,
+        "text": "Con manos fuertes empuñad,\nvuestra espada que en la lid,\ntodo enemigo abatirá,\npues alcanza el alma a herir;\nsatán vencido ha de ser,\nsu dominio acabará,\ny sus cautivos a los pies\ndel invicto Rey vendrán."
+      },
+      {
+        "verse": 3,
+        "text": "El capitán al frente va,\nde las huestes de la grey,\npor su promesa cumplirá;\ncon vosotros estaré;\nsigamos fieles su pendón,\nno nos canse el batallar,\ncorona a cada vencedor,\nde Jesús recibirá."
       }
     ]
   },
@@ -1246,6 +2918,50 @@
       {
         "verse": 3,
         "text": "Señor, ¿qué pudiera yo darte, por tanta bondad para mí?\n¿no basta servirte y amarte! mas todo entregarme yo a Tí,\nentonces acepta mi vida, que a Tí solo queda rendida,\npues yo soy feliz, pues yo soy feliz por Tí."
+      }
+    ]
+  },
+  "403": {
+    "title": "MI VIDA VAGABA",
+    "number": 403,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En un tiempo mi vida vagaba,\nen tinieblas obscuras sin luz;\nhoy, ya puedo decir ¡Aleluya!\nen los brazos de Cristo Jesús.\nEs mi anhelo seguir sus pisadas,\ndando gracias por mi salvación,\na que alcancen también el perdón."
+      },
+      {
+        "verse": 0,
+        "text": "Quiero andar en la senda de vida\nen los caminos de mi Salvador,\nproclamando con mucha alegría,\n¡Aleluya a mi Redentor!"
+      },
+      {
+        "verse": 2,
+        "text": "El perdona las almas perdidas,\nque le buscan por su salvación;\nEl les limpia de todo pecado,\ny les da un nuevo corazón,\nno te olvides de tu alma preciosa,\nentrégasela a Cristo Jesús,\nEl los vino a sacar de la escoria,\npor su sangre vertida en la cruz."
+      }
+    ]
+  },
+  "404": {
+    "title": "MISIONERO QUE ANUNCIAS",
+    "number": 404,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Misionero que vas a cumplir tu\nmisión tú que anuncias la paz\ny los bienes de Sión, a los campos\nque vas, anunciando su amor\nque mi Cristo te guarde\ny te sostenga fiel\nhasta volvernos a ver."
+      },
+      {
+        "verse": 0,
+        "text": "Cuán hermosos son\nlos pies sobre los montes,\ndel que publica la paz,\ndel que alegres nuevas trae,\ndel que anuncia salud,\ndel que trae nuevas de bien,\ndel que dice a Sión tu Dios,\npara siempre reinarás,\npor los siglos amén."
+      },
+      {
+        "verse": 2,
+        "text": "Misionero que vas,\na los campos de labor,\nanunciando las nuevas,\nde Cristo el Salvador,\noraremos por tí,\nque te guarde el Señor,\nque te dé de su gracia,\nque te dé fortaleza\ny te revista de valor."
+      },
+      {
+        "verse": 3,
+        "text": "Misionero que vas inspirado de\nDios,\nanunciando la Paz a lejana región,\nque te guarde el Señor,\nhasta volvernos a ver,\nsi no es en ésta vida,\nserá en la venidera,\nen las calles de Sión."
+      },
+      {
+        "verse": 4,
+        "text": "Misionero que anuncias,\nesta vida eternal,\nque mi Cristo te manda,\nque no debes cesar,\nlevantad voz en cuello,\ny a los pueblos anunciad,\nque deben aceptar,\nla voz del Evangelio,\nque los pueda salvar."
       }
     ]
   },
@@ -1481,6 +3197,58 @@
       }
     ]
   },
+  "477": {
+    "title": "PROFECIA DE HABACUC",
+    "number": 477,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Es el tiempo de la siega,\ny tiempo de cosechar;\nlas señales se han cumplido,\nel Señor ya va a llegar,\ndebemos de estar listos,\nesperando el contemplar\nla perfecta claridad,\nque nos viene a levantar."
+      },
+      {
+        "verse": 0,
+        "text": "Ya la ciencia se aumentó,\nlo profetizó Daniel,\ny los hombres de este mundo,\ntodo lo quieren saber\nhay la grande confusión,\ndeseando atesorar,\nbienes para este mundo\nnada se van a llevar."
+      },
+      {
+        "verse": 2,
+        "text": "Jesucristo el Rey que viene,\ncon sus ángeles en luz;\nles dará la bienvenida,\na los que llevan su cruz,\ndebes estar listo hermano;\nte conviene escoger,\nCristo extiende hoy su mano,\nno te vayas a perder."
+      },
+      {
+        "verse": 3,
+        "text": "Con ingenios infernales\nse han querido exterminar\nlas naciones más potentes,\npeleando por tierra y mar\ny también desde los aires,\ncausan grande destrucción\nderribando los hogares,\ndestruyendo a la nación."
+      },
+      {
+        "verse": 4,
+        "text": "Otros corren por las calles\nsin ninguna precaución\nandan violando las leyes,\npara propia destrucción\ncorrerán como relámpagos,\nasí Nahúm profetizó;\ncomo hachas encendidas,\nhaciendo la ostentación."
+      },
+      {
+        "verse": 5,
+        "text": "Unos vuelan por el viento\notros debajo del mar,\notros niegan la existencia\nde un Padre Celestial;\nmas nosotros ya sabemos,\nque Jesús hijo de Dios\nvino ya para salvarnos,\nde este mundo tan atroz."
+      }
+    ]
+  },
+  "478": {
+    "title": "PROCLAMEMOS LA SALVACION",
+    "number": 478,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "El mundo es el campo de labor,\ndonde Cristo mandó predicar,\ny por todas partes debemos hablar\ndel plan de salvación."
+      },
+      {
+        "verse": 0,
+        "text": "Proclamemos esta salvación\nproclamémosla sin temor, Cristo viene\npronto lo prometió proclamemos,\nproclamemos, la salvación."
+      },
+      {
+        "verse": 2,
+        "text": "Cumpliremos la gran comisión\nenseñando siempre la verdad,\ndel Consolador, a todo creyente\nque anhela potestad."
+      },
+      {
+        "verse": 3,
+        "text": "Y nada podemos temer,\ncumpliendo con nuestro deber,\ny por todos puntos, trabajemos\njuntos, y todo saldrá muy bien."
+      }
+    ]
+  },
   "489": {
     "title": "QUE DULCE ES TU NOMBRE, OH JESUS",
     "number": 489,
@@ -1595,6 +3363,80 @@
       }
     ]
   },
+  "518": {
+    "title": "SAL A SEMBRAR, SEMBRAR",
+    "number": 518,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Sal a sembrar, sembrador de paz,\nsigue las huellas del buen Jesús,\nmuy ricos frutos tendrás, sé fiel,\nsigue la senda de paz y luz."
+      },
+      {
+        "verse": 0,
+        "text": "Vé, vé, vé, sembrador,\nvé, vé, siembra la paz,\nhabla doquiera del Señor."
+      },
+      {
+        "verse": 2,
+        "text": "Vasto es el campo, sal a sembrar\nsiembra el terreno que Dios te dá,\nsi siembras siempre confiado en\nDios, El tus esfuerzos coronará."
+      },
+      {
+        "verse": 3,
+        "text": "No desperdicies el tiempo, vé,\nsiembra palabras de vida y paz,\nsemilla eterna que dá su mies\nrica semilla que no es fugaz."
+      },
+      {
+        "verse": 4,
+        "text": "Dios ha mandado, sal a sembrar\nnuevas de vida, de amor y paz,\ntal vez te cueste dolores mil,\nmas en los cielos tendrás solaz."
+      },
+      {
+        "verse": 0,
+        "text": "Voy, voy, voy Salvador,\nvoy, voy, sembraré paz,\nhabla tú siempre en mí, Señor,\ny dame de tu amor."
+      }
+    ]
+  },
+  "519": {
+    "title": "SANTA BIBLIA",
+    "number": 519,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Santa Biblia para mí,\neres un tesoro aquí;\nTú contienes con verdad\nla divina voluntad;\nTú me dices lo que soy,\nde quién vine y a quién voy."
+      },
+      {
+        "verse": 2,
+        "text": "Tú reprendes mi dudar;\nTú me exhortas sin cesar;\neres faro que a mi pie,\nva guiando por la fe,\na las fuentes del amor\ndel bendito Salvador."
+      },
+      {
+        "verse": 3,
+        "text": "Eres infalible voz\ndel Espíritu de Dios,\nque vigor al alma da\ncuando en aflicción está;\nTú me enseñas a triunfar,\nde la muerte y el pecar."
+      },
+      {
+        "verse": 4,
+        "text": "Por tu santa letra sé\nque con Cristo reinaré\nyo que tan indigno soy\npor tu luz al cielo voy;\niSanta Biblia para mí,\neres un tesoro aquí!"
+      }
+    ]
+  },
+  "520": {
+    "title": "SEÑOR A TI TE ALABARE",
+    "number": 520,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Si yo pudiera comprender\nlo que sufriste Tú por mí\nno bastaría en servirte\ny dar mi vida, Señor a Tí."
+      },
+      {
+        "verse": 0,
+        "text": "//Señor a Tí te alabaré\ntenme en tu gracia\ndame tu bendición//"
+      },
+      {
+        "verse": 2,
+        "text": "Tú eres la luz que me ilumina,\npor el sendero del amor,\npues tú sufriste en el calvario\nmi buen Jesús, mi Redentor."
+      },
+      {
+        "verse": 3,
+        "text": "Si yo pudiera entender todo,\nsería el hombre más feliz,\npero yo sé que he sido salvo,\ny que contigo me voy a ir."
+      }
+    ]
+  },
   "523": {
     "title": "SEGUIRE A MI JESUS",
     "number": 523,
@@ -1614,6 +3456,72 @@
       {
         "verse": 3,
         "text": "No miro más que el camino de la fe,\ndonde muy pocos, han querido caminar,\nle pido a Dios, que me guarde en el amor\nquiero llegar puro y limpio, a su mansión."
+      }
+    ]
+  },
+  "524": {
+    "title": "SEGURO ESTOY",
+    "number": 524,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Mi mano he puesto en la de Dios,\nseguro estoy y guiado por su\ntierna voz, seguro estoy.\nDe Cristo ¿qué me apartará?\n¿quién de su amor separará?\nhoy mi alma en El confiada está,\nseguro estoy."
+      },
+      {
+        "verse": 0,
+        "text": "Seguro estoy, pues me guarda Dios,\npor el amor de mi Salvador\nyo cantado voy, seguro estoy, pues\nsu tierna voz, me guía fiel y yo\ncon El, seguro estoy."
+      },
+      {
+        "verse": 2,
+        "text": "Aunque otros duden en redor,\nseguro estoy de la palabra del\nSeñor, seguro estoy cual roca de la\neternidad, perdurará, pues en\nverdad; confiado y serenidad\nseguro estoy."
+      },
+      {
+        "verse": 3,
+        "text": "Su paz Dios siempre otorgará,\nseguro estoy en la esperanza que\nEl me dá, seguro estoy,\npues es cual ancla firme y fiel,\ny mi alma está segura en El\nmi fe en Jesús es cual broquel,\nseguro estoy."
+      }
+    ]
+  },
+  "525": {
+    "title": "SE ACERCA EL DIA FELIZ",
+    "number": 525,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Se acerca ya el día feliz,\ncuando el Señor descenderá,\nextenderá su resplandor,\ny a su pueblo alumbrará;\noye, Jesús nuestra oración,\ny escucha hoy nuestra canción\nyo te he invocado Tú me has oído,\ngrande y sublime es tu amor."
+      },
+      {
+        "verse": 0,
+        "text": "Su reino es reino de paz, amor\neterno y caridad, vino a salvar la\nhumanidad, que recibió por heredad."
+      },
+      {
+        "verse": 2,
+        "text": "Jesús es mi luz y salvación,\nla fortaleza de mi ser,\nno temerá mi corazón,\nsi a mí se acerca el destructor,\nlo venceré, lo destruiré,\nlevando a Cristo en mi oración;\npues Jesucristo venció la muerte\npor darnos vida y salvación."
+      },
+      {
+        "verse": 3,
+        "text": "La tierra tuvo gran temor\ncuando el Señor resucitó\nella tembló y se sorprendió,\nal ver que el juicio declaró,\njusticia cruel al pecador,\nsi no se aparta del error;\npues Jesucristo venció la muerte\npor darnos vida y salvación."
+      }
+    ]
+  },
+  "526": {
+    "title": "SE LLEGO LA HORA",
+    "number": 526,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Se llegó la hora de tu valentía,\nen que tú publiques que Cristo\nvendrá no importa la lluvia ni el\ncalor del día, en la noche oscura\nEl te alumbrará."
+      },
+      {
+        "verse": 0,
+        "text": "Háblales de Cristo, diles que ya\nviene que El no se detiene,\npronto volverá háblales de Cristo,\ndiles que El los salva de la grande\nangustia, que en la tierra habrá."
+      },
+      {
+        "verse": 2,
+        "text": "Id por todo el mundo dice mi Señor,\nlleva el Evangelio de gloriosa luz,\nno lleves alforja no te servirá\nEl pondrá su espíritu y trabajará."
+      },
+      {
+        "verse": 3,
+        "text": "Si eres fiel a Cristo debes trabajar\nincansablemente con gran\nvoluntad y allá en tu mansión irás\na morar disfrutando siempre, de\nsu gran bondad."
       }
     ]
   },
@@ -1713,6 +3621,80 @@
       }
     ]
   },
+  "536": {
+    "title": "SIEMPRE ORAD",
+    "number": 536,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "\"Siempre orad\"\nmuy pronto viene, Cristo,\nguarda bien tu corazón\nretén firme todo lo que tienes,\ntú tendrás tu galardón."
+      },
+      {
+        "verse": 0,
+        "text": "\"Siempre orad\", nos manda Cristo\ny velad en oración,\npronto vendrá El en las nubes\nnos dará su bendición."
+      },
+      {
+        "verse": 2,
+        "text": "Siempre orad,\nque si hoy viniere Cristo\nEl te halle en la lid,\ncon la espada suya bien empleada,\nfiel por nuestro Adalid."
+      },
+      {
+        "verse": 3,
+        "text": "Siempre orad, se vive aquí\nvelando es mandato del Señor,\nsin demora toma la promesa\ndel gran fiel Consolador."
+      },
+      {
+        "verse": 4,
+        "text": "Siempre orad, constante y con\ncelo ejercítate en la fe,\nten el ánimo de Jesucristo\ny sus huellas sigue fiel."
+      }
+    ]
+  },
+  "537": {
+    "title": "SIERVOS DE JESUS",
+    "number": 537,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Siervos de Jesús, hombres de\nverdad, guardas de deber somos sí\nlibres de maldad, ricos en bondad\ny seremos fieles en la lid."
+      },
+      {
+        "verse": 0,
+        "text": "Firmes, fuertes, alcen la bandera\ngrande, noble emblema del amor,\npronto, pronto,\nvamos por doquiera,\nmarchen todos vamos a vencer."
+      },
+      {
+        "verse": 2,
+        "text": "¡Cuán hermosos son!\nlos que sin temor,\nlistos al llamar del clarín,\nluchan sin cesar, sufren sin dudar,\nguardas del deber siempre hasta\nel fin."
+      },
+      {
+        "verse": 3,
+        "text": "Nuestro Capitán es ya vencedor\nnos redimió por su cruz,\nguardas del deber\nEl nos dá poder\ny nos guardará en su Santa luz."
+      },
+      {
+        "verse": 4,
+        "text": "Invencibles son los que con afán\ncada día van al deber,\ngloria y luz tendrán y recibirán\ngrande galardón entre la grey."
+      }
+    ]
+  },
+  "538": {
+    "title": "SIGUE ADELANTE",
+    "number": 538,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Fiel siervo sigue, sigue adelante,\nde triunfo en triunfo, por tu señor,\nsigue adelante y no desmayes,\nque allá te espera tu Salvador."
+      },
+      {
+        "verse": 0,
+        "text": "Sigue adelante, sigue adelante,\nde triunfo en triunfo, por tú Señor,\nsigue adelante, sigue adelante,\nmira valiente a tu Salvador."
+      },
+      {
+        "verse": 2,
+        "text": "Siendo soldado de Jesucristo\nlleva el escudo de fe y amor,\ntoma el apresto del evangelio\nque vá contigo tu Salvador."
+      },
+      {
+        "verse": 3,
+        "text": "Si estás triste y agobiado,\npon tu mirada en el Señor,\na consolarte viene a tu amparo\nlo ha prometido tu Salvador."
+      }
+    ]
+  },
   "540": {
     "title": "SIGUIENDO YO A CRISTO",
     "number": 540,
@@ -1805,6 +3787,72 @@
       }
     ]
   },
+  "556": {
+    "title": "SUMISION",
+    "number": 556,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "La senda de la cruz,\nme ha acercado a Dios,\naunque por penas ya pasé,\nandando con Jesús, viviendo en la\nluz, su gozo alcanzaré."
+      },
+      {
+        "verse": 0,
+        "text": "No lo que quiera hacer,\nni a dónde quiera ir,\npues ¿quién soy yo, que deba\ndecidir? mi Padre escogerá,\nla senda que es mejor,\ny así feliz, yo puedo ir."
+      },
+      {
+        "verse": 2,
+        "text": "Sufriendo por Jesús,\nhablando de su amor\nllevando por doquier su voluntad,\nno temo ya morir,\npor mí murió Jesús,\nya salvo soy iré con El."
+      },
+      {
+        "verse": 3,
+        "text": "Las penas y el dolor, llevarlas con\namor, para alcanzar corona allá,\nno temeré la cruz, ahí sufrió Jesús,\nmurió por redimirme a mí."
+      }
+    ]
+  },
+  "556-A": {
+    "title": "SAGRADO ES EL AMOR",
+    "number": "556-A",
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Sagrado es el amor, que nos ha\nunido aquí, a los que creemos del\nSeñor, la voz que llama así."
+      },
+      {
+        "verse": 2,
+        "text": "A nuestro Padre Dios, rogamos\ncon fervor, alumbremos la misma\nluz, nos una el mismo amor."
+      },
+      {
+        "verse": 3,
+        "text": "Nos vamos a ausentar, mas nuestra\nfirme unión, jamás podráse\nquebrantar por la separación."
+      },
+      {
+        "verse": 4,
+        "text": "Un día en la eternidad nos hemos\nde reunir, que Dios nos lo conceda,\nhará el férvido pedir."
+      }
+    ]
+  },
+  "557": {
+    "title": "TE ESTA LLAMANDO",
+    "number": 557,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Jesús mi vida compró y le pertenece\nal cielo con El me voy,\ncuando regrese,\nyo sé que Cristo me está esperando\ntambién a tí te está llamando;\n//no dejes escapar la oportunidad\nmira que mañana tarde será//"
+      },
+      {
+        "verse": 0,
+        "text": "Te está llamando el Salvador,\nte está llamando a tí pecador,\n//pues no quiere verte,\nen la perdición\nantes quiere darte la Salvación//"
+      },
+      {
+        "verse": 2,
+        "text": "Que salvo he sido yo,\nno tengo duda,\nsu Espíritu de poder,\nen mi perdura,\npara que dejes la perdición;\ntú necesitas al Salvador,\n//piensa que tu vida debe cambiar\npara que en la gloria puedas\nmorar//"
+      },
+      {
+        "verse": 3,
+        "text": "Los libros El abrirá, el día\ndel juicio,\ny a tí no te encontrará,\npor tu capricho,\nno hagas duro tu corazón;\nven a las plantas del Salvador,\n//el que no lo hecho hágalo ya\nporque en la otra vida no se\npodrá//"
+      }
+    ]
+  },
   "558": {
     "title": "TE DOY GRACIAS",
     "number": 558,
@@ -1880,6 +3928,94 @@
       {
         "verse": 4,
         "text": "Todo a Cristo he rendido\nsiento el fuego de su amor;\noh, qué gozo hay en mi alma,\nigloria, gloria a mi Señor!"
+      }
+    ]
+  },
+  "573": {
+    "title": "TODO ES POSIBLE",
+    "number": 573,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Si en pruebas y en dolor,\nte encuentras desmayar, habrá en\ntu pobre ser, mil dudas y pesar,\nsólo Dios, podrá cambiar tu ser,\nsi tan sólo tienes fe, cree en El."
+      },
+      {
+        "verse": 0,
+        "text": "//Todo es posible si puedes creer//\nfe mueve la mano de Dios,\nfe en su Palabra viva\ntodo es posible si puedes creer."
+      },
+      {
+        "verse": 2,
+        "text": "Cristo el Señor Jesús te invita a\ngozar de plena gracia y luz,\nde todo bienestar,\nsólo El, podrá cambiar tu ser,\nsi tan sólo tienes fe cree en El."
+      }
+    ]
+  },
+  "574": {
+    "title": "TODO POR CAUSA DE MI",
+    "number": 574,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "En una cruz fué clavado,\ny todo el mundo se rió,\nal contemplarlo sangrado,\nel inocente de Dios."
+      },
+      {
+        "verse": 0,
+        "text": "Cómo sufrió mi Jesús, todo por\ncausa de mí, pobrezas, dolores y\nmuerte y todo por causa de mí."
+      },
+      {
+        "verse": 2,
+        "text": "Le dieron de bofetadas,\nle escupieron en el rostro\nle atravesaron su costado,\ntodo por causa de mí."
+      },
+      {
+        "verse": 3,
+        "text": "Dios de los cielos no quiso,\nya contemplarlo en la cruz,\npues era su único Hijo\ny sentía su dolor."
+      },
+      {
+        "verse": 4,
+        "text": "Pero su madre María,\nle contemplaba de cerca,\ncon lágrimas en sus ojos\nella lo amaba también."
+      }
+    ]
+  },
+  "575": {
+    "title": "TOMADO DE LA MANO",
+    "number": 575,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "//Si Jesús te dice amigo,\ndeja todo y ven conmigo,\nyo mi mano pongo en la suya,\nme voy con El//"
+      },
+      {
+        "verse": 0,
+        "text": "Tomado de la mano con El,\nyo voy,\ntomado de la mano con El,\nyo voy,\ntomado de la mano con El,\nyo voy, por donde El vá."
+      },
+      {
+        "verse": 2,
+        "text": "//Yo te llevo dice amigo,\na un lugar un reino conmigo,\ndonde todo es más alegre,\ny más feliz//"
+      }
+    ]
+  },
+  "576": {
+    "title": "TRABAJAD POR EL MAESTRO",
+    "number": 576,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Trabajad por los perdidos,\nsin interés personal,\nes labor de redimidos\nque Dios nunca olvidará."
+      },
+      {
+        "verse": 0,
+        "text": "///Trabajar por el Señor///,\nlo siento en mi corazón."
+      },
+      {
+        "verse": 2,
+        "text": "Quieres tener esa dicha,\nde en los cielos cosechar,\nsiembra para los perdidos,\nque tú nada perderás."
+      },
+      {
+        "verse": 3,
+        "text": "Si con lágrimas tú siembras,\ncon alegría segarás,\npues Dios es el que recompensa\nal que obra con lealtad."
+      },
+      {
+        "verse": 4,
+        "text": "Siembra sobre todas aguas\nla simiente de verdad,\nque después de mucho tiempo,\nen los cielos segarás."
       }
     ]
   },
@@ -2020,6 +4156,50 @@
       {
         "verse": 4,
         "text": "iOh! ven a Jesús, infeliz pecador,\nno vagues a ciegas ya más;\nsí, ven a Jesús, nuestro gran Salvador,\npues en El salvación hallarás."
+      }
+    ]
+  },
+  "631": {
+    "title": "YO SE QUE CRISTO VENDRA",
+    "number": 631,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Yo sé que Cristo vendrá\na sus santos lo prometió,\ncuando o cómo será\nyo no lo sé, El se mostrará\npero el día en que vendrá\nmi corazón saltará,\nmis días de pesar se irán\ngloria daré por la eternidad."
+      },
+      {
+        "verse": 0,
+        "text": "Mi corazón... alabará\na mi Señor y Dios el Rey de amor\nen tierra de paz yo entenderé\nque a su pueblo salvó y aunque\naquí sufrió pero en vano no fué."
+      },
+      {
+        "verse": 2,
+        "text": "En mi jornada hacia allá\nlas densas nube vendrán,\na mi alma perseguirán\ncon gran dolor y afán,\npero una cosa diré\nque no muy lejos está\nel día glorioso en que Dios,\nmis penas mil El llevará."
+      },
+      {
+        "verse": 3,
+        "text": "Día tras día en el mal\nel mundo duerme aquí,\ndejando siempre pasar\nlo que Jesús predicó,\npero a los hijos de Dios\nesto es poder sin igual,\nsiendo de júbilo y paz\nglorioso Edén lugar celestial."
+      },
+      {
+        "verse": 4,
+        "text": "Qué extraño esto es para mí,\nque por llevar yo la cruz\nsatán quisiera acabar\ny destruir lo que hizo Jesús;\npero en el día de Dios,\nlo que él sembró, eso tendrá,\ncuando el Arcángel de Dios,\nal fuego eterno lo lanzará."
+      }
+    ]
+  },
+  "632": {
+    "title": "YO SOLO ESPERO ESE DIA",
+    "number": 632,
+    "lyrics": [
+      {
+        "verse": 1,
+        "text": "Yo sólo espero ese día,\ncuando Cristo volverá\nyo sólo espero ese día,\ncuando Cristo volverá\nafán y todo trabajo,\npara mí terminarán,\ncuando Cristo venga,\na su reino me llevará."
+      },
+      {
+        "verse": 2,
+        "text": "Ya no importa,\nque el mundo me desprecie,\npor doquier,\nya no soy más de este mundo,\nsoy del reino celestial;\nyo sólo espero ese día,\ncuando me levantaré,\nde la tumba fría,\ncon un cuerpo ya inmortal."
+      },
+      {
+        "verse": 3,
+        "text": "Entonces allí triunfante\ny victorioso estaré,\na mi Señor Jesucristo\ncara a cara le veré;\nallí no habrá más tristezas\nni trabajos para mí,\ncon los redimidos al Cordero\nalabaré."
       }
     ]
   }

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "alabamas",
+    "name": "Alabama+",
     "slug": "alabamas",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#004aad"
     },
     "fonts": [
       {
@@ -45,7 +45,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.casper088.alabamas"
     },
     "web": {
       "bundler": "metro",
