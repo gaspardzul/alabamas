@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme, Share, Modal } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme, Share, Modal, Alert } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import HeaderComponent from '@/components/HeaderComponent';
@@ -10,6 +10,7 @@ import useStorage from '@/hooks/useStorage';
 import { Himno, Lista } from '@/ts/interfaces';
 import { Colors } from '@/constants/Colors';
 import { useSettings } from '@/hooks/useSettings';
+import { generateHimnoHTML, generateAndSharePDF } from '@/utils/pdfGenerator';
 
 
 interface Verso {
@@ -141,12 +142,14 @@ const HimnoDetail: React.FC = () => {
   const compartirHimno = async () => {
     if (!himno) return;
     
-    // Formatear el contenido del himno
-    let contenido = `${himno.number}. ${himno.title}\n\n`;
-    
+    let contenido = `${himno.title}\n\n`;
     himno.lyrics?.forEach((verso) => {
-      contenido += `${verso.verse === 0 ? 'Coro' : `Verso ${verso.verse}`}\n`;
-      contenido += `${verso.text}\n`;
+      if (verso.verse === 0) {
+        contenido += 'Coro:\n';
+      } else {
+        contenido += `Verso ${verso.verse}:\n`;
+      }
+      contenido += verso.text + '\n';
       if (verso.repeat) {
         contenido += `(Repetir ${verso.repeat} veces)\n`;
       }
@@ -160,6 +163,24 @@ const HimnoDetail: React.FC = () => {
       });
     } catch (error) {
       console.error('Error al compartir:', error);
+    }
+  };
+
+  const compartirHimnoPDF = async () => {
+    if (!himno || !himno.lyrics) return;
+
+    try {
+      const himnoData = {
+        title: himno.title || '',
+        number: himno.number || 0,
+        lyrics: himno.lyrics
+      };
+      
+      const html = generateHimnoHTML(himnoData, fontSize);
+      await generateAndSharePDF(html, `${himno.title}.pdf`);
+    } catch (error) {
+      Alert.alert('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
+      console.error(error);
     }
   };
 
@@ -184,6 +205,9 @@ const HimnoDetail: React.FC = () => {
         <View style={styles.rightButtons}>
           <TouchableOpacity onPress={compartirHimno} style={styles.iconButton}>
             <Ionicons name="share-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={compartirHimnoPDF} style={styles.iconButton}>
+            <Ionicons name="document-text" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setShowListModal(true)} style={styles.iconButton}>
             <Ionicons name="musical-note" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />

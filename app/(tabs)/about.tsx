@@ -6,8 +6,6 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { tintColorBlue } from '@/constants/Colors';
-import { type IconProps } from '@expo/vector-icons/build/createIconSet';
-import { type ComponentProps } from 'react';
 
 
 export default function SettingsScreen() {
@@ -25,7 +23,7 @@ export default function SettingsScreen() {
         </View>
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title" >Hola!</ThemedText>
+        <ThemedText type="subtitle">PAZ!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
@@ -40,7 +38,7 @@ export default function SettingsScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Apóyanos:</ThemedText>
         <ThemedText>
-          Esta app es totalmente gratuita, sin embargo, su mantenimiento tiene un coste mensual. Si te
+          Esta app es totalmente gratuita, sin embargo, su mantenimiento tiene un costo mensual. Si te
           ha sido de utilidad, considera apoyar su mantenimiento para que podamos agregar nuevas
           funcionalidades y mejorar la experiencia de uso.
         </ThemedText>

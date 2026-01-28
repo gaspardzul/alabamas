@@ -8,6 +8,7 @@ interface ListItemProps {
   title: string;
   subtitle?: string;
   onPress: () => void;
+  onLongPress?: () => void;
   fontSize?: number;
   leftIcon?: {
     name: string;
@@ -23,9 +24,9 @@ interface ListItemProps {
   style?: ViewStyle;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, leftIcon, rightIcon, fontSize=16, style, sizeIcon=20 }) => {
+const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, onLongPress, leftIcon, rightIcon, fontSize=16, style, sizeIcon=20 }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.itemContainer, style]}>
+    <TouchableOpacity onPress={onPress} onLongPress={onLongPress} style={[styles.itemContainer, style]}>
       <View style={styles.textContainer}>
         <ThemedText style={[ { fontSize: fontSize }]}>{title}</ThemedText>
         <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>

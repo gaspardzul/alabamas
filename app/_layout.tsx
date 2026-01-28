@@ -38,6 +38,13 @@ export default function RootLayout() {
             title: route.params?.lista?.name || 'Lista' 
           })} 
         />
+        <Stack.Screen 
+          name="PresentationMode" 
+          options={({route}: {route: {params?: {lista?: {name: string}}}}) => ({ 
+            headerShown: true, 
+            title: route.params?.lista?.name || 'Presentación' 
+          })} 
+        />
       </Stack>
       
     </ThemeProvider>
