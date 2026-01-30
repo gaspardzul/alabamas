@@ -22,6 +22,8 @@
         { "title": "ALLI QUIERO IR, ¿Y TU?", "number": 21, "group": [] },
         { "title": "A SOLAS CON MI CRISTO", "number": 35, "group": ["EVANGELISMO"] },
         { "title": "BENDICIONES GOZARA", "number": 38, "group": [] },
+        { "title": "BAJO DEL OLIVAR", "number": 36, "group": [] },
+        { "title": "BELLAS PALABRAS DE CRISTO", "number": 37, "group": [] },
         { "title": "BENDITO MENSAJE", "number": 39, "group": [] },
         { "title": "ALLA QUIERO ESTAR", "number": 20, "group": ["HIMNOS DE CONSOLACIÓN"] },
         { "title": "ALLI ESTARE", "number": 22, "group": ["HIMNOS DE CONSOLACIÓN"] },
@@ -32,6 +34,7 @@
         { "title": "TU TODO EN EL ALTAR", "number": 27, "group": [] },
         { "title": "ANUNCIA MI EVANGELIO", "number": 30, "group": ["EVANGELISMO"] },
         { "title": "ASÍ ERA MI VIDA", "number": 33, "group": ["BAUTISMOS"] },
+        { "title": "A SOLAS CON JESUS", "number": 34, "group": [] },
         { "title": "BIENVENIDOS", "number": 40, "group": ["BIENVENIDA"] },
         { "title": "BRILLA EN TU LUGAR", "number": 42, "group": ["EVANGELISMO"] },
         { "title": "CADA DIA CON CRISTO", "number": 43, "group": [] },
@@ -179,6 +182,10 @@
         { "title": "TOMADO DE LA MANO", "number": 575, "group": ["LLAMAMIENTO"] },
         { "title": "TRABAJAD POR EL MAESTRO", "number": 576, "group": ["EVANGELISMO"] },
         { "title": "YO SE QUE CRISTO VENDRA", "number": 631, "group": [] },
-        { "title": "YO SOLO ESPERO ESE DIA", "number": 632, "group": [] }
+        { "title": "YO SOLO ESPERO ESE DIA", "number": 632, "group": [] },
+        { "title": "AMO EL NOMBRE", "number": 28, "group": [] },
+        { "title": "AMOR DE DIOS", "number": 29, "group": [] },
+        { "title": "AQUEL SANTO VARON", "number": 31, "group": [] },
+        { "title": "ARREPENTIMIENTO", "number": 32, "group": [] }
     ]
 }
