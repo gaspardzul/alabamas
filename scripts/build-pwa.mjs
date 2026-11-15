@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
  * Genera dist/sw.js después de `expo export --platform web`.
- * Uso: node scripts/build-pwa.mjs [dist]
+ * Uso: WEB_BASE_URL=/alabamas node scripts/build-pwa.mjs [dist]
+ *
+ * WEB_BASE_URL ("" o "/prefijo") debe ser el mismo con el que se hizo el export (app.config.js):
+ * se aplica a los enlaces de index.html, al manifiesto y a las rutas del service worker.
  *
  * Estrategia del service worker:
  *  - Precache: index.html, manifest, íconos y los bundles JS (incluyen todos los himnos).
@@ -15,6 +18,25 @@ import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const dist = process.argv[2] ?? 'dist';
+const base = (process.env.WEB_BASE_URL ?? '').replace(/\/+$/, ''); // "" o "/alabamas"
+
+// index.html y manifiesto vienen de public/ con rutas absolutas a la raíz; prefijarlas.
+if (base) {
+  const htmlPath = join(dist, 'index.html');
+  let html = readFileSync(htmlPath, 'utf8');
+  html = html
+    .replace('href="/manifest.webmanifest"', `href="${base}/manifest.webmanifest"`)
+    .replaceAll('href="/icons/', `href="${base}/icons/`)
+    .replace("register('/sw.js')", `register('${base}/sw.js', { scope: '${base}/' })`);
+  writeFileSync(htmlPath, html);
+
+  const manifestPath = join(dist, 'manifest.webmanifest');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  manifest.start_url = `${base}/`;
+  manifest.scope = `${base}/`;
+  manifest.icons = manifest.icons.map((icon) => ({ ...icon, src: base + icon.src }));
+  writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+}
 
 const walk = (dir) =>
   readdirSync(dir).flatMap((name) => {
@@ -23,25 +45,25 @@ const walk = (dir) =>
   });
 
 const files = walk(dist).map((f) => '/' + relative(dist, f).split('\\').join('/'));
-const precache = [
-  '/',
+const precacheFiles = [
   '/index.html',
   '/manifest.webmanifest',
   ...files.filter((f) => f.startsWith('/icons/')),
   ...files.filter((f) => f.startsWith('/_expo/static/') && /\.(js|css)$/.test(f)),
 ];
+const precache = [`${base}/`, ...precacheFiles.map((f) => base + f)];
 
 // La versión cambia cuando cambia cualquier archivo precacheado → el SW se actualiza.
 const hash = createHash('sha256');
-for (const f of precache) {
-  if (f === '/') continue;
-  hash.update(f);
+for (const f of precacheFiles) {
+  hash.update(base + f);
   hash.update(readFileSync(join(dist, f)));
 }
 const version = hash.digest('hex').slice(0, 12);
 
 const sw = `// Generado por scripts/build-pwa.mjs — no editar a mano.
 const VERSION = '${version}';
+const BASE = '${base}';
 const CACHE = 'alaba-' + VERSION;
 const PRECACHE = ${JSON.stringify(precache, null, 2)};
 
@@ -70,16 +92,16 @@ self.addEventListener('fetch', (event) => {
       fetch(request)
         .then((response) => {
           const copy = response.clone();
-          caches.open(CACHE).then((cache) => cache.put('/index.html', copy));
+          caches.open(CACHE).then((cache) => cache.put(BASE + '/index.html', copy));
           return response;
         })
-        .catch(() => caches.match('/index.html'))
+        .catch(() => caches.match(BASE + '/index.html'))
     );
     return;
   }
 
   // Archivos con hash: caché primero, guardar al primer uso.
-  if (url.pathname.startsWith('/_expo/') || url.pathname.startsWith('/assets/')) {
+  if (url.pathname.startsWith(BASE + '/_expo/') || url.pathname.startsWith(BASE + '/assets/')) {
     event.respondWith(
       caches.match(request).then(
         (cached) =>
@@ -120,4 +142,4 @@ writeFileSync(join(dist, 'sw.js'), sw);
 // profundas como /bible, y evitar que Jekyll ignore las carpetas que empiezan con "_" (_expo).
 writeFileSync(join(dist, '404.html'), readFileSync(join(dist, 'index.html')));
 writeFileSync(join(dist, '.nojekyll'), '');
-console.log(`sw.js generado (versión ${version}, ${precache.length} archivos precacheados)`);
+console.log(`sw.js generado (versión ${version}, base "${base || '/'}", ${precache.length} archivos precacheados)`);

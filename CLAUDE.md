@@ -19,7 +19,8 @@ npx tsc --noEmit            # type-check (strict mode)
 
 npm run build:web           # PWA build: expo export --platform web + scripts/build-pwa.mjs (generates dist/sw.js)
 npm run preview:web         # build and serve dist/ locally (SPA fallback)
-# Every push to main deploys the PWA to GitHub Pages at https://alabamas.org (.github/workflows/deploy-web.yml).
+# Every push to main deploys the PWA to GitHub Pages (.github/workflows/deploy-web.yml). WEB_BASE_URL ("" or "/alabamas") sets the
+# web path prefix via app.config.js + scripts/build-pwa.mjs. In CI it comes from configure-pages: "/alabamas" on gaspardzul.github.io, "" with the custom domain alabamas.org.
 # .npmrc sets legacy-peer-deps=true so `npm ci` works in CI and EAS.
 
 npm run update              # publish OTA update: eas update --branch main

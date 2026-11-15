@@ -24,10 +24,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # base_path es "/alabamas" en gaspardzul.github.io/alabamas y "" con dominio propio.
+      - id: pages
+        uses: actions/configure-pages@v5
       # Exporta la web y genera sw.js, 404.html y .nojekyll (scripts/build-pwa.mjs).
-      # public/CNAME (alabamas.org) se copia a dist/ en el export.
       - run: npm run build:web
-      - uses: actions/configure-pages@v5
+        env:
+          WEB_BASE_URL: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
