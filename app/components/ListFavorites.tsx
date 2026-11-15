@@ -15,6 +15,7 @@ import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem, { toTitleCase } from '@/components/ListItem';
 import { useSettings } from '@/hooks/useSettings';
+import type { HymnNumber } from '@/utils/hymnNumber';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListFavorites: React.FC = () => {
@@ -56,7 +57,7 @@ const ListFavorites: React.FC = () => {
     filtrarHimnos();
   }, [busqueda, favorites]);
 
-  const toggleFavorito = (number: number) => {
+  const toggleFavorito = (number: HymnNumber) => {
     removeFavorite(number);
   };
 

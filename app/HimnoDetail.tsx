@@ -16,6 +16,7 @@ import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { useSettings } from '@/hooks/useSettings';
 import { generateHimnoHTML, generateAndSharePDF } from '@/utils/pdfGenerator';
+import { sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
 
 interface Verso {
@@ -26,7 +27,7 @@ interface Verso {
 
 interface HimnoDetalle {
   title?: string;
-  number?: number;
+  number?: HymnNumber;
   lyrics?: Verso[];
 }
 
@@ -114,13 +115,13 @@ const HimnoDetail: React.FC = () => {
 
   const checkFavoriteStatus = async (numberHimno: string) => {
     const favs = await getFavorites();
-    setIsFavorite(favs.some((fav: Himno) => fav.number === parseInt(numberHimno)));
+    setIsFavorite(favs.some((fav: Himno) => sameHymn(fav.number, numberHimno)));
   };
 
   const toggleFavorite = async () => {
     if (himno) {
       if (isFavorite) {
-        removeFavorite(himno.number as number);
+        removeFavorite(himno.number as HymnNumber);
       } else {
         addFavorite(himno as unknown as Himno);
       }
@@ -197,7 +198,7 @@ const HimnoDetail: React.FC = () => {
     );
   }
 
-  const grupos = toArray(himnario.lista.find((h) => h.number === himno.number)?.group);
+  const grupos = toArray(himnario.lista.find((h) => sameHymn(h.number, himno.number))?.group);
   let estrofa = 0;
 
   return (

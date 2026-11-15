@@ -22,7 +22,7 @@ interface Verso {
 
 interface Himno {
   title: string;
-  number: number;
+  number: number | string;
   lyrics: Verso[];
 }
 

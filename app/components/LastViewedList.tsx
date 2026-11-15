@@ -5,7 +5,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { useVisitedItems } from '@/hooks/useLastViews';
 
 interface LastView {
-  number: number;
+  number: number | string;
   title: string;
 }
 

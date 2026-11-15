@@ -33,6 +33,7 @@ OTA updates use `runtimeVersion.policy: appVersion`, so bump `version` in `app.j
 - `assets/himnos/lista.json` — `{ lista: [{ title, number, group: string[] }] }`, the index used for browsing/search and category grouping (`group` drives the categories on the home tab). Titles are stored UPPERCASE and shown via `toTitleCase` (`components/ListItem.tsx`); at least one entry has `group` as a plain string, so normalize with `toArray`.
 - `assets/himnos/allHimnos.json` — object keyed by hymn number as a string → `{ title, number, lyrics: [{ verse, text, repeat? }] }`. `verse: 0` is the chorus (coro).
 - Adding a hymn requires updating **both** files with the same `number`.
+- `number` is an integer (35) or a string for variants (`"35-A"`, `"214-B"`, which are also the `allHimnos` keys). Never do arithmetic or `parseInt` on it: use `utils/hymnNumber.ts` (`compareHymnNumbers`, `hymnBase`, `sameHymn`, `formatHymnNumber`).
 
 **Routing** (`app/`): expo-router file routes, but screens are navigated mostly with `useNavigation().navigate(...)`, with params typed in `ts/types.ts` (`RootStackParamList`).
 - **Import `useNavigation`, `useRoute`, `useFocusEffect`, `ThemeProvider`/`DarkTheme`/`DefaultTheme` from `expo-router`, never from `@react-navigation/native`.** expo-router (SDK 55+) bundles its own copy of React Navigation, so the `@react-navigation/*` hooks throw "Couldn't find a navigation object". Only `import type` (`RouteProp`, `StackNavigationProp`) from `@react-navigation/*` is safe.

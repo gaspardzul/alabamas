@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Himno } from '@/ts/interfaces';
 import { useSettings } from './useSettings';
+import { compareHymnNumbers, sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
 const useStorage = (key: string) => {
   const [favorites, setFavorites] = useState<Himno[]>([]);
@@ -31,11 +32,11 @@ const useStorage = (key: string) => {
     let sortedFavorites = [...favorites];
     switch (option) {
       case 'numAsc':
-        sortedFavorites = sortedFavorites.sort((a, b) => a.number - b.number);
+        sortedFavorites = sortedFavorites.sort((a, b) => compareHymnNumbers(a.number, b.number));
         setFavorites(sortedFavorites);
         break;
       case 'numDesc':
-        sortedFavorites = sortedFavorites.sort((a, b) => b.number - a.number);
+        sortedFavorites = sortedFavorites.sort((a, b) => compareHymnNumbers(b.number, a.number));
         setFavorites(sortedFavorites);
         break;
       case 'asc':
@@ -53,11 +54,11 @@ const useStorage = (key: string) => {
     let sortedFavorites = [..._favorites];
     switch (option) {
       case 'numAsc':
-        sortedFavorites = sortedFavorites.sort((a, b) => a.number - b.number);
+        sortedFavorites = sortedFavorites.sort((a, b) => compareHymnNumbers(a.number, b.number));
         return sortedFavorites;
         break;
       case 'numDesc':
-        sortedFavorites = sortedFavorites.sort((a, b) => b.number - a.number);
+        sortedFavorites = sortedFavorites.sort((a, b) => compareHymnNumbers(b.number, a.number));
         return sortedFavorites;
         break;
       case 'asc':
@@ -115,9 +116,9 @@ const useStorage = (key: string) => {
     }
   };
 
-  const removeFavorite = async (number: number) => {
+  const removeFavorite = async (number: HymnNumber) => {
     try {
-      const updatedFavorites = favorites.filter(item => item.number !== number);
+      const updatedFavorites = favorites.filter(item => !sameHymn(item.number, number));
       setFavorites(updatedFavorites);
       await AsyncStorage.setItem(key, JSON.stringify(updatedFavorites));
     } catch (error) {

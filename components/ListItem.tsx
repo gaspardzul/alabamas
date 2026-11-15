@@ -5,6 +5,7 @@ import Chip from '@/components/Chip';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
+import { formatHymnNumber } from '@/utils/hymnNumber';
 
 interface IconAction {
   name: string;
@@ -60,7 +61,7 @@ const ListItem: React.FC<ListItemProps> = ({
       {number !== undefined ? (
         <View style={[styles.leading, { backgroundColor: theme.numberBox }]}>
           <Text style={[styles.number, { color: theme.primary }]} numberOfLines={1} adjustsFontSizeToFit>
-            {String(number).padStart(3, '0')}
+            {formatHymnNumber(number)}
           </Text>
         </View>
       ) : leadingIcon ? (

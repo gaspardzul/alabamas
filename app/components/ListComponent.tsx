@@ -15,6 +15,7 @@ import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem, { toTitleCase } from '@/components/ListItem';
 import { useSettings } from '@/hooks/useSettings';
+import { compareHymnNumbers, hymnBase, HymnNumber } from '@/utils/hymnNumber';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
@@ -54,10 +55,10 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
       
       switch (order) {
         case 'numAsc':
-          himnosOrdenados.sort((a, b) => a.number - b.number);
+          himnosOrdenados.sort((a, b) => compareHymnNumbers(a.number, b.number));
           break;
         case 'numDesc':
-          himnosOrdenados.sort((a, b) => b.number - a.number);
+          himnosOrdenados.sort((a, b) => compareHymnNumbers(b.number, a.number));
           break;
         case 'asc':
           himnosOrdenados.sort((a, b) => a.title.localeCompare(b.title));
@@ -99,10 +100,10 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
       
       switch (order) {
         case 'numAsc':
-          himnosOrdenados.sort((a, b) => a.number - b.number);
+          himnosOrdenados.sort((a, b) => compareHymnNumbers(a.number, b.number));
           break;
         case 'numDesc':
-          himnosOrdenados.sort((a, b) => b.number - a.number);
+          himnosOrdenados.sort((a, b) => compareHymnNumbers(b.number, a.number));
           break;
         case 'asc':
           himnosOrdenados.sort((a, b) => a.title.localeCompare(b.title));
@@ -115,7 +116,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
       const secciones = himnosOrdenados.reduce((acc, himno) => {
         let seccionTitle;
         if (order === 'numAsc' || order === 'numDesc') {
-          seccionTitle = `${Math.floor(himno.number / 10) * 10} - ${Math.floor(himno.number / 10) * 10 + 9}`;
+          seccionTitle = `${Math.floor(hymnBase(himno.number) / 10) * 10} - ${Math.floor(hymnBase(himno.number) / 10) * 10 + 9}`;
         } else {
           seccionTitle = himno.title[0].toUpperCase();
         }
@@ -156,11 +157,11 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
     updateSettingValue('order', option as 'asc' | 'desc' | 'numAsc' | 'numDesc');
     switch (option) {
       case 'numAsc':
-        _himnosFiltrados = _himnosFiltrados.sort((a, b) => a.number - b.number);
+        _himnosFiltrados = _himnosFiltrados.sort((a, b) => compareHymnNumbers(a.number, b.number));
         setHimnosFiltrados(_himnosFiltrados);
         break;
       case 'numDesc':
-        _himnosFiltrados = [...himnosFiltrados].sort((a, b) => b.number - a.number);
+        _himnosFiltrados = [...himnosFiltrados].sort((a, b) => compareHymnNumbers(b.number, a.number));
         setHimnosFiltrados(_himnosFiltrados);
         break;
       case 'asc':
@@ -194,7 +195,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
     }
   }, [category]);
 
-  const toggleFavorito = (number: number) => {
+  const toggleFavorito = (number: HymnNumber) => {
     const himno = himnos.find(h => h.number === number);
     if (himno) {
       const favoritoExistente = favorites.find(fav => fav.number === himno.number);

@@ -1,7 +1,7 @@
 interface Himno {
     title: string;
-    number: number;
-    group?: string[];
+    number: number | string; // 35 o "35-A" (ver utils/hymnNumber.ts)
+    group?: string[] | string;
     isFavorite?: boolean;
   }
 
