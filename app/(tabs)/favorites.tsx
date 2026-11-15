@@ -1,33 +1,17 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import {
-  FlatList,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import ListFavorites from '../components/ListFavorites';
+import { useTheme } from '@/hooks/useThemeColor';
 
 export default function FavoriteScreen() {
+  const theme = useTheme();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <ListFavorites />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    fontSize: 32,
-  },
+  container: { flex: 1 },
 });

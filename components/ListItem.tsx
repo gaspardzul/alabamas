@@ -1,8 +1,16 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet, View, ViewStyle } from 'react-native';
+import React, { ReactNode } from 'react';
+import { TouchableOpacity, StyleSheet, View, ViewStyle, Text } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import Chip from '@/components/Chip';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
+
+interface IconAction {
+  name: string;
+  color?: string;
+  onPress: () => void;
+}
 
 interface ListItemProps {
   title: string;
@@ -10,77 +18,148 @@ interface ListItemProps {
   onPress: () => void;
   onLongPress?: () => void;
   fontSize?: number;
-  leftIcon?: {
-    name: string;
-    color: string;
-    onPress: () => void;
-  };
+  /** Número del himno: se muestra en una caja a la izquierda. */
+  number?: number | string;
+  /** Icono a la izquierda cuando no hay número (p. ej. listas). */
+  leadingIcon?: string;
+  /** Etiquetas (categorías) debajo del título. */
+  tags?: string[] | string;
+  leftIcon?: IconAction;
+  rightIcon?: IconAction;
   sizeIcon?: number;
-  rightIcon?: {
-    name: string;
-    color: string;
-    onPress: () => void;
-  };
   style?: ViewStyle;
+  children?: ReactNode;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ title, subtitle, onPress, onLongPress, leftIcon, rightIcon, fontSize=16, style, sizeIcon=20 }) => {
+/** Tarjeta de fila: superficie blanca con borde fino, número en caja y título serif. */
+const ListItem: React.FC<ListItemProps> = ({
+  title,
+  subtitle,
+  onPress,
+  onLongPress,
+  leftIcon,
+  rightIcon,
+  fontSize = 17,
+  number,
+  leadingIcon,
+  tags,
+  style,
+  sizeIcon = 22,
+}) => {
+  const theme = useTheme();
+  const titleSize = Math.min(Math.max(fontSize, 15), 24);
+  const tagList = toArray(tags);
+
   return (
-    <TouchableOpacity onPress={onPress} onLongPress={onLongPress} style={[styles.itemContainer, style]}>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      onPress={onPress}
+      onLongPress={onLongPress}
+      style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }, style]}
+    >
+      {number !== undefined ? (
+        <View style={[styles.leading, { backgroundColor: theme.numberBox }]}>
+          <Text style={[styles.number, { color: theme.primary }]} numberOfLines={1} adjustsFontSizeToFit>
+            {String(number).padStart(3, '0')}
+          </Text>
+        </View>
+      ) : leadingIcon ? (
+        <View style={[styles.leading, { backgroundColor: theme.numberBox }]}>
+          <Ionicons name={leadingIcon as any} size={22} color={theme.secondary} />
+        </View>
+      ) : null}
+
       <View style={styles.textContainer}>
-        <ThemedText style={[ { fontSize: fontSize }]}>{title}</ThemedText>
-        <ThemedText style={styles.itemSubtitle}>{subtitle}</ThemedText>
+        <ThemedText
+          numberOfLines={2}
+          style={[styles.title, { fontSize: titleSize, lineHeight: titleSize * 1.35 }]}
+        >
+          {title}
+        </ThemedText>
+        {subtitle ? (
+          <ThemedText type="caption" numberOfLines={1}>
+            {subtitle}
+          </ThemedText>
+        ) : null}
+        {tagList.length > 0 ? (
+          <View style={styles.tags}>
+            {tagList.slice(0, 2).map((tag) => (
+              <Chip key={tag} label={toTitleCase(tag)} />
+            ))}
+          </View>
+        ) : null}
       </View>
+
       {leftIcon && (
-        <TouchableOpacity onPress={leftIcon.onPress} style={styles.iconButton}>
-          <Ionicons 
-            name={leftIcon.name as any}
-            size={sizeIcon} 
-            color={leftIcon.color} 
-          />
+        <TouchableOpacity onPress={leftIcon.onPress} style={styles.iconButton} hitSlop={8}>
+          <Ionicons name={leftIcon.name as any} size={sizeIcon} color={leftIcon.color ?? theme.icon} />
         </TouchableOpacity>
       )}
       {rightIcon && (
-        <TouchableOpacity onPress={rightIcon.onPress} style={styles.iconButton}>
-          <Ionicons 
-            name={rightIcon.name as any}
-            size={sizeIcon} 
-            color={rightIcon.color} 
-          />
+        <TouchableOpacity onPress={rightIcon.onPress} style={styles.iconButton} hitSlop={8}>
+          <Ionicons name={rightIcon.name as any} size={sizeIcon} color={rightIcon.color ?? theme.icon} />
         </TouchableOpacity>
       )}
     </TouchableOpacity>
   );
 };
 
+/** Algunos himnos traen `group` como texto en vez de arreglo. */
+export const toArray = (value?: string[] | string): string[] =>
+  Array.isArray(value) ? value : value ? [value] : [];
+
+const MINOR_WORDS = new Set(['de', 'del', 'la', 'las', 'el', 'los', 'y', 'a', 'en', 'al', 'por', 'con']);
+
+export const toTitleCase = (text: string) =>
+  text
+    .toLowerCase()
+    .split(' ')
+    .map((word, i) =>
+      i > 0 && MINOR_WORDS.has(word) ? word : word.charAt(0).toUpperCase() + word.slice(1)
+    )
+    .join(' ');
+
 const styles = StyleSheet.create({
-  itemContainer: {
+  card: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    gap: 14,
+    paddingVertical: 14,
+    paddingHorizontal: Spacing.md,
+    marginHorizontal: Spacing.gutter,
+    marginBottom: 10,
+    borderRadius: Radius.md,
+    borderWidth: 1,
   },
-  iconContainer: {
-    marginRight: 12,
+  leading: {
+    width: 52,
+    height: 52,
+    borderRadius: Radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 4,
+  },
+  number: {
+    fontFamily: Fonts.serifBold,
+    fontSize: 17,
   },
   textContainer: {
     flex: 1,
+    gap: 4,
   },
-  itemTitle: {
-    fontSize: 16,
-    fontWeight: 'normal',
-    color: '#333',
+  title: {
+    fontFamily: Fonts.serif,
   },
-  itemSubtitle: {
-    fontSize: 14,
-    paddingTop: 0,
-    margin:0,
-    color: '#888',
+  tags: {
+    flexDirection: 'row',
+    gap: 6,
+    flexWrap: 'wrap',
   },
   iconButton: {
-    padding: 4,
+    width: 36,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

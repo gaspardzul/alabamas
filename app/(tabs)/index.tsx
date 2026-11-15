@@ -1,200 +1,184 @@
 import { useMemo } from 'react';
-import { Image, StyleSheet, Platform, View, Text, TouchableOpacity } from 'react-native';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ScrollView, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
-import { LinearGradient } from 'expo-linear-gradient';
-import himnosData from '@/assets/himnos/lista.json'
-import { tintColorBlue } from '@/constants/Colors';
+import ScreenHeader from '@/components/ScreenHeader';
+import { toTitleCase } from '@/components/ListItem';
+import himnosData from '@/assets/himnos/lista.json';
 import { useRouter } from 'expo-router';
-
-const gradientCombinations = [
-  ['#00E2E0', '#00A9F2'],  // Turquesa brillante a azul
-  ['#00A9F2', '#172D9D'],  // Azul a azul marino
-  ['#172D9D', '#787CFE'],  // Azul marino a violeta
-  ['#787CFE', '#48BED9'],  // Violeta a azul claro
-  ['#48BED9', '#00E2E0'],  // Azul claro a turquesa
-  ['#00A9F2', '#48BED9'],  // Azul a azul claro
-  ['#172D9D', '#00A9F2'],  // Azul marino a azul
-  ['#787CFE', '#00E2E0'],  // Violeta a turquesa
-];
-// Función para obtener un índice consistente basado en el nombre de la categoría
-const getConsistentColorIndex = (categoria: string) => {
-  let hash = 0;
-  for (let i = 0; i < categoria.length; i++) {
-    hash = categoria.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  return Math.abs(hash) % gradientCombinations.length;
-};
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 export default function HomeScreen() {
   const totalAlabanzas = himnosData.lista.length;
   const router = useRouter();
-
+  const theme = useTheme();
 
   const categorias = useMemo(() => {
-    // Primero, recolectamos todas las categorías únicas y sus conteos
     const grupos = himnosData.lista.reduce((acc, himno) => {
       if (Array.isArray(himno.group)) {
-        // Usamos Set para asegurarnos de que no procesamos categorías duplicadas por himno
-        const categoriasUnicas = new Set(himno.group);
-        categoriasUnicas.forEach(categoria => {
-          if (!acc[categoria]) {
-            const colorIndex = getConsistentColorIndex(categoria);
-            acc[categoria] = {
-              id: `cat_${categoria.replace(/\s+/g, '_')}_${performance.now()}`, // Usando performance.now() para más precisión
-              count: 0,
-              colors: gradientCombinations[colorIndex]
-            };
-          }
-          acc[categoria].count++;
+        // Set evita contar dos veces una categoría repetida en el mismo himno
+        new Set(himno.group).forEach((categoria) => {
+          acc[categoria] = (acc[categoria] ?? 0) + 1;
         });
       }
       return acc;
-    }, {} as Record<string, { id: string; count: number; colors: string[] }>);
+    }, {} as Record<string, number>);
 
     return Object.entries(grupos);
   }, []);
 
   const navegarAAlabanzas = (category: string) => {
-    console.log(category);
     router.push({
       pathname: '/(tabs)/explore',
-      params: { category }
+      params: { category },
     });
   };
 
-
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: tintColorBlue, dark: '#1E1E1E' }}
-      headerImage={
-        <View style={styles.headerContainer}>
-          <Image
-            source={require('@/assets/images/pigeon.png')}
-            style={styles.reactLogo}
-            resizeMode="contain"
-          />
-          <ThemedText type="title" style={styles.titleHeader}>Alaba+</ThemedText>
+    <ScrollView
+      style={{ backgroundColor: theme.background }}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
+    >
+      <ScreenHeader eyebrow="Himnario" title="Alaba+" />
+
+      <View style={styles.body}>
+        <View style={[styles.verseCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <View style={[styles.verseBadge, { backgroundColor: theme.chip }]}>
+            <ThemedText type="label" style={{ color: theme.tertiary }}>
+              Versículo
+            </ThemedText>
+          </View>
+          <ThemedText style={[styles.verseText, { color: theme.text }]}>
+            «Venid, aclamemos alegremente a Jehová; cantemos con júbilo a la roca de nuestra salvación.»
+          </ThemedText>
+          <View style={styles.citation}>
+            <ThemedText type="link">Salmo 95:1</ThemedText>
+            <ThemedText type="caption">RVR1960</ThemedText>
+          </View>
         </View>
-      }>
-      <View style={styles.centeredTextContainer}>
-        <ThemedText type="title" style={{textAlign: 'center'}}>HIMNARIO</ThemedText>
-        <ThemedText style={styles.centeredText}>Salmo 95:1</ThemedText>
-        <ThemedText style={styles.totalAlabanzas}>Total de alabanzas: {totalAlabanzas}</ThemedText>
-      </View>
-      <View style={styles.grid}>
-        {categorias.map(([categoria, { id, count, colors }]) => (
-          <TouchableOpacity 
-            key={id}
-            onPress={() => navegarAAlabanzas(categoria)}
-            style={styles.cardWrapper}
-          >
-            <LinearGradient
-              colors={colors}
-              style={styles.card}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
+
+        <View style={[styles.statsRow, { borderColor: theme.border }]}>
+          <View style={styles.stat}>
+            <ThemedText style={[styles.statNumber, { color: theme.primary }]}>{totalAlabanzas}</ThemedText>
+            <ThemedText type="caption">Alabanzas</ThemedText>
+          </View>
+          <View style={[styles.statDivider, { backgroundColor: theme.border }]} />
+          <View style={styles.stat}>
+            <ThemedText style={[styles.statNumber, { color: theme.primary }]}>{categorias.length}</ThemedText>
+            <ThemedText type="caption">Categorías</ThemedText>
+          </View>
+        </View>
+
+        <View style={styles.sectionHeader}>
+          <ThemedText type="subtitle">Categorías</ThemedText>
+          <ThemedText type="caption">Toca para filtrar</ThemedText>
+        </View>
+
+        <View style={styles.grid}>
+          {categorias.map(([categoria, count]) => (
+            <TouchableOpacity
+              key={categoria}
+              activeOpacity={0.7}
+              onPress={() => navegarAAlabanzas(categoria)}
+              style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
             >
-              <ThemedText style={styles.categoriaTitle}>{categoria}</ThemedText>
-              <ThemedText style={styles.cantidad}>{count}</ThemedText>
-            </LinearGradient>
-          </TouchableOpacity>
-        ))}
+              <ThemedText type="label" style={{ color: theme.textMuted }}>
+                {count === 1 ? '1 himno' : `${count} himnos`}
+              </ThemedText>
+              <ThemedText style={styles.categoriaTitle} numberOfLines={2}>
+                {toTitleCase(categoria)}
+              </ThemedText>
+              <View style={[styles.cardRule, { backgroundColor: theme.secondary }]} />
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  content: {
+    paddingBottom: Spacing.xl,
+  },
+  body: {
+    paddingHorizontal: Spacing.gutter,
+    paddingTop: Spacing.sm,
+    gap: Spacing.lg,
+  },
+  verseCard: {
+    borderWidth: 1,
+    borderRadius: Radius.lg,
+    padding: Spacing.lg - 4,
+    gap: Spacing.md,
+  },
+  verseBadge: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: Radius.lg,
+  },
+  verseText: {
+    fontFamily: Fonts.serifItalic,
+    fontSize: 20,
+    lineHeight: 32,
+  },
+  citation: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: Spacing.sm,
+  },
+  statsRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    paddingVertical: Spacing.md,
   },
-  text: {
-    fontSize: 28,
-    lineHeight: 32,
-    marginTop: -6,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  titleHeader: {
-    position: 'absolute',
-    bottom: 20,
-    left: 50,
-    color: 'white',
-  },
-  reactLogo: {
-    width: '100%',
-    height: '120%',
-    position: 'absolute',
-    bottom: 0,
-    top: 10,
-  },
-  headerContainer: {
+  stat: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 20,
+    gap: 2,
   },
-  centeredTextContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  statNumber: {
+    fontFamily: Fonts.serifBold,
+    fontSize: 26,
+    lineHeight: 34,
   },
-  centeredText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
+  statDivider: {
+    width: 1,
+    alignSelf: 'stretch',
   },
-  totalAlabanzas: {
-    fontSize: 18,
-    marginTop: 10,
-    textAlign: 'center',
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    marginBottom: -Spacing.sm,
   },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 16,
-  },
-  cardWrapper: {
-    width: '47%',
-    borderRadius: 12,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    rowGap: 12,
   },
   card: {
-    padding: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 120,
-    borderRadius: 12,
+    width: '48.3%',
+    minHeight: 112,
+    borderWidth: 1,
+    borderRadius: Radius.md,
+    padding: Spacing.md,
+    gap: 6,
   },
   categoriaTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 8,
-    color: '#fff',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
+    fontFamily: Fonts.serifBold,
+    fontSize: 17,
+    lineHeight: 24,
   },
-  cantidad: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
+  cardRule: {
+    marginTop: 'auto',
+    width: 20,
+    height: 2,
+    borderRadius: 1,
   },
 });

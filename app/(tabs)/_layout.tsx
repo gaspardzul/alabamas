@@ -1,74 +1,82 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Typography';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+const TABS = [
+  { name: 'index', title: 'Inicio', icon: 'home' },
+  { name: 'explore', title: 'Alabanzas', icon: 'musical-notes' },
+  { name: 'bible', title: 'Biblia', icon: 'book' },
+  { name: 'favorites', title: 'Favoritos', icon: 'star' },
+  { name: 'mylists', title: 'Mis Listas', icon: 'list' },
+  { name: 'about', title: 'Acerca de', icon: 'information-circle' },
+] as const;
+
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme() ?? 'light';
+  const theme = Colors[colorScheme];
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Inicio',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Alabanzas',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'book' : 'book-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="favorites"
-        options={{
-          title: 'Favoritos',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'bookmark' : 'bookmark-outline'} color={color} />
-          ),
-        }}
-      />
-      {/* <Tabs.Screen
-        name="settings"
-        options={{
-          title: 'Ajustes',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'cog' : 'cog-outline'} color={color} />
-          ),
-        }}
-      /> */}
-      <Tabs.Screen
-        name="mylists"
-        options={{
-          title: 'Mis Listas',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'list' : 'list-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="about"
-        options={{
-          title: 'Acerca de',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'information-circle' : 'information-circle-outline'} color={color} />
-          ),
-        }}
-      />
-      
+        tabBarActiveTintColor: theme.tabIconSelected,
+        tabBarInactiveTintColor: theme.tabIconDefault,
+        tabBarStyle: {
+          backgroundColor: theme.card,
+          borderTopColor: theme.border,
+          borderTopWidth: StyleSheet.hairlineWidth,
+          elevation: 0,
+        },
+        sceneStyle: { backgroundColor: theme.background },
+      }}
+    >
+      {TABS.map((tab) => (
+        <Tabs.Screen
+          key={tab.name}
+          name={tab.name}
+          options={{
+            title: tab.title,
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? tab.icon : `${tab.icon}-outline`} color={color as string} />
+            ),
+            tabBarLabel: ({ color, focused }) => (
+              <View style={styles.labelWrap}>
+                <Text
+                  style={[
+                    styles.label,
+                    { color: color as string, fontFamily: focused ? Fonts.sansSemiBold : Fonts.sansMedium },
+                  ]}
+                  numberOfLines={1}
+                >
+                  {tab.title}
+                </Text>
+                <View style={[styles.indicator, { backgroundColor: focused ? theme.secondary : 'transparent' }]} />
+              </View>
+            ),
+          }}
+        />
+      ))}
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  labelWrap: {
+    alignItems: 'center',
+    gap: 3,
+  },
+  label: {
+    fontSize: 11,
+    letterSpacing: 0.2,
+  },
+  indicator: {
+    width: 18,
+    height: 2,
+    borderRadius: 1,
+  },
+});

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Alert, TouchableOpacity, View } from 'react-native';
-import { ThemedView } from '@/components/ThemedView';
-import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { showDialog } from '@/utils/dialog';
+import { useRoute, useNavigation } from 'expo-router';
+import type { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '@/ts/types';
-import ListItem from '@/components/ListItem';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import ListItem, { toTitleCase } from '@/components/ListItem';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import himnario from '@/assets/himnos/lista.json';
 import { listaDetail } from '@/ts/interfaces';
-import { StackNavigationProp } from '@react-navigation/stack';
+import type { StackNavigationProp } from '@react-navigation/stack';
 import { useSettings } from '@/hooks/useSettings';
 import { ThemedText } from '@/components/ThemedText';
 import DraggableFlatList, { RenderItemParams, ScaleDecorator } from 'react-native-draggable-flatlist';
@@ -20,7 +22,7 @@ const ListDetail: React.FC = () => {
   const route = useRoute<ListDetailRouteProp>();
   const navigation = useNavigation<NavigationProp>();
   const { lista } = route.params as { lista: listaDetail };
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
   const [himnosLista, setHimnosLista] = useState<any[]>([]);
   const [originalHimnosLista, setOriginalHimnosLista] = useState<any[]>([]);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -30,21 +32,26 @@ const ListDetail: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', marginRight: 10, gap: 15 }}>
-          <TouchableOpacity onPress={handlePresentationMode}>
-            <Ionicons name="play" size={24} color={colorScheme === 'dark' ? '#fff' : '#000'} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleToggleEditMode}>
-            <Ionicons 
-              name={isEditMode ? "checkmark" : "swap-vertical"} 
-              size={24} 
-              color={isEditMode ? '#4CAF50' : (colorScheme === 'dark' ? '#fff' : '#000')} 
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+          <TouchableOpacity onPress={handleToggleEditMode} style={styles.headerButton} accessibilityLabel={isEditMode ? 'Guardar orden' : 'Reordenar'}>
+            <Ionicons
+              name={isEditMode ? "checkmark" : "swap-vertical"}
+              size={22}
+              color={isEditMode ? theme.tertiary : theme.primary}
             />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handlePresentationMode}
+            style={[styles.headerPill, { backgroundColor: theme.primary }]}
+            accessibilityLabel="Modo presentación"
+          >
+            <Ionicons name="play" size={14} color={theme.onPrimary} />
+            <ThemedText style={[styles.headerPillText, { color: theme.onPrimary }]}>Presentar</ThemedText>
           </TouchableOpacity>
         </View>
       ),
     });
-  }, [isEditMode, colorScheme, lista, hasChanges]);
+  }, [isEditMode, theme, lista, hasChanges]);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('beforeRemove', (e) => {
@@ -54,7 +61,7 @@ const ListDetail: React.FC = () => {
 
       e.preventDefault();
 
-      Alert.alert(
+      showDialog(
         'Cambios sin guardar',
         'Tienes cambios sin guardar. ¿Deseas guardar antes de salir?',
         [
@@ -95,7 +102,7 @@ const ListDetail: React.FC = () => {
   }, [lista]);
 
   const handleDeleteHimno = async (number: string) => {
-    Alert.alert(
+    showDialog(
       "Confirmar eliminación",
       "¿Estás seguro que deseas eliminar este himno de la lista?",
       [
@@ -136,7 +143,7 @@ const ListDetail: React.FC = () => {
 
   const handlePresentationMode = async () => {
     if (isEditMode && hasChanges) {
-      Alert.alert(
+      showDialog(
         "Cambios sin guardar",
         "Tienes cambios sin guardar. Guarda el orden antes de continuar.",
         [{ text: "OK" }]
@@ -183,52 +190,36 @@ const ListDetail: React.FC = () => {
   };
 
   const renderItem = ({ item, drag, isActive, getIndex }: RenderItemParams<any>) => {
-    const index = getIndex();
-    const backgroundColor = index !== undefined && index % 2 === 0 
-      ? (colorScheme === 'dark' ? '#2A2A2A' : '#f7f7f7')
-      : (colorScheme === 'dark' ? '#1E1E1E' : '#FFFFFF');
-    
+    const index = getIndex() ?? 0;
+
     return (
       <ScaleDecorator>
-        <View style={{ 
-          flexDirection: 'row', 
-          alignItems: 'stretch',
-          backgroundColor: backgroundColor,
-          opacity: isActive ? 0.7 : 1,
-        }}>
+        <View style={[styles.row, { opacity: isActive ? 0.85 : 1 }]}>
           {isEditMode && (
-            <TouchableOpacity 
+            <TouchableOpacity
               onPressIn={drag}
               onLongPress={drag}
-              style={{
-                paddingHorizontal: 16,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+              style={styles.dragHandle}
+              accessibilityLabel="Arrastrar para reordenar"
             >
-              <Ionicons 
-                name="menu" 
-                size={24} 
-                color={colorScheme === 'dark' ? '#888' : '#666'} 
-              />
+              <Ionicons name="reorder-three" size={26} color={theme.textMuted} />
             </TouchableOpacity>
           )}
-          <View style={{ flex: 1 }}>
-            <ListItem
-              title={item.title}
-              subtitle={`Himno ${item.number}`}
-              onPress={() => navigation.navigate('HimnoDetail', { number: item.number })}
-              style={{
-                backgroundColor: 'transparent',
-              }}
-              sizeIcon={30}
-              rightIcon={{
-                name: "remove-circle",
-                color: "red",
-                onPress: () => handleDeleteHimno(item.number.toString())
-              }}
-            />
-          </View>
+          <ListItem
+            number={item.number}
+            title={toTitleCase(item.title)}
+            subtitle={`${String(index + 1).padStart(2, '0')} · en el orden`}
+            onPress={() => navigation.navigate('HimnoDetail', { number: item.number })}
+            style={{
+              ...styles.rowCard,
+              ...(isActive ? { borderColor: theme.secondary } : null),
+            }}
+            rightIcon={{
+              name: "remove-circle-outline",
+              color: theme.textMuted,
+              onPress: () => handleDeleteHimno(item.number.toString())
+            }}
+          />
         </View>
       </ScaleDecorator>
     );
@@ -236,14 +227,20 @@ const ListDetail: React.FC = () => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemedView style={styles.container}>
+      <View style={[styles.container, { backgroundColor: theme.background }]}>
+        <View style={styles.summary}>
+          <ThemedText type="label">Secuencia del servicio</ThemedText>
+          <ThemedText type="caption">
+            {himnosLista.length} {himnosLista.length === 1 ? 'himno' : 'himnos'}
+          </ThemedText>
+        </View>
         {isEditMode && (
-          <ThemedView style={styles.instructionsContainer}>
-            <Ionicons name="information-circle" size={20} color="#2196F3" />
-            <ThemedText style={styles.instructionsText}>
-              Mantén presionado el ícono ☰ y arrastra para reordenar. Presiona ✓ para guardar los cambios.
+          <View style={[styles.instructionsContainer, { backgroundColor: theme.chip }]}>
+            <Ionicons name="hand-left-outline" size={18} color={theme.secondary} />
+            <ThemedText type="caption" style={styles.instructionsText}>
+              Mantén presionado ☰ y arrastra para reordenar. Toca ✓ para guardar.
             </ThemedText>
-          </ThemedView>
+          </View>
         )}
         {himnosLista.length > 0 ? (
           <DraggableFlatList
@@ -255,11 +252,14 @@ const ListDetail: React.FC = () => {
             contentContainerStyle={styles.listContent}
           />
         ) : (
-          <ThemedText style={styles.noHimnos}>
-            No hay himnos en esta lista
-          </ThemedText>
+          <View style={styles.empty}>
+            <ThemedText type="subtitle">Lista vacía</ThemedText>
+            <ThemedText type="caption" style={{ textAlign: 'center' }}>
+              Añade himnos desde el lector con el botón “+ Lista”.
+            </ThemedText>
+          </View>
         )}
-      </ThemedView>
+      </View>
     </GestureHandlerRootView>
   );
 };
@@ -268,30 +268,71 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  headerButton: {
+    width: 36,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    height: 34,
+    paddingHorizontal: 14,
+    borderRadius: Radius.md,
+  },
+  headerPillText: {
+    fontFamily: Fonts.sansSemiBold,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  summary: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    paddingHorizontal: Spacing.gutter,
+    paddingTop: Spacing.sm,
+    paddingBottom: Spacing.md,
+  },
   instructionsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 12,
-    marginHorizontal: 12,
-    marginTop: 8,
-    marginBottom: 4,
-    borderRadius: 8,
-    backgroundColor: '#E3F2FD',
-    gap: 8,
+    marginHorizontal: Spacing.gutter,
+    marginBottom: Spacing.md,
+    borderRadius: Radius.md,
+    gap: 10,
   },
   instructionsText: {
     flex: 1,
-    fontSize: 14,
-    color: '#1976D2',
   },
   listContent: {
-    paddingVertical: 8,
+    paddingBottom: Spacing.xl,
   },
-  noHimnos: {
-    textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
-    color: '#888',
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: Spacing.gutter,
+    marginBottom: 10,
+    gap: 4,
+  },
+  rowCard: {
+    flex: 1,
+    marginHorizontal: 0,
+    marginBottom: 0,
+  },
+  dragHandle: {
+    width: 32,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  empty: {
+    alignItems: 'center',
+    gap: Spacing.sm,
+    paddingTop: 72,
+    paddingHorizontal: Spacing.xl,
   },
 });
 

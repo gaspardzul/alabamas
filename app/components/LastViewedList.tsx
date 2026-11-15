@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { FlatList, StyleSheet, View, ListRenderItem } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect } from 'expo-router';
 import { ThemedText } from '@/components/ThemedText';
 import { useVisitedItems } from '@/hooks/useLastViews';
 

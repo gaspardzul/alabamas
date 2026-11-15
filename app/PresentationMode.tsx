@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View, Alert, Share, TouchableOpacity } from 'react-native';
-import { ThemedView } from '@/components/ThemedView';
+import { ScrollView, StyleSheet, View, Share, TouchableOpacity } from 'react-native';
+import { showDialog } from '@/utils/dialog';
 import { ThemedText } from '@/components/ThemedText';
-import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import { useRoute, useNavigation } from 'expo-router';
+import type { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '@/ts/types';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { useSettings } from '@/hooks/useSettings';
 import { Ionicons } from '@expo/vector-icons';
 import { generateMultipleHimnosHTML, generateAndSharePDF } from '@/utils/pdfGenerator';
 import allHimnos from '@/assets/himnos/allHimnos.json';
+import { toTitleCase } from '@/components/ListItem';
 
 type PresentationModeRouteProp = RouteProp<RootStackParamList, 'PresentationMode'>;
 
@@ -27,7 +30,7 @@ const PresentationMode: React.FC = () => {
   const route = useRoute<PresentationModeRouteProp>();
   const navigation = useNavigation();
   const { lista } = route.params as { lista: any };
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
   const { settings } = useSettings();
   const [himnos, setHimnos] = useState<Himno[]>([]);
 
@@ -45,36 +48,36 @@ const PresentationMode: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', marginRight: 10, gap: 15 }}>
-          <TouchableOpacity onPress={handleShareText}>
-            <Ionicons name="share-outline" size={24} color={colorScheme === 'dark' ? '#fff' : '#000'} />
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity onPress={handleShareText} style={styles.headerButton} accessibilityLabel="Compartir texto">
+            <Ionicons name="share-outline" size={21} color={theme.primary} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleSharePDF}>
-            <Ionicons name="document-text" size={24} color={colorScheme === 'dark' ? '#fff' : '#000'} />
+          <TouchableOpacity onPress={handleSharePDF} style={styles.headerButton} accessibilityLabel="Compartir PDF">
+            <Ionicons name="document-text-outline" size={21} color={theme.primary} />
           </TouchableOpacity>
         </View>
       ),
     });
-  }, [himnos, colorScheme]);
+  }, [himnos, theme]);
 
   const handleSharePDF = async () => {
     try {
       if (himnos.length === 0) {
-        Alert.alert('Error', 'No hay himnos para compartir');
+        showDialog('Error', 'No hay himnos para compartir');
         return;
       }
 
       const html = generateMultipleHimnosHTML(himnos, settings.fontSize, lista.name);
       await generateAndSharePDF(html, `${lista.name}.pdf`);
     } catch (error) {
-      Alert.alert('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
+      showDialog('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
       console.error(error);
     }
   };
 
   const handleShareText = async () => {
     if (himnos.length === 0) {
-      Alert.alert('Error', 'No hay himnos para compartir');
+      showDialog('Error', 'No hay himnos para compartir');
       return;
     }
 
@@ -107,54 +110,56 @@ const PresentationMode: React.FC = () => {
     }
   };
 
+  const fontSize = settings.fontSize;
+  const lineStyle = { fontSize, lineHeight: Math.round(fontSize * 1.65) };
+
   const renderHimno = (himno: Himno, index: number) => {
     return (
       <View key={himno.number} style={styles.himnoContainer}>
-        <ThemedText style={styles.himnoNumber}>
-          Himno #{himno.number}
-        </ThemedText>
-        <ThemedText style={styles.himnoTitle}>
-          {himno.title}
-        </ThemedText>
-        
+        <View style={styles.himnoHeader}>
+          <ThemedText type="label">
+            {String(index + 1).padStart(2, '0')} · Himno #{himno.number}
+          </ThemedText>
+          <ThemedText style={styles.himnoTitle}>{toTitleCase(himno.title)}</ThemedText>
+        </View>
+
         {himno.lyrics.map((verso, versoIndex) => (
-          <View key={versoIndex} style={styles.versoContainer}>
-            {verso.verse === 0 ? (
-              <ThemedText style={[styles.coro, { fontSize: settings.fontSize, color: '#FF0000' }]}>
-                {verso.text}
-              </ThemedText>
-            ) : (
-              <>
-                <ThemedText style={[styles.versoNumber, { fontSize: settings.fontSize }]}>
-                  {verso.verse}.
-                </ThemedText>
-                <ThemedText style={[styles.versoText, { fontSize: settings.fontSize }]}>
-                  {verso.text}
-                </ThemedText>
-              </>
-            )}
-          </View>
+          verso.verse === 0 ? (
+            <View
+              key={versoIndex}
+              style={[styles.chorus, { backgroundColor: theme.chip, borderLeftColor: theme.secondary }]}
+            >
+              <ThemedText type="label">Coro</ThemedText>
+              <ThemedText style={[styles.coro, lineStyle]}>{verso.text}</ThemedText>
+            </View>
+          ) : (
+            <View key={versoIndex} style={styles.versoContainer}>
+              <ThemedText type="label" style={{ color: theme.textMuted }}>Estrofa {verso.verse}</ThemedText>
+              <ThemedText type="Himno" style={lineStyle}>{verso.text}</ThemedText>
+            </View>
+          )
         ))}
-        
+
         {index < himnos.length - 1 && (
-          <View style={[
-            styles.separator,
-            { backgroundColor: colorScheme === 'dark' ? '#444' : '#ddd' }
-          ]} />
+          <View style={styles.separator}>
+            <View style={[styles.separatorLine, { backgroundColor: theme.border }]} />
+            <Ionicons name="musical-notes-outline" size={14} color={theme.secondary} />
+            <View style={[styles.separatorLine, { backgroundColor: theme.border }]} />
+          </View>
         )}
       </View>
     );
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <ScrollView 
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
       >
         {himnos.map((himno, index) => renderHimno(himno, index))}
       </ScrollView>
-    </ThemedView>
+    </View>
   );
 };
 
@@ -162,44 +167,58 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  headerButton: {
+    width: 38,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
-    padding: 20,
+    paddingHorizontal: Spacing.gutter + 4,
+    paddingTop: Spacing.md,
+    paddingBottom: Spacing.xl * 2,
+    width: '100%',
+    maxWidth: 680,
+    alignSelf: 'center',
   },
   himnoContainer: {
-    marginBottom: 32,
+    gap: Spacing.lg,
   },
-  himnoNumber: {
-    fontSize: 14,
-    opacity: 0.6,
-    marginBottom: 4,
+  himnoHeader: {
+    alignItems: 'center',
+    gap: Spacing.sm,
+    paddingTop: Spacing.sm,
   },
   himnoTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
+    fontFamily: Fonts.serifBold,
+    fontSize: 26,
+    lineHeight: 34,
     textAlign: 'center',
   },
   versoContainer: {
-    marginBottom: 16,
+    gap: Spacing.sm,
   },
-  versoNumber: {
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  versoText: {
-    lineHeight: 28,
+  chorus: {
+    borderLeftWidth: 2,
+    borderRadius: Radius.md,
+    padding: Spacing.md,
+    gap: Spacing.sm,
   },
   coro: {
-    lineHeight: 28,
-    fontStyle: 'italic',
+    fontFamily: Fonts.serif,
   },
   separator: {
-    height: 2,
-    marginTop: 24,
-    marginBottom: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.md,
+    marginVertical: Spacing.lg,
+  },
+  separatorLine: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
   },
 });
 

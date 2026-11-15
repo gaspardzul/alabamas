@@ -4,6 +4,7 @@ type RootStackParamList = {
     HimnoDetail?: { number: number };
     ListDetail?: { lista: listaDetail};
     PresentationMode?: { lista: listaDetail };
+    BibleReader?: { translationId: string; bookId: string; chapter: number; verse?: number };
 }
 
   export {RootStackParamList}

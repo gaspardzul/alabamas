@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Modal, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSettings } from '../hooks/useSettings';
-import { useColorScheme } from 'react-native';
+import { useTheme } from '@/hooks/useThemeColor';
+import { ThemedText } from '@/components/ThemedText';
+import Sheet from '@/components/Sheet';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 interface SearchBarProps {
   value: string;
@@ -12,95 +15,95 @@ interface SearchBarProps {
   onCreate?: () => void;
 }
 
+type SortOption = 'asc' | 'desc' | 'numAsc' | 'numDesc';
+
+const SORT_OPTIONS: { key: SortOption; label: string; icon: string }[] = [
+  { key: 'numAsc', label: 'Por número (1 → 999)', icon: 'arrow-up' },
+  { key: 'numDesc', label: 'Por número (999 → 1)', icon: 'arrow-down' },
+  { key: 'asc', label: 'Por título (A → Z)', icon: 'text' },
+  { key: 'desc', label: 'Por título (Z → A)', icon: 'text-outline' },
+];
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText, placeholder = 'Buscar...', onSort, onCreate }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const { settings, updateSettingValue, getSettingValue } = useSettings();
-  const colorScheme = useColorScheme();
-  const handleClear = () => {
-    onChangeText('');
-  };
+  const [focused, setFocused] = useState(false);
+  const { settings, updateSettingValue } = useSettings();
+  const theme = useTheme();
 
-  const handleSort = (option: 'asc' | 'desc' | 'numAsc' | 'numDesc') => {
+  const handleSort = (option: SortOption) => {
     onSort && onSort(option);
     updateSettingValue('order', option);
-    console.log("updateSettingValue", option);
     setModalVisible(false);
-   
   };
-
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
+      <View
+        style={[
+          styles.inputContainer,
+          {
+            backgroundColor: theme.card,
+            borderColor: focused ? theme.primary : theme.border,
+            borderWidth: focused ? 1.5 : 1,
+          },
+        ]}
+      >
+        <Ionicons name="search" size={18} color={theme.textMuted} />
         <TextInput
-          style={styles.input}
+          style={[styles.input, { color: theme.text }]}
           placeholder={placeholder}
+          placeholderTextColor={theme.textMuted}
           value={value}
           onChangeText={onChangeText}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          returnKeyType="search"
         />
-        <TouchableOpacity 
-          onPress={value.length > 0 ? handleClear : undefined} 
-          style={styles.clearIconContainer}
-        >
-          <Ionicons 
-            name={value.length > 0 ? "close-circle" : "search"} 
-            size={20} 
-            color="#999" 
-          />
-        </TouchableOpacity>
+        {value.length > 0 && (
+          <TouchableOpacity onPress={() => onChangeText('')} hitSlop={10}>
+            <Ionicons name="close-circle" size={18} color={theme.textMuted} />
+          </TouchableOpacity>
+        )}
       </View>
-      {
-        onSort && (
-          <TouchableOpacity 
-              onPress={() => setModalVisible(true)} 
-              style={styles.sortButton}
-            >
-            <Ionicons name="funnel-outline" size={24} color="#fff" />
-          </TouchableOpacity>
-        )
-      }
 
-      {
-        onCreate && (
-          <TouchableOpacity 
-          onPress={onCreate}
+      {onSort && (
+        <TouchableOpacity
+          onPress={() => setModalVisible(true)}
+          style={[styles.squareButton, { backgroundColor: theme.card, borderColor: theme.border }]}
+          accessibilityLabel="Ordenar"
         >
-          <Ionicons 
-            name="add" 
-            size={50} 
-            color={colorScheme === 'dark' ? '#FFFFFF' : '#000000'} 
-          />
+          <Ionicons name="swap-vertical" size={20} color={theme.primary} />
         </TouchableOpacity>
-        )
-      }
-      
+      )}
 
-      <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalView}>
-          <Text style={styles.modalTitle}>Ordenar Por:</Text>
-          <TouchableOpacity onPress={() => handleSort('asc')} style={styles.modalOption}>
-            <Text style={styles.modalOptionText}>Ordenar A-Z</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleSort('desc')} style={styles.modalOption}>
-            <Text style={styles.modalOptionText}>Ordenar Z-A</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleSort('numAsc')} style={styles.modalOption}>
-            <Text style={styles.modalOptionText}>Por número (ascendente 1-999)</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleSort('numDesc')} style={styles.modalOption}>
-            <Text style={styles.modalOptionText}>Por número (descendente 999-1)</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
-            <Text style={styles.closeButtonText}>Cerrar</Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
+      {onCreate && (
+        <TouchableOpacity
+          onPress={onCreate}
+          style={[styles.squareButton, { backgroundColor: theme.primary, borderColor: theme.primary }]}
+          accessibilityLabel="Crear"
+        >
+          <Ionicons name="add" size={24} color={theme.onPrimary} />
+        </TouchableOpacity>
+      )}
+
+      <Sheet visible={modalVisible} onClose={() => setModalVisible(false)} eyebrow="Índice" title="Ordenar por">
+        {SORT_OPTIONS.map((option) => {
+          const active = settings.order === option.key;
+          return (
+            <TouchableOpacity
+              key={option.key}
+              onPress={() => handleSort(option.key)}
+              style={[styles.option, { borderBottomColor: theme.border }]}
+            >
+              <Ionicons name={option.icon as any} size={18} color={active ? theme.secondary : theme.textMuted} />
+              <ThemedText style={[styles.optionText, active && { fontFamily: Fonts.sansSemiBold }]}>
+                {option.label}
+              </ThemedText>
+              {active && <Ionicons name="checkmark" size={20} color={theme.secondary} />}
+            </TouchableOpacity>
+          );
+        })}
+      </Sheet>
     </View>
   );
 };
@@ -109,77 +112,40 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 20,
-    marginVertical: 10,
+    gap: Spacing.sm,
   },
   inputContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 25,
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    gap: Spacing.sm,
+    height: 48,
+    borderRadius: Radius.md,
+    paddingHorizontal: 14,
   },
   input: {
     flex: 1,
-    fontSize: 16,
-    color: '#333',
-    paddingRight: 30,
+    fontSize: 15,
+    fontFamily: Fonts.sans,
+    height: '100%',
   },
-  clearIconContainer: {
-    padding: 5,
-  },
-  sortButton: {
-    backgroundColor: '#0e161e',
-    borderRadius: 25,
-    padding: 10,
-    marginLeft: 10,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  modalView: {
-    flex: 1,
+  squareButton: {
+    width: 48,
+    height: 48,
+    borderRadius: Radius.md,
+    borderWidth: 1,
+    alignItems: 'center',
     justifyContent: 'center',
+  },
+  option: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 20,
+    gap: 14,
+    minHeight: 52,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  modalOption: {
-    padding: 15,
-    marginVertical: 10,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 10,
-    width: '80%',
-    alignItems: 'center',
-  },
-  modalOptionText: {
-    fontSize: 18,
-  },
-  closeButton: {
-    marginTop: 30,
-    padding: 15,
-    backgroundColor: '#ddd',
-    borderRadius: 10,
-    width: '80%',
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  optionText: {
+    flex: 1,
   },
 });
 

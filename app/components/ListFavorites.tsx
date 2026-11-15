@@ -1,23 +1,25 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, StyleSheet} from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
+import ScreenHeader from '@/components/ScreenHeader';
+import Chip from '@/components/Chip';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Spacing } from '@/constants/Typography';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView'; 
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation, useFocusEffect } from 'expo-router';
+import type { StackNavigationProp } from '@react-navigation/stack';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import useStorage from '@/hooks/useStorage';
 import { RootStackParamList } from '@/ts/types';
 import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
-import ListItem from '@/components/ListItem';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { tintColorBlue } from '@/constants/Colors';
+import ListItem, { toTitleCase } from '@/components/ListItem';
 import { useSettings } from '@/hooks/useSettings';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListFavorites: React.FC = () => {
   const navigation = useNavigation<NavigationProp>();
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { getSettingValue } = useSettings();
@@ -60,31 +62,35 @@ const ListFavorites: React.FC = () => {
 
   return (
     <ThemedView style={styles.containerList}>
-      <ThemedView style={{...styles.searchContainer, backgroundColor: colorScheme === 'dark' ? '#1E1E1E' : tintColorBlue}}>
+      <ScreenHeader
+        eyebrow="Tu colección"
+        title="Favoritos"
+        right={
+          favorites.length > 0 ? <Chip label={`${favorites.length}`} tone="accent" /> : undefined
+        }
+      >
         <SearchBar
           value={busqueda}
           onSort={(option) => sortFavorites(option as 'asc' | 'desc' | 'numAsc' | 'numDesc')}
           onChangeText={setBusqueda}
-          placeholder="Buscar por número o título"
+          placeholder="Buscar en favoritos"
         />
-      </ThemedView>
-      
+      </ScreenHeader>
+
       {himnosFiltrados.length > 0 ? (
         <FlatList<Himno>
           data={himnosFiltrados}
-          renderItem={({item, index}) => (
+          keyboardShouldPersistTaps="handled"
+          renderItem={({item}) => (
             <ListItem
-              title={`${item.number}. ${item.title}`}
+              number={item.number}
+              title={toTitleCase(item.title)}
+              tags={item.group}
               fontSize={fontSize <= 27 ? fontSize : 27}
               onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
-              style={{
-                backgroundColor: index % 2 === 0 
-                  ? (colorScheme === 'dark' ? '#2A2A2A' : '#f7f7f7')
-                  : (colorScheme === 'dark' ? '#1E1E1E' : '#FFFFFF')
-              }}
               rightIcon={{
-                name: "bookmark",
-                color: favorites.some(fav => fav.number === item.number) ? "#FF6B6B" : "#4ECDC4",
+                name: 'star',
+                color: theme.secondary,
                 onPress: () => toggleFavorito(item.number)
               }}
             />
@@ -93,7 +99,19 @@ const ListFavorites: React.FC = () => {
           contentContainerStyle={styles.listContent}
         />
       ) : (
-        <ThemedText style={styles.noFavorites}>No hay himnos favoritos</ThemedText>
+        <View style={styles.empty}>
+          <View style={[styles.emptyIcon, { backgroundColor: theme.chip }]}>
+            <Ionicons name="star-outline" size={28} color={theme.secondary} />
+          </View>
+          <ThemedText type="subtitle">
+            {busqueda ? 'Sin resultados' : 'Aún no hay favoritos'}
+          </ThemedText>
+          <ThemedText type="caption" style={styles.emptyText}>
+            {busqueda
+              ? 'Ningún favorito coincide con tu búsqueda.'
+              : 'Toca la estrella de una alabanza para guardarla aquí.'}
+          </ThemedText>
+        </View>
       )}
     </ThemedView>
   );
@@ -103,52 +121,26 @@ const styles = StyleSheet.create({
   containerList: {
     flex: 1,
   },
-  searchContainer: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-  },
   listContent: {
-    paddingVertical: 8,
+    paddingTop: Spacing.sm,
+    paddingBottom: Spacing.xl,
   },
-  itemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  empty: {
     alignItems: 'center',
-    padding: 16,
-    marginHorizontal: 16,
-    marginVertical: 8,
-    borderRadius: 8,
-    backgroundColor: '#F5F5F5',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    gap: Spacing.sm,
+    paddingTop: 72,
+    paddingHorizontal: Spacing.xl,
   },
-  item: {
-    flex: 1,
-    flexDirection: 'row',
+  emptyIcon: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: Spacing.sm,
   },
-  itemNumber: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginRight: 12,
-    color: '#333',
-  },
-  itemTitle: {
-    fontSize: 16,
-    color: '#555',
-  },
-  favoriteButton: {
-    padding: 8,
-  },
-  noFavorites: {
+  emptyText: {
     textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
-    color: '#888',
   },
 });
 

@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme, Share, Modal, Alert } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, Share, Text } from 'react-native';
+import { showDialog } from '@/utils/dialog';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import HeaderComponent from '@/components/HeaderComponent';
-import { useRoute, RouteProp } from '@react-navigation/native';
+import { useRoute } from 'expo-router';
+import type { RouteProp } from '@react-navigation/native';
 import allHimnos from '@/assets/himnos/allHimnos.json';
 import { Ionicons } from '@expo/vector-icons';
 import useStorage from '@/hooks/useStorage';
 import { Himno, Lista } from '@/ts/interfaces';
-import { Colors } from '@/constants/Colors';
+import himnario from '@/assets/himnos/lista.json';
+import Sheet from '@/components/Sheet';
+import Chip from '@/components/Chip';
+import { toArray, toTitleCase } from '@/components/ListItem';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { useSettings } from '@/hooks/useSettings';
 import { generateHimnoHTML, generateAndSharePDF } from '@/utils/pdfGenerator';
 
@@ -34,7 +39,7 @@ const HimnoDetail: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [fontSize, setFontSize] = useState(24);
   const [isFavorite, setIsFavorite] = useState(false);
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
   const { getSettingValue, updateSettingValue } = useSettings();
   const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
 
@@ -179,210 +184,311 @@ const HimnoDetail: React.FC = () => {
       const html = generateHimnoHTML(himnoData, fontSize);
       await generateAndSharePDF(html, `${himno.title}.pdf`);
     } catch (error) {
-      Alert.alert('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
+      showDialog('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
       console.error(error);
     }
   };
 
   if (!himno) {
-    return <ThemedText>Cargando...</ThemedText>;
+    return (
+      <View style={[styles.container, styles.center, { backgroundColor: theme.background }]}>
+        <ThemedText type="caption">{error ?? 'Cargando...'}</ThemedText>
+      </View>
+    );
   }
 
+  const grupos = toArray(himnario.lista.find((h) => h.number === himno.number)?.group);
+  let estrofa = 0;
+
   return (
-    <View style={styles.container}>
-      <ThemedView style={styles.fontSizeControls}>
-        <View style={styles.fontSizeButtons}>
-          <TouchableOpacity onPress={disminuirFuente} style={styles.fontButton}>
-            <Ionicons name="remove-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={resetFontSize} style={styles.fontButton}>
-            <Ionicons name="refresh-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={aumentarFuente} style={styles.fontButton}>
-            <Ionicons name="add-circle-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.rightButtons}>
-          <TouchableOpacity onPress={compartirHimno} style={styles.iconButton}>
-            <Ionicons name="share-outline" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={compartirHimnoPDF} style={styles.iconButton}>
-            <Ionicons name="document-text" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => setShowListModal(true)} style={styles.iconButton}>
-            <Ionicons name="musical-note" size={24} color={colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={toggleFavorite} style={styles.iconButton}>
-            <Ionicons name={isFavorite ? "bookmark" : "bookmark-outline"} size={24} color={isFavorite ? "#ff002f" : colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon} />
-          </TouchableOpacity>
-        </View>
-      </ThemedView>
-
-      <Modal
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Sheet
         visible={showListModal}
-        transparent={true}
-        animationType="slide"
-        onRequestClose={() => setShowListModal(false)}
+        onClose={() => setShowListModal(false)}
+        eyebrow={`Himno ${himno.number}`}
+        title="Añadir a lista"
       >
-        <ThemedView style={styles.modalContainer}>
-          <ThemedView style={styles.modalContent}>
-            <ThemedText style={styles.modalTitle}>Añadir a lista</ThemedText>
-            <ScrollView>
-              {userLists.length > 0 ? (
-                userLists.map((lista) => (
-                  <TouchableOpacity
-                    key={lista.id}
-                    style={styles.listItem}
-                    onPress={() => addToList(lista)}
-                  >
-                    <ThemedText>{lista.name}</ThemedText>
-                    <ThemedText style={styles.listItemCount}>
-                      {lista.himnos.length} himnos
-                    </ThemedText>
-                  </TouchableOpacity>
-                ))
-              ) : (
-                <ThemedText style={styles.noLists}>
-                  No hay listas disponibles
-                </ThemedText>
-              )}
-            </ScrollView>
-            <TouchableOpacity
-              style={styles.closeButton}
-              onPress={() => setShowListModal(false)}
-            >
-              <ThemedText style={styles.closeButtonText}>Cerrar</ThemedText>
-            </TouchableOpacity>
-          </ThemedView>
-        </ThemedView>
-      </Modal>
+        <ScrollView>
+          {userLists.length > 0 ? (
+            userLists.map((lista) => {
+              const yaIncluido = lista.himnos.includes(himno.number?.toString() ?? '');
+              return (
+                <TouchableOpacity
+                  key={lista.id}
+                  style={[styles.listItem, { borderBottomColor: theme.border }]}
+                  onPress={() => addToList(lista)}
+                >
+                  <View style={[styles.listIcon, { backgroundColor: theme.chip }]}>
+                    <Ionicons name="musical-notes-outline" size={18} color={theme.secondary} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <ThemedText style={styles.listName}>{lista.name}</ThemedText>
+                    <ThemedText type="caption">{lista.himnos.length} himnos</ThemedText>
+                  </View>
+                  <Ionicons
+                    name={yaIncluido ? 'checkmark-circle' : 'add-circle-outline'}
+                    size={22}
+                    color={yaIncluido ? theme.tertiary : theme.primary}
+                  />
+                </TouchableOpacity>
+              );
+            })
+          ) : (
+            <ThemedText type="caption" style={styles.noLists}>
+              No hay listas disponibles. Créalas desde la pestaña Mis Listas.
+            </ThemedText>
+          )}
+        </ScrollView>
+      </Sheet>
 
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.contentContainer}>
-          <ThemedText style={[styles.title, { fontSize: fontSize + 8 }]}>{himno.number}. {himno.title}</ThemedText>
-          {himno.lyrics && himno.lyrics.map((verso, index) => (
-            <ThemedView key={index} style={styles.verseContainer}>
-              <ThemedText type="Himno" style={[styles.verseNumber, { fontSize, lineHeight: fontSize + 10 }]}>
-                {verso.verse === 0 ? 'Coro' : `Verso ${verso.verse}`}
-              </ThemedText>
-              <ThemedText type="Himno" style={[
-                styles.verseText,
-                verso.verse === 0 && styles.chorusText,
-                { fontSize, lineHeight: fontSize + 10 }
-              ]}>
-                {verso.text}
-              </ThemedText>
-              {verso.repeat && <ThemedText style={[styles.repeat, { fontSize }]}>(Repetir {verso.repeat} veces)</ThemedText>}
-            </ThemedView>
-          ))}
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.hero}>
+          <View style={styles.chips}>
+            <Chip label={`HIMNO ${himno.number}`} tone="accent" />
+            {grupos.slice(0, 2).map((g) => (
+              <Chip key={g} label={toTitleCase(g)} />
+            ))}
+          </View>
+          <ThemedText style={[styles.title, { fontSize: Math.min(fontSize + 4, 40), lineHeight: Math.min(fontSize + 4, 40) * 1.3 }]}>
+            {toTitleCase(himno.title ?? '')}
+          </ThemedText>
+        </View>
+
+        <View style={[styles.toolbar, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <View style={[styles.segment, { backgroundColor: theme.chip }]}>
+            <TouchableOpacity onPress={disminuirFuente} style={styles.segmentButton} accessibilityLabel="Reducir letra">
+              <Text style={[styles.segmentLabel, { color: theme.text }]}>A−</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={resetFontSize} style={styles.segmentValue} accessibilityLabel="Restablecer tamaño">
+              <Text style={[styles.segmentSize, { color: theme.textMuted }]}>{fontSize}px</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={aumentarFuente} style={styles.segmentButton} accessibilityLabel="Aumentar letra">
+              <Text style={[styles.segmentLabel, { color: theme.text }]}>A+</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.rightButtons}>
+            <TouchableOpacity onPress={compartirHimno} style={styles.iconButton} accessibilityLabel="Compartir texto">
+              <Ionicons name="share-outline" size={21} color={theme.icon} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={compartirHimnoPDF} style={styles.iconButton} accessibilityLabel="Compartir PDF">
+              <Ionicons name="document-text-outline" size={21} color={theme.icon} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={toggleFavorite} style={styles.iconButton} accessibilityLabel="Favorito">
+              <Ionicons name={isFavorite ? 'star' : 'star-outline'} size={21} color={isFavorite ? theme.secondary : theme.icon} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setShowListModal(true)}
+              style={[styles.listButton, { backgroundColor: theme.chip }]}
+              accessibilityLabel="Añadir a lista"
+            >
+              <Ionicons name="add" size={16} color={theme.primary} />
+              <Text style={[styles.listButtonText, { color: theme.primary }]}>Lista</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={[styles.lyricsCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          {himno.lyrics && himno.lyrics.map((verso, index) => {
+            const esCoro = verso.verse === 0;
+            if (!esCoro) estrofa = verso.verse;
+            const lineStyle = { fontSize, lineHeight: Math.round(fontSize * 1.65) };
+
+            if (esCoro) {
+              return (
+                <View
+                  key={index}
+                  style={[styles.chorus, { backgroundColor: theme.chip, borderLeftColor: theme.secondary }]}
+                >
+                  <View style={styles.verseHeader}>
+                    <Ionicons name="musical-note" size={13} color={theme.secondary} />
+                    <ThemedText type="label">Coro</ThemedText>
+                  </View>
+                  <ThemedText style={[styles.chorusText, lineStyle]}>{verso.text}</ThemedText>
+                  {verso.repeat && <ThemedText type="caption" style={styles.repeat}>(Repetir {verso.repeat} veces)</ThemedText>}
+                </View>
+              );
+            }
+
+            return (
+              <View key={index} style={styles.verseContainer}>
+                <View style={styles.verseHeader}>
+                  <View style={[styles.verseBadge, { backgroundColor: theme.secondarySoft }]}>
+                    <Text style={[styles.verseBadgeText, { color: theme.onSecondarySoft }]}>{toRoman(estrofa)}</Text>
+                  </View>
+                  <ThemedText type="label" style={{ color: theme.textMuted }}>Estrofa</ThemedText>
+                </View>
+                <ThemedText type="Himno" style={lineStyle}>{verso.text}</ThemedText>
+                {verso.repeat && <ThemedText type="caption" style={styles.repeat}>(Repetir {verso.repeat} veces)</ThemedText>}
+              </View>
+            );
+          })}
         </View>
       </ScrollView>
     </View>
   );
 };
 
+const toRoman = (n: number) => {
+  const map: [number, string][] = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+  let out = '';
+  let rest = n;
+  for (const [value, symbol] of map) {
+    while (rest >= value) {
+      out += symbol;
+      rest -= value;
+    }
+  }
+  return out || String(n);
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   scrollView: {
     flex: 1,
   },
   contentContainer: {
-    padding: 16,
-    flexGrow: 1,
-    width: '100%', // Aseguramos que el contenido ocupe todo el ancho disponible
+    paddingHorizontal: Spacing.gutter,
+    paddingTop: Spacing.sm,
+    paddingBottom: Spacing.xl,
+    gap: Spacing.md,
+    width: '100%',
+    maxWidth: 680,
+    alignSelf: 'center',
   },
-  fontSizeControls: {
+  hero: {
+    gap: Spacing.sm + 4,
+  },
+  chips: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  fontSizeButtons: {
-    flexDirection: 'row',
-  },
-  fontButton: {
-    marginRight: 10,
+    flexWrap: 'wrap',
+    gap: 6,
   },
   title: {
-    fontWeight: 'bold',
-    marginBottom: 16,
-    flexWrap: 'wrap', // Permitimos que el título se envuelva si es necesario
-    lineHeight: 50,
+    fontFamily: Fonts.serifBold,
+    letterSpacing: -0.3,
   },
-  verseContainer: {
-    marginBottom: 16,
+  toolbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 1,
+    borderRadius: Radius.md,
+    padding: 6,
   },
-  verseNumber: {
-    fontWeight: 'bold',
-    marginBottom: 4,
+  segment: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: Radius.md,
   },
-  verseText: {
-    marginBottom: 4,
-    flexWrap: 'wrap', // Permitimos que el texto de los versos se envuelva
+  segmentButton: {
+    width: 40,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  repeat: {
-    fontStyle: 'italic',
+  segmentValue: {
+    paddingHorizontal: 4,
+    height: 38,
+    justifyContent: 'center',
   },
-  chorusText: {
-    color: 'red',
+  segmentLabel: {
+    fontFamily: Fonts.sansSemiBold,
+    fontSize: 15,
+  },
+  segmentSize: {
+    fontFamily: Fonts.sansMedium,
+    fontSize: 12,
   },
   rightButtons: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   iconButton: {
-    marginLeft: 15,
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
+    width: 38,
+    height: 38,
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
   },
-  modalContent: {
-    width: '80%',
-    maxHeight: '70%',
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: '#FFFFFF',
+  listButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 2,
+    height: 34,
+    paddingHorizontal: 10,
+    borderRadius: Radius.md,
+    marginLeft: 4,
   },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 15,
-    textAlign: 'center',
+  listButtonText: {
+    fontFamily: Fonts.sansSemiBold,
+    fontSize: 13,
+  },
+  lyricsCard: {
+    borderWidth: 1,
+    borderRadius: Radius.lg,
+    paddingHorizontal: Spacing.gutter,
+    paddingVertical: Spacing.lg,
+    gap: Spacing.lg,
+  },
+  verseContainer: {
+    gap: Spacing.sm,
+  },
+  verseHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  verseBadge: {
+    minWidth: 24,
+    height: 24,
+    borderRadius: 12,
+    paddingHorizontal: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  verseBadgeText: {
+    fontFamily: Fonts.sansBold,
+    fontSize: 11,
+  },
+  chorus: {
+    borderLeftWidth: 2,
+    borderRadius: Radius.md,
+    paddingVertical: Spacing.md,
+    paddingHorizontal: Spacing.md,
+    gap: Spacing.sm,
+  },
+  chorusText: {
+    fontFamily: Fonts.serif,
+  },
+  repeat: {
+    fontStyle: 'italic',
   },
   listItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EEEEEE',
+    gap: 12,
+    paddingVertical: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  listItemCount: {
-    fontSize: 12,
-    color: '#666666',
-  },
-  closeButton: {
-    marginTop: 15,
-    padding: 10,
-    backgroundColor: '#007AFF',
-    borderRadius: 5,
+  listIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: Radius.md,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  closeButtonText: {
-    color: '#FFFFFF',
-    fontWeight: 'bold',
+  listName: {
+    fontFamily: Fonts.serif,
+    fontSize: 16,
   },
   noLists: {
     textAlign: 'center',
-    marginTop: 20,
-    color: '#666666',
+    paddingVertical: Spacing.lg,
   },
 });
 

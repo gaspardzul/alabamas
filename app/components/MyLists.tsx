@@ -1,16 +1,20 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, StyleSheet, TouchableOpacity, Modal, TextInput, Alert } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, TextInput, View } from 'react-native';
+import { showDialog } from '@/utils/dialog';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import ScreenHeader from '@/components/ScreenHeader';
+import Sheet from '@/components/Sheet';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView'; 
 import { RootStackParamList } from '@/ts/types';
 import { Lista } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { tintColorBlue } from '@/constants/Colors';
+import { useNavigation, useFocusEffect } from 'expo-router';
 import { useSettings } from '@/hooks/useSettings';
-import { StackNavigationProp } from '@react-navigation/stack';
+import type { StackNavigationProp } from '@react-navigation/stack';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'ListDetail'>;
 // Agregar una nueva clave para las listas en Settings
@@ -21,7 +25,7 @@ interface Settings {
 }
 
 const MyLists: React.FC = () => {
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
   const [busqueda, setBusqueda] = useState<string>('');
   const [listasFiltradas, setListasFiltradas] = useState<Lista[]>([]);
   const { getSettingValue, updateSettingValue } = useSettings();
@@ -134,38 +138,39 @@ const MyLists: React.FC = () => {
   };
 
 
+  const closeModal = () => {
+    setModalVisible(false);
+    setEditingList(null);
+    setNewListName('');
+  };
+
   return (
     <ThemedView style={styles.containerList}>
-      <ThemedView style={{...styles.searchContainer, backgroundColor: colorScheme === 'dark' ? '#1E1E1E' : tintColorBlue}}>
+      <ScreenHeader eyebrow="Planificador" title="Mis Listas">
         <SearchBar
           value={busqueda}
           onChangeText={setBusqueda}
           onCreate={handleCreateList}
-          placeholder="Buscar..."
+          placeholder="Buscar lista"
         />
-        
-      </ThemedView>
-      
+      </ScreenHeader>
+
       {listasFiltradas.length > 0 ? (
         <FlatList
           data={listasFiltradas}
-          renderItem={({item, index}) => (
+          keyboardShouldPersistTaps="handled"
+          renderItem={({item}) => (
             <ListItem
+              leadingIcon="musical-notes-outline"
               title={item.name}
-              subtitle={`${item.himnos.length} Himnos, Creado el ${item.createdAt.toLocaleDateString()}`}
+              subtitle={`${item.himnos.length} ${item.himnos.length === 1 ? 'himno' : 'himnos'} · ${item.createdAt.toLocaleDateString()}`}
               fontSize={fontSize <= 27 ? fontSize : 27}
               onPress={() => navigation.navigate('ListDetail', { lista: {name: item.name, himnos: item.himnos} })}
-              style={{
-                backgroundColor: index % 2 === 0 
-                  ? (colorScheme === 'dark' ? '#2A2A2A' : '#f7f7f7')
-                  : (colorScheme === 'dark' ? '#1E1E1E' : '#FFFFFF')
-              }}
-              sizeIcon={30}
               rightIcon={{
-                name: "remove-circle",
-                color: "red",
+                name: "trash-outline",
+                color: theme.textMuted,
                 onPress: async () => {
-                  Alert.alert(
+                  showDialog(
                     "Confirmar eliminación",
                     "¿Estás seguro que deseas eliminar este elemento?",
                     [
@@ -177,7 +182,6 @@ const MyLists: React.FC = () => {
                         text: "Eliminar",
                         style: "destructive",
                         onPress: async () => {
-                          // aquí va tu código original de eliminación
                           handleDeleteList(item.id)
                         }
                       }
@@ -186,8 +190,8 @@ const MyLists: React.FC = () => {
                 }
               }}
               leftIcon={{
-                name: "build",
-                color: tintColorBlue,
+                name: "create-outline",
+                color: theme.primary,
                 onPress: () => handleEditList(item)
               }}
             />
@@ -196,54 +200,66 @@ const MyLists: React.FC = () => {
           contentContainerStyle={styles.listContent}
         />
       ) : (
-        <ThemedText style={styles.noLists}>No hay listas creadas</ThemedText>
+        <View style={styles.empty}>
+          <View style={[styles.emptyIcon, { backgroundColor: theme.chip }]}>
+            <Ionicons name="list-outline" size={28} color={theme.secondary} />
+          </View>
+          <ThemedText type="subtitle">
+            {busqueda ? 'Sin resultados' : 'No hay listas creadas'}
+          </ThemedText>
+          <ThemedText type="caption" style={styles.emptyText}>
+            {busqueda
+              ? 'Ninguna lista coincide con tu búsqueda.'
+              : 'Crea una lista para preparar el orden de alabanzas de un culto.'}
+          </ThemedText>
+          {!busqueda && (
+            <TouchableOpacity
+              style={[styles.button, styles.emptyButton, { backgroundColor: theme.primary }]}
+              onPress={handleCreateList}
+            >
+              <Ionicons name="add" size={20} color={theme.onPrimary} />
+              <ThemedText style={[styles.buttonText, { color: theme.onPrimary }]}>Nueva lista</ThemedText>
+            </TouchableOpacity>
+          )}
+        </View>
       )}
 
-      <Modal
-        animationType="slide"
-        transparent={true}
+      <Sheet
         visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(false);
-          setEditingList(null);
-          setNewListName('');
-        }}
+        onClose={closeModal}
+        eyebrow="Mis listas"
+        title={editingList ? 'Editar lista' : 'Crear nueva lista'}
       >
-        <ThemedView style={styles.modalContainer}>
-          <ThemedView style={styles.modalContent}>
-            <ThemedText style={styles.modalTitle}>
-              {editingList ? 'Editar Lista' : 'Crear Nueva Lista'}
+        <TextInput
+          style={[
+            styles.input,
+            { color: theme.text, borderColor: theme.border, backgroundColor: theme.background },
+          ]}
+          value={newListName}
+          onChangeText={setNewListName}
+          placeholder="Nombre de la lista"
+          placeholderTextColor={theme.textMuted}
+          autoFocus
+          returnKeyType="done"
+          onSubmitEditing={handleSaveList}
+        />
+        <View style={styles.modalButtons}>
+          <TouchableOpacity
+            style={[styles.button, styles.flex, { borderColor: theme.primary, borderWidth: 1 }]}
+            onPress={closeModal}
+          >
+            <ThemedText style={[styles.buttonText, { color: theme.primary }]}>Cancelar</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.flex, { backgroundColor: theme.primary }]}
+            onPress={handleSaveList}
+          >
+            <ThemedText style={[styles.buttonText, { color: theme.onPrimary }]}>
+              {editingList ? 'Actualizar' : 'Guardar'}
             </ThemedText>
-            <TextInput
-              style={styles.input}
-              value={newListName}
-              onChangeText={setNewListName}
-              placeholder="Nombre de la lista"
-              placeholderTextColor="#888"
-            />
-            <ThemedView style={styles.modalButtons}>
-              <TouchableOpacity 
-                style={[styles.button, styles.cancelButton]}
-                onPress={() => {
-                  setModalVisible(false);
-                  setEditingList(null);
-                  setNewListName('');
-                }}
-              >
-                <ThemedText>Cancelar</ThemedText>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={[styles.button, styles.saveButton]}
-                onPress={handleSaveList}
-              >
-                <ThemedText style={styles.saveButtonText}>
-                  {editingList ? 'Actualizar' : 'Guardar'}
-                </ThemedText>
-              </TouchableOpacity>
-            </ThemedView>
-          </ThemedView>
-        </ThemedView>
-      </Modal>
+          </TouchableOpacity>
+        </View>
+      </Sheet>
     </ThemedView>
   );
 };
@@ -252,108 +268,58 @@ const styles = StyleSheet.create({
   containerList: {
     flex: 1,
   },
-  searchContainer: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-  },
   listContent: {
-    paddingVertical: 8,
+    paddingTop: Spacing.sm,
+    paddingBottom: Spacing.xl,
   },
-  itemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  empty: {
     alignItems: 'center',
-    padding: 16,
-    marginHorizontal: 16,
-    marginVertical: 8,
-    borderRadius: 8,
-    backgroundColor: '#F5F5F5',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    gap: Spacing.sm,
+    paddingTop: 72,
+    paddingHorizontal: Spacing.xl,
   },
-  item: {
-    flex: 1,
-    flexDirection: 'row',
+  emptyIcon: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     alignItems: 'center',
-  },
-  itemNumber: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginRight: 12,
-    color: '#333',
-  },
-  itemTitle: {
-    fontSize: 16,
-    color: '#555',
-  },
-  favoriteButton: {
-    padding: 8,
-  },
-  noFavorites: {
-    textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
-    color: '#888',
-  },
-  createButton: {
-    position: 'absolute',
-    right: 16,
-    top: 16,
-    padding: 8,
-  },
-  noLists: {
-    textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
-    color: '#888',
-  },
-  modalContainer: {
-    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    marginBottom: Spacing.sm,
   },
-  modalContent: {
-    width: '80%',
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: '#FFFFFF',
-  },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 15,
+  emptyText: {
     textAlign: 'center',
+  },
+  emptyButton: {
+    marginTop: Spacing.md,
+    paddingHorizontal: Spacing.lg,
   },
   input: {
+    height: 48,
     borderWidth: 1,
-    borderColor: '#CCCCCC',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 15,
+    borderRadius: Radius.md,
+    paddingHorizontal: 14,
+    fontSize: 16,
+    fontFamily: Fonts.sans,
+    marginBottom: Spacing.md,
   },
   modalButtons: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: Spacing.sm,
+  },
+  flex: {
+    flex: 1,
   },
   button: {
-    padding: 10,
-    borderRadius: 5,
-    minWidth: 100,
+    height: 48,
+    borderRadius: Radius.md,
+    flexDirection: 'row',
+    gap: 6,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  cancelButton: {
-    backgroundColor: '#CCCCCC',
-  },
-  saveButton: {
-    backgroundColor: tintColorBlue,
-  },
-  saveButtonText: {
-    color: '#FFFFFF',
+  buttonText: {
+    fontFamily: Fonts.sansSemiBold,
+    fontSize: 15,
   },
 });
 

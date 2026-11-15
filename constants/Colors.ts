@@ -1,28 +1,60 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Paleta "Sanctuary Warmth": minimalismo editorial cálido.
+ * Lienzo marfil, navy como ancla, terracota para acentos y oliva para etiquetas.
+ * Todos los colores de la app deben salir de aquí (vía useThemeColor / useTheme).
  */
 
-export const tintColorLight = '#114d92';
-export const tintColorDark = '#fff';
-export const tintColorRed = '#e34040';
-export const tintColorBlue = '#2E8EFF';
-
-export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#1E1E1E',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
+const light = {
+  text: '#1C1E21',
+  textMuted: '#706E6B',
+  background: '#FBF9F5',
+  card: '#FFFFFF',
+  border: '#EAE6DF',
+  primary: '#1B2A4A',
+  onPrimary: '#FFFFFF',
+  secondary: '#9A5B32',
+  secondarySoft: '#FFDBC8',
+  onSecondarySoft: '#6E3812',
+  tertiary: '#5E6B58',
+  chip: '#F4EFEA',
+  numberBox: '#F3F1EC',
+  overlay: 'rgba(27, 42, 74, 0.35)',
+  toast: '#1B2A4A',
+  danger: '#BA1A1A',
+  tint: '#1B2A4A',
+  icon: '#706E6B',
+  tabIconDefault: '#706E6B',
+  tabIconSelected: '#1B2A4A',
 };
+
+const dark: typeof light = {
+  text: '#ECEAE6',
+  textMuted: '#9C9993',
+  background: '#121417',
+  card: '#1B1E23',
+  border: '#2A2E35',
+  primary: '#B7C6EE',
+  onPrimary: '#0A1A3A',
+  secondary: '#FFB68B',
+  secondarySoft: '#3A2416',
+  onSecondarySoft: '#FFDBC8',
+  tertiary: '#BDCBB4',
+  chip: '#23272E',
+  numberBox: '#23272E',
+  overlay: 'rgba(0, 0, 0, 0.55)',
+  toast: '#2F3034',
+  danger: '#FFB4AB',
+  tint: '#B7C6EE',
+  icon: '#9C9993',
+  tabIconDefault: '#9C9993',
+  tabIconSelected: '#B7C6EE',
+};
+
+export const Colors = { light, dark };
+export type ThemeColors = typeof light;
+
+// Exportaciones heredadas, mantenidas por compatibilidad.
+export const tintColorLight = light.primary;
+export const tintColorDark = dark.primary;
+export const tintColorRed = light.danger;
+export const tintColorBlue = light.primary;

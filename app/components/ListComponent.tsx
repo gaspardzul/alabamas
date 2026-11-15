@@ -1,24 +1,26 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { StyleSheet, SectionList, Animated } from 'react-native';
+import { StyleSheet, SectionList, Animated, View } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import ScreenHeader from '@/components/ScreenHeader';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import himnosData from '@/assets/himnos/lista.json';  
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation, useFocusEffect } from 'expo-router';
+import type { StackNavigationProp } from '@react-navigation/stack';
 import useStorage from '@/hooks/useStorage';
 import { RootStackParamList } from '@/ts/types';
 import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
-import ListItem from '@/components/ListItem';
-import {  tintColorBlue } from '@/constants/Colors';
+import ListItem, { toTitleCase } from '@/components/ListItem';
 import { useSettings } from '@/hooks/useSettings';
-import { useColorScheme } from '@/hooks/useColorScheme';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
   const navigation = useNavigation<NavigationProp>();
   const [himnos, setHimnos] = useState<Himno[]>([]);
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { favorites, addFavorite, removeFavorite , getFavorites} = useStorage('favoritos');
@@ -207,55 +209,75 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
   };
 
 
+  const total = seccionesHimnos.reduce((n, s) => n + s.data.length, 0);
+
   return (
     <ThemedView style={styles.containerList}>
-      <ThemedView style={{...styles.container, backgroundColor: colorScheme === 'dark' ? '#1E1E1E' : tintColorBlue}}>
+      <ScreenHeader eyebrow="Himnario" title="Alabanzas">
         <SearchBar
           value={busqueda}
           onSort={handleSort}
           onChangeText={setBusqueda}
-          placeholder="Buscar por número o título"
+          placeholder="Buscar por número, título o tema"
         />
-      </ThemedView>
-      
+        <ThemedText type="caption">
+          {busqueda ? `${total} resultados` : `${total} alabanzas disponibles`}
+        </ThemedText>
+      </ScreenHeader>
+
       <SectionList
         sections={seccionesHimnos}
-        renderItem={({ item, index }) => (
-          <ListItem
-            title={`${item.number}. ${item.title}`}
-            style={{
-              backgroundColor: index % 2 === 0 
-                ? (colorScheme === 'dark' ? '#2A2A2A' : '#f7f7f7')
-                : (colorScheme === 'dark' ? '#1E1E1E' : '#FFFFFF')
-            }}
-            fontSize={fontSize <= 27 ? fontSize : 27}
-            onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
-            rightIcon={{
-              name: "bookmark",
-              color: favorites.some(fav => fav.number === item.number) ? "#FF6B6B" : "#737373",
-              onPress: () => toggleFavorito(item.number)
-            }}
-          />
-        )}
+        stickySectionHeadersEnabled={false}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={styles.listContent}
+        renderItem={({ item }) => {
+          const isFav = favorites.some(fav => fav.number === item.number);
+          return (
+            <ListItem
+              number={item.number}
+              title={toTitleCase(item.title)}
+              tags={item.group}
+              fontSize={fontSize <= 27 ? fontSize : 27}
+              onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
+              rightIcon={{
+                name: isFav ? 'star' : 'star-outline',
+                color: isFav ? theme.secondary : theme.textMuted,
+                onPress: () => toggleFavorito(item.number)
+              }}
+            />
+          );
+        }}
         renderSectionHeader={({ section: { title } }) => (
-          <ThemedView style={{...styles.sectionHeader, backgroundColor: colorScheme === 'dark' ? '#212121' : '#e4e4e4'}}>
-            <ThemedText style={styles.sectionHeaderText}>{title}</ThemedText>
-          </ThemedView>
+          <View style={styles.sectionHeader}>
+            <ThemedText type="label" style={{ color: theme.textMuted }}>{title}</ThemedText>
+            <View style={[styles.sectionRule, { backgroundColor: theme.border }]} />
+          </View>
         )}
+        ListEmptyComponent={
+          <View style={styles.empty}>
+            <ThemedText type="subtitle">Sin resultados</ThemedText>
+            <ThemedText type="caption">Prueba con otro número, título o tema.</ThemedText>
+          </View>
+        }
         keyExtractor={(item: Himno) => item.number.toString()}
       />
-      <Animated.View style={[
-        styles.messageContainer,
-        {
-          opacity: fadeAnim,
-          transform: [{
-            translateY: fadeAnim.interpolate({
-              inputRange: [0, 1],
-              outputRange: [20, 0]
-            })
-          }]
-        }
-      ]}>
+      <Animated.View
+        pointerEvents="none"
+        style={[
+          styles.messageContainer,
+          {
+            backgroundColor: theme.toast,
+            opacity: fadeAnim,
+            transform: [{
+              translateY: fadeAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [20, 0]
+              })
+            }]
+          }
+        ]}
+      >
+        <Ionicons name="star" size={14} color="#FFB68B" />
         <ThemedText style={styles.messageText}>{mensaje}</ThemedText>
       </Animated.View>
     </ThemedView>
@@ -266,58 +288,42 @@ const styles = StyleSheet.create({
   containerList: {
     flex: 1,
   },
-  container: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  itemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  item: {
-    flex: 1,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 10,
-    paddingHorizontal: 10,
+  listContent: {
+    paddingBottom: Spacing.xl,
   },
   sectionHeader: {
-    padding: 8
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    paddingHorizontal: Spacing.gutter,
+    paddingTop: Spacing.md,
+    paddingBottom: Spacing.sm,
   },
-  sectionHeaderText: {
-    fontWeight: 'bold',
+  sectionRule: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+  },
+  empty: {
+    alignItems: 'center',
+    gap: Spacing.xs,
+    paddingTop: Spacing.xl,
   },
   messageContainer: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 24,
     alignSelf: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderRadius: 25,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: Radius.full,
     flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    gap: 8,
   },
   messageText: {
     color: '#FFFFFF',
     fontSize: 14,
-    fontWeight: '500',
+    lineHeight: 20,
+    fontFamily: Fonts.sansMedium,
   }
 });
 

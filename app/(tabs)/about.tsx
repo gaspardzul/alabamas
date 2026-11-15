@@ -1,102 +1,106 @@
-import { Image, StyleSheet, Platform, Linking, View } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ScrollView, StyleSheet, Linking, View, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { tintColorBlue } from '@/constants/Colors';
-
+import ScreenHeader from '@/components/ScreenHeader';
+import { ThemedText } from '@/components/ThemedText';
+import { useTheme } from '@/hooks/useThemeColor';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 export default function SettingsScreen() {
+  const theme = useTheme();
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: tintColorBlue, dark: '#1E1E1E' }}
-      headerImage={
-        <View style={styles.headerContainer}>
-          <Image
-            source={require('@/assets/images/pigeon.png')}
-            style={styles.reactLogo}
-            resizeMode="contain"
-          />
-          <ThemedText type="title" style={styles.titleHeader}>Alaba+</ThemedText>
-        </View>
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="subtitle">PAZ!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        
-        <ThemedText>
-          Espero que esta app te sea de utilidad y de bendicion para tu caminar cristiano.
-          {' '}
-          Se ha realizado con mucho cariño y dedicación para ti por: {' '}
-          <ThemedText type="defaultSemiBold">Hno. Gaspar Dzul</ThemedText>
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Apóyanos:</ThemedText>
-        <ThemedText>
-          Esta app es totalmente gratuita, sin embargo, su mantenimiento tiene un costo mensual. Si te
-          ha sido de utilidad, considera apoyar su mantenimiento para que podamos agregar nuevas
-          funcionalidades y mejorar la experiencia de uso.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Información:</ThemedText>
-        <ThemedText>
-          casper088@gmail.com{' '}
-        </ThemedText>
-        <ThemedView style={styles.whatsappContainer}>
-          <Ionicons name="logo-whatsapp" size={24} color={Platform.OS === 'ios' ? '#007AFF' : '#2196F3'} />
-          <ThemedText
-            style={styles.link}
-            onPress={() => Linking.openURL('https://wa.me/529991659403')}>
-            WhatsApp
+    <ScrollView
+      style={{ backgroundColor: theme.background }}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
+    >
+      <ScreenHeader eyebrow="Alaba+" title="Acerca de" />
+
+      <View style={styles.body}>
+        <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <ThemedText style={[styles.greeting, { color: theme.primary }]}>¡Paz!</ThemedText>
+          <ThemedText style={styles.paragraph}>
+            Espero que esta app te sea de utilidad y de bendición para tu caminar cristiano. Se ha
+            realizado con mucho cariño y dedicación para ti por:
           </ThemedText>
-        </ThemedView>
-      </ThemedView>
-    </ParallaxScrollView>
+          <ThemedText style={styles.author}>Hno. Gaspar Dzul</ThemedText>
+        </View>
+
+        <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <ThemedText type="label">Apóyanos</ThemedText>
+          <ThemedText style={styles.paragraph}>
+            Esta app es totalmente gratuita, sin embargo, su mantenimiento tiene un costo mensual. Si te
+            ha sido de utilidad, considera apoyar su mantenimiento para que podamos agregar nuevas
+            funcionalidades y mejorar la experiencia de uso.
+          </ThemedText>
+        </View>
+
+        <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <ThemedText type="label">Información</ThemedText>
+          <View style={styles.contactRow}>
+            <Ionicons name="mail-outline" size={18} color={theme.textMuted} />
+            <ThemedText>casper088@gmail.com</ThemedText>
+          </View>
+          <TouchableOpacity
+            style={[styles.button, { borderColor: theme.primary }]}
+            onPress={() => Linking.openURL('https://wa.me/529991659403')}
+          >
+            <Ionicons name="logo-whatsapp" size={18} color={theme.primary} />
+            <ThemedText style={[styles.buttonText, { color: theme.primary }]}>Escribir por WhatsApp</ThemedText>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  content: {
+    paddingBottom: Spacing.xl,
+  },
+  body: {
+    paddingHorizontal: Spacing.gutter,
+    paddingTop: Spacing.sm,
+    gap: Spacing.md,
+  },
+  card: {
+    borderWidth: 1,
+    borderRadius: Radius.md,
+    padding: Spacing.gutter,
+    gap: Spacing.sm + 2,
+  },
+  greeting: {
+    fontFamily: Fonts.serifBold,
+    fontSize: 22,
+    lineHeight: 30,
+  },
+  paragraph: {
+    fontFamily: Fonts.serifLight,
+    fontSize: 16,
+    lineHeight: 26,
+  },
+  author: {
+    fontFamily: Fonts.serifItalic,
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  contactRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: Spacing.sm,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    width: '100%',
-    height: '120%',
-    position: 'absolute',
-    bottom: 0,
-    top: 10,
-  },
-  headerContainer: {
-    flex: 1,
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingBottom: 20,
+    gap: Spacing.sm,
+    height: 48,
+    borderWidth: 1,
+    borderRadius: Radius.md,
+    marginTop: Spacing.xs,
   },
-  titleHeader: {
-    position: 'absolute',
-    bottom: 20,
-    left: 50,
-    color: 'white',
-  },
-  link: {
-    textDecorationLine: 'underline',
-    color: Platform.OS === 'ios' ? '#007AFF' : '#25D366',
-  },
-  whatsappContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  buttonText: {
+    fontFamily: Fonts.sansSemiBold,
+    fontSize: 15,
   },
 });
