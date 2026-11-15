@@ -1,191 +1,3775 @@
 {
-"lista": [
-        { "title": "A CADA INSTANTE", "number": 1, "group": [] },
-        { "title": "ACEPTA A CRISTO", "number": 2, "group": [] },
-        { "title": "A DONDE IRE", "number": 3, "group": [] },
-        { "title": "AGRADECIDO ESTOY", "number": 4, "group": [] },
-        { "title": "AGRADECIMIENTO", "number": 5, "group": ["GRATITUD"] },
-        { "title": "AGUA DE VIDA", "number": 6, "group": [] },
-        { "title": "AGUA VIVA", "number": 7, "group": [] },
-        { "title": "A JESUS CANTA MI ALMA", "number": 8, "group": [] },
-        { "title": "ALABANZA AL SALVADOR", "number": 9, "group": [] },
-        { "title": "AHORA CANTO ALELUYA", "number": 10, "group": [] },
-        { "title": "A LA CASA DE JAIRO", "number": 11, "group": [] },
-        { "title": "AL AMANECER", "number": 12, "group": [] },
-        { "title": "AL AMPARO DE LA ROCA", "number": 13, "group": [] },
-        { "title": "ESTOY MARAVILLADO", "number": 14, "group": [] },
-        { "title": "ALEGRATE ALMA TRISTE", "number": 15, "group": [] },
-        { "title": "ALELUYA AL SEÑOR", "number": 16, "group": [] },
-        { "title": "ALELUYA AMEN", "number": 17, "group": [] },
-        { "title": "AL PIE DE LA CRUZ", "number": 18, "group": [] },
-        { "title": "ALLA EN LOS OLIVOS", "number": 19, "group": [] },
-        { "title": "ALLI QUIERO IR, ¿Y TU?", "number": 21, "group": [] },
-        { "title": "A SOLAS CON MI CRISTO", "number": 35, "group": ["EVANGELISMO"] },
-        { "title": "BENDICIONES GOZARA", "number": 38, "group": [] },
-        { "title": "BAJO DEL OLIVAR", "number": 36, "group": [] },
-        { "title": "BELLAS PALABRAS DE CRISTO", "number": 37, "group": [] },
-        { "title": "BENDITO MENSAJE", "number": 39, "group": [] },
-        { "title": "ALLA QUIERO ESTAR", "number": 20, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "ALLI ESTARE", "number": 22, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "ALMAS PERDIDAS", "number": 23, "group": [] },
-        { "title": "ALMAS UNIDAS", "number": 24, "group": [] },
-        { "title": "AL SANTUARIO ELEVO MI VOZ", "number": 25, "group": [] },
-        { "title": "A MI ORACION ATIENDE", "number": 26, "group": [] },
-        { "title": "TU TODO EN EL ALTAR", "number": 27, "group": [] },
-        { "title": "ANUNCIA MI EVANGELIO", "number": 30, "group": ["EVANGELISMO"] },
-        { "title": "ASÍ ERA MI VIDA", "number": 33, "group": ["BAUTISMOS"] },
-        { "title": "A SOLAS CON JESUS", "number": 34, "group": [] },
-        { "title": "BIENVENIDOS", "number": 40, "group": ["BIENVENIDA"] },
-        { "title": "BRILLA EN TU LUGAR", "number": 42, "group": ["EVANGELISMO"] },
-        { "title": "CADA DIA CON CRISTO", "number": 43, "group": [] },
-        { "title": "CAMINANDO", "number": 44, "group": [] },
-        { "title": "CERCA DE TI OH DIOS", "number": 52, "group": ["ESPERANZA"] },
-        { "title": "CON CRISTO YO IRE", "number": 54, "group": ["SEGURIDAD"] },
-        { "title": "INVITADO DE HONOR", "number": 55, "group": ["BIENVENIDA"] },
-        { "title": "CON QUE PAGAREMOS", "number": 56, "group": ["GRATITUD"] },
-        { "title": "CONTIGO VIVIRE", "number": 59, "group": ["ESPERANZA"] },
-        { "title": "CON TU AMOR", "number": 60, "group": ["GRATITUD"] },
-        { "title": "CORO DE MILLARES", "number": 61, "group": [] },
-        { "title": "CORO INFANTIL", "number": 62, "group": [] },
-        { "title": "CREO EN DIOS", "number": 63, "group": [] },
-        { "title": "CRISTO LA FUENTE DE AMOR", "number": 71, "group": ["GRATITUD","ORACION","SEGURIDAD"] },
-        { "title": "CRISTO LA ROCA", "number": 72, "group": ["ORACION","SEGURIDAD"] },
-        { "title": "CRISTO RESUCITADO", "number": 73, "group": ["PASCUA", "VICTORIA"] },
-        { "title": "CRISTO VIENE", "number": 75, "group": ["ESPERANZA"] },
-        { "title": "CUANDO ALLA SE PASE LISTA", "number": 79, "group": ["HIMNOS DE CONSOLACIÓN", "ESPERANZA"] },
-        { "title": "CUANDO ALLÁ ESTEMOS REUNIDOS", "number": 78, "group": ["GOZO"] },
-        { "title": "CUANDO DESPERTARE", "number": 83, "group": ["HIMNOS DE CONSOLACIÓN", "ESPERANZA"] },
-        { "title": "CUANDO LLEGUE EL FINAL", "number": 88, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "CUAN GRANDE ES DIOS", "number": 90, "group": ["GRATITUD"] },
-        { "title": "CUANDO YO MUERA", "number": 91, "group": [] },
-        { "title": "DAME MAS SABIDURIA", "number": 95, "group": ["ORACION"] },
-        { "title": "DAME TU GRACIA", "number": 96, "group": [] },
-        { "title": "DAME UN NUEVO CORAZON", "number": 97, "group": ["ORACION","LLAMAMIENTO"] },
-        { "title": "DIA ALEGRE", "number": 109, "group": ["ESPERANZA"] },
-        { "title": "DIOS DESCENDIO", "number": 114, "group": ["ESPERANZA"] },
-        { "title": "DIOS ES MI SALVACION", "number": 118, "group": ["ESPIRITU SANTO"] },
-        { "title": "DULCE ESPERANZA", "number": 129, "group": ["HIMNOS DE CONSOLACIÓN", "ESPERANZA"] },
-        { "title": "EL APOSENTO ALTO", "number": 138, "group": ["ESPIRITU SANTO"] },
-        { "title": "EL ESPIRITU SANTO", "number": 146, "group": ["ESPIRITU SANTO"] },
-        { "title": "EL HIJO PRÓDIGO", "number": 151, "group": ["BAUTISMOS"] },
-        { "title": "EL JORDAN SOLO NO CRUZARE", "number": 155, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "EL MUNDO NECESITA A CRISTO", "number": 161, "group": ["EVANGELISMO"] },
-        { "title": "EL SUEÑO DORADO", "number": 175, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "EL TALENTO", "number": 176, "group": ["BAUTISMOS"] },
-        { "title": "EL TIEMPO DE PRUEBAS", "number": 177, "group": ["BAUTISMOS"] },
-        { "title": "EL VOLVERÁ", "number": 183, "group": ["BAUTISMOS"] },
-        { "title": "EN BUSCA DE OBREROS", "number": 186, "group": ["EVANGELISMO"] },
-        { "title": "EN CRISTO SE ENCUENTRA LA VIDA", "number": 188, "group": ["ESPIRITU SANTO"] },
-        { "title": "EN EL SERVICIO DE MI REY", "number": 191, "group": ["AGRADECIMIENTO"] },
-        { "title": "EN ESE CIELO AZUL", "number": 192, "group": [] },
-        { "title": "EN LA CRUZ", "number": 195, "group": ["BAUTISMOS"] },
-        { "title": "EN LA PRESENCIA DE JESUCRISTO", "number": 198, "group": ["BAUTISMOS"] },
-        { "title": "EN LA VIÑA DEL SEÑOR", "number": 201, "group": ["EVANGELISMO"] },
-        { "title": "EN MI ALMA ESTA", "number": 202, "group": ["EVANGELISMO"] },
-        { "title": "ENSÉÑAME SEÑOR", "number": 203, "group": ["GRATITUD"] },
-        { "title": "ENTERA CONSAGRACIÓN", "number": 204, "group": "BAUTISMOS" },
-        { "title": "ESPERANZA PLENA", "number": 208, "group": ["BAUTISMOS", "ESPERANZA"] },
-        { "title": "FIESTA ALEGRE EN EL SEÑOR", "number": 217, "group": ["BAUTISMOS", "ESPERANZA"] },
-        { "title": "GALARDON", "number": 221, "group": ["LLAMAMIENTO","EL SACRIFICIO DE JESUS"] },
-        { "title": "GLORIA AL SALVADOR", "number": 222, "group": ["ALABANZA"] },
-        { "title": "GLORIA AL SEÑOR", "number": 223, "group": ["BIENVENIDA"] },
-        { "title": "GLORIOSA COMUNION", "number": 225, "group": ["BIENVENIDA","ESPIRITU SANTO"] },
-        { "title": "GRANDES COSAS CRISTO HA HECHO PARA MI", "number": 234, "group": ["BAUTISMOS"] },
-        { "title": "HAS OIDO SEÑOR MIS ORACIONES", "number": 243, "group": ["ESPERANZA"] },
-        { "title": "HAY QUE ESTAR LISTOS", "number": 246, "group": ["LLAMAMIENTO", "SANTIDAD"] },
-        { "title": "HAY UNA CIUDAD", "number": 247, "group": ["ESPERANZA"] },
-        { "title": "HOMBRES DE DIOS", "number": 250, "group": [] },
-        { "title": "HUBO QUIEN POR MIS CULPAS", "number": 251, "group": [] },
-        { "title": "IGLESIA DE CRISTO", "number": 252, "group": ["ESPERANZA"] },
-        { "title": "HAY UNA CIUDAD ETERNAL", "number": 248, "group": ["ESPERANZA"] },
-        { "title": "HAY UNA SENDA", "number": 249, "group": ["BAUTISMOS","GRATITUD"] },
-        { "title": "INDELEBLE", "number": 265, "group": ["BAUTISMOS"] },
-        { "title": "IRÉ SI EL VA CONMIGO", "number": 269, "group": ["BAUTISMOS","EVANGELISMO"] },
-        { "title": "JESUCRISTO ES EL NOMBRE", "number": 280, "group": ["BAUTISMOS"] },
-        { "title": "JESUS ME HABLÓ", "number": 287, "group": ["BAUTISMOS"] },
-        { "title": "LA GRAN TRIBULACIÓN", "number": 309, "group": ["GOZO"] },
-        { "title": "LA MAÑANA GLORIOSA", "number": 314, "group": [] },
-        { "title": "LAMENTO SOBRE JERUSALEN", "number": 315, "group": [] },
-        { "title": "LAMPARA ES", "number": 316, "group": [] },
-        { "title": "LA PEÑA DE HOREB", "number": 321, "group": ["LLAMAMIENTO","ESPIRITU SANTO"] },
-        { "title": "LA TIERRA DE MIS SUEÑOS", "number": 342, "group": ["ESPERANZA"] },
-        { "title": "LA VANIDAD DE LA VIDA", "number": 344, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "LAS BODAS DEL CORDERO", "number": 328, "group": ["ESPERANZA"] },
-        { "title": "LAS COSAS NUEVAS", "number": 329, "group": ["ESPERANZA"] },
-        { "title": "LLEVAR LA CRUZ DE CRISTO", "number": 355, "group": ["BAUTISMOS"] },
-        { "title": "LUCHANDO POR LA FE", "number": 365, "group": [] },
-        { "title": "MAESTRO DE GALILEA", "number": 366, "group": ["BAUTISMOS"] },
-        { "title": "MAS ALLA DEL SOL", "number": 372, "group": ["HIMNOS DE CONSOLACIÓN", "ESPERANZA"] },
-        { "title": "ME HA TOCADO", "number": 377, "group": ["BAUTISMOS"] },
-        { "title": "MELODÍAS CELESTIALES", "number": 379, "group": ["BAUTISMOS"] },
-        { "title": "MI REY DE PAZ", "number": 399, "group": ["BAUTISMOS"] },
-        { "title": "MI REY Y MI AMIGO", "number": 400, "group": ["BAUTISMOS"] },
-        { "title": "MUNDO DE FALSEDAD", "number": 407, "group": ["BAUTISMOS"] },
-        { "title": "NADIE PUDO AMARME COMO CRISTO", "number": 412, "group": ["BAUTISMOS", "ESPERANZA"] },
-        { "title": "NO PUEDE EL MUNDO SER MI HOGAR", "number": 418, "group": ["BAUTISMOS"] },
-        { "title": "NUEVA CRIATURA", "number": 430, "group": ["BAUTISMOS"] },
-        { "title": "PERTENEZCO A CRISTO", "number": 459, "group": ["BAUTISMOS"] },
-        { "title": "PETICION CRISTIANA", "number": 460, "group": ["BAUTISMOS"] },
-        { "title": "PON TU ESPIRITU EN MI ALMA", "number": 463, "group": ["ESPIRITU SANTO"] },
-        { "title": "PON TU MANO SEÑOR SOBRE MÍ", "number": 464, "group": ["ESPIRITU SANTO"] },
-        { "title": "POR GRACIA", "number": 468, "group": ["BAUTISMOS"] },
-        { "title": "POR UNA SENDA ESTRECHA", "number": 471, "group": ["BAUTISMOS"] },
-        { "title": "QUE DULCE ES TU NOMBRE, OH JESUS", "number": 489, "group": ["BAUTISMOS"] },
-        { "title": "QUE HERMOSO", "number": 495, "group": ["HIMNOS DE CONSOLACIÓN", "ESPERANZA"] },
-        { "title": "REPOSO ETERNO", "number": 504, "group": ["ESPERANZA"] },
-        { "title": "RETORNO DEL HIJO PRODIGO", "number": 508, "group": ["BAUTISMOS"] },
-        { "title": "SABER QUIERES", "number": 517, "group": ["BAUTISMOS"] },
-        { "title": "SE FIEL HASTA LA MUERTE", "number": 527, "group": ["BAUTISMOS"] },
-        { "title": "SEGUIRE A MI JESUS", "number": 523, "group": ["BAUTISMOS"] },
-        { "title": "SEÑOR HOY VENGO A TI", "number": 529, "group": ["BAUTISMOS"] },
-        { "title": "SEPULTADOS JUNTAMENTE", "number": 532, "group": ["BAUTISMOS"] },
-        { "title": "SI ALGUNO YA ESTA EN CRISTO", "number": 534, "group": ["BAUTISMOS"] },
-        { "title": "SI YO GANO EL MUNDO", "number": 548, "group": ["BAUTISMOS"] },
-        { "title": "SIGUIENDO YO A CRISTO", "number": 540, "group": ["BAUTISMOS"] },
-        { "title": "SOY EL HIJO DE UN REY", "number": 551, "group": ["BAUTISMOS"] },
-        { "title": "SU ESPIRITU SANTO", "number": 554, "group": ["ESPIRITU SANTO"] },
-        { "title": "TE DOY GRACIAS", "number": 558, "group": ["BAUTISMOS"] },
-        { "title": "TENGO MANSION MAS ALLA DE LOS CIELOS", "number": 560, "group": ["HIMNOS DE CONSOLACIÓN", "ESPERANZA"] },
-        { "title": "TODO A CRISTO YO ME RINDO", "number": 570, "group": ["BAUTISMOS"] },
-        { "title": "TRAS ESE CIELO AZUL", "number": 578, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "TREINTA PIEZAS DE PLATA", "number": 579, "group": ["ESPERANZA"] },
-        { "title": "TUYO SOY JESUS", "number": 584, "group": ["BAUTISMOS"] },
-        { "title": "VIVIR CON CRISTO", "number": 617, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "VOY SUBIENDO AL CIELO", "number": 620, "group": ["HIMNOS DE CONSOLACIÓN"] },
-        { "title": "YA TODO DEJE", "number": 626, "group": ["BAUTISMOS"] },
-        { "title": "HERMANOS A LUCHAR", "number": 254, "group": ["EVANGELISMO"] },
-        { "title": "INVOCACION", "number": 267, "group": ["LLAMAMIENTO"] },
-        { "title": "IREMOS POR TODO EL MUNDO", "number": 268, "group": ["EVANGELISMO"] },
-        { "title": "LA SIEMBRA", "number": 335, "group": ["EVANGELISMO"] },
-        { "title": "LAS PISADAS DE CRISTO", "number": 336, "group": ["EVANGELISMO"] },
-        { "title": "LLAMAMIENTO DE SAMUEL", "number": 350, "group": ["LLAMAMIENTO"] },
-        { "title": "LLANTO DE GRATITUD", "number": 351, "group": ["GRATITUD"] },
-        { "title": "LLENA DE AMOR MI CAMINO", "number": 352, "group": ["LLAMAMIENTO"] },
-        { "title": "MI VIDA VAGABA", "number": 403, "group": ["GRATITUD"] },
-        { "title": "MISIONERO QUE ANUNCIAS", "number": 404, "group": ["EVANGELISMO"] },
-        { "title": "PROFECIA DE HABACUC", "number": 477, "group": [] },
-        { "title": "PROCLAMEMOS LA SALVACION", "number": 478, "group": ["EVANGELISMO"] },
-        { "title": "SAL A SEMBRAR, SEMBRAR", "number": 518, "group": ["EVANGELISMO"] },
-        { "title": "SANTA BIBLIA", "number": 519, "group": [] },
-        { "title": "SEÑOR A TI TE ALABARE", "number": 520, "group": [] },
-        { "title": "SEGURO ESTOY", "number": 524, "group": [] },
-        { "title": "SE ACERCA EL DIA FELIZ", "number": 525, "group": [] },
-        { "title": "SE LLEGO LA HORA", "number": 526, "group": ["EVANGELISMO"] },
-        { "title": "SIEMPRE ORAD", "number": 536, "group": ["ORACION"] },
-        { "title": "SIERVOS DE JESUS", "number": 537, "group": ["EVANGELISMO"] },
-        { "title": "SIGUE ADELANTE", "number": 538, "group": [] },
-        { "title": "SUMISION", "number": 556, "group": ["EVANGELISMO"] },
-        { "title": "SAGRADO ES EL AMOR", "number": "556-A", "group": [] },
-        { "title": "TE ESTA LLAMANDO", "number": 557, "group": [] },
-        { "title": "TODO ES POSIBLE", "number": 573, "group": ["LLAMAMIENTO"] },
-        { "title": "TODO POR CAUSA DE MI", "number": 574, "group": [] },
-        { "title": "TOMADO DE LA MANO", "number": 575, "group": ["LLAMAMIENTO"] },
-        { "title": "TRABAJAD POR EL MAESTRO", "number": 576, "group": ["EVANGELISMO"] },
-        { "title": "YO SE QUE CRISTO VENDRA", "number": 631, "group": [] },
-        { "title": "YO SOLO ESPERO ESE DIA", "number": 632, "group": [] },
-        { "title": "AMO EL NOMBRE", "number": 28, "group": [] },
-        { "title": "AMOR DE DIOS", "number": 29, "group": [] },
-        { "title": "AQUEL SANTO VARON", "number": 31, "group": [] },
-        { "title": "ARREPENTIMIENTO", "number": 32, "group": [] }
-    ]
+  "lista": [
+    {
+      "title": "A CADA INSTANTE",
+      "number": 1,
+      "group": []
+    },
+    {
+      "title": "ACEPTA A CRISTO",
+      "number": 2,
+      "group": []
+    },
+    {
+      "title": "A DONDE IRE",
+      "number": 3,
+      "group": []
+    },
+    {
+      "title": "AGRADECIDO ESTOY",
+      "number": 4,
+      "group": []
+    },
+    {
+      "title": "AGRADECIMIENTO",
+      "number": 5,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "AGUA DE VIDA",
+      "number": 6,
+      "group": []
+    },
+    {
+      "title": "AGUA VIVA",
+      "number": 7,
+      "group": []
+    },
+    {
+      "title": "A JESUS CANTA MI ALMA",
+      "number": 8,
+      "group": []
+    },
+    {
+      "title": "ALABANZA AL SALVADOR",
+      "number": 9,
+      "group": []
+    },
+    {
+      "title": "AHORA CANTO ALELUYA",
+      "number": 10,
+      "group": []
+    },
+    {
+      "title": "A LA CASA DE JAIRO",
+      "number": 11,
+      "group": []
+    },
+    {
+      "title": "AL AMANECER",
+      "number": 12,
+      "group": []
+    },
+    {
+      "title": "AL AMPARO DE LA ROCA",
+      "number": 13,
+      "group": []
+    },
+    {
+      "title": "ESTOY MARAVILLADO",
+      "number": 14,
+      "group": []
+    },
+    {
+      "title": "ALEGRATE ALMA TRISTE",
+      "number": 15,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "ALELUYA AL SEÑOR",
+      "number": 16,
+      "group": []
+    },
+    {
+      "title": "ALELUYA AMEN",
+      "number": 17,
+      "group": []
+    },
+    {
+      "title": "AL PIE DE LA CRUZ",
+      "number": 18,
+      "group": []
+    },
+    {
+      "title": "ALLA EN LOS OLIVOS",
+      "number": 19,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "ALLA QUIERO ESTAR",
+      "number": 20,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "ALLI QUIERO IR, ¿Y TU?",
+      "number": 21,
+      "group": []
+    },
+    {
+      "title": "ALLI ESTARE",
+      "number": 22,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "ALMAS PERDIDAS",
+      "number": 23,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "ALMAS UNIDAS",
+      "number": 24,
+      "group": []
+    },
+    {
+      "title": "AL SANTUARIO ELEVO MI VOZ",
+      "number": 25,
+      "group": []
+    },
+    {
+      "title": "A MI ORACION ATIENDE",
+      "number": 26,
+      "group": []
+    },
+    {
+      "title": "TU TODO EN EL ALTAR",
+      "number": 27,
+      "group": []
+    },
+    {
+      "title": "AMO EL NOMBRE",
+      "number": 28,
+      "group": []
+    },
+    {
+      "title": "AMOR DE DIOS",
+      "number": 29,
+      "group": []
+    },
+    {
+      "title": "ANUNCIA MI EVANGELIO",
+      "number": 30,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "AQUEL SANTO VARON",
+      "number": 31,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "ARREPENTIMIENTO",
+      "number": 32,
+      "group": [
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "ASÍ ERA MI VIDA",
+      "number": 33,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "A SOLAS CON JESUS",
+      "number": 34,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "A SOLAS CON MI CRISTO",
+      "number": 35,
+      "group": [
+        "EVANGELISMO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "ANGELES CANTANDO ESTAN",
+      "number": "35-A",
+      "group": []
+    },
+    {
+      "title": "BAJO DEL OLIVAR",
+      "number": 36,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "BELLAS PALABRAS DE CRISTO",
+      "number": 37,
+      "group": []
+    },
+    {
+      "title": "BENDICIONES GOZARA",
+      "number": 38,
+      "group": []
+    },
+    {
+      "title": "BENDITO MENSAJE",
+      "number": 39,
+      "group": []
+    },
+    {
+      "title": "BIENVENIDOS",
+      "number": 40,
+      "group": [
+        "BIENVENIDA"
+      ]
+    },
+    {
+      "title": "BONDAD DE MI DIOS",
+      "number": 41,
+      "group": []
+    },
+    {
+      "title": "BRILLA EN TU LUGAR",
+      "number": 42,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "CADA DIA CON CRISTO",
+      "number": 43,
+      "group": []
+    },
+    {
+      "title": "CAMINANDO",
+      "number": 44,
+      "group": []
+    },
+    {
+      "title": "CAMINO A EMMAUS",
+      "number": 45,
+      "group": []
+    },
+    {
+      "title": "CAMINO, VIDA Y VERDAD",
+      "number": 46,
+      "group": []
+    },
+    {
+      "title": "CANCION DEL ALMA",
+      "number": 47,
+      "group": []
+    },
+    {
+      "title": "CANTAD AL SEÑOR",
+      "number": 48,
+      "group": []
+    },
+    {
+      "title": "CANTICO CELESTE",
+      "number": 49,
+      "group": []
+    },
+    {
+      "title": "CARA A CARA",
+      "number": 50,
+      "group": []
+    },
+    {
+      "title": "CARIDAD",
+      "number": 51,
+      "group": []
+    },
+    {
+      "title": "CERCA DE TI OH DIOS",
+      "number": 52,
+      "group": [
+        "ESPERANZA",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "COMO EL PERFUME",
+      "number": 53,
+      "group": []
+    },
+    {
+      "title": "CON CRISTO YO IRE",
+      "number": 54,
+      "group": [
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "INVITADO DE HONOR",
+      "number": 55,
+      "group": [
+        "BIENVENIDA"
+      ]
+    },
+    {
+      "title": "CON QUE PAGAREMOS",
+      "number": 56,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "CONTENTO ESTOY",
+      "number": 57,
+      "group": [
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "CONTESTACION DIVINA",
+      "number": 58,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "CONTIGO VIVIRE",
+      "number": 59,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "CON TU AMOR",
+      "number": 60,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "CORO DE MILLARES",
+      "number": 61,
+      "group": []
+    },
+    {
+      "title": "CORO INFANTIL",
+      "number": 62,
+      "group": []
+    },
+    {
+      "title": "CREO EN DIOS",
+      "number": 63,
+      "group": []
+    },
+    {
+      "title": "CRISTO A LAS PUERTAS",
+      "number": 64,
+      "group": []
+    },
+    {
+      "title": "CRISTO ES LA PUERTA",
+      "number": 65,
+      "group": []
+    },
+    {
+      "title": "CRISTO ES LUZ",
+      "number": 66,
+      "group": []
+    },
+    {
+      "title": "CRISTO ES MI DULCE SALVADOR",
+      "number": 67,
+      "group": []
+    },
+    {
+      "title": "CRISTO ES MI PROJIMO",
+      "number": 68,
+      "group": []
+    },
+    {
+      "title": "CRISTO ES NUESTRO JEFE",
+      "number": 69,
+      "group": [
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "CRISTO JAMAS CAMBIARA",
+      "number": 70,
+      "group": []
+    },
+    {
+      "title": "CRISTO LA FUENTE DE AMOR",
+      "number": 71,
+      "group": [
+        "GRATITUD",
+        "ORACION",
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "CRISTO LA ROCA",
+      "number": 72,
+      "group": [
+        "ORACION",
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "CRISTO RESUCITADO",
+      "number": 73,
+      "group": [
+        "PASCUA",
+        "VICTORIA"
+      ]
+    },
+    {
+      "title": "CRISTO TE LLAMA",
+      "number": 74,
+      "group": []
+    },
+    {
+      "title": "CRISTO VIENE",
+      "number": 75,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "CRISTO YA VIENE",
+      "number": 76,
+      "group": []
+    },
+    {
+      "title": "CUAN AMABLES SON TUS MORADAS",
+      "number": 77,
+      "group": []
+    },
+    {
+      "title": "CUANDO ALLÁ ESTEMOS REUNIDOS",
+      "number": 78,
+      "group": [
+        "GOZO"
+      ]
+    },
+    {
+      "title": "CUANDO ALLA SE PASE LISTA",
+      "number": 79,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "CUANDO CRISTO ME HALLO",
+      "number": 80,
+      "group": []
+    },
+    {
+      "title": "CUANDO CRISTO SU MANO ME DIO",
+      "number": 81,
+      "group": []
+    },
+    {
+      "title": "CUANDO CRISTO VENGA",
+      "number": 82,
+      "group": []
+    },
+    {
+      "title": "CUANDO DESPERTARE",
+      "number": 83,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "CUANDO EL SEÑOR ME HALLO",
+      "number": 84,
+      "group": []
+    },
+    {
+      "title": "CUANDO EL VINO A MI CORAZON",
+      "number": 85,
+      "group": []
+    },
+    {
+      "title": "CUANDO EN EL MUNDO VAGABA",
+      "number": 86,
+      "group": []
+    },
+    {
+      "title": "CUANDO ENFERMO ESTOY",
+      "number": 87,
+      "group": []
+    },
+    {
+      "title": "CUANDO LLEGUE EL FINAL",
+      "number": 88,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "CUANDO TERMINE MI JORNADA",
+      "number": 89,
+      "group": []
+    },
+    {
+      "title": "CUAN GRANDE ES DIOS",
+      "number": 90,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "CUANDO YO MUERA",
+      "number": 91,
+      "group": []
+    },
+    {
+      "title": "CUANTA PAZ SIENTE EL ALMA",
+      "number": 92,
+      "group": []
+    },
+    {
+      "title": "CUANTO TIEMPO HACE YA",
+      "number": 93,
+      "group": []
+    },
+    {
+      "title": "DA LO MEJOR AL MAESTRO",
+      "number": 94,
+      "group": []
+    },
+    {
+      "title": "DAME MAS SABIDURIA",
+      "number": 95,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "DAME TU GRACIA",
+      "number": 96,
+      "group": []
+    },
+    {
+      "title": "DAME UN NUEVO CORAZON",
+      "number": 97,
+      "group": [
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "DECIDETE",
+      "number": 98,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "DEJE MIS PENAS ATRAS",
+      "number": 99,
+      "group": []
+    },
+    {
+      "title": "DEJO EL MUNDO Y SIGO A CRISTO",
+      "number": 100,
+      "group": []
+    },
+    {
+      "title": "DEL TRONO DE LUZ",
+      "number": 101,
+      "group": []
+    },
+    {
+      "title": "DE MAÑANA",
+      "number": 102,
+      "group": []
+    },
+    {
+      "title": "DE MI SENDA AL FIN",
+      "number": 103,
+      "group": []
+    },
+    {
+      "title": "DESDE ENTONCES SOY DICHOSOS",
+      "number": 104,
+      "group": []
+    },
+    {
+      "title": "DESPERTAD Y VIVID",
+      "number": 105,
+      "group": []
+    },
+    {
+      "title": "DESPUES DE LA TORMENTA",
+      "number": 106,
+      "group": []
+    },
+    {
+      "title": "DE TAL MANERA ME AMO",
+      "number": 107,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "DEBEMOS DE VELAR",
+      "number": 108,
+      "group": []
+    },
+    {
+      "title": "DIA ALEGRE",
+      "number": 109,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "DIA DE JUSTICIA",
+      "number": 110,
+      "group": []
+    },
+    {
+      "title": "DILO A CRISTO",
+      "number": 111,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "DI, SEÑOR",
+      "number": 112,
+      "group": []
+    },
+    {
+      "title": "DIOS CRISTO",
+      "number": 113,
+      "group": []
+    },
+    {
+      "title": "DIOS DESCENDIO",
+      "number": 114,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "DIOS ES AMOR",
+      "number": 115,
+      "group": []
+    },
+    {
+      "title": "DIOS ES AMOR",
+      "number": 116,
+      "group": []
+    },
+    {
+      "title": "DIOS ES BUENO",
+      "number": 117,
+      "group": []
+    },
+    {
+      "title": "DIOS ES MI SALVACION",
+      "number": 118,
+      "group": [
+        "ESPIRITU SANTO"
+      ]
+    },
+    {
+      "title": "DIOS MANDA",
+      "number": 119,
+      "group": []
+    },
+    {
+      "title": "DIOS ES MI FORTALEZA",
+      "number": 120,
+      "group": []
+    },
+    {
+      "title": "DIOS ME AMO",
+      "number": 121,
+      "group": []
+    },
+    {
+      "title": "DIOS OS GUARDE",
+      "number": 122,
+      "group": []
+    },
+    {
+      "title": "DIOS TE VE",
+      "number": 123,
+      "group": []
+    },
+    {
+      "title": "DIOS TODO LO VE",
+      "number": 124,
+      "group": []
+    },
+    {
+      "title": "DIVINO COMPAÑERO",
+      "number": 125,
+      "group": [
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "DIVINIDAD PLENA DE JESUS",
+      "number": 126,
+      "group": []
+    },
+    {
+      "title": "DOQUIERA ES HOGAR",
+      "number": 127,
+      "group": []
+    },
+    {
+      "title": "DULCE COMUNION",
+      "number": 128,
+      "group": []
+    },
+    {
+      "title": "DULCE ESPERANZA",
+      "number": 129,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "DULCE ORACION",
+      "number": 130,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "DULCES CANCIONES",
+      "number": 131,
+      "group": []
+    },
+    {
+      "title": "DULCES MOMENTOS DE ORACION",
+      "number": 132,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "DAME UN DIA",
+      "number": "132-A",
+      "group": []
+    },
+    {
+      "title": "EFESIOS 4.5",
+      "number": 133,
+      "group": []
+    },
+    {
+      "title": "EL ALFOLI",
+      "number": 134,
+      "group": []
+    },
+    {
+      "title": "EL AMOR DE DIOS",
+      "number": 135,
+      "group": []
+    },
+    {
+      "title": "EL AMOR DE DIOS",
+      "number": 136,
+      "group": []
+    },
+    {
+      "title": "EL AMOR DE DIOS",
+      "number": 137,
+      "group": []
+    },
+    {
+      "title": "EL APOSENTO ALTO",
+      "number": 138,
+      "group": [
+        "ESPIRITU SANTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "EL ASILO DE MI SER",
+      "number": 139,
+      "group": []
+    },
+    {
+      "title": "EL CAMINO ESTRECHO",
+      "number": 140,
+      "group": []
+    },
+    {
+      "title": "EL CRISTO DE NAZARETH",
+      "number": 141,
+      "group": []
+    },
+    {
+      "title": "EL CUIDARA DE MI",
+      "number": 142,
+      "group": []
+    },
+    {
+      "title": "EL DIA DEL JUICIO",
+      "number": 143,
+      "group": []
+    },
+    {
+      "title": "EL DIA QUE CRISTO ME HALLO",
+      "number": 144,
+      "group": []
+    },
+    {
+      "title": "EL ES MI TODO AQUI",
+      "number": 145,
+      "group": []
+    },
+    {
+      "title": "EL ESPIRITU SANTO",
+      "number": 146,
+      "group": [
+        "ESPIRITU SANTO"
+      ]
+    },
+    {
+      "title": "EL ES PODER",
+      "number": 147,
+      "group": []
+    },
+    {
+      "title": "EL FIN DEL MUNDO",
+      "number": 148,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "EL FIN VIENE",
+      "number": 149,
+      "group": []
+    },
+    {
+      "title": "EL GRAN DIA VIENE",
+      "number": 150,
+      "group": []
+    },
+    {
+      "title": "EL HIJO PRÓDIGO",
+      "number": 151,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "ELIAS EN EL CARMELO",
+      "number": 152,
+      "group": []
+    },
+    {
+      "title": "ELI, ELI",
+      "number": 153,
+      "group": []
+    },
+    {
+      "title": "EL JARDIN DE ORACION",
+      "number": 154,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "EL JORDAN SOLO NO CRUZARE",
+      "number": 155,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "EL JUSTO POR FE VIVIRA",
+      "number": 156,
+      "group": []
+    },
+    {
+      "title": "EL LATIGO",
+      "number": 157,
+      "group": []
+    },
+    {
+      "title": "EL ME SOSTENDRA",
+      "number": 158,
+      "group": []
+    },
+    {
+      "title": "EL MUNDO EN DESATINO VAGA YA",
+      "number": 159,
+      "group": []
+    },
+    {
+      "title": "EL MUNDO NO ES MI HOGAR",
+      "number": 160,
+      "group": []
+    },
+    {
+      "title": "EL MUNDO NECESITA A CRISTO",
+      "number": 161,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "EL HIJO PRODIGO",
+      "number": 162,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "EL NIDO DE LA CRUZ",
+      "number": 163,
+      "group": []
+    },
+    {
+      "title": "EL NOMBRE DE JESUS",
+      "number": 164,
+      "group": []
+    },
+    {
+      "title": "EL NOMBRE DEL MESIAS",
+      "number": 165,
+      "group": []
+    },
+    {
+      "title": "EL PILOTO",
+      "number": 166,
+      "group": []
+    },
+    {
+      "title": "EL PRINCIPIO DE LA SABIDURIA",
+      "number": 167,
+      "group": []
+    },
+    {
+      "title": "EL QUE HABITA AL ABRIGO DE DIOS",
+      "number": 168,
+      "group": []
+    },
+    {
+      "title": "EL RELICARIO",
+      "number": 169,
+      "group": []
+    },
+    {
+      "title": "EL RICO Y LAZARO",
+      "number": 170,
+      "group": []
+    },
+    {
+      "title": "EL REY DE GLORIA",
+      "number": 171,
+      "group": [
+        "LLAMAMIENTO",
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "EL REY DE LOS REYES",
+      "number": 172,
+      "group": []
+    },
+    {
+      "title": "EL SALVADOR",
+      "number": 173,
+      "group": []
+    },
+    {
+      "title": "EL SOLDADO VALIENTE",
+      "number": 174,
+      "group": []
+    },
+    {
+      "title": "EL SUEÑO DORADO",
+      "number": 175,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "EL TALENTO",
+      "number": 176,
+      "group": [
+        "BAUTISMOS",
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "EL TIEMPO DE PRUEBAS",
+      "number": 177,
+      "group": [
+        "BAUTISMOS",
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "EL TIEMPO ESTA CERCA",
+      "number": 178,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "EL TIEMPO SE ACERCA",
+      "number": 179,
+      "group": []
+    },
+    {
+      "title": "EL VERBO",
+      "number": 180,
+      "group": []
+    },
+    {
+      "title": "EL VERBO DE DIOS",
+      "number": 181,
+      "group": []
+    },
+    {
+      "title": "EL VIVE",
+      "number": 182,
+      "group": []
+    },
+    {
+      "title": "EL VOLVERÁ",
+      "number": 183,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "EL ME HIZO LIBRE",
+      "number": 184,
+      "group": []
+    },
+    {
+      "title": "EMMANUEL",
+      "number": 185,
+      "group": []
+    },
+    {
+      "title": "EN BUSCA DE OBREROS",
+      "number": 186,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "EN CRISTO CONFIO",
+      "number": 187,
+      "group": []
+    },
+    {
+      "title": "EN CRISTO SE ENCUENTRA LA VIDA",
+      "number": 188,
+      "group": [
+        "ESPIRITU SANTO",
+        "LLAMAMIENTO",
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "ENDERECEMOS NUESTRA ORACION",
+      "number": 189,
+      "group": []
+    },
+    {
+      "title": "EN EL MONTE CALVARIO",
+      "number": 190,
+      "group": []
+    },
+    {
+      "title": "EN EL SERVICIO DE MI REY",
+      "number": 191,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "EN ESE CIELO AZUL",
+      "number": 192,
+      "group": []
+    },
+    {
+      "title": "EL CORO CELESTIAL",
+      "number": "192-A",
+      "group": []
+    },
+    {
+      "title": "EN HOMENAJE",
+      "number": 193,
+      "group": []
+    },
+    {
+      "title": "EN JESUS HALLARAS DULCE PAZ",
+      "number": 194,
+      "group": []
+    },
+    {
+      "title": "EN LA CRUZ",
+      "number": 195,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "EN LA CRUZ",
+      "number": 196,
+      "group": []
+    },
+    {
+      "title": "EN MI ORACION",
+      "number": 197,
+      "group": []
+    },
+    {
+      "title": "EN LA PRESENCIA DE JESUCRISTO",
+      "number": 198,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "EN LA PRESENCIA DE DIOS",
+      "number": "198-A",
+      "group": []
+    },
+    {
+      "title": "EN LAS OLAS DEL MAR",
+      "number": 199,
+      "group": []
+    },
+    {
+      "title": "EN LA PEQUEÑA CIUDAD",
+      "number": 200,
+      "group": []
+    },
+    {
+      "title": "EN LA VIÑA DEL SEÑOR",
+      "number": 201,
+      "group": [
+        "EVANGELISMO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "EN MI ALMA ESTA",
+      "number": 202,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "ENSÉÑAME SEÑOR",
+      "number": 203,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "EN LOS CIELOS PUEDO YO MIRAR",
+      "number": "203-A",
+      "group": []
+    },
+    {
+      "title": "ENTERA CONSAGRACIÓN",
+      "number": 204,
+      "group": [
+        "BAUTISMOS",
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "EN UNA CRUENTA CRUZ",
+      "number": 205,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "ERES LIMPIO EN LA SANGRE",
+      "number": 206,
+      "group": []
+    },
+    {
+      "title": "ES JESUCRISTO LA VIDA ETERNA",
+      "number": 207,
+      "group": []
+    },
+    {
+      "title": "ESPERANZA PLENA",
+      "number": 208,
+      "group": [
+        "BAUTISMOS",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "ESPERAR EN DIOS",
+      "number": 209,
+      "group": []
+    },
+    {
+      "title": "ESTAR EN EL MUNDO",
+      "number": 210,
+      "group": []
+    },
+    {
+      "title": "ES TODO EN EL",
+      "number": 211,
+      "group": []
+    },
+    {
+      "title": "ESTRELLAS EN MI CORONA",
+      "number": 212,
+      "group": []
+    },
+    {
+      "title": "ERES",
+      "number": 213,
+      "group": []
+    },
+    {
+      "title": "EVENTO DE UNA TARDE",
+      "number": 214,
+      "group": []
+    },
+    {
+      "title": "EXHORTACION DE JOSUE",
+      "number": "214-A",
+      "group": []
+    },
+    {
+      "title": "EL SIERVO VIGILANTE",
+      "number": "214-B",
+      "group": []
+    },
+    {
+      "title": "FALTAN OBREROS",
+      "number": 215,
+      "group": []
+    },
+    {
+      "title": "FELICIDAD COMPLETA",
+      "number": 216,
+      "group": []
+    },
+    {
+      "title": "FIESTA ALEGRE EN EL SEÑOR",
+      "number": 217,
+      "group": [
+        "BAUTISMOS",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "FIRMES Y ADELANTE",
+      "number": 218,
+      "group": []
+    },
+    {
+      "title": "FLOR DE LA VIDA",
+      "number": 219,
+      "group": []
+    },
+    {
+      "title": "FUENTE DE MISERICORDIA",
+      "number": 220,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "GALARDON",
+      "number": 221,
+      "group": [
+        "LLAMAMIENTO",
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "GLORIA AL SALVADOR",
+      "number": 222,
+      "group": [
+        "ALABANZA"
+      ]
+    },
+    {
+      "title": "GLORIA AL SEÑOR",
+      "number": 223,
+      "group": [
+        "BIENVENIDA"
+      ]
+    },
+    {
+      "title": "GLORIA A TI JESUS DIVINO",
+      "number": 224,
+      "group": []
+    },
+    {
+      "title": "GLORIOSA COMUNION",
+      "number": 225,
+      "group": [
+        "BIENVENIDA",
+        "ESPIRITU SANTO"
+      ]
+    },
+    {
+      "title": "GOZOSOS CANTEMOS",
+      "number": 226,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "GRACIAS A DIOS",
+      "number": 227,
+      "group": []
+    },
+    {
+      "title": "GRACIAS AL SEÑOR",
+      "number": 228,
+      "group": []
+    },
+    {
+      "title": "GRACIAS TE DOY SEÑOR",
+      "number": 229,
+      "group": []
+    },
+    {
+      "title": "GRANDE ESPERANZA",
+      "number": 230,
+      "group": []
+    },
+    {
+      "title": "GRANDE ES TU NOMBRE",
+      "number": 231,
+      "group": []
+    },
+    {
+      "title": "GRANDE GOZO HAY EN MI ALMA",
+      "number": 232,
+      "group": []
+    },
+    {
+      "title": "GRANDE MARAVILLA",
+      "number": 233,
+      "group": []
+    },
+    {
+      "title": "GRANDES COSAS CRISTO HA HECHO PARA MI",
+      "number": 234,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "GRATITUD",
+      "number": 235,
+      "group": []
+    },
+    {
+      "title": "GRATITUD",
+      "number": 236,
+      "group": []
+    },
+    {
+      "title": "GRATITUD",
+      "number": 237,
+      "group": []
+    },
+    {
+      "title": "GUIAME CRISTO",
+      "number": 238,
+      "group": []
+    },
+    {
+      "title": "GUIAME OH CRISTO",
+      "number": 239,
+      "group": []
+    },
+    {
+      "title": "HABLA JESUS AMANTE",
+      "number": 240,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "HASTA EL FIN LUCHARE",
+      "number": 241,
+      "group": []
+    },
+    {
+      "title": "HAY LUGAR AL PIE DE LA CRUZ",
+      "number": 242,
+      "group": []
+    },
+    {
+      "title": "HAS OIDO SEÑOR MIS ORACIONES",
+      "number": 243,
+      "group": [
+        "ESPERANZA",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "HAY LUZ GLORIOSA",
+      "number": 244,
+      "group": []
+    },
+    {
+      "title": "HAY PODER EN JESUS",
+      "number": 245,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "HAY QUE ESTAR LISTOS",
+      "number": 246,
+      "group": [
+        "SANTIDAD",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "HAY UNA CIUDAD",
+      "number": 247,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "HAY UNA CIUDAD ETERNAL",
+      "number": 248,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "HAY UNA SENDA",
+      "number": 249,
+      "group": [
+        "BAUTISMOS",
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "HAY UN CELICO HOGAR",
+      "number": 250,
+      "group": []
+    },
+    {
+      "title": "HAY UN CUADRO SINGULAR",
+      "number": 251,
+      "group": []
+    },
+    {
+      "title": "HAY UN MUNDO FELIZ MAS ALLA",
+      "number": 252,
+      "group": []
+    },
+    {
+      "title": "HAY UN PUEBLO",
+      "number": 253,
+      "group": []
+    },
+    {
+      "title": "HERMANOS A LUCHAR",
+      "number": 254,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "HERMOSA ESPERANZA",
+      "number": 255,
+      "group": []
+    },
+    {
+      "title": "HISTORIA DE ESTHER",
+      "number": 256,
+      "group": []
+    },
+    {
+      "title": "HOMBRE",
+      "number": 257,
+      "group": []
+    },
+    {
+      "title": "HUBIERA QUIEN",
+      "number": 258,
+      "group": [
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "HUBO QUIEN POR MIS CULPAS MURIERA",
+      "number": 259,
+      "group": []
+    },
+    {
+      "title": "HUMILLACION",
+      "number": 260,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "IMPLORACION",
+      "number": 261,
+      "group": []
+    },
+    {
+      "title": "IMPLORACION",
+      "number": 262,
+      "group": []
+    },
+    {
+      "title": "INCANSABLE ESPERANZA",
+      "number": 263,
+      "group": []
+    },
+    {
+      "title": "INCOMPRENSIBLE AMOR DE DIOS",
+      "number": 264,
+      "group": []
+    },
+    {
+      "title": "INDELEBLE",
+      "number": 265,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "INDIGNO",
+      "number": 266,
+      "group": []
+    },
+    {
+      "title": "INVOCACION",
+      "number": 267,
+      "group": [
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "IREMOS POR TODO EL MUNDO",
+      "number": 268,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "IRÉ SI EL VA CONMIGO",
+      "number": 269,
+      "group": [
+        "BAUTISMOS",
+        "EVANGELISMO",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "JAMAS TE SEPARES",
+      "number": 270,
+      "group": []
+    },
+    {
+      "title": "JESUS ES MI PASTOR",
+      "number": 271,
+      "group": []
+    },
+    {
+      "title": "JERUSALEN ¡JERUSALEN!",
+      "number": 272,
+      "group": []
+    },
+    {
+      "title": "JESUS GRANDE ES TU NOMBRE",
+      "number": 273,
+      "group": []
+    },
+    {
+      "title": "JESUS ES MI REY",
+      "number": 274,
+      "group": []
+    },
+    {
+      "title": "JERUSALEN",
+      "number": 275,
+      "group": []
+    },
+    {
+      "title": "JERUSALEN GLORIOSA",
+      "number": 276,
+      "group": []
+    },
+    {
+      "title": "JERUSALEN, OH JERUSALEN",
+      "number": 277,
+      "group": []
+    },
+    {
+      "title": "JESUCRISTO CLAVADO EN LA CRUZ",
+      "number": 278,
+      "group": []
+    },
+    {
+      "title": "JESUCRISTO ES DIOS",
+      "number": 279,
+      "group": []
+    },
+    {
+      "title": "JESUCRISTO ES EL NOMBRE",
+      "number": 280,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "JESUCRISTO MI GUIA",
+      "number": 281,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "JESUS ALZO MI CARGA",
+      "number": 282,
+      "group": [
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "JESUS DIVINO",
+      "number": 283,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "JESUS ES DIOS",
+      "number": 284,
+      "group": []
+    },
+    {
+      "title": "JESUS ES MI REFUGIO",
+      "number": 285,
+      "group": []
+    },
+    {
+      "title": "JESUS LLEGO A MI VIDA",
+      "number": 286,
+      "group": []
+    },
+    {
+      "title": "JESUS ME HABLÓ",
+      "number": 287,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "JESUS MI REDENTOR",
+      "number": 288,
+      "group": []
+    },
+    {
+      "title": "JESUS MURIO POR MI",
+      "number": 289,
+      "group": []
+    },
+    {
+      "title": "JESUS TE INVITA",
+      "number": 290,
+      "group": []
+    },
+    {
+      "title": "JESUS TE NECESITA",
+      "number": 291,
+      "group": []
+    },
+    {
+      "title": "JESUS VENDRA OTRA VEZ",
+      "number": 292,
+      "group": []
+    },
+    {
+      "title": "JOB",
+      "number": 293,
+      "group": [
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "JORNADA DIFICIL",
+      "number": 294,
+      "group": []
+    },
+    {
+      "title": "JOVENES QUE LUCHAN",
+      "number": 295,
+      "group": []
+    },
+    {
+      "title": "JUNTO AL LUGAR DEL GOLGOTA",
+      "number": 296,
+      "group": []
+    },
+    {
+      "title": "JESUCRISTO EL SEÑOR Y REY DE ISRAEL (LA IGLESIA ELEGIDA)",
+      "number": 297,
+      "group": []
+    },
+    {
+      "title": "JUNTO A TI SEÑOR",
+      "number": 298,
+      "group": [
+        "LLAMAMIENTO",
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "JUSTO",
+      "number": 299,
+      "group": []
+    },
+    {
+      "title": "LA ANUNCIACION",
+      "number": 300,
+      "group": []
+    },
+    {
+      "title": "LA ALEGRE PRIMAVERA",
+      "number": 301,
+      "group": []
+    },
+    {
+      "title": "LA BATALLA DE LA FE",
+      "number": 302,
+      "group": []
+    },
+    {
+      "title": "LA BIBLIA ES LA BANDERA",
+      "number": 303,
+      "group": []
+    },
+    {
+      "title": "LA DISPENSACION",
+      "number": 304,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "LA ESPERANZA DEL CRISTIANO",
+      "number": 305,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LA FUENTE DE AMOR",
+      "number": 306,
+      "group": []
+    },
+    {
+      "title": "LA FUENTE SANADORA",
+      "number": 307,
+      "group": []
+    },
+    {
+      "title": "LA GLORIOSA APARICION",
+      "number": 308,
+      "group": []
+    },
+    {
+      "title": "LA GRAN TRIBULACIÓN",
+      "number": 309,
+      "group": [
+        "GOZO"
+      ]
+    },
+    {
+      "title": "LA IGLESIA, EL CUERPO DE CRISTO",
+      "number": 310,
+      "group": []
+    },
+    {
+      "title": "LA LEY DE DIOS",
+      "number": 311,
+      "group": []
+    },
+    {
+      "title": "LA LEY DEL SEÑOR",
+      "number": 312,
+      "group": []
+    },
+    {
+      "title": "LA LUZ DE DIOS",
+      "number": 313,
+      "group": []
+    },
+    {
+      "title": "LA MAÑANA GLORIOSA",
+      "number": 314,
+      "group": []
+    },
+    {
+      "title": "LAMENTO SOBRE JERUSALEN",
+      "number": 315,
+      "group": []
+    },
+    {
+      "title": "LAMPARA ES",
+      "number": 316,
+      "group": []
+    },
+    {
+      "title": "LA NOCHE INOLVIDABLE",
+      "number": 317,
+      "group": [
+        "LLAMAMIENTO",
+        "SEGURIDAD"
+      ]
+    },
+    {
+      "title": "LA NUEVA LABOR",
+      "number": 318,
+      "group": []
+    },
+    {
+      "title": "LA ORACION",
+      "number": 319,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LA ORACION",
+      "number": 320,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "LA PEÑA DE HOREB",
+      "number": 321,
+      "group": [
+        "ESPIRITU SANTO",
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "LA PEREGRINACION",
+      "number": 322,
+      "group": []
+    },
+    {
+      "title": "LA PUERTA",
+      "number": 323,
+      "group": []
+    },
+    {
+      "title": "LA PUERTA DE LA HERMOSA",
+      "number": 324,
+      "group": []
+    },
+    {
+      "title": "LA PERSECUCION DE LOS FIELES",
+      "number": 325,
+      "group": []
+    },
+    {
+      "title": "LA RESIGNACION DEL PASTOR",
+      "number": 326,
+      "group": []
+    },
+    {
+      "title": "LA SAMARITANA",
+      "number": 327,
+      "group": []
+    },
+    {
+      "title": "LAS BODAS DEL CORDERO",
+      "number": 328,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "LAS COSAS NUEVAS",
+      "number": 329,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "LA SALVACION ES REAL",
+      "number": 330,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LA SEGUNDA COPA",
+      "number": 331,
+      "group": []
+    },
+    {
+      "title": "LAS ESPINAS",
+      "number": 332,
+      "group": []
+    },
+    {
+      "title": "LAS HERIDAS",
+      "number": 333,
+      "group": []
+    },
+    {
+      "title": "LAS HERIDAS DE CRISTO",
+      "number": 334,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "LA SIEMBRA",
+      "number": 335,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "LAS PISADAS DE CRISTO",
+      "number": 336,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "LAS PISADAS DEL MAESTRO",
+      "number": 337,
+      "group": []
+    },
+    {
+      "title": "LA PESCA MILAGROSA",
+      "number": 338,
+      "group": []
+    },
+    {
+      "title": "LAS PROMESAS DE JESUS",
+      "number": 339,
+      "group": []
+    },
+    {
+      "title": "LAS RIQUEZAS QUE MI DIOS ME HA DADO",
+      "number": 340,
+      "group": []
+    },
+    {
+      "title": "LAS SIETE PALABRAS",
+      "number": 341,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "LA TIERRA DE MIS SUEÑOS",
+      "number": 342,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "LA TRISTE OVEJA",
+      "number": 343,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LA VANIDAD DE LA VIDA",
+      "number": 344,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LA VID",
+      "number": 345,
+      "group": []
+    },
+    {
+      "title": "LA VISION DE EZEQUIEL PROFETA",
+      "number": 346,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LEVITA Y SACERDOTE",
+      "number": 347,
+      "group": []
+    },
+    {
+      "title": "LIBRO SANTO",
+      "number": 348,
+      "group": []
+    },
+    {
+      "title": "LIMPIA MI VIDA",
+      "number": 349,
+      "group": []
+    },
+    {
+      "title": "LLAMAMIENTO DE SAMUEL",
+      "number": 350,
+      "group": [
+        "EVANGELISMO",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LLANTO DE GRATITUD",
+      "number": 351,
+      "group": [
+        "GRATITUD",
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "LLENA DE AMOR MI CAMINO",
+      "number": 352,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LLEVAME A LA ROCA",
+      "number": 353,
+      "group": [
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "LOOR A TI MI DIOS",
+      "number": 354,
+      "group": []
+    },
+    {
+      "title": "LLEVAR LA CRUZ DE CRISTO",
+      "number": 355,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LOS BIENAVENTURADOS",
+      "number": 356,
+      "group": []
+    },
+    {
+      "title": "LOS CAMINOS DE DIOS",
+      "number": 357,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LOS CAMINOS FATIGADOS",
+      "number": 358,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "LOS DIEZ MANDAMIENTOS",
+      "number": 359,
+      "group": []
+    },
+    {
+      "title": "LOAD",
+      "number": 360,
+      "group": []
+    },
+    {
+      "title": "LOS MARES, LAS MONTAÑAS",
+      "number": 361,
+      "group": []
+    },
+    {
+      "title": "LOS QUE ESPERAN EN JESUS",
+      "number": 362,
+      "group": []
+    },
+    {
+      "title": "LUCES DEL PUERTO",
+      "number": 363,
+      "group": []
+    },
+    {
+      "title": "LUCHA POR CRISTO",
+      "number": 364,
+      "group": []
+    },
+    {
+      "title": "LUCHANDO POR LA FE",
+      "number": 365,
+      "group": []
+    },
+    {
+      "title": "MAESTRO DE GALILEA",
+      "number": 366,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "MAESTRO, SE ENCRESPAN LAS AGUAS",
+      "number": 367,
+      "group": []
+    },
+    {
+      "title": "MARAVILLOSO PODER",
+      "number": 368,
+      "group": []
+    },
+    {
+      "title": "MARAVILLOSO SERA",
+      "number": 369,
+      "group": []
+    },
+    {
+      "title": "MARIA Y MARTHA",
+      "number": 370,
+      "group": []
+    },
+    {
+      "title": "MAS ALLA DE ESTA VIDA",
+      "number": 371,
+      "group": []
+    },
+    {
+      "title": "MAS ALLA DEL SOL",
+      "number": 372,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "ME DICEN QUE CRISTO YA VIENE",
+      "number": 373,
+      "group": []
+    },
+    {
+      "title": "ME DICES  QUE YO TE SIGA",
+      "number": 374,
+      "group": []
+    },
+    {
+      "title": "MEDITACION CON DIOS",
+      "number": 375,
+      "group": []
+    },
+    {
+      "title": "MEDITAD",
+      "number": 376,
+      "group": []
+    },
+    {
+      "title": "ME HA TOCADO",
+      "number": 377,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "MEJOR LUGAR VERE",
+      "number": 378,
+      "group": []
+    },
+    {
+      "title": "MELODÍAS CELESTIALES",
+      "number": 379,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "MENSAJE A LA IGLESIA",
+      "number": 380,
+      "group": []
+    },
+    {
+      "title": "MENSAJERO QUE LLEVAS",
+      "number": 381,
+      "group": []
+    },
+    {
+      "title": "MI ALMA COMPRO",
+      "number": 382,
+      "group": []
+    },
+    {
+      "title": "MI ANHELO SUBLIME",
+      "number": 383,
+      "group": []
+    },
+    {
+      "title": "MI BENDITO SEÑOR",
+      "number": 384,
+      "group": []
+    },
+    {
+      "title": "MI BUEN PASTOR",
+      "number": 385,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "MI CONFIANZA",
+      "number": 386,
+      "group": []
+    },
+    {
+      "title": "MI DIOS ES REAL",
+      "number": 387,
+      "group": []
+    },
+    {
+      "title": "MI DIOS SOLO ES UNO",
+      "number": 388,
+      "group": []
+    },
+    {
+      "title": "MI EXPRESION FAVORITA",
+      "number": 389,
+      "group": []
+    },
+    {
+      "title": "MI ESPERANZA",
+      "number": 390,
+      "group": []
+    },
+    {
+      "title": "MI FE LA TENGO PUESTA EN TI",
+      "number": 391,
+      "group": []
+    },
+    {
+      "title": "MI JESUS",
+      "number": 392,
+      "group": []
+    },
+    {
+      "title": "MILLARES LE ALABAN",
+      "number": 393,
+      "group": []
+    },
+    {
+      "title": "MI PENSAMIENTO",
+      "number": 394,
+      "group": []
+    },
+    {
+      "title": "MI PETICION",
+      "number": 395,
+      "group": []
+    },
+    {
+      "title": "MI PLEGARIA",
+      "number": 396,
+      "group": []
+    },
+    {
+      "title": "MI PLEGARIA",
+      "number": 397,
+      "group": []
+    },
+    {
+      "title": "MIRA AL CORDERO DE DIOS",
+      "number": 398,
+      "group": []
+    },
+    {
+      "title": "MI REY DE PAZ",
+      "number": 399,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "MI REY Y MI AMIGO",
+      "number": 400,
+      "group": [
+        "BAUTISMOS",
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "MI SALVADOR",
+      "number": 401,
+      "group": []
+    },
+    {
+      "title": "MI TESTIMONIO",
+      "number": 402,
+      "group": []
+    },
+    {
+      "title": "MI VIDA VAGABA",
+      "number": 403,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "MISIONERO QUE ANUNCIAS",
+      "number": 404,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "MIS PLEGARIAS",
+      "number": 405,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "MUCHAS CUENTAS",
+      "number": 406,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "MUNDO DE FALSEDAD",
+      "number": 407,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "NACIO EN UN PESEBRE",
+      "number": 408,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "NADA DE SOMBRAS",
+      "number": 409,
+      "group": []
+    },
+    {
+      "title": "NADA ERES",
+      "number": 410,
+      "group": []
+    },
+    {
+      "title": "NADA HICE POR MI REY",
+      "number": 411,
+      "group": [
+        "GRATITUD"
+      ]
+    },
+    {
+      "title": "NADIE PUDO AMARME COMO CRISTO",
+      "number": 412,
+      "group": [
+        "BAUTISMOS",
+        "ESPERANZA",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NO ESPERES MAS",
+      "number": 413,
+      "group": []
+    },
+    {
+      "title": "NITIDO RAYO POR CRISTO",
+      "number": 414,
+      "group": []
+    },
+    {
+      "title": "NO HALLO COMO AGRADARTE",
+      "number": 415,
+      "group": []
+    },
+    {
+      "title": "NO HAY DIOS COMO MI DIOS",
+      "number": 416,
+      "group": []
+    },
+    {
+      "title": "NO LO HAY",
+      "number": 417,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NO PUEDE EL MUNDO SER MI HOGAR",
+      "number": 418,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NO REGRESAREMOS MAS",
+      "number": 419,
+      "group": []
+    },
+    {
+      "title": "NO SE TURBE NUNCA",
+      "number": 420,
+      "group": []
+    },
+    {
+      "title": "NO SE TURBE VUESTRO CORAZON",
+      "number": 421,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NO TE DE TEMOR HABLAR DE CRISTO",
+      "number": 422,
+      "group": []
+    },
+    {
+      "title": "NOSOTROS VENCEREMOS",
+      "number": 423,
+      "group": []
+    },
+    {
+      "title": "NO TIENE PODER EL DIABLO",
+      "number": 424,
+      "group": []
+    },
+    {
+      "title": "NO SOY NADA",
+      "number": 425,
+      "group": []
+    },
+    {
+      "title": "NO TIENES EXCUSA",
+      "number": 426,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NUEVA CRIATURA EN CRISTO JESUS",
+      "number": 427,
+      "group": []
+    },
+    {
+      "title": "NO TODO EL QUE DIJERE SEÑOR",
+      "number": 428,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NUESTRO VIAJE",
+      "number": 429,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "NUEVA CRIATURA",
+      "number": 430,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "NUNCA HA HABLADO HOMBRE COMO ESTE",
+      "number": 431,
+      "group": []
+    },
+    {
+      "title": "NUNCA ME DEJARA",
+      "number": 432,
+      "group": []
+    },
+    {
+      "title": "OFRECELE TU VIDA",
+      "number": 433,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "¡OH, BONDAD TAN INFINITA!",
+      "number": 434,
+      "group": []
+    },
+    {
+      "title": "OH CUAN PRECIOSO ESTAR CON CRISTO",
+      "number": 435,
+      "group": []
+    },
+    {
+      "title": "OH GRAN JERUSALEN",
+      "number": 436,
+      "group": []
+    },
+    {
+      "title": "OH GRAN MILAGRO",
+      "number": 437,
+      "group": []
+    },
+    {
+      "title": "OH MI BUEN DIOS",
+      "number": 438,
+      "group": []
+    },
+    {
+      "title": "OH, PRODIGO",
+      "number": 439,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "¡OH, QUE AMIGO",
+      "number": 440,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "¡OH, SEÑOR! QUE NO SE PIERDA NI UNO",
+      "number": 441,
+      "group": []
+    },
+    {
+      "title": "OH, YO QUIERO VERLE",
+      "number": 442,
+      "group": []
+    },
+    {
+      "title": "¡OH!, VEN SIN TARDAR",
+      "number": 443,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "OI TU VOZ",
+      "number": 444,
+      "group": []
+    },
+    {
+      "title": "OLIVA VERDE",
+      "number": 445,
+      "group": []
+    },
+    {
+      "title": "OMNIPOTENTE DIOS",
+      "number": 446,
+      "group": []
+    },
+    {
+      "title": "ORAD SIN CESAR",
+      "number": 447,
+      "group": []
+    },
+    {
+      "title": "OYE ISRAEL",
+      "number": 448,
+      "group": []
+    },
+    {
+      "title": "PADRE",
+      "number": 449,
+      "group": []
+    },
+    {
+      "title": "PADRE DIOS",
+      "number": "449-A",
+      "group": []
+    },
+    {
+      "title": "PADRE NUESTRO",
+      "number": 450,
+      "group": []
+    },
+    {
+      "title": "PASA JESUS POR AQUI",
+      "number": 451,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "PAZ DE CRISTO",
+      "number": 452,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "PECADOR SI CONFIAS EN JESUS",
+      "number": 453,
+      "group": []
+    },
+    {
+      "title": "PECADOR, VEN A CRISTO JESUS",
+      "number": 454,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "PECADOR, VEN AL DULCE JESUS",
+      "number": 455,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "PERFECTO GOZO",
+      "number": 456,
+      "group": []
+    },
+    {
+      "title": "PERMITEME GUARDAR MI TESTIMONIO",
+      "number": 457,
+      "group": []
+    },
+    {
+      "title": "PERO QUEDA CRISTO",
+      "number": 458,
+      "group": []
+    },
+    {
+      "title": "PERTENEZCO A CRISTO",
+      "number": 459,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "PETICION CRISTIANA",
+      "number": 460,
+      "group": [
+        "BAUTISMOS",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "PERDON TE RUEGO",
+      "number": 461,
+      "group": [
+        "LLAMAMIENTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "PLEGARIA NUPCIAL",
+      "number": 462,
+      "group": []
+    },
+    {
+      "title": "PON TU ESPIRITU EN MI ALMA",
+      "number": 463,
+      "group": [
+        "ESPIRITU SANTO",
+        "ORACION"
+      ]
+    },
+    {
+      "title": "PON TU MANO SEÑOR SOBRE MÍ",
+      "number": 464,
+      "group": [
+        "ESPIRITU SANTO",
+        "LLAMAMIENTO",
+        "ORACION",
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "POR CRISTO ES DADO GOZO",
+      "number": 465,
+      "group": []
+    },
+    {
+      "title": "POR CUAL CAMINO VAS",
+      "number": 466,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "POR FE",
+      "number": 467,
+      "group": []
+    },
+    {
+      "title": "POR GRACIA",
+      "number": 468,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "PORQUE EL TIEMPO MUY VELOZ SE VA",
+      "number": 469,
+      "group": []
+    },
+    {
+      "title": "PORQUE EL VIVE",
+      "number": 470,
+      "group": []
+    },
+    {
+      "title": "POR UNA SENDA ESTRECHA",
+      "number": 471,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "PREFIERO A CRISTO",
+      "number": 472,
+      "group": []
+    },
+    {
+      "title": "PREPARACION DE LAS ALMAS",
+      "number": 473,
+      "group": []
+    },
+    {
+      "title": "PLENA LUZ",
+      "number": 474,
+      "group": []
+    },
+    {
+      "title": "PRISIONERO",
+      "number": 475,
+      "group": []
+    },
+    {
+      "title": "PRISIONERO",
+      "number": 476,
+      "group": []
+    },
+    {
+      "title": "PROFECIA DE HABACUC",
+      "number": 477,
+      "group": []
+    },
+    {
+      "title": "PROCLAMEMOS LA SALVACION",
+      "number": 478,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "PROMESAS DEL SEÑOR",
+      "number": 479,
+      "group": []
+    },
+    {
+      "title": "PRECIOSO AMOR",
+      "number": 480,
+      "group": []
+    },
+    {
+      "title": "PRONTO VIENE EN GLORIA",
+      "number": 481,
+      "group": []
+    },
+    {
+      "title": "PRONTO VOLVERA",
+      "number": 482,
+      "group": []
+    },
+    {
+      "title": "PON ACEITE EN MI LUZ",
+      "number": 483,
+      "group": []
+    },
+    {
+      "title": "PREGONERO",
+      "number": "483-A",
+      "group": []
+    },
+    {
+      "title": "QUE BELLA HISTORIA",
+      "number": 484,
+      "group": []
+    },
+    {
+      "title": "QUE BONITO ES CONOCER A CRISTO",
+      "number": "484-A",
+      "group": []
+    },
+    {
+      "title": "QUE CUENTA LE IREMOS A DAR",
+      "number": 485,
+      "group": []
+    },
+    {
+      "title": "DESIERTO Y SOLEDAD",
+      "number": 486,
+      "group": []
+    },
+    {
+      "title": "QUE GRANDE ES DIOS",
+      "number": 487,
+      "group": []
+    },
+    {
+      "title": "QUE GOZO SIENTE EL ALMA",
+      "number": 488,
+      "group": []
+    },
+    {
+      "title": "QUE DULCE ES TU NOMBRE, OH JESUS",
+      "number": 489,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "¿QUE ES EL HOMBRE?",
+      "number": 490,
+      "group": []
+    },
+    {
+      "title": "QUE LINDO ES MI CRISTO",
+      "number": 491,
+      "group": []
+    },
+    {
+      "title": "QUE LLUEVA",
+      "number": 492,
+      "group": []
+    },
+    {
+      "title": "QUE MARAVILLOSO",
+      "number": 493,
+      "group": []
+    },
+    {
+      "title": "QUE LE DIRAS A CRISTO",
+      "number": 494,
+      "group": []
+    },
+    {
+      "title": "QUE HERMOSO",
+      "number": 495,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "QUERIDO HERMANO",
+      "number": 496,
+      "group": []
+    },
+    {
+      "title": "¿QUE SERIA DE MI?",
+      "number": 497,
+      "group": []
+    },
+    {
+      "title": "QUE YO MEREZCA",
+      "number": 498,
+      "group": []
+    },
+    {
+      "title": "¿QUIEN DE SU AMOR ME APARTARA",
+      "number": 499,
+      "group": []
+    },
+    {
+      "title": "QUIERO ORAR AL PADRE",
+      "number": 500,
+      "group": []
+    },
+    {
+      "title": "QUE PRIVILEGIO",
+      "number": 501,
+      "group": []
+    },
+    {
+      "title": "¿QUIEN SUBIRA AL MONTE DEL SEÑOR?",
+      "number": 502,
+      "group": []
+    },
+    {
+      "title": "QUIERO",
+      "number": 503,
+      "group": []
+    },
+    {
+      "title": "REPOSO ETERNO",
+      "number": 504,
+      "group": [
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "RESUCITO",
+      "number": 505,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "RELIQUIAS DE ISRAEL",
+      "number": 506,
+      "group": []
+    },
+    {
+      "title": "RESPONSABLE",
+      "number": 507,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "RETORNO DEL HIJO PRODIGO",
+      "number": 508,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "REVELACION DE JUAN",
+      "number": 509,
+      "group": []
+    },
+    {
+      "title": "REY DEL UNIVERSO",
+      "number": 510,
+      "group": []
+    },
+    {
+      "title": "REYNA POR SIEMPRE",
+      "number": "510-A",
+      "group": []
+    },
+    {
+      "title": "ROSTRO DIVINO",
+      "number": 511,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "RUTH LA MOABITA",
+      "number": 512,
+      "group": []
+    },
+    {
+      "title": "SALMO 25",
+      "number": 513,
+      "group": []
+    },
+    {
+      "title": "SALMO 42",
+      "number": 514,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "SALMO 103",
+      "number": 515,
+      "group": []
+    },
+    {
+      "title": "SALMO 150",
+      "number": 516,
+      "group": []
+    },
+    {
+      "title": "SABER QUIERES",
+      "number": 517,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "SAL A SEMBRAR, SEMBRAR",
+      "number": 518,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "SANTA BIBLIA",
+      "number": 519,
+      "group": []
+    },
+    {
+      "title": "SEÑOR A TI TE ALABARE",
+      "number": 520,
+      "group": []
+    },
+    {
+      "title": "SANTA PALABRA",
+      "number": 521,
+      "group": []
+    },
+    {
+      "title": "SANTO CORDERO",
+      "number": 522,
+      "group": []
+    },
+    {
+      "title": "SEGUIRE A MI JESUS",
+      "number": 523,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "SEGURO ESTOY",
+      "number": 524,
+      "group": []
+    },
+    {
+      "title": "SE ACERCA EL DIA FELIZ",
+      "number": 525,
+      "group": []
+    },
+    {
+      "title": "SE LLEGO LA HORA",
+      "number": 526,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "SE FIEL HASTA LA MUERTE",
+      "number": 527,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "SENTI TU MANO",
+      "number": 528,
+      "group": []
+    },
+    {
+      "title": "SEÑOR HOY VENGO A TI",
+      "number": 529,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "SEÑOR LIMPIA MI VASO",
+      "number": 530,
+      "group": []
+    },
+    {
+      "title": "SEÑOR YO SOY",
+      "number": 531,
+      "group": []
+    },
+    {
+      "title": "SEPULTADOS JUNTAMENTE",
+      "number": 532,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "SERLE FIEL",
+      "number": 533,
+      "group": []
+    },
+    {
+      "title": "SI ALGUNO YA ESTA EN CRISTO",
+      "number": 534,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "SI CAMINAS EN TINIEBLAS",
+      "number": 535,
+      "group": []
+    },
+    {
+      "title": "SIEMPRE ORAD",
+      "number": 536,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "SIERVOS DE JESUS",
+      "number": 537,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "SIGUE ADELANTE",
+      "number": 538,
+      "group": []
+    },
+    {
+      "title": "SIGUEME",
+      "number": 539,
+      "group": []
+    },
+    {
+      "title": "SIGUIENDO A JESUS YO VOY",
+      "number": "539-A",
+      "group": []
+    },
+    {
+      "title": "SIGUIENDO YO A CRISTO",
+      "number": 540,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "SIN CRISTO",
+      "number": 541,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "SIN FE Y SIN ESPERANZA",
+      "number": 542,
+      "group": []
+    },
+    {
+      "title": "SIRVELE CON ALEGRIA",
+      "number": 543,
+      "group": []
+    },
+    {
+      "title": "SOLO EN CRISTO HAY ESPERANZA",
+      "number": 544,
+      "group": []
+    },
+    {
+      "title": "SI TU COPA REBOSA DE AMOR",
+      "number": 545,
+      "group": []
+    },
+    {
+      "title": "SI VINIERES A EL",
+      "number": 546,
+      "group": []
+    },
+    {
+      "title": "SI VIVES EN JESUS",
+      "number": 547,
+      "group": []
+    },
+    {
+      "title": "SI YO GANO EL MUNDO",
+      "number": 548,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "SOLO CRISTO",
+      "number": 549,
+      "group": []
+    },
+    {
+      "title": "SONARA LA TROMPETA",
+      "number": 550,
+      "group": []
+    },
+    {
+      "title": "SOY EL HIJO DE UN REY",
+      "number": 551,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "SOY FELIZ",
+      "number": 552,
+      "group": []
+    },
+    {
+      "title": "SOY PEREGRINO",
+      "number": 553,
+      "group": []
+    },
+    {
+      "title": "SUBLIME AMOR",
+      "number": "553-A",
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "SU ESPIRITU SANTO",
+      "number": 554,
+      "group": [
+        "ESPIRITU SANTO"
+      ]
+    },
+    {
+      "title": "SU GRACIA ES MAYOR",
+      "number": 555,
+      "group": []
+    },
+    {
+      "title": "SUMISION",
+      "number": 556,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "SAGRADO ES EL AMOR",
+      "number": "556-A",
+      "group": []
+    },
+    {
+      "title": "TE ESTA LLAMANDO",
+      "number": 557,
+      "group": []
+    },
+    {
+      "title": "TE DOY GRACIAS",
+      "number": 558,
+      "group": [
+        "BAUTISMOS",
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "TEMA DE MI CANCION",
+      "number": 559,
+      "group": []
+    },
+    {
+      "title": "TENGO MANSION MAS ALLA DE LOS CIELOS",
+      "number": 560,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN",
+        "ESPERANZA"
+      ]
+    },
+    {
+      "title": "TEMPLO DE NUESTRO DIOS",
+      "number": 561,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "TEN COMPASION",
+      "number": 562,
+      "group": []
+    },
+    {
+      "title": "TEN DE MI COMPASION",
+      "number": 563,
+      "group": []
+    },
+    {
+      "title": "TEN MISERICORDIA",
+      "number": 564,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "TE RECOMIENDO AL SEÑOR",
+      "number": 565,
+      "group": []
+    },
+    {
+      "title": "TAN SOLO OIR MI MADRE EN ORACION",
+      "number": 566,
+      "group": []
+    },
+    {
+      "title": "TIEMPOS PELIGROSOS",
+      "number": 567,
+      "group": [
+        "ORACION",
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "TIERRA DE PALESTINA",
+      "number": 568,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "TODAS LAS ALMAS",
+      "number": 569,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "TODO A CRISTO YO ME RINDO",
+      "number": 570,
+      "group": [
+        "BAUTISMOS",
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "TODO A SOLAS CON JESUS",
+      "number": 571,
+      "group": []
+    },
+    {
+      "title": "TODO LO CAMBIARA",
+      "number": 572,
+      "group": []
+    },
+    {
+      "title": "TODO ES POSIBLE",
+      "number": 573,
+      "group": [
+        "LLAMAMIENTO",
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "TODO POR CAUSA DE MI",
+      "number": 574,
+      "group": [
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "TOMADO DE LA MANO",
+      "number": 575,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "TRABAJAD POR EL MAESTRO",
+      "number": 576,
+      "group": [
+        "EVANGELISMO"
+      ]
+    },
+    {
+      "title": "TRAED LA OFRENDA AL ALFOLI",
+      "number": 577,
+      "group": []
+    },
+    {
+      "title": "TRAS ESE CIELO AZUL",
+      "number": 578,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "TREINTA PIEZAS DE PLATA",
+      "number": 579,
+      "group": [
+        "ESPERANZA",
+        "EL SACRIFICIO DE JESUS"
+      ]
+    },
+    {
+      "title": "TRIGO SOY",
+      "number": 580,
+      "group": []
+    },
+    {
+      "title": "TU LLENAS EL ALMA",
+      "number": 581,
+      "group": []
+    },
+    {
+      "title": "TU PALABRA SANTA",
+      "number": 582,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "TUVE UN SUEÑO SIN IGUAL",
+      "number": 583,
+      "group": []
+    },
+    {
+      "title": "TUYO SOY JESUS",
+      "number": 584,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "TU Y YO",
+      "number": "584-A",
+      "group": []
+    },
+    {
+      "title": "UNA ALABANZA MAS",
+      "number": 585,
+      "group": []
+    },
+    {
+      "title": "CUANDO VEO TUS CIELOS",
+      "number": 586,
+      "group": []
+    },
+    {
+      "title": "UNA VEZ MAS GRACIAS",
+      "number": 587,
+      "group": []
+    },
+    {
+      "title": "UNA VISION",
+      "number": 588,
+      "group": []
+    },
+    {
+      "title": "UNA VOZ",
+      "number": 589,
+      "group": []
+    },
+    {
+      "title": "UNCION DIVINA",
+      "number": 590,
+      "group": []
+    },
+    {
+      "title": "UN DIA A LA VEZ",
+      "number": 591,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "UN DIA CRISTO VOLVERA",
+      "number": 592,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "UN GRANO DE ARENA",
+      "number": 593,
+      "group": []
+    },
+    {
+      "title": "UN HOGAR EN EL CIELO",
+      "number": 594,
+      "group": []
+    },
+    {
+      "title": "UN PALACIO",
+      "number": 595,
+      "group": []
+    },
+    {
+      "title": "UN SUEÑO",
+      "number": 596,
+      "group": []
+    },
+    {
+      "title": "UN TESTIMONIO",
+      "number": 597,
+      "group": []
+    },
+    {
+      "title": "UN TESTIMONIO",
+      "number": 598,
+      "group": []
+    },
+    {
+      "title": "VALOR CRISTIANO",
+      "number": 599,
+      "group": []
+    },
+    {
+      "title": "VEN A CRISTO ARREPENTIDO",
+      "number": 600,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "VALOR Y FE",
+      "number": 601,
+      "group": []
+    },
+    {
+      "title": "VAMOS A PREPARARNOS MEJOR",
+      "number": 602,
+      "group": []
+    },
+    {
+      "title": "VE A PREDICAR",
+      "number": 603,
+      "group": []
+    },
+    {
+      "title": "VELAD Y ORAD",
+      "number": 604,
+      "group": [
+        "ORACION"
+      ]
+    },
+    {
+      "title": "VEN A CRISTO",
+      "number": 605,
+      "group": []
+    },
+    {
+      "title": "VEN A EL PECADOR",
+      "number": 606,
+      "group": []
+    },
+    {
+      "title": "VEN A LA LUZ",
+      "number": 607,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "VEN A LOS PIES DE JESUS",
+      "number": 608,
+      "group": []
+    },
+    {
+      "title": "VENDRA EL REY",
+      "number": 609,
+      "group": []
+    },
+    {
+      "title": "VENID",
+      "number": 610,
+      "group": []
+    },
+    {
+      "title": "VENID A MI",
+      "number": 611,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "VER A CRISTO MAS ALLA",
+      "number": 612,
+      "group": []
+    },
+    {
+      "title": "VERDAD Y VERDAD",
+      "number": 613,
+      "group": []
+    },
+    {
+      "title": "VIAJEROS A SION",
+      "number": 614,
+      "group": []
+    },
+    {
+      "title": "A JESUS VINE CON MI DOLOR",
+      "number": "614-A",
+      "group": []
+    },
+    {
+      "title": "VICTORIA EN CRISTO",
+      "number": 615,
+      "group": []
+    },
+    {
+      "title": "VISION HERMOSA",
+      "number": 616,
+      "group": []
+    },
+    {
+      "title": "VIVIR CON CRISTO",
+      "number": 617,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "VIVI SIN PAZ",
+      "number": 618,
+      "group": []
+    },
+    {
+      "title": "VISION PASTORAL",
+      "number": "618-A",
+      "group": []
+    },
+    {
+      "title": "VOLVERA OTRA VEZ",
+      "number": 619,
+      "group": [
+        "PRUEBAS"
+      ]
+    },
+    {
+      "title": "VOY SUBIENDO AL CIELO",
+      "number": 620,
+      "group": [
+        "HIMNOS DE CONSOLACIÓN"
+      ]
+    },
+    {
+      "title": "YA NO TE DETENGAS",
+      "number": 621,
+      "group": [
+        "LLAMAMIENTO"
+      ]
+    },
+    {
+      "title": "YA LO VERAN",
+      "number": 622,
+      "group": []
+    },
+    {
+      "title": "YA NO REGRESARE",
+      "number": 623,
+      "group": []
+    },
+    {
+      "title": "YA SALVO SOY",
+      "number": 624,
+      "group": []
+    },
+    {
+      "title": "YA TENGO GRANDE GOZO",
+      "number": 625,
+      "group": []
+    },
+    {
+      "title": "YA TODO DEJE",
+      "number": 626,
+      "group": [
+        "BAUTISMOS"
+      ]
+    },
+    {
+      "title": "YA VIENE CRISTO",
+      "number": 627,
+      "group": []
+    },
+    {
+      "title": "SALMO 121",
+      "number": 628,
+      "group": []
+    },
+    {
+      "title": "YO ACONSEJO A MIS AMIGOS",
+      "number": 629,
+      "group": []
+    },
+    {
+      "title": "YO ESTARE CONTIGO",
+      "number": "629-A",
+      "group": []
+    },
+    {
+      "title": "YO SEÑOR, EL BARRO",
+      "number": 630,
+      "group": []
+    },
+    {
+      "title": "YO SE QUE CRISTO VENDRA",
+      "number": 631,
+      "group": []
+    },
+    {
+      "title": "YO SOLO ESPERO ESE DIA",
+      "number": 632,
+      "group": []
+    },
+    {
+      "title": "YO SOY BAUTIZADO",
+      "number": 633,
+      "group": []
+    },
+    {
+      "title": "YO VOY A IR",
+      "number": 634,
+      "group": []
+    },
+    {
+      "title": "SI, YO SE",
+      "number": 635,
+      "group": []
+    },
+    {
+      "title": "YO SOLO SE",
+      "number": 636,
+      "group": []
+    },
+    {
+      "title": "EL ALFARERO",
+      "number": "636*",
+      "group": []
+    }
+  ]
 }
