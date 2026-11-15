@@ -115,4 +115,9 @@ self.addEventListener('fetch', (event) => {
 `;
 
 writeFileSync(join(dist, 'sw.js'), sw);
+
+// Hosting estático sin reglas de reescritura (GitHub Pages): servir la SPA también en rutas
+// profundas como /bible, y evitar que Jekyll ignore las carpetas que empiezan con "_" (_expo).
+writeFileSync(join(dist, '404.html'), readFileSync(join(dist, 'index.html')));
+writeFileSync(join(dist, '.nojekyll'), '');
 console.log(`sw.js generado (versión ${version}, ${precache.length} archivos precacheados)`);
