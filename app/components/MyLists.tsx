@@ -13,7 +13,7 @@ import { Lista } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
 import { useNavigation, useFocusEffect } from 'expo-router';
-import { useSettings } from '@/hooks/useSettings';
+import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import type { StackNavigationProp } from '@react-navigation/stack';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'ListDetail'>;
@@ -30,7 +30,7 @@ const MyLists: React.FC = () => {
   const [listasFiltradas, setListasFiltradas] = useState<Lista[]>([]);
   const { getSettingValue, updateSettingValue } = useSettings();
   const [lists, setLists] = useState<Lista[]>([]);
-  const [fontSize, setFontSize] = useState<number>(16);
+  const [fontSize, setFontSize] = useState<number>(FONT_SIZE_DEFAULT);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [newListName, setNewListName] = useState<string>('');
   const [editingList, setEditingList] = useState<Lista | null>(null);

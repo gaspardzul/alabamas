@@ -14,7 +14,7 @@ import { RootStackParamList } from '@/ts/types';
 import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem, { toTitleCase } from '@/components/ListItem';
-import { useSettings } from '@/hooks/useSettings';
+import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import { compareHymnNumbers, hymnBase, HymnNumber } from '@/utils/hymnNumber';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
@@ -27,7 +27,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
   const { favorites, addFavorite, removeFavorite , getFavorites} = useStorage('favoritos');
   const { settings, updateSettingValue, getSettingValue } = useSettings();
   const [seccionesHimnos, setSeccionesHimnos] = useState<Array<{title: string, data: Himno[]}>>([]);
-  const [fontSize, setFontSize] = useState<number>(16);
+  const [fontSize, setFontSize] = useState<number>(FONT_SIZE_DEFAULT);
   const [mensaje, setMensaje] = useState('');
   const fadeAnim = useRef(new Animated.Value(0)).current;
 

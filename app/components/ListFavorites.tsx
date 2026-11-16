@@ -14,7 +14,7 @@ import { RootStackParamList } from '@/ts/types';
 import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem, { toTitleCase } from '@/components/ListItem';
-import { useSettings } from '@/hooks/useSettings';
+import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import type { HymnNumber } from '@/utils/hymnNumber';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
@@ -24,7 +24,7 @@ const ListFavorites: React.FC = () => {
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { getSettingValue } = useSettings();
-  const [fontSize, setFontSize] = useState<number>(16);
+  const [fontSize, setFontSize] = useState<number>(FONT_SIZE_DEFAULT);
   const { favorites, removeFavorite, getFavorites, sortFavorites } = useStorage('favoritos');
 
 

@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ScreenHeader from '@/components/ScreenHeader';
 import AccountCard from '@/components/AccountCard';
+import SettingsCard from '@/components/SettingsCard';
 import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
@@ -21,6 +22,9 @@ export default function SettingsScreen() {
 
       <View style={styles.body}>
         <AccountCard />
+
+        <ThemedText type="label" style={styles.sectionLabel}>Ajustes</ThemedText>
+        <SettingsCard />
 
         <ThemedText type="label" style={styles.sectionLabel}>Acerca de</ThemedText>
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>

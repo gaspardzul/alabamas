@@ -1,13 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SYNCED_KEYS, SyncedKey } from '@/utils/syncedStorage';
 import { sameHymn } from '@/utils/hymnNumber';
+import { FONT_SIZE_DEFAULT } from '@/hooks/useSettings';
 
 /**
  * Forma de los datos del usuario en Firestore (documento users/{uid}) y su traducción
  * desde/hacia las claves de AsyncStorage. Sin dependencias de Firebase para poder probarla.
  */
 export interface CloudData {
-  settings?: { fontSize?: number; order?: string };
+  settings?: { fontSize?: number; order?: string; theme?: string };
   lists?: CloudList[];
   favorites?: CloudFavorite[];
   bible?: { translationId?: string; lastRead?: unknown };
@@ -49,12 +50,12 @@ const parse = async <T>(key: string): Promise<T | null> => {
 const clean = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 
 export async function readLocal(): Promise<CloudData> {
-  const settings = await parse<{ fontSize?: number; order?: string; userLists?: CloudList[] }>(SYNCED_KEYS.settings);
+  const settings = await parse<{ fontSize?: number; order?: string; theme?: string; userLists?: CloudList[] }>(SYNCED_KEYS.settings);
   const favorites = await parse<CloudFavorite[]>(SYNCED_KEYS.favorites);
   const bible = await parse<CloudData['bible']>(SYNCED_KEYS.bible);
   const data: CloudData = {};
   if (settings) {
-    data.settings = { fontSize: settings.fontSize, order: settings.order };
+    data.settings = { fontSize: settings.fontSize, order: settings.order, theme: settings.theme };
     data.lists = settings.userLists ?? [];
   }
   if (favorites) data.favorites = favorites;
@@ -67,7 +68,7 @@ export async function writeLocal(data: CloudData) {
   if (data.settings || data.lists) {
     const current = (await parse<Record<string, unknown>>(SYNCED_KEYS.settings)) ?? {};
     const next = {
-      fontSize: 16,
+      fontSize: FONT_SIZE_DEFAULT,
       order: 'numAsc',
       userLists: [],
       ...current,

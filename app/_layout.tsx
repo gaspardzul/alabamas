@@ -4,6 +4,7 @@ import { Stack, usePathname } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { Platform } from 'react-native';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -34,6 +35,18 @@ export default function RootLayout() {
       setSession({ ready: true, mode: 'guest', googleAvailable: false });
     });
   }, []);
+
+  // Web: el fondo de la página y la barra del navegador siguen el tema elegido en Perfil
+  // (index.html solo conoce el tema del sistema).
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return;
+    document.body.style.backgroundColor = theme.background;
+    document.documentElement.style.colorScheme = colorScheme;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+      meta.setAttribute('content', theme.background);
+      meta.removeAttribute('media');
+    });
+  }, [colorScheme, theme.background]);
 
   useEffect(() => {
     if (fontsLoaded && session.ready) {

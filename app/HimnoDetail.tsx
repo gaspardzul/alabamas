@@ -14,7 +14,7 @@ import Chip from '@/components/Chip';
 import { toArray, toTitleCase } from '@/components/ListItem';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
-import { useSettings } from '@/hooks/useSettings';
+import { FONT_SIZE_DEFAULT, FONT_SIZE_MAX, FONT_SIZE_MIN, useSettings } from '@/hooks/useSettings';
 import { generateHimnoHTML, generateAndSharePDF } from '@/utils/pdfGenerator';
 import { sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
@@ -38,7 +38,7 @@ type RootStackParamList = {
 const HimnoDetail: React.FC = () => {
   const [himno, setHimno] = useState<HimnoDetalle | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [fontSize, setFontSize] = useState(24);
+  const [fontSize, setFontSize] = useState(FONT_SIZE_DEFAULT);
   const [isFavorite, setIsFavorite] = useState(false);
   const theme = useTheme();
   const { getSettingValue, updateSettingValue } = useSettings();
@@ -129,18 +129,16 @@ const HimnoDetail: React.FC = () => {
     }
   };
 
-  const aumentarFuente = () => {
-    setFontSize(prevSize => Math.min(prevSize + 2, 48));
-    updateSettingValue('fontSize', fontSize);
+  const cambiarFuente = (delta: number) => {
+    const next = Math.min(Math.max(fontSize + delta, FONT_SIZE_MIN), FONT_SIZE_MAX);
+    setFontSize(next);
+    updateSettingValue('fontSize', next);
   };
-
-  const disminuirFuente = () => {
-    setFontSize(prevSize => Math.max(prevSize - 2, 12));
-    updateSettingValue('fontSize', fontSize);
-  };
+  const aumentarFuente = () => cambiarFuente(2);
+  const disminuirFuente = () => cambiarFuente(-2);
 
   const resetFontSize = async () => {
-    const defaultSize = 24;
+    const defaultSize = FONT_SIZE_DEFAULT;
     setFontSize(defaultSize);
     updateSettingValue('fontSize', defaultSize);
   };

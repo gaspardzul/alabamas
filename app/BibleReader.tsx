@@ -10,7 +10,7 @@ import Sheet from '@/components/Sheet';
 import VerseGrid from '@/components/VerseGrid';
 import BibleChapterText from '@/components/BibleChapterText';
 import { useTheme } from '@/hooks/useThemeColor';
-import { useSettings } from '@/hooks/useSettings';
+import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import { useBibleState } from '@/hooks/useBibleState';
 import { BibleChapter, ChapterReference, getChapter, getTranslation } from '@/utils/bibleApi';
 import { RootStackParamList } from '@/ts/types';
@@ -79,7 +79,7 @@ export default function BibleReader() {
 
   const [data, setData] = useState<BibleChapter | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [fontSize, setFontSize] = useState(19);
+  const [fontSize, setFontSize] = useState(FONT_SIZE_DEFAULT);
 
   useEffect(() => {
     getSettingValue('fontSize').then((size) => size && setFontSize(Math.min(Math.max(size, MIN_FONT), MAX_FONT)));

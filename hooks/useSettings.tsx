@@ -2,17 +2,22 @@ import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { onDataReloaded, syncedRemoveItem, syncedSetItem } from '@/utils/syncedStorage';
 import { Lista } from '../ts/interfaces';
+import type { ThemePreference } from '@/utils/themePreference';
 
 interface Settings {
   fontSize: number;
   order: 'asc' | 'desc' | 'numAsc' | 'numDesc';
   userLists: Lista[];
-  // Puedes agregar más configuraciones aquí en el futuro
+  theme?: ThemePreference; // lo administra utils/themePreference.ts
 }
+
+export const FONT_SIZE_MIN = 12;
+export const FONT_SIZE_MAX = 48;
+export const FONT_SIZE_DEFAULT = 20;
 
 
 const initialSettings: Settings = {
-  fontSize: 16, // Tamaño de fuente predeterminado
+  fontSize: FONT_SIZE_DEFAULT, // Tamaño de fuente predeterminado
   order: 'numAsc', // Orden predeterminado
   userLists: [],  // Valor inicial para las listas
 };
@@ -68,9 +73,15 @@ export const useSettings = () => {
   };
 
   // Función para actualizar un valor específico de los settings
+  // Combina con lo guardado (no con el estado de este hook): varias pantallas usan useSettings
+  // y su copia en memoria puede estar desactualizada (p. ej. no conocer el tema recién elegido).
   const updateSettingValue = async <K extends keyof Settings>(key: K, value: Settings[K]) => {
-    const newSettings = { ...settings, [key]: value };
-    await saveSettings(newSettings);
+    let current: Partial<Settings> = {};
+    try {
+      const stored = await AsyncStorage.getItem('userSettings');
+      if (stored) current = JSON.parse(stored);
+    } catch {}
+    await saveSettings({ ...initialSettings, ...current, [key]: value });
   };
 
   useEffect(() => {
