@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { onDataReloaded, syncedRemoveItem, syncedSetItem } from '@/utils/syncedStorage';
 import { Lista } from '../ts/interfaces';
 
 interface Settings {
@@ -34,7 +35,7 @@ export const useSettings = () => {
   // Función para guardar las configuraciones
   const saveSettings = async (newSettings: Settings) => {
     try {
-      await AsyncStorage.setItem('userSettings', JSON.stringify(newSettings));
+      await syncedSetItem('userSettings', JSON.stringify(newSettings));
       setSettings(newSettings);
     } catch (error) {
       console.error('Error al guardar las configuraciones:', error);
@@ -44,7 +45,7 @@ export const useSettings = () => {
   // Función para eliminar las configuraciones
   const clearSettings = async () => {
     try {
-      await AsyncStorage.removeItem('userSettings');
+      await syncedRemoveItem('userSettings');
       setSettings(initialSettings);
     } catch (error) {
       console.error('Error al eliminar las configuraciones:', error);
@@ -74,6 +75,7 @@ export const useSettings = () => {
 
   useEffect(() => {
     getSettings();
+    return onDataReloaded(() => { getSettings(); });
   }, []);
 
   return { settings, saveSettings, clearSettings, getSettingValue, updateSettingValue };

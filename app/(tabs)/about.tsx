@@ -1,12 +1,15 @@
 import { ScrollView, StyleSheet, Linking, View, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ScreenHeader from '@/components/ScreenHeader';
+import AccountCard from '@/components/AccountCard';
 import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 export default function SettingsScreen() {
   const theme = useTheme();
+  const router = useRouter();
 
   return (
     <ScrollView
@@ -14,9 +17,12 @@ export default function SettingsScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <ScreenHeader eyebrow="Alaba+" title="Acerca de" />
+      <ScreenHeader eyebrow="Alaba+" title="Perfil" />
 
       <View style={styles.body}>
+        <AccountCard />
+
+        <ThemedText type="label" style={styles.sectionLabel}>Acerca de</ThemedText>
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
           <ThemedText style={[styles.greeting, { color: theme.primary }]}>¡Paz!</ThemedText>
           <ThemedText style={styles.paragraph}>
@@ -49,6 +55,15 @@ export default function SettingsScreen() {
             <ThemedText style={[styles.buttonText, { color: theme.primary }]}>Escribir por WhatsApp</ThemedText>
           </TouchableOpacity>
         </View>
+
+        <TouchableOpacity
+          onPress={() => router.push('/privacidad')}
+          style={[styles.linkRow, { borderColor: theme.border }]}
+        >
+          <Ionicons name="shield-checkmark-outline" size={18} color={theme.secondary} />
+          <ThemedText style={{ flex: 1 }}>Política de privacidad</ThemedText>
+          <Ionicons name="chevron-forward" size={16} color={theme.textMuted} />
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -62,6 +77,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.gutter,
     paddingTop: Spacing.sm,
     gap: Spacing.md,
+  },
+  sectionLabel: {
+    marginTop: Spacing.sm,
   },
   card: {
     borderWidth: 1,
@@ -83,6 +101,15 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.serifItalic,
     fontSize: 16,
     lineHeight: 24,
+  },
+  linkRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    minHeight: 52,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    marginTop: Spacing.sm,
   },
   contactRow: {
     flexDirection: 'row',

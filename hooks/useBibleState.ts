@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DEFAULT_TRANSLATION } from '@/utils/bibleApi';
+import { onDataReloaded, syncedSetItem, SYNCED_KEYS } from '@/utils/syncedStorage';
 
-const STORAGE_KEY = 'bibleState';
+const STORAGE_KEY = SYNCED_KEYS.bible;
 
 export interface LastRead {
   translationId: string;
@@ -36,6 +37,7 @@ export const useBibleState = () => {
 
   useEffect(() => {
     load();
+    return onDataReloaded(() => { load(); });
   }, [load]);
 
   const persist = async (patch: Partial<BibleState>) => {
@@ -43,7 +45,7 @@ export const useBibleState = () => {
       const stored = await AsyncStorage.getItem(STORAGE_KEY);
       const current: BibleState = stored ? { ...initialState, ...JSON.parse(stored) } : initialState;
       const next = { ...current, ...patch };
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      await syncedSetItem(STORAGE_KEY, JSON.stringify(next));
       setState(next);
     } catch (error) {
       console.error('Error al guardar el estado de la Biblia:', error);

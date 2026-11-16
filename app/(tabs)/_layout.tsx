@@ -13,7 +13,7 @@ const TABS = [
   { name: 'bible', title: 'Biblia', icon: 'book' },
   { name: 'favorites', title: 'Favoritos', icon: 'star' },
   { name: 'mylists', title: 'Mis Listas', icon: 'list' },
-  { name: 'about', title: 'Acerca de', icon: 'information-circle' },
+  { name: 'about', title: 'Perfil', icon: 'person-circle' },
 ] as const;
 
 export default function TabLayout() {

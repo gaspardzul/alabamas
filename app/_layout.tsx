@@ -1,6 +1,6 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 import useFonts from '@/hooks/useFonts';
-import { Stack } from 'expo-router';
+import { Stack, usePathname } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -10,6 +10,9 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { Colors } from '@/constants/Colors';
 import { Fonts } from '@/constants/Typography';
 import DialogHost from '@/components/DialogHost';
+import WelcomeScreen from '@/components/WelcomeScreen';
+import { initAuth } from '@/utils/auth';
+import { setSession, useSession } from '@/utils/session';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -18,14 +21,27 @@ export default function RootLayout() {
   const colorScheme = useColorScheme() ?? 'light';
   const fontsLoaded = useFonts();
   const theme = Colors[colorScheme];
+  const session = useSession();
+  const pathname = usePathname();
+  // Rutas que se pueden ver sin elegir Google/invitado (p. ej. la política de privacidad).
+  const isPublicRoute = pathname === '/privacidad';
 
   useEffect(() => {
-    if (fontsLoaded) {
+    // Si la sesión no puede iniciarse (p. ej. Firebase no responde), no dejar la app en blanco:
+    // entrar como invitado con lo guardado en el dispositivo.
+    initAuth().catch((error) => {
+      console.error('No se pudo iniciar la sesión:', error);
+      setSession({ ready: true, mode: 'guest', googleAvailable: false });
+    });
+  }, []);
+
+  useEffect(() => {
+    if (fontsLoaded && session.ready) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, session.ready]);
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded || !session.ready) {
     return null;
   }
 
@@ -54,6 +70,9 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={navigationTheme}>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+      {session.mode === null && !isPublicRoute ? (
+        <WelcomeScreen />
+      ) : (
       <Stack screenOptions={{ contentStyle: { backgroundColor: theme.background } }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Alaba+' }} />
         <Stack.Screen name="+not-found" />
@@ -65,6 +84,7 @@ export default function RootLayout() {
             title: route.params?.lista?.name || 'Lista',
           })}
         />
+        <Stack.Screen name="privacidad" options={{ ...headerOptions, title: 'Privacidad' }} />
         <Stack.Screen name="BibleReader" options={{ ...headerOptions, title: 'Biblia' }} />
         <Stack.Screen
           name="PresentationMode"
@@ -74,6 +94,7 @@ export default function RootLayout() {
           })}
         />
       </Stack>
+      )}
       <DialogHost />
     </ThemeProvider>
   );

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { onDataReloaded, syncedRemoveItem, syncedSetItem, SyncedKey } from '@/utils/syncedStorage';
 import { Himno } from '@/ts/interfaces';
 import { useSettings } from './useSettings';
 import { compareHymnNumbers, sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
-const useStorage = (key: string) => {
+const useStorage = (key: SyncedKey) => {
   const [favorites, setFavorites] = useState<Himno[]>([]);
   const { getSettingValue } = useSettings();
 
@@ -27,6 +28,9 @@ const useStorage = (key: string) => {
   useEffect(() => {
     loadFavorites();
   }, [key]);
+
+  // Recargar si los datos cambian desde la nube o al iniciar/cerrar sesión.
+  useEffect(() => onDataReloaded(() => { loadFavorites(); }), [key]);
 
   const sortFavorites = (option: 'asc' | 'desc' | 'numAsc' | 'numDesc') => {
     let sortedFavorites = [...favorites];
@@ -79,7 +83,7 @@ const useStorage = (key: string) => {
       const updatedFavorites = [...favorites, item];
       setFavorites(updatedFavorites);
       console.log("updatedFavorites", updatedFavorites)
-      await AsyncStorage.setItem(key, JSON.stringify(updatedFavorites));
+      await syncedSetItem(key, JSON.stringify(updatedFavorites));
     } catch (error) {
       console.error('Error al agregar favorito:', error);
     }
@@ -120,7 +124,7 @@ const useStorage = (key: string) => {
     try {
       const updatedFavorites = favorites.filter(item => !sameHymn(item.number, number));
       setFavorites(updatedFavorites);
-      await AsyncStorage.setItem(key, JSON.stringify(updatedFavorites));
+      await syncedSetItem(key, JSON.stringify(updatedFavorites));
     } catch (error) {
       console.error('Error al eliminar favorito:', error);
     }
@@ -129,7 +133,7 @@ const useStorage = (key: string) => {
   const removeAllFavorites = async () => {
     try {
       setFavorites([]);
-      await AsyncStorage.removeItem(key);
+      await syncedRemoveItem(key);
     } catch (error) {
       console.error('Error al eliminar favorito:', error);
     }
@@ -139,7 +143,7 @@ const useStorage = (key: string) => {
   const clearFavorites = async () => {
     try {
       setFavorites([]);
-      await AsyncStorage.removeItem(key);
+      await syncedRemoveItem(key);
     } catch (error) {
       console.error('Error al limpiar favoritos:', error);
     }

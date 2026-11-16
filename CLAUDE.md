@@ -65,3 +65,9 @@ OTA updates use `runtimeVersion.policy: appVersion`, so bump `version` in `app.j
 - **Never call `Alert.alert`**: it does nothing on react-native-web. Use `showDialog` from `utils/dialog.ts` (same signature): native `Alert` on iOS/Android, and `components/DialogHost.tsx` (mounted in `app/_layout.tsx`) on web.
 - `expo-file-system` doesn't exist on web. Bible storage goes through `utils/bibleStorage.ts` (files) / `utils/bibleStorage.web.ts` (IndexedDB, with a sync localStorage `.ready` marker). Metro picks the right one by extension, and both must keep the same exports.
 
+**Accounts and sync** (Google sign-in on web only for now; the native app is guest-only until there is an EAS development build with `@react-native-google-signin`):
+- `utils/session.ts` is the shared session store (`useSession`). `utils/auth.web.ts` is Firebase Auth + Firestore sync. `utils/auth.ts` is the native guest-only stub with the same exports. `app/_layout.tsx` calls `initAuth()` and shows `components/WelcomeScreen.tsx` until the user picks Google or guest, except on public routes (`/privacidad`).
+- Firebase web config is in `constants/firebaseConfig.ts` (public values, not secrets). Firestore security lives in `firestore.rules` (each user can only access `users/{uid}`). Paste it into the console when it changes.
+- Synced data: AsyncStorage keys `userSettings`, `favoritos` and `bibleState` (`utils/syncedStorage.ts`). **Write them only through `syncedSetItem`/`syncedRemoveItem`**, never `AsyncStorage` directly, or the change won't reach the cloud. Hooks reload on `onDataReloaded`. The local↔cloud mapping and the guest→account merge are in `utils/cloudData.ts`. Pending uploads are tracked under `syncPendingFields`.
+- Signing out removes the synced keys from the device (the data stays in the account). The privacy policy (`app/privacidad.tsx`) describes exactly which data is stored, so update it if that changes.
+
