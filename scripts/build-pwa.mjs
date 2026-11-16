@@ -16,6 +16,7 @@
 import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { writeStaticPages } from './static-pages.mjs';
 
 const dist = process.argv[2] ?? 'dist';
 const base = (process.env.WEB_BASE_URL ?? '').replace(/\/+$/, ''); // "" o "/alabamas"
@@ -145,9 +146,12 @@ writeFileSync(join(dist, '404.html'), readFileSync(join(dist, 'index.html')));
 // El 404.html sirve la app pero con estado HTTP 404. Para las rutas que alguien puede abrir
 // directamente (y que verifica Google, como /privacidad) generamos una copia real: GitHub
 // Pages sirve /privacidad desde privacidad.html con estado 200.
-const PUBLIC_ROUTES = ['privacidad', 'bible', 'explore', 'favorites', 'mylists', 'about'];
+const PUBLIC_ROUTES = ['bible', 'explore', 'favorites', 'mylists', 'about'];
 for (const route of PUBLIC_ROUTES) {
   writeFileSync(join(dist, `${route}.html`), readFileSync(join(dist, 'index.html')));
 }
+
+// /acerca y /privacidad: HTML estático legible sin JavaScript ni sesión (verificación de Google).
+writeStaticPages(dist, base);
 writeFileSync(join(dist, '.nojekyll'), '');
 console.log(`sw.js generado (versión ${version}, base "${base || '/'}", ${precache.length} archivos precacheados)`);
