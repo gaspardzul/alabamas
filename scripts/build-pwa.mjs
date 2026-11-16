@@ -141,5 +141,13 @@ writeFileSync(join(dist, 'sw.js'), sw);
 // Hosting estático sin reglas de reescritura (GitHub Pages): servir la SPA también en rutas
 // profundas como /bible, y evitar que Jekyll ignore las carpetas que empiezan con "_" (_expo).
 writeFileSync(join(dist, '404.html'), readFileSync(join(dist, 'index.html')));
+
+// El 404.html sirve la app pero con estado HTTP 404. Para las rutas que alguien puede abrir
+// directamente (y que verifica Google, como /privacidad) generamos una copia real: GitHub
+// Pages sirve /privacidad desde privacidad.html con estado 200.
+const PUBLIC_ROUTES = ['privacidad', 'bible', 'explore', 'favorites', 'mylists', 'about'];
+for (const route of PUBLIC_ROUTES) {
+  writeFileSync(join(dist, `${route}.html`), readFileSync(join(dist, 'index.html')));
+}
 writeFileSync(join(dist, '.nojekyll'), '');
 console.log(`sw.js generado (versión ${version}, base "${base || '/'}", ${precache.length} archivos precacheados)`);
