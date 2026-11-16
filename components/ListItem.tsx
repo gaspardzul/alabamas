@@ -11,6 +11,8 @@ interface IconAction {
   name: string;
   color?: string;
   onPress: () => void;
+  /** Texto para lectores de pantalla (los íconos solos no se leen). */
+  label?: string;
 }
 
 interface ListItemProps {
@@ -23,6 +25,8 @@ interface ListItemProps {
   number?: number | string;
   /** Icono a la izquierda cuando no hay número (p. ej. listas). */
   leadingIcon?: string;
+  /** Muestra una estrellita en la caja del número (el himno es favorito). */
+  favorite?: boolean;
   /** Etiquetas (categorías) debajo del título. */
   tags?: string[] | string;
   leftIcon?: IconAction;
@@ -44,6 +48,7 @@ const ListItem: React.FC<ListItemProps> = ({
   number,
   leadingIcon,
   tags,
+  favorite,
   style,
   sizeIcon = 22,
 }) => {
@@ -63,6 +68,11 @@ const ListItem: React.FC<ListItemProps> = ({
           <Text style={[styles.number, { color: theme.primary }]} numberOfLines={1} adjustsFontSizeToFit>
             {formatHymnNumber(number)}
           </Text>
+          {favorite && (
+            <View style={[styles.favBadge, { backgroundColor: theme.card, borderColor: theme.border }]}>
+              <Ionicons name="star" size={10} color={theme.secondary} />
+            </View>
+          )}
         </View>
       ) : leadingIcon ? (
         <View style={[styles.leading, { backgroundColor: theme.numberBox }]}>
@@ -92,12 +102,12 @@ const ListItem: React.FC<ListItemProps> = ({
       </View>
 
       {leftIcon && (
-        <TouchableOpacity onPress={leftIcon.onPress} style={styles.iconButton} hitSlop={8}>
+        <TouchableOpacity onPress={leftIcon.onPress} style={styles.iconButton} hitSlop={8} accessibilityLabel={leftIcon.label}>
           <Ionicons name={leftIcon.name as any} size={sizeIcon} color={leftIcon.color ?? theme.icon} />
         </TouchableOpacity>
       )}
       {rightIcon && (
-        <TouchableOpacity onPress={rightIcon.onPress} style={styles.iconButton} hitSlop={8}>
+        <TouchableOpacity onPress={rightIcon.onPress} style={styles.iconButton} hitSlop={8} accessibilityLabel={rightIcon.label}>
           <Ionicons name={rightIcon.name as any} size={sizeIcon} color={rightIcon.color ?? theme.icon} />
         </TouchableOpacity>
       )}
@@ -139,6 +149,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 4,
+  },
+  favBadge: {
+    position: 'absolute',
+    top: -6,
+    right: -6,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   number: {
     fontFamily: Fonts.serifBold,

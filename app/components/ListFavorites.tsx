@@ -16,6 +16,8 @@ import SearchBar from '@/components/SearchBar';
 import ListItem, { toTitleCase } from '@/components/ListItem';
 import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import type { HymnNumber } from '@/utils/hymnNumber';
+import HymnActionsSheet, { HymnSummary } from '@/components/HymnActionsSheet';
+import { useToast } from '@/components/Toast';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListFavorites: React.FC = () => {
@@ -26,6 +28,8 @@ const ListFavorites: React.FC = () => {
   const { getSettingValue } = useSettings();
   const [fontSize, setFontSize] = useState<number>(FONT_SIZE_DEFAULT);
   const { favorites, removeFavorite, getFavorites, sortFavorites } = useStorage('favoritos');
+  const { show: showMessage, element: toast } = useToast();
+  const [menuHymn, setMenuHymn] = useState<HymnSummary | null>(null);
 
 
   useFocusEffect(
@@ -88,11 +92,14 @@ const ListFavorites: React.FC = () => {
               title={toTitleCase(item.title)}
               tags={item.group}
               fontSize={fontSize <= 27 ? fontSize : 27}
+              favorite
               onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
+              onLongPress={() => setMenuHymn(item)}
               rightIcon={{
-                name: 'star',
-                color: theme.secondary,
-                onPress: () => toggleFavorito(item.number)
+                name: 'ellipsis-vertical',
+                label: 'Más opciones',
+                color: theme.textMuted,
+                onPress: () => setMenuHymn(item)
               }}
             />
           )}
@@ -114,6 +121,19 @@ const ListFavorites: React.FC = () => {
           </ThemedText>
         </View>
       )}
+
+      <HymnActionsSheet
+        hymn={menuHymn}
+        isFavorite
+        onClose={() => setMenuHymn(null)}
+        onOpen={(h) => navigation.navigate('HimnoDetail', { number: h.number })}
+        onToggleFavorite={(h) => {
+          toggleFavorito(h.number);
+          showMessage('Quitado de favoritos');
+        }}
+        onMessage={showMessage}
+      />
+      {toast}
     </ThemedView>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View, Share, Text } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { showDialog } from '@/utils/dialog';
 import { ThemedText } from '@/components/ThemedText';
 import { useRoute } from 'expo-router';
@@ -15,7 +15,8 @@ import { toArray, toTitleCase } from '@/components/ListItem';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_MAX, FONT_SIZE_MIN, useSettings } from '@/hooks/useSettings';
-import { generateHimnoHTML, generateAndSharePDF } from '@/utils/pdfGenerator';
+import { shareHymnPdf, shareHymnText } from '@/utils/hymnActions';
+import { useToast } from '@/components/Toast';
 import { sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
 
@@ -42,6 +43,7 @@ const HimnoDetail: React.FC = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const theme = useTheme();
   const { getSettingValue, updateSettingValue } = useSettings();
+  const { show: showMessage, element: toast } = useToast();
   const route = useRoute<RouteProp<RootStackParamList, 'HimnoDetail'>>();
 
   const { addFavorite, removeFavorite, getFavorites, favorites } = useStorage('favoritos');
@@ -144,48 +146,16 @@ const HimnoDetail: React.FC = () => {
   };
 
   const compartirHimno = async () => {
-    if (!himno) return;
-    
-    let contenido = `${himno.title}\n\n`;
-    himno.lyrics?.forEach((verso) => {
-      if (verso.verse === 0) {
-        contenido += 'Coro:\n';
-      } else {
-        contenido += `Verso ${verso.verse}:\n`;
-      }
-      contenido += verso.text + '\n';
-      if (verso.repeat) {
-        contenido += `(Repetir ${verso.repeat} veces)\n`;
-      }
-      contenido += '\n';
-    });
-    
-    try {
-      await Share.share({
-        message: contenido,
-        title: `Himno ${himno.number} - ${himno.title}`,
-      });
-    } catch (error) {
-      console.error('Error al compartir:', error);
-    }
+    if (!himno?.number) return;
+    const result = await shareHymnText(himno.number);
+    if (result === 'copied') showMessage('Letra copiada al portapapeles');
+    if (result === 'failed') showMessage('No se pudo compartir');
   };
 
   const compartirHimnoPDF = async () => {
-    if (!himno || !himno.lyrics) return;
-
-    try {
-      const himnoData = {
-        title: himno.title || '',
-        number: himno.number || 0,
-        lyrics: himno.lyrics
-      };
-      
-      const html = generateHimnoHTML(himnoData, fontSize);
-      await generateAndSharePDF(html, `${himno.title}.pdf`);
-    } catch (error) {
-      showDialog('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
-      console.error(error);
-    }
+    if (!himno?.number) return;
+    const ok = await shareHymnPdf(himno.number, fontSize);
+    if (!ok) showDialog('Error', 'No se pudo generar el PDF. Intenta de nuevo.');
   };
 
   if (!himno) {
@@ -323,6 +293,7 @@ const HimnoDetail: React.FC = () => {
           })}
         </View>
       </ScrollView>
+      {toast}
     </View>
   );
 };

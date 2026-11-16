@@ -15,7 +15,9 @@ import { Himno } from '@/ts/interfaces';
 import SearchBar from '@/components/SearchBar';
 import ListItem, { toTitleCase } from '@/components/ListItem';
 import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
-import { compareHymnNumbers, hymnBase, HymnNumber } from '@/utils/hymnNumber';
+import { compareHymnNumbers, hymnBase, HymnNumber, sameHymn } from '@/utils/hymnNumber';
+import HymnActionsSheet, { HymnSummary } from '@/components/HymnActionsSheet';
+import { useToast } from '@/components/Toast';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
@@ -28,25 +30,9 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
   const { settings, updateSettingValue, getSettingValue } = useSettings();
   const [seccionesHimnos, setSeccionesHimnos] = useState<Array<{title: string, data: Himno[]}>>([]);
   const [fontSize, setFontSize] = useState<number>(FONT_SIZE_DEFAULT);
-  const [mensaje, setMensaje] = useState('');
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
-  const showMessage = (text: string) => {
-    setMensaje(text);
-    Animated.sequence([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 200,
-        useNativeDriver: true,
-      }),
-      Animated.delay(1500),
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  };
+  const { show: showMessage, element: toast } = useToast();
+  // Himno cuyo menú de acciones (⋮) está abierto.
+  const [menuHymn, setMenuHymn] = useState<HymnSummary | null>(null);
 
   const cargarHimnos = async () => {
     try {
@@ -239,11 +225,14 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
               title={toTitleCase(item.title)}
               tags={item.group}
               fontSize={fontSize <= 27 ? fontSize : 27}
+              favorite={isFav}
               onPress={() => navigation.navigate('HimnoDetail', {number: item.number})}
+              onLongPress={() => setMenuHymn(item)}
               rightIcon={{
-                name: isFav ? 'star' : 'star-outline',
-                color: isFav ? theme.secondary : theme.textMuted,
-                onPress: () => toggleFavorito(item.number)
+                name: 'ellipsis-vertical',
+                label: 'Más opciones',
+                color: theme.textMuted,
+                onPress: () => setMenuHymn(item)
               }}
             />
           );
@@ -262,25 +251,15 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
         }
         keyExtractor={(item: Himno) => item.number.toString()}
       />
-      <Animated.View
-        pointerEvents="none"
-        style={[
-          styles.messageContainer,
-          {
-            backgroundColor: theme.toast,
-            opacity: fadeAnim,
-            transform: [{
-              translateY: fadeAnim.interpolate({
-                inputRange: [0, 1],
-                outputRange: [20, 0]
-              })
-            }]
-          }
-        ]}
-      >
-        <Ionicons name="star" size={14} color="#FFB68B" />
-        <ThemedText style={styles.messageText}>{mensaje}</ThemedText>
-      </Animated.View>
+      <HymnActionsSheet
+        hymn={menuHymn}
+        isFavorite={!!menuHymn && favorites.some(fav => sameHymn(fav.number, menuHymn.number))}
+        onClose={() => setMenuHymn(null)}
+        onOpen={(h) => navigation.navigate('HimnoDetail', { number: h.number })}
+        onToggleFavorite={(h) => toggleFavorito(h.number)}
+        onMessage={showMessage}
+      />
+      {toast}
     </ThemedView>
   );
 };
@@ -309,23 +288,6 @@ const styles = StyleSheet.create({
     gap: Spacing.xs,
     paddingTop: Spacing.xl,
   },
-  messageContainer: {
-    position: 'absolute',
-    bottom: 24,
-    alignSelf: 'center',
-    paddingHorizontal: 18,
-    paddingVertical: 10,
-    borderRadius: Radius.full,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  messageText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    lineHeight: 20,
-    fontFamily: Fonts.sansMedium,
-  }
 });
 
 export default ListComponent;
