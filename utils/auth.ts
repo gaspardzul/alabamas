@@ -19,6 +19,8 @@ export async function continueAsGuest() {
   setSession({ mode: 'guest' });
 }
 
+export function stopAccountSync() {}
+
 export async function signOut() {
   setSession({ mode: 'guest', user: null, sync: 'idle' });
 }

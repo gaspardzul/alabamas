@@ -96,6 +96,9 @@ await ana.go('/about', 4000);
 await ana.clickLabel('Invitar amigos'); await sleep(3000);
 const code = (await read(`users/${A}`))?.inviteCode;
 check('Ana tiene código de invitación', !!code, code);
+check('Perfil: sincronización inicial termina', (await ana.text()).includes('Tus datos están sincronizados'));
+await ana.clickLabel('Aumentar letra'); await sleep(3000);
+check('Ajustes: A+ en Perfil llega a la nube', (await read(`users/${A}`))?.settings?.fontSize === 22, String((await read(`users/${A}`))?.settings?.fontSize));
 await ana.shot('e2e_1_perfil_ana');
 
 // 4) Beto abre el enlace sin cuenta, inicia sesión y acepta.
@@ -155,6 +158,35 @@ await beto.click('Salir de la lista'); await sleep(2500);
 const afterLeave = await read(`lists/${listId}`);
 check('Beto salió de la lista', afterLeave && !afterLeave.memberIds.includes(B) && !afterLeave.members[B]);
 check('Beto ya no la ve', !(await beto.text()).includes('Culto domingo'));
+
+// 8) Beto comparte una lista suya con Ana; luego Ana elimina su cuenta.
+await beto.go('/mylists', 4000);
+await beto.clickLabel('Crear'); await sleep(800);
+await beto.type('Nombre de la lista', 'Ensayo'); await sleep(300);
+await beto.click('Crear'); await sleep(2000);
+const ensayoId = await admin(async (db) => {
+  const { collection, getDocs, query, where } = await import('firebase/firestore');
+  return (await getDocs(query(collection(db, 'lists'), where('name', '==', 'Ensayo')))).docs[0]?.id;
+});
+await beto.go(`/ListDetail?listId=${ensayoId}&name=Ensayo`, 4000);
+await beto.clickLabel('Compartir lista'); await sleep(1500);
+await beto.clickLabel('Ana Ruiz: Lectura'); await sleep(300);
+await beto.click('Guardar'); await sleep(2000);
+check('Beto comparte "Ensayo" con Ana', (await read(`lists/${ensayoId}`))?.members?.[A] === 'viewer');
+
+await ana.go('/about', 5000);
+await ana.click('Eliminar mi cuenta'); await sleep(800);
+await ana.shot('e2e_6_eliminar');
+await ana.click('Eliminar cuenta'); await sleep(6000);
+check('Eliminar cuenta: users/{uid} borrado', (await read(`users/${A}`)) === null);
+check('Eliminar cuenta: sus listas borradas', (await read(`lists/${listId}`)) === null && (await read(`lists/${A}_111`)) === null);
+const ensayo = await read(`lists/${ensayoId}`);
+check('Eliminar cuenta: salió de la lista de Beto', ensayo && !ensayo.memberIds.includes(A) && !ensayo.members[A]);
+check('Eliminar cuenta: amistad borrada en ambos lados', (await read(`users/${B}/friends/${A}`)) === null);
+check('Eliminar cuenta: invitación borrada', (await read(`invites/${code}`)) === null);
+check('Eliminar cuenta: vuelve a la bienvenida', (await ana.text()).includes('Continuar con Google'));
+const authUsers = await (await fetch('http://127.0.0.1:9099/emulator/v1/projects/demo-alabamas/accounts', { headers: {} }).catch(() => null))?.json().catch(() => null);
+if (authUsers?.userInfo) check('Eliminar cuenta: usuario de Auth borrado', !authUsers.userInfo.some((u) => u.localId === A));
 
 console.log('Errores de consola Ana:', ana.errors.length ? ana.errors : 'ninguno');
 console.log('Errores de consola Beto:', beto.errors.length ? beto.errors : 'ninguno');

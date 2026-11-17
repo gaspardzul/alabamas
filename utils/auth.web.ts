@@ -37,6 +37,7 @@ let stopSnapshot: (() => void) | null = null;
 let stopLocal: (() => void) | null = null;
 let uploadTimer: ReturnType<typeof setTimeout> | null = null;
 let initialSyncDone = false;
+let lastAppliedSignature: string | null = null;
 let currentUid: string | null = null;
 
 async function getPending(): Promise<CloudField[]> {
@@ -80,12 +81,18 @@ async function handleLocalChange(key: SyncedKey) {
   uploadTimer = setTimeout(flushPending, 800);
 }
 
+/** Para eliminar la cuenta: dejar de sincronizar antes de borrar los datos. */
+export function stopAccountSync() {
+  stopSync();
+}
+
 function stopSync() {
   stopSnapshot?.();
   stopLocal?.();
   stopSnapshot = stopLocal = null;
   if (uploadTimer) clearTimeout(uploadTimer);
   initialSyncDone = false;
+  lastAppliedSignature = null;
   currentUid = null;
 }
 
@@ -100,13 +107,19 @@ function startSync(uid: string, mergeWithLocal: boolean) {
 
   stopSnapshot = onSnapshot(
     doc(db, 'users', uid),
-    { includeMetadataChanges: false },
+    // Con caché persistente, el primer evento viene de la caché y, si el servidor confirma los
+    // mismos datos, solo cambian los metadatos: sin includeMetadataChanges nunca llegaría el
+    // evento "del servidor" y la sincronización inicial no terminaría.
+    { includeMetadataChanges: true },
     async (snapshot) => {
-      // Ignorar ecos de nuestras propias escrituras y datos de caché antes de hablar con el servidor.
-      if (snapshot.metadata.hasPendingWrites) return;
-      if (!initialSyncDone && snapshot.metadata.fromCache) return;
+      // Solo datos confirmados por el servidor; ignorar ecos de nuestras escrituras.
+      if (snapshot.metadata.hasPendingWrites || snapshot.metadata.fromCache) return;
 
       const cloud = (snapshot.data() ?? null) as CloudData | null;
+      // Eventos solo de metadatos con los mismos datos: no reprocesar.
+      const signature = JSON.stringify(cloud);
+      if (initialSyncDone && signature === lastAppliedSignature) return;
+      lastAppliedSignature = signature;
 
       if (!initialSyncDone) {
         const local = await readLocal();

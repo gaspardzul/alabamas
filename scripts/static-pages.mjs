@@ -119,7 +119,7 @@ function renderAbout(base) {
 
 <section class="card">
   <h2>Cuenta opcional con Google</h2>
-  <p class="body">Puedes usar ${app} como invitado, sin dar ningún dato: todo se guarda en tu dispositivo. Si inicias sesión con tu cuenta de Google, tus favoritos, listas y ajustes se guardan en tu cuenta para verlos en todos tus dispositivos. Solo usamos tu nombre, correo y foto para mostrar tu cuenta. Consulta la <a href="${base}/privacidad">política de privacidad</a>.</p>
+  <p class="body">Puedes usar ${app} como invitado, sin dar ningún dato: todo se guarda en tu dispositivo. Si inicias sesión con tu cuenta de Google, tus favoritos, listas y ajustes se guardan en tu cuenta para verlos en todos tus dispositivos, y puedes agregar amigos con un enlace de invitación para compartirles listas de alabanzas (solo lectura o con permiso de edición). Solo usamos tu nombre, correo y foto para mostrar tu cuenta. Consulta la <a href="${base}/privacidad">política de privacidad</a>.</p>
 </section>
 
 <section class="card">

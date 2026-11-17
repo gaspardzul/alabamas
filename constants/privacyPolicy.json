@@ -31,18 +31,33 @@
         {
           "bullets": [
             "Himnos marcados como favoritos.",
-            "Listas de alabanzas que creas (nombre, himnos y fechas).",
-            "Ajustes: tamaño de letra y orden de la lista.",
+            "Listas de alabanzas que creas (nombre, himnos y fechas) y, si las compartes, con quién y con qué permiso.",
+            "Tus amigos en Alaba+ y tu enlace de invitación.",
+            "Ajustes: tamaño de letra, tema (claro u oscuro) y orden de la lista.",
             "Traducción de la Biblia elegida y el último capítulo que leíste."
           ]
         },
-        "Usamos esta información únicamente para mostrarte tu cuenta y para que tus datos estén disponibles en todos tus dispositivos. No pedimos acceso a tus contactos, calendario, archivos ni ningún otro dato de tu cuenta de Google."
+        "Usamos esta información únicamente para mostrarte tu cuenta, para que tus datos estén disponibles en todos tus dispositivos y para las funciones de amigos y listas compartidas que tú decidas usar. No pedimos acceso a tus contactos, calendario, archivos ni ningún otro dato de tu cuenta de Google."
+      ]
+    },
+    {
+      "title": "Amigos y listas compartidas",
+      "body": [
+        "Estas funciones son opcionales y solo están disponibles si inicias sesión con Google:",
+        {
+          "bullets": [
+            "Amigos: solo se agregan con tu enlace personal de invitación. Nadie puede buscarte por tu correo ni ver una lista de usuarios. Al aceptar una invitación, tú y la otra persona ven el nombre y la foto de perfil de Google del otro.",
+            "Tu enlace de invitación muestra tu nombre y foto a quien lo abra. Puedes cambiarlo en cualquier momento (Perfil → Amigos) y el anterior deja de funcionar.",
+            "Listas compartidas: cuando compartes una lista, las personas que elijas ven su nombre y sus himnos, y el nombre y la foto de los demás miembros. Con permiso de “Solo lectura” solo pueden verla; con “Edición” pueden agregar, quitar y reordenar himnos.",
+            "Puedes dejar de compartir una lista, quitar a un amigo o salir de una lista que te compartieron cuando quieras."
+          ]
+        }
       ]
     },
     {
       "title": "Dónde se guarda",
       "body": [
-        "Los datos de las cuentas se almacenan en Firebase (Authentication y Cloud Firestore), un servicio de Google, en servidores ubicados en Estados Unidos. Las reglas de seguridad de la base de datos solo permiten que cada usuario lea y modifique su propia información.",
+        "Los datos de las cuentas se almacenan en Firebase (Authentication y Cloud Firestore), un servicio de Google, en servidores ubicados en Estados Unidos. Las reglas de seguridad de la base de datos solo permiten que cada usuario lea y modifique su propia información, y que los miembros de una lista compartida la vean o editen según el permiso que les dio su dueño.",
         "Google procesa estos datos según su propia política de privacidad: policies.google.com/privacy."
       ]
     },
@@ -70,7 +85,8 @@
         {
           "bullets": [
             "Al cerrar sesión (Perfil → Cerrar sesión), tus datos se borran de ese dispositivo; siguen guardados en tu cuenta para cuando vuelvas a entrar.",
-            "Para eliminar por completo tu cuenta y todos tus datos de nuestros servidores, escríbenos a {{email}} desde el correo de tu cuenta de Google. Los eliminaremos en un plazo máximo de 30 días y te confirmaremos por correo.",
+            "Para eliminar tu cuenta y todos tus datos de nuestros servidores, usa Perfil → Eliminar mi cuenta. Se borran al momento tus favoritos, ajustes, listas (también para quienes las compartías), amistades y tu enlace de invitación, y sales de las listas que otros te compartieron.",
+            "Si no puedes entrar a tu cuenta, escríbenos a {{email}} desde el correo de tu cuenta de Google y eliminaremos tus datos en un plazo máximo de 30 días.",
             "También puedes retirar el acceso de Alaba+ a tu cuenta en myaccount.google.com/permissions."
           ]
         }

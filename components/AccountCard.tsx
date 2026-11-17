@@ -5,6 +5,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { useSession, SyncStatus } from '@/utils/session';
 import { signInWithGoogle, signOut } from '@/utils/auth';
+import { accountDeletionAvailable, deleteAccount } from '@/utils/account';
 import { showDialog } from '@/utils/dialog';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
@@ -34,6 +35,30 @@ export default function AccountCard() {
       setLoading(false);
     }
   };
+
+  const handleDelete = () =>
+    showDialog(
+      'Eliminar mi cuenta',
+      'Se borrarán de forma permanente tus favoritos, ajustes, tus listas (también para quienes las compartías), tus amistades y tu enlace de invitación. Saldrás de las listas que otros te compartieron. Esto no se puede deshacer.',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        {
+          text: 'Eliminar cuenta',
+          style: 'destructive',
+          onPress: async () => {
+            setError(null);
+            setLoading(true);
+            try {
+              await deleteAccount();
+            } catch (e) {
+              setError(e instanceof Error ? e.message : 'No se pudo eliminar la cuenta.');
+            } finally {
+              setLoading(false);
+            }
+          },
+        },
+      ]
+    );
 
   const handleSignOut = () =>
     showDialog(
@@ -77,6 +102,16 @@ export default function AccountCard() {
           <Ionicons name="log-out-outline" size={18} color={theme.text} />
           <Text style={[styles.buttonText, { color: theme.text }]}>Cerrar sesión</Text>
         </TouchableOpacity>
+        {accountDeletionAvailable && (
+          <TouchableOpacity disabled={loading} onPress={handleDelete} hitSlop={8} style={{ alignSelf: 'center' }}>
+            {loading ? (
+              <ActivityIndicator color={theme.danger} />
+            ) : (
+              <Text style={[styles.deleteText, { color: theme.danger }]}>Eliminar mi cuenta</Text>
+            )}
+          </TouchableOpacity>
+        )}
+        {error && <ThemedText type="caption" style={{ color: theme.danger, textAlign: 'center' }}>{error}</ThemedText>}
       </View>
     );
   }
@@ -140,4 +175,5 @@ const styles = StyleSheet.create({
   },
   primary: { borderWidth: 0 },
   buttonText: { fontFamily: Fonts.sansSemiBold, fontSize: 15 },
+  deleteText: { fontFamily: Fonts.sansMedium, fontSize: 13 },
 });
