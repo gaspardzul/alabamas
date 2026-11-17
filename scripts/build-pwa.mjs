@@ -28,6 +28,7 @@ if (base) {
   html = html
     .replace('href="/manifest.webmanifest"', `href="${base}/manifest.webmanifest"`)
     .replaceAll('href="/icons/', `href="${base}/icons/`)
+    .replaceAll('src="/icons/', `src="${base}/icons/`)
     .replace("register('/sw.js')", `register('${base}/sw.js', { scope: '${base}/' })`);
   writeFileSync(htmlPath, html);
 

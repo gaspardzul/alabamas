@@ -16,6 +16,9 @@ const light = {
   secondarySoft: '#FFDBC8',
   onSecondarySoft: '#6E3812',
   tertiary: '#5E6B58',
+  // Coros en rojo, como en el himnario impreso: rojo ladrillo afín al terracota.
+  chorus: '#A63D32',
+  chorusSoft: '#FBF1EE',
   chip: '#F4EFEA',
   numberBox: '#F3F1EC',
   overlay: 'rgba(27, 42, 74, 0.35)',
@@ -39,6 +42,8 @@ const dark: typeof light = {
   secondarySoft: '#3A2416',
   onSecondarySoft: '#FFDBC8',
   tertiary: '#BDCBB4',
+  chorus: '#F2998C',
+  chorusSoft: '#2A1F1E',
   chip: '#23272E',
   numberBox: '#23272E',
   overlay: 'rgba(0, 0, 0, 0.55)',

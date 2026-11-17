@@ -18,6 +18,7 @@ import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import type { HymnNumber } from '@/utils/hymnNumber';
 import HymnActionsSheet, { HymnSummary } from '@/components/HymnActionsSheet';
 import { useToast } from '@/components/Toast';
+import Loader from '@/components/Loader';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListFavorites: React.FC = () => {
@@ -27,7 +28,7 @@ const ListFavorites: React.FC = () => {
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
   const { getSettingValue } = useSettings();
   const [fontSize, setFontSize] = useState<number>(FONT_SIZE_DEFAULT);
-  const { favorites, removeFavorite, getFavorites, sortFavorites } = useStorage('favoritos');
+  const { favorites, removeFavorite, getFavorites, sortFavorites, loaded } = useStorage('favoritos');
   const { show: showMessage, element: toast } = useToast();
   const [menuHymn, setMenuHymn] = useState<HymnSummary | null>(null);
 
@@ -82,7 +83,9 @@ const ListFavorites: React.FC = () => {
         />
       </ScreenHeader>
 
-      {himnosFiltrados.length > 0 ? (
+      {!loaded ? (
+        <Loader label="Cargando favoritos…" />
+      ) : himnosFiltrados.length > 0 ? (
         <FlatList<Himno>
           data={himnosFiltrados}
           keyboardShouldPersistTaps="handled"

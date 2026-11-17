@@ -50,6 +50,14 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (fontsLoaded && session.ready) {
+      // Web: retirar la pantalla de carga de public/index.html con un desvanecido.
+      if (Platform.OS === 'web' && typeof document !== 'undefined') {
+        const splash = document.getElementById('boot-splash');
+        if (splash) {
+          splash.classList.add('hide');
+          setTimeout(() => splash.remove(), 300);
+        }
+      }
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded, session.ready]);

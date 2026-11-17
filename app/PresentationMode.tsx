@@ -127,10 +127,10 @@ const PresentationMode: React.FC = () => {
           verso.verse === 0 ? (
             <View
               key={versoIndex}
-              style={[styles.chorus, { backgroundColor: theme.chip, borderLeftColor: theme.secondary }]}
+              style={[styles.chorus, { backgroundColor: theme.chorusSoft, borderLeftColor: theme.chorus }]}
             >
-              <ThemedText type="label">Coro</ThemedText>
-              <ThemedText style={[styles.coro, lineStyle]}>{verso.text}</ThemedText>
+              <ThemedText type="label" style={{ color: theme.chorus }}>Coro</ThemedText>
+              <ThemedText style={[styles.coro, lineStyle, { color: theme.chorus }]}>{verso.text}</ThemedText>
             </View>
           ) : (
             <View key={versoIndex} style={styles.versoContainer}>

@@ -39,11 +39,82 @@
         height: 100%;
         flex: 1;
       }
+      /* Pantalla de carga: visible al instante, antes de que llegue el JavaScript.
+         app/_layout.tsx la retira cuando la app está lista. */
+      #boot-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background: #fbf9f5;
+        color: #1b2a4a;
+        font-family: Georgia, 'Times New Roman', serif;
+        transition: opacity 0.25s ease;
+      }
+      #boot-splash.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #boot-splash img {
+        width: 88px;
+        height: 88px;
+        border-radius: 22px;
+      }
+      #boot-splash .name {
+        font-size: 30px;
+        font-weight: 700;
+      }
+      #boot-splash .hint {
+        font: 500 13px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #706e6b;
+      }
+      #boot-splash .spinner {
+        width: 26px;
+        height: 26px;
+        margin-top: 10px;
+        border: 3px solid #eae6df;
+        border-top-color: #9a5b32;
+        border-radius: 50%;
+        animation: boot-spin 0.8s linear infinite;
+      }
+      @keyframes boot-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        #boot-splash {
+          background: #121417;
+          color: #ecebe6;
+        }
+        #boot-splash .hint {
+          color: #9c9993;
+        }
+        #boot-splash .spinner {
+          border-color: #2a2e35;
+          border-top-color: #ffb68b;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot-splash .spinner {
+          animation-duration: 2.4s;
+        }
+      }
     </style>
   </head>
 
   <body>
     <noscript>Necesitas activar JavaScript para usar Alaba+.</noscript>
+    <div id="boot-splash" role="status" aria-live="polite">
+      <img src="/icons/icon-192.png" alt="" />
+      <div class="name">Alaba+</div>
+      <div class="hint">Cargando himnario…</div>
+      <div class="spinner" aria-hidden="true"></div>
+    </div>
     <div id="root"></div>
     <script>
       // El service worker (sw.js) solo existe en el build de producción (npm run build:web).

@@ -18,6 +18,7 @@ import { Fonts, Radius, Spacing } from '@/constants/Typography';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_MAX, FONT_SIZE_MIN, useSettings } from '@/hooks/useSettings';
 import { shareHymnPdf, shareHymnText } from '@/utils/hymnActions';
 import { useToast } from '@/components/Toast';
+import Loader from '@/components/Loader';
 import { sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
 
@@ -136,7 +137,7 @@ const HimnoDetail: React.FC = () => {
   if (!himno) {
     return (
       <View style={[styles.container, styles.center, { backgroundColor: theme.background }]}>
-        <ThemedText type="caption">{error ?? 'Cargando...'}</ThemedText>
+        {error ? <ThemedText type="caption">{error}</ThemedText> : <Loader label="Cargando himno…" />}
       </View>
     );
   }
@@ -241,13 +242,13 @@ const HimnoDetail: React.FC = () => {
               return (
                 <View
                   key={index}
-                  style={[styles.chorus, { backgroundColor: theme.chip, borderLeftColor: theme.secondary }]}
+                  style={[styles.chorus, { backgroundColor: theme.chorusSoft, borderLeftColor: theme.chorus }]}
                 >
                   <View style={styles.verseHeader}>
-                    <Ionicons name="musical-note" size={13} color={theme.secondary} />
-                    <ThemedText type="label">Coro</ThemedText>
+                    <Ionicons name="musical-note" size={13} color={theme.chorus} />
+                    <ThemedText type="label" style={{ color: theme.chorus }}>Coro</ThemedText>
                   </View>
-                  <ThemedText style={[styles.chorusText, lineStyle]}>{verso.text}</ThemedText>
+                  <ThemedText style={[styles.chorusText, lineStyle, { color: theme.chorus }]}>{verso.text}</ThemedText>
                   {verso.repeat && <ThemedText type="caption" style={styles.repeat}>(Repetir {verso.repeat} veces)</ThemedText>}
                 </View>
               );

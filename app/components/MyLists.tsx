@@ -8,6 +8,7 @@ import ScreenHeader from '@/components/ScreenHeader';
 import SearchBar from '@/components/SearchBar';
 import ListItem from '@/components/ListItem';
 import Sheet from '@/components/Sheet';
+import Loader from '@/components/Loader';
 import { useTheme } from '@/hooks/useThemeColor';
 import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import { HymnList, listsApi, ownerName, useCanShare, useLists } from '@/utils/lists';
@@ -128,7 +129,9 @@ const MyLists: React.FC = () => {
         <SearchBar value={busqueda} onChangeText={setBusqueda} onCreate={openCreate} placeholder="Buscar lista" />
       </ScreenHeader>
 
-      {isEmpty ? (
+      {loading ? (
+        <Loader label="Cargando listas…" />
+      ) : isEmpty ? (
         <View style={styles.empty}>
           <View style={[styles.emptyIcon, { backgroundColor: theme.chip }]}>
             <Ionicons name="list-outline" size={28} color={theme.secondary} />

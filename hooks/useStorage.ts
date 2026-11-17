@@ -7,21 +7,21 @@ import { compareHymnNumbers, sameHymn, HymnNumber } from '@/utils/hymnNumber';
 
 const useStorage = (key: SyncedKey) => {
   const [favorites, setFavorites] = useState<Himno[]>([]);
+  // false hasta la primera lectura: evita mostrar "Aún no hay favoritos" mientras carga.
+  const [loaded, setLoaded] = useState(false);
   const { getSettingValue } = useSettings();
 
   const loadFavorites = async () => {
     try {
       const storedFavorites = await AsyncStorage.getItem(key);
       const order = await getSettingValue('order');
-      if (order) {
-        let data = Onlysort(order,JSON.parse(storedFavorites || '[]') as Himno[]);
-        setFavorites(data);
-      }
-      if (storedFavorites) {
-        setFavorites(JSON.parse(storedFavorites));
-      }
+      const stored = JSON.parse(storedFavorites || '[]') as Himno[];
+      // Antes se ordenaba y luego se sobrescribía con la lista sin ordenar.
+      setFavorites(order ? Onlysort(order, stored) ?? stored : stored);
     } catch (error) {
       console.error('Error al cargar favoritos:', error);
+    } finally {
+      setLoaded(true);
     }
   };
 
@@ -150,6 +150,7 @@ const useStorage = (key: SyncedKey) => {
   };
 
   return {
+    loaded,
     favorites,
     addFavorite,
     removeFavorite,

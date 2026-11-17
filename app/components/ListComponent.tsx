@@ -18,11 +18,13 @@ import { FONT_SIZE_DEFAULT, useSettings } from '@/hooks/useSettings';
 import { compareHymnNumbers, hymnBase, HymnNumber, sameHymn } from '@/utils/hymnNumber';
 import HymnActionsSheet, { HymnSummary } from '@/components/HymnActionsSheet';
 import { useToast } from '@/components/Toast';
+import Loader from '@/components/Loader';
 type NavigationProp = StackNavigationProp<RootStackParamList, 'HimnoDetail'>;
 
 const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
   const navigation = useNavigation<NavigationProp>();
   const [himnos, setHimnos] = useState<Himno[]>([]);
+  const [loaded, setLoaded] = useState(false);
   const theme = useTheme();
   const [busqueda, setBusqueda] = useState<string>('');
   const [himnosFiltrados, setHimnosFiltrados] = useState<Himno[]>([]);
@@ -55,6 +57,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
         // No es necesario un caso por defecto, ya que himnosOrdenados ya contiene la lista original
       }
       setHimnos(himnosOrdenados as Himno[]);
+      setLoaded(true);
     } catch (error) {
       console.error('Error al cargar los himnos:', error);
     }
@@ -244,10 +247,14 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
           </View>
         )}
         ListEmptyComponent={
-          <View style={styles.empty}>
-            <ThemedText type="subtitle">Sin resultados</ThemedText>
-            <ThemedText type="caption">Prueba con otro número, título o tema.</ThemedText>
-          </View>
+          !loaded ? (
+            <Loader label="Cargando alabanzas…" />
+          ) : (
+            <View style={styles.empty}>
+              <ThemedText type="subtitle">Sin resultados</ThemedText>
+              <ThemedText type="caption">Prueba con otro número, título o tema.</ThemedText>
+            </View>
+          )
         }
         keyExtractor={(item: Himno) => item.number.toString()}
       />

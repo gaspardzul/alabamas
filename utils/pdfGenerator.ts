@@ -17,7 +17,7 @@ export const generateHimnoHTML = (himno: Himno, fontSize: number = 16): string =
     if (verso.verse === 0) {
       return `
         <div style="margin-bottom: 16px;">
-          <p style="color: #FF0000; font-style: italic; font-size: ${fontSize}px; line-height: 1.6; margin: 0;">
+          <p style="color: #A63D32; font-style: italic; font-size: ${fontSize}px; line-height: 1.6; margin: 0;">
             ${verso.text.replace(/\n/g, '<br/>')}
           </p>
         </div>
@@ -99,7 +99,7 @@ export const generateMultipleHimnosHTML = (himnos: Himno[], fontSize: number = 1
       if (verso.verse === 0) {
         return `
           <div style="margin-bottom: 16px;">
-            <p style="color: #FF0000; font-style: italic; font-size: ${fontSize}px; line-height: 1.6; margin: 0;">
+            <p style="color: #A63D32; font-style: italic; font-size: ${fontSize}px; line-height: 1.6; margin: 0;">
               ${verso.text.replace(/\n/g, '<br/>')}
             </p>
           </div>
