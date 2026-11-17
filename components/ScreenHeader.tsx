@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTopInset } from '@/utils/safeArea';
 import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Spacing } from '@/constants/Typography';
@@ -14,11 +14,11 @@ interface ScreenHeaderProps {
 
 /** Encabezado editorial de las pestañas: etiqueta terracota + título serif. */
 export default function ScreenHeader({ eyebrow, title, right, children }: ScreenHeaderProps) {
-  const insets = useSafeAreaInsets();
+  const paddingTop = useTopInset(Spacing.sm);
   const theme = useTheme();
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top + Spacing.sm, backgroundColor: theme.background }]}>
+    <View style={[styles.container, { paddingTop, backgroundColor: theme.background }]}>
       <View style={styles.row}>
         <View style={styles.titles}>
           {eyebrow ? <ThemedText type="label">{eyebrow}</ThemedText> : null}

@@ -1,11 +1,12 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { Fonts } from '@/constants/Typography';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { useBottomInset } from '@/utils/safeArea';
 
 const TABS = [
   { name: 'index', title: 'Inicio', icon: 'home' },
@@ -19,6 +20,12 @@ const TABS = [
 export default function TabLayout() {
   const colorScheme = useColorScheme() ?? 'light';
   const theme = Colors[colorScheme];
+  // Espacio para el indicador de inicio del iPhone (en web la barra no lo recibía).
+  const bottomInset = useBottomInset();
+  const webTabBar =
+    Platform.OS === 'web'
+      ? { paddingBottom: bottomInset, height: `calc(58px + env(safe-area-inset-bottom, 0px))` as unknown as number }
+      : {};
 
   return (
     <Tabs
@@ -31,6 +38,7 @@ export default function TabLayout() {
           borderTopColor: theme.border,
           borderTopWidth: StyleSheet.hairlineWidth,
           elevation: 0,
+          ...webTabBar,
         },
         sceneStyle: { backgroundColor: theme.background },
       }}

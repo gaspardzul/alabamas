@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useBottomInsetAtLeast } from '@/utils/safeArea';
 import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Radius, Spacing } from '@/constants/Typography';
@@ -16,7 +16,7 @@ interface SheetProps {
 /** Hoja inferior con velo navy translúcido; reemplaza los modales a pantalla completa. */
 export default function Sheet({ visible, onClose, title, eyebrow, children }: SheetProps) {
   const theme = useTheme();
-  const insets = useSafeAreaInsets();
+  const bottomPadding = useBottomInsetAtLeast(Spacing.md + Spacing.sm, Spacing.sm);
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
@@ -31,7 +31,7 @@ export default function Sheet({ visible, onClose, title, eyebrow, children }: Sh
             {
               backgroundColor: theme.card,
               borderColor: theme.border,
-              paddingBottom: Math.max(insets.bottom, Spacing.md) + Spacing.sm,
+              paddingBottom: bottomPadding,
             },
           ]}
         >

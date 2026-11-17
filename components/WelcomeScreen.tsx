@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useBottomInset, useTopInset } from '@/utils/safeArea';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { ThemedText } from '@/components/ThemedText';
@@ -11,7 +11,8 @@ import { Fonts, Radius, Spacing } from '@/constants/Typography';
 /** Primera pantalla: elegir entre cuenta de Google o modo invitado. */
 export default function WelcomeScreen() {
   const theme = useTheme();
-  const insets = useSafeAreaInsets();
+  const topPadding = useTopInset(Spacing.xl);
+  const bottomPadding = useBottomInset(Spacing.xl);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -33,7 +34,7 @@ export default function WelcomeScreen() {
       style={{ backgroundColor: theme.background }}
       contentContainerStyle={[
         styles.container,
-        { paddingTop: insets.top + Spacing.xl, paddingBottom: insets.bottom + Spacing.xl },
+        { paddingTop: topPadding, paddingBottom: bottomPadding },
       ]}
     >
       <View style={styles.hero}>

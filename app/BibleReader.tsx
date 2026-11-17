@@ -3,7 +3,7 @@ import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View
 import { useNavigation, useRoute } from 'expo-router';
 import type { RouteProp } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useBottomInsetAtLeast } from '@/utils/safeArea';
 import { ThemedText } from '@/components/ThemedText';
 import Chip from '@/components/Chip';
 import Sheet from '@/components/Sheet';
@@ -25,7 +25,7 @@ export default function BibleReader() {
   const route = useRoute<BibleReaderRouteProp>();
   const navigation = useNavigation();
   const theme = useTheme();
-  const insets = useSafeAreaInsets();
+  const bottomPadding = useBottomInsetAtLeast(Spacing.sm);
   const scrollRef = useRef<React.ComponentRef<typeof ScrollView>>(null);
   const { getSettingValue, updateSettingValue } = useSettings();
   const { setLastRead } = useBibleState();
@@ -200,7 +200,7 @@ export default function BibleReader() {
       <View
         style={[
           styles.bottomBar,
-          { backgroundColor: theme.card, borderTopColor: theme.border, paddingBottom: Math.max(insets.bottom, Spacing.sm) },
+          { backgroundColor: theme.card, borderTopColor: theme.border, paddingBottom: bottomPadding },
         ]}
       >
         <TouchableOpacity
