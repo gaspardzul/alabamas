@@ -125,7 +125,7 @@ const MyLists: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <ScreenHeader eyebrow="Planificador" title="Mis Listas">
+      <ScreenHeader title="Mis Listas">
         <SearchBar value={busqueda} onChangeText={setBusqueda} onCreate={openCreate} placeholder="Buscar lista" />
       </ScreenHeader>
 

@@ -25,7 +25,6 @@ export default function SettingsScreen() {
       showsVerticalScrollIndicator={false}
     >
       <ScreenHeader
-        eyebrow="Alaba+"
         title="Perfil"
         hideProfile
         right={

@@ -69,7 +69,6 @@ const ListFavorites: React.FC = () => {
   return (
     <ThemedView style={styles.containerList}>
       <ScreenHeader
-        eyebrow="Tu colección"
         title="Favoritos"
         right={
           favorites.length > 0 ? <Chip label={`${favorites.length}`} tone="accent" /> : undefined

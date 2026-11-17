@@ -155,7 +155,6 @@ export default function BibleScreen() {
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <ScreenHeader
-        eyebrow={translation.name}
         title="Biblia"
         right={
           <TouchableOpacity

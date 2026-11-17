@@ -41,7 +41,7 @@ export default function HomeScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <ScreenHeader eyebrow="Himnario" title="Alaba+" />
+      <ScreenHeader title="Himnario" />
 
       <View style={styles.body}>
         <View style={[styles.verseCard, { backgroundColor: theme.card, borderColor: theme.border }]}>

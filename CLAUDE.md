@@ -64,7 +64,7 @@ OTA updates use `runtimeVersion.policy: appVersion`, so bump `version` in `app.j
 - Show `components/Loader.tsx` while data loads, never an empty state ("Sin resultados") before the first read. On web, `public/index.html` has an instant `#boot-splash` that `app/_layout.tsx` removes once fonts and session are ready.
 - Default text size: `FONT_SIZE_DEFAULT` (20) in `hooks/useSettings.tsx`, range 12–48. `updateSettingValue` merges with what's stored, not with the hook's in-memory copy.
 - Fonts: Merriweather (serif: titles, lyrics) and Plus Jakarta Sans (UI), from `@expo-google-fonts/*`, loaded in `hooks/useFonts.ts` under the `Fonts.*` names. Pick weight via the family name, not `fontWeight`.
-- Building blocks: `ScreenHeader` (eyebrow + serif title, handles safe area on tab screens), `SearchBar` (with sort sheet / create button), `ListItem` (card row with number box, tags, icon actions), `Sheet` (bottom sheet replacing modals), `Chip`, and `ThemedText` types `title | subtitle | Himno | label | caption | link`.
+- Building blocks: `ScreenHeader` (app icon + "Alaba+" in serif, with the section name (`title`) in terracotta below; actions and the profile avatar on the right; handles safe area), `SearchBar` (with sort sheet / create button), `ListItem` (card row with number box, tags, icon actions), `Sheet` (bottom sheet replacing modals), `Chip`, and `ThemedText` types `title | subtitle | Himno | label | caption | link`.
 
 **Other pieces**: `utils/pdfGenerator.ts` builds HTML for one hymn or a whole list and shares it as PDF via `expo-print` + `expo-sharing`; `utils/functions.ts#normalizarTexto` strips accents for search. The splash screen waits on fonts. Import alias `@/*` maps to the repo root.
 

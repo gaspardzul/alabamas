@@ -203,7 +203,7 @@ const ListComponent: React.FC<{ category?: string }> = ({ category }) => {
 
   return (
     <ThemedView style={styles.containerList}>
-      <ScreenHeader eyebrow="Himnario" title="Alabanzas">
+      <ScreenHeader title="Alabanzas">
         <SearchBar
           value={busqueda}
           onSort={handleSort}

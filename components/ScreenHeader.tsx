@@ -1,13 +1,12 @@
 import React, { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { useTopInset } from '@/utils/safeArea';
-import { ThemedText } from '@/components/ThemedText';
 import ProfileButton from '@/components/ProfileButton';
 import { useTheme } from '@/hooks/useThemeColor';
-import { Spacing } from '@/constants/Typography';
+import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 interface ScreenHeaderProps {
-  eyebrow?: string;
+  /** Sección actual (Himnario, Alabanzas, Favoritos…); se muestra bajo el nombre de la app. */
   title: string;
   right?: ReactNode;
   children?: ReactNode;
@@ -15,19 +14,27 @@ interface ScreenHeaderProps {
   hideProfile?: boolean;
 }
 
-/** Encabezado editorial de las pestañas: etiqueta terracota + título serif. */
-export default function ScreenHeader({ eyebrow, title, right, children, hideProfile = false }: ScreenHeaderProps) {
+/**
+ * Encabezado de las pantallas principales: ícono de Alaba+, el nombre de la app en serif y la
+ * sección en terracota debajo; a la derecha, acciones de la pantalla y el avatar de Perfil.
+ */
+export default function ScreenHeader({ title, right, children, hideProfile = false }: ScreenHeaderProps) {
   const paddingTop = useTopInset(Spacing.sm);
   const theme = useTheme();
 
   return (
     <View style={[styles.container, { paddingTop, backgroundColor: theme.background }]}>
       <View style={styles.row}>
-        <View style={styles.titles}>
-          {eyebrow ? <ThemedText type="label">{eyebrow}</ThemedText> : null}
-          <ThemedText type="title" numberOfLines={1}>
-            {title}
-          </ThemedText>
+        <View style={styles.brand} accessibilityRole="header" accessibilityLabel={`Alaba+, ${title}`}>
+          <Image source={require('@/assets/images/header-icon.png')} style={styles.icon} accessibilityIgnoresInvertColors />
+          <View style={styles.titles}>
+            <Text style={[styles.appName, { color: theme.primary }]} numberOfLines={1}>
+              Alaba+
+            </Text>
+            <Text style={[styles.section, { color: theme.secondary }]} numberOfLines={1}>
+              {title}
+            </Text>
+          </View>
         </View>
         {right || !hideProfile ? (
           <View style={styles.right}>
@@ -41,6 +48,7 @@ export default function ScreenHeader({ eyebrow, title, right, children, hideProf
   );
 }
 
+const ICON = 48;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: Spacing.gutter,
@@ -49,13 +57,35 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'space-between',
     gap: Spacing.md,
   },
+  brand: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  icon: {
+    width: ICON,
+    height: ICON,
+    borderRadius: Radius.md + 4,
+  },
   titles: {
     flex: 1,
-    gap: 2,
+  },
+  appName: {
+    fontFamily: Fonts.serifBold,
+    fontSize: 26,
+    lineHeight: 32,
+    letterSpacing: -0.4,
+  },
+  section: {
+    fontFamily: Fonts.sansSemiBold,
+    fontSize: 15,
+    lineHeight: 20,
+    letterSpacing: 0.2,
   },
   right: {
     flexDirection: 'row',
