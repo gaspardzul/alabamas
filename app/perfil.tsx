@@ -4,6 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import ScreenHeader from '@/components/ScreenHeader';
 import AccountCard from '@/components/AccountCard';
 import SettingsCard from '@/components/SettingsCard';
+import DonationCard from '@/components/DonationCard';
 import FriendsCard from '@/components/FriendsCard';
 import { useToast } from '@/components/Toast';
 import { ThemedText } from '@/components/ThemedText';
@@ -45,6 +46,9 @@ export default function SettingsScreen() {
         <ThemedText type="label" style={styles.sectionLabel}>Ajustes</ThemedText>
         <SettingsCard />
 
+        <ThemedText type="label" style={styles.sectionLabel}>Apoya</ThemedText>
+        <DonationCard />
+
         <ThemedText type="label" style={styles.sectionLabel}>Acerca de</ThemedText>
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
           <ThemedText style={[styles.greeting, { color: theme.primary }]}>¡Paz!</ThemedText>
@@ -55,15 +59,6 @@ export default function SettingsScreen() {
           <ThemedText style={styles.author}>Hno. Gaspar Dzul</ThemedText>
           <ThemedText style={styles.author}>Colaboración. Hno. Julián Dzul</ThemedText>
 
-        </View>
-
-        <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
-          <ThemedText type="label">Apóyanos</ThemedText>
-          <ThemedText style={styles.paragraph}>
-            Esta app es totalmente gratuita, sin embargo, su mantenimiento tiene un costo mensual. Si te
-            ha sido de utilidad, considera apoyar su mantenimiento para que podamos agregar nuevas
-            funcionalidades y mejorar la experiencia de uso.
-          </ThemedText>
         </View>
 
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>

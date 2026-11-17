@@ -74,6 +74,12 @@
       ]
     },
     {
+      "title": "Donaciones",
+      "body": [
+        "Las donaciones son voluntarias y se hacen en Mercado Pago, fuera de la aplicación. Alaba+ no recibe ni guarda tus datos de pago ni de tarjeta; Mercado Pago los trata según su propia política de privacidad. Donar no requiere iniciar sesión y no cambia en nada tu uso de la aplicación."
+      ]
+    },
+    {
       "title": "Lectura de la Biblia",
       "body": [
         "El texto bíblico se descarga de la Free Use Bible API (bible.helloao.org). Al consultar un capítulo o descargar una traducción, ese servicio recibe la petición desde tu dispositivo, incluida tu dirección IP, como ocurre con cualquier sitio web. No le enviamos tu nombre, correo ni ningún dato de tu cuenta."

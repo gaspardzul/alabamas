@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { ScrollView, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import ScreenHeader from '@/components/ScreenHeader';
+import DonationCard from '@/components/DonationCard';
 import { toTitleCase } from '@/components/ListItem';
 import himnosData from '@/assets/himnos/lista.json';
 import { useRouter } from 'expo-router';
@@ -93,6 +94,8 @@ export default function HomeScreen() {
             </TouchableOpacity>
           ))}
         </View>
+
+        <DonationCard variant="compact" />
       </View>
     </ScrollView>
   );

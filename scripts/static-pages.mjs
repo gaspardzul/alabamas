@@ -18,6 +18,7 @@ const hymnCount = JSON.parse(readFileSync(join(root, 'assets/himnos/lista.json')
 // Funciones activas (la Biblia está oculta hasta tener la licencia de la RVR1960).
 const features = JSON.parse(readFileSync(join(root, 'constants/features.json'), 'utf8'));
 const tagline = features.bible ? 'Himnario y Biblia' : 'Himnario';
+const links = JSON.parse(readFileSync(join(root, 'constants/links.json'), 'utf8'));
 
 const esc = (text) =>
   String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -125,6 +126,13 @@ function renderAbout(base) {
 <section class="card">
   <h2>Cuenta opcional con Google</h2>
   <p class="body">Puedes usar ${app} como invitado, sin dar ningún dato: todo se guarda en tu dispositivo. Si inicias sesión con tu cuenta de Google, tus favoritos, listas y ajustes se guardan en tu cuenta para verlos en todos tus dispositivos, y puedes agregar amigos con un enlace de invitación para compartirles listas de alabanzas (solo lectura o con permiso de edición). Solo usamos tu nombre, correo y foto para mostrar tu cuenta. Consulta la <a href="${base}/privacidad">política de privacidad</a>.</p>
+</section>
+
+<section class="card">
+  <h2>Apoya ${app}</h2>
+  <p class="body">${app} es gratuita y sin anuncios, pero su mantenimiento tiene un costo mensual. Si te ha sido de bendición, puedes apoyarla con el monto que tú elijas.</p>
+  <a class="button" href="${esc(links.donationUrl)}" rel="noopener" target="_blank">Donar con ${esc(links.donationProvider)}</a>
+  <p class="muted">El pago se hace en ${esc(links.donationProvider)}; ${app} no recibe ni guarda tus datos de pago.</p>
 </section>
 
 <section class="card">
