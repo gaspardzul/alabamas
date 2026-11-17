@@ -73,7 +73,7 @@ export default function InvitePage() {
   };
 
   const goHome = () => router.replace('/');
-  const goProfile = () => router.replace('/about');
+  const goProfile = () => router.replace('/perfil');
 
   const Avatar = ({ invite }: { invite: Invite }) =>
     invite.photoURL ? (

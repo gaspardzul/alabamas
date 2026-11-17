@@ -15,6 +15,9 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const policy = JSON.parse(readFileSync(join(root, 'constants/privacyPolicy.json'), 'utf8'));
 const hymnCount = JSON.parse(readFileSync(join(root, 'assets/himnos/lista.json'), 'utf8')).lista.length;
+// Funciones activas (la Biblia está oculta hasta tener la licencia de la RVR1960).
+const features = JSON.parse(readFileSync(join(root, 'constants/features.json'), 'utf8'));
+const tagline = features.bible ? 'Himnario y Biblia' : 'Himnario';
 
 const esc = (text) =>
   String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -98,13 +101,15 @@ function renderAbout(base) {
   const app = esc(policy.appName);
   return page({
     base,
-    title: `${policy.appName} · Himnario y Biblia`,
-    description: `${policy.appName}: himnario de alabanzas, listas para el culto y lectura de la Biblia. Gratis, sin anuncios y sin conexión.`,
+    title: `${policy.appName} · ${tagline}`,
+    description: features.bible
+      ? `${policy.appName}: himnario de alabanzas, listas para el culto y lectura de la Biblia. Gratis, sin anuncios y sin conexión.`
+      : `${policy.appName}: himnario de alabanzas y listas para el culto. Gratis, sin anuncios y sin conexión.`,
     body: `<div class="brand">
   <img src="${base}/icons/icon-192.png" alt="Ícono de ${app}" />
-  <div><div class="label">Himnario y Biblia</div><h1 style="margin:0">${app}</h1></div>
+  <div><div class="label">${tagline}</div><h1 style="margin:0">${app}</h1></div>
 </div>
-<p class="lead body">${app} es un himnario de alabanzas para la iglesia, con listas para preparar el culto y lectura de la Biblia en español. Es gratuito, no tiene anuncios y funciona sin conexión a internet.</p>
+<p class="lead body">${app} es un himnario de alabanzas para la iglesia, con listas para preparar el culto${features.bible ? ' y lectura de la Biblia en español' : ''}. Es gratuito, no tiene anuncios y funciona sin conexión a internet.</p>
 <a class="button" href="${base}/">Abrir ${app}</a>
 
 <section class="card">
@@ -113,7 +118,7 @@ function renderAbout(base) {
     <li><strong>${hymnCount} alabanzas</strong> organizadas por categorías, con búsqueda por número, título o tema.</li>
     <li>Marcar tus <strong>favoritos</strong> y ajustar el <strong>tamaño de letra</strong> para leer cómodamente.</li>
     <li>Crear <strong>listas para el culto</strong>, ordenarlas, proyectarlas en modo presentación y compartirlas en PDF.</li>
-    <li>Leer la <strong>Biblia</strong> en varias traducciones en español (Reina-Valera 1909, Reina-Valera Gómez y otras), con búsqueda de libro, capítulo y versículo, y descargarla para leer sin conexión.</li>
+    ${features.bible ? '' : '<!-- Biblia oculta (constants/features.json) -->'}${features.bible ? `<li>Leer la <strong>Biblia</strong> en varias traducciones en español (Reina-Valera 1909, Reina-Valera Gómez y otras), con búsqueda de libro, capítulo y versículo, y descargarla para leer sin conexión.</li>` : ''}
   </ul>
 </section>
 

@@ -197,10 +197,12 @@ export async function initAuth() {
 
   // Pruebas con emuladores: iniciar sesión como un usuario de Google ficticio desde la consola.
   if (USE_EMULATORS && typeof window !== 'undefined') {
-    (window as unknown as Record<string, unknown>).__alabaTestSignIn = (uid: string, name: string) =>
+    (window as unknown as Record<string, unknown>).__alabaTestSignIn = (uid: string, name: string, picture?: string) =>
       signInWithCredential(
         firebase.auth,
-        GoogleAuthProvider.credential(JSON.stringify({ sub: uid, email: `${uid}@prueba.dev`, name, email_verified: true }))
+        GoogleAuthProvider.credential(
+          JSON.stringify({ sub: uid, email: `${uid}@prueba.dev`, name, picture, email_verified: true })
+        )
       );
   }
   setSession({ googleAvailable: true });

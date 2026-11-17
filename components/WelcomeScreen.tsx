@@ -3,6 +3,7 @@ import { ActivityIndicator, Image, ScrollView, StyleSheet, Text, TouchableOpacit
 import { useBottomInset, useTopInset } from '@/utils/safeArea';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import features from '@/constants/features.json';
 import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { continueAsGuest, signInWithGoogle } from '@/utils/auth';
@@ -39,7 +40,7 @@ export default function WelcomeScreen() {
     >
       <View style={styles.hero}>
         <Image source={require('@/assets/images/icon.png')} style={styles.logo} />
-        <ThemedText type="label">Himnario y Biblia</ThemedText>
+        <ThemedText type="label">{features.bible ? 'Himnario y Biblia' : 'Himnario'}</ThemedText>
         <ThemedText style={styles.title}>Alaba+</ThemedText>
         <ThemedText style={[styles.verse, { color: theme.textMuted }]}>
           «Cantad alegres a Dios, habitantes de toda la tierra.»

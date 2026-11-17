@@ -7,14 +7,17 @@ import { Colors } from '@/constants/Colors';
 import { Fonts } from '@/constants/Typography';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { useBottomInset } from '@/utils/safeArea';
+import features from '@/constants/features.json';
 
+// `hidden`: la ruta existe pero no aparece en la barra.
+//  - bible: oculta hasta tener la licencia de la RVR1960 (constants/features.json).
+// Perfil no es pestaña: es la pantalla app/perfil.tsx y se abre con el avatar (components/ProfileButton.tsx).
 const TABS = [
-  { name: 'index', title: 'Inicio', icon: 'home' },
-  { name: 'explore', title: 'Alabanzas', icon: 'musical-notes' },
-  { name: 'bible', title: 'Biblia', icon: 'book' },
-  { name: 'favorites', title: 'Favoritos', icon: 'star' },
-  { name: 'mylists', title: 'Mis Listas', icon: 'list' },
-  { name: 'about', title: 'Perfil', icon: 'person-circle' },
+  { name: 'index', title: 'Inicio', icon: 'home', hidden: false },
+  { name: 'explore', title: 'Alabanzas', icon: 'musical-notes', hidden: false },
+  { name: 'bible', title: 'Biblia', icon: 'book', hidden: !features.bible },
+  { name: 'favorites', title: 'Favoritos', icon: 'star', hidden: false },
+  { name: 'mylists', title: 'Mis Listas', icon: 'list', hidden: false },
 ] as const;
 
 export default function TabLayout() {
@@ -48,6 +51,7 @@ export default function TabLayout() {
           key={tab.name}
           name={tab.name}
           options={{
+            href: tab.hidden ? null : undefined,
             title: tab.title,
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon name={focused ? tab.icon : `${tab.icon}-outline`} color={color as string} />

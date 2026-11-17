@@ -22,7 +22,21 @@ export default function SettingsScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <ScreenHeader eyebrow="Alaba+" title="Perfil" />
+      <ScreenHeader
+        eyebrow="Alaba+"
+        title="Perfil"
+        hideProfile
+        right={
+          <TouchableOpacity
+            onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
+            style={[styles.close, { backgroundColor: theme.chip }]}
+            accessibilityLabel="Cerrar perfil"
+            hitSlop={8}
+          >
+            <Ionicons name="close" size={20} color={theme.text} />
+          </TouchableOpacity>
+        }
+      />
 
       <View style={styles.body}>
         <AccountCard />
@@ -90,6 +104,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.gutter,
     paddingTop: Spacing.sm,
     gap: Spacing.md,
+  },
+  close: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   sectionLabel: {
     marginTop: Spacing.sm,

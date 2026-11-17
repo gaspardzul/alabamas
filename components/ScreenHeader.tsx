@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useTopInset } from '@/utils/safeArea';
 import { ThemedText } from '@/components/ThemedText';
+import ProfileButton from '@/components/ProfileButton';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Spacing } from '@/constants/Typography';
 
@@ -10,10 +11,12 @@ interface ScreenHeaderProps {
   title: string;
   right?: ReactNode;
   children?: ReactNode;
+  /** Ocultar el avatar de Perfil (p. ej. en la propia pantalla de Perfil). */
+  hideProfile?: boolean;
 }
 
 /** Encabezado editorial de las pestañas: etiqueta terracota + título serif. */
-export default function ScreenHeader({ eyebrow, title, right, children }: ScreenHeaderProps) {
+export default function ScreenHeader({ eyebrow, title, right, children, hideProfile = false }: ScreenHeaderProps) {
   const paddingTop = useTopInset(Spacing.sm);
   const theme = useTheme();
 
@@ -26,7 +29,12 @@ export default function ScreenHeader({ eyebrow, title, right, children }: Screen
             {title}
           </ThemedText>
         </View>
-        {right ? <View style={styles.right}>{right}</View> : null}
+        {right || !hideProfile ? (
+          <View style={styles.right}>
+            {right}
+            {!hideProfile && <ProfileButton />}
+          </View>
+        ) : null}
       </View>
       {children}
     </View>

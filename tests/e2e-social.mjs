@@ -92,7 +92,7 @@ await ana.click('Culto domingo'); await sleep(1500);
 check('Himno 1 agregado desde ⋮', (await ana.text()).includes('Agregado a “Culto domingo”'));
 
 // 3) Ana genera su enlace de invitación.
-await ana.go('/about', 4000);
+await ana.go('/perfil', 4000);
 await ana.clickLabel('Invitar amigos'); await sleep(3000);
 const code = (await read(`users/${A}`))?.inviteCode;
 check('Ana tiene código de invitación', !!code, code);
@@ -111,7 +111,7 @@ await beto.shot('e2e_2_invitacion');
 await beto.click('Aceptar invitación'); await sleep(3000);
 check('Beto acepta: "¡Ahora son amigos!"', (await beto.text()).includes('¡Ahora son amigos!'));
 check('Amistad en ambos lados', !!(await read(`users/${A}/friends/${B}`)) && !!(await read(`users/${B}/friends/${A}`)));
-await ana.go('/about', 4000);
+await ana.go('/perfil', 4000);
 check('Ana ve a Beto en Amigos', (await ana.text()).includes('Beto Pérez'));
 
 // 5) Ana comparte "Culto domingo" con Beto como lector.
@@ -174,7 +174,7 @@ await beto.clickLabel('Ana Ruiz: Lectura'); await sleep(300);
 await beto.click('Guardar'); await sleep(2000);
 check('Beto comparte "Ensayo" con Ana', (await read(`lists/${ensayoId}`))?.members?.[A] === 'viewer');
 
-await ana.go('/about', 5000);
+await ana.go('/perfil', 5000);
 await ana.click('Eliminar mi cuenta'); await sleep(800);
 await ana.shot('e2e_6_eliminar');
 await ana.click('Eliminar cuenta'); await sleep(6000);

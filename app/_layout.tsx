@@ -105,6 +105,7 @@ export default function RootLayout() {
             title: route.params?.name || 'Lista',
           })}
         />
+        <Stack.Screen name="perfil" options={{ headerShown: false, animation: 'slide_from_right' }} />
         <Stack.Screen name="privacidad" options={{ ...headerOptions, title: 'Privacidad' }} />
         <Stack.Screen name="invitar/[code]" options={{ ...headerOptions, title: 'Invitación' }} />
         <Stack.Screen name="BibleReader" options={{ ...headerOptions, title: 'Biblia' }} />

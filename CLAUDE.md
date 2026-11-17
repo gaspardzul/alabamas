@@ -46,7 +46,7 @@ OTA updates use `runtimeVersion.policy: appVersion`, so bump `version` in `app.j
 **Routing** (`app/`): expo-router file routes, but screens are navigated mostly with `useNavigation().navigate(...)`, with params typed in `ts/types.ts` (`RootStackParamList`).
 - **Import `useNavigation`, `useRoute`, `useFocusEffect`, `ThemeProvider`/`DarkTheme`/`DefaultTheme` from `expo-router`, never from `@react-navigation/native`.** expo-router (SDK 55+) bundles its own copy of React Navigation, so the `@react-navigation/*` hooks throw "Couldn't find a navigation object". Only `import type` (`RouteProp`, `StackNavigationProp`) from `@react-navigation/*` is safe.
 - `app/_layout.tsx` — root Stack: `(tabs)`, `HimnoDetail` (`{ number }`), `ListDetail` and `PresentationMode` (both `{ lista: { name, himnos } }`). New stack screens must be registered here.
-- `app/(tabs)/` — Inicio, Alabanzas (`explore`, accepts a `category` param), Favoritos, Mis Listas, Acerca de. Tab screens are thin wrappers around the heavy components in `app/components/` (`ListComponent`, `ListFavorites`, `MyLists`, `LastViewedList`).
+- `app/(tabs)/`: Inicio, Alabanzas (`explore`, accepts a `category` param), Favoritos, Mis Listas, and Biblia (hidden while `constants/features.json` has `bible: false`, pending the RVR1960 license; the code stays). Perfil is not a tab: it is `app/perfil.tsx`, opened from the avatar (`components/ProfileButton.tsx`) that `ScreenHeader` shows top-right. Don't hide routes with `href: null`, because in this expo-router version they stop being navigable. Tab screens are thin wrappers around the heavy components in `app/components/` (`ListComponent`, `ListFavorites`, `MyLists`, `LastViewedList`).
 - `explore_backup.tsx`, `settings.tsx` (tab commented out) and `components/ListItem copy.tsx` are leftovers.
 
 **Persistence** is AsyncStorage only, via hooks in `hooks/`:
@@ -88,4 +88,4 @@ OTA updates use `runtimeVersion.policy: appVersion`, so bump `version` in `app.j
 - Perfil → Eliminar mi cuenta (`utils/account.web.ts`) must keep matching the privacy policy.
 - `utils/*.ts` vs `utils/*.web.ts` pairs (auth, firebase, friends, account, lists/cloud, bibleStorage) must export the same API. TypeScript checks against the native file.
 - The users-doc snapshot uses `includeMetadataChanges: true` and ignores `fromCache`. With the persistent cache, the initial sync otherwise never completes.
-
+- `constants/features.json` is the feature-flag file, read by both the app and `scripts/static-pages.mjs`. While `bible` is false, public texts (welcome screen, `/acerca`, manifest, `index.html` meta) don't mention the Bible. Update `public/manifest.webmanifest` and the `index.html` description by hand when re-enabling it.

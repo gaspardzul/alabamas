@@ -147,7 +147,7 @@ writeFileSync(join(dist, '404.html'), readFileSync(join(dist, 'index.html')));
 // El 404.html sirve la app pero con estado HTTP 404. Para las rutas que alguien puede abrir
 // directamente (y que verifica Google, como /privacidad) generamos una copia real: GitHub
 // Pages sirve /privacidad desde privacidad.html con estado 200.
-const PUBLIC_ROUTES = ['bible', 'explore', 'favorites', 'mylists', 'about'];
+const PUBLIC_ROUTES = ['bible', 'explore', 'favorites', 'mylists', 'perfil'];
 for (const route of PUBLIC_ROUTES) {
   writeFileSync(join(dist, `${route}.html`), readFileSync(join(dist, 'index.html')));
 }

@@ -6,6 +6,7 @@ import { useTheme } from '@/hooks/useThemeColor';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_MAX, FONT_SIZE_MIN, useSettings } from '@/hooks/useSettings';
 import { setThemePreference, ThemePreference, useThemePreference } from '@/utils/themePreference';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
+import features from '@/constants/features.json';
 
 type Order = 'numAsc' | 'numDesc' | 'asc' | 'desc';
 
@@ -52,7 +53,7 @@ export default function SettingsCard() {
         <View style={styles.header}>
           <View style={{ flex: 1 }}>
             <ThemedText style={styles.title}>Tamaño de letra</ThemedText>
-            <ThemedText type="caption">Himnos, listas y Biblia</ThemedText>
+            <ThemedText type="caption">{features.bible ? 'Himnos, listas y Biblia' : 'Himnos y listas'}</ThemedText>
           </View>
           <View style={[styles.stepper, { backgroundColor: theme.chip }]}>
             <TouchableOpacity
