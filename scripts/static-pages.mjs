@@ -48,6 +48,9 @@ a{color:var(--accent)}
 .button{display:inline-block;background:var(--primary);color:var(--on-primary);text-decoration:none;font-weight:600;padding:14px 22px;border-radius:8px;margin:12px 0}
 .back{display:inline-block;margin-bottom:20px;text-decoration:none;font-weight:600}
 .lead{font-size:18px}
+.amounts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.amounts .button{margin:0;flex:1 1 20%;min-width:70px;text-align:center}
+.button.outline{background:transparent;color:var(--primary);border:1px solid var(--primary)}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
 `;
 
@@ -131,7 +134,10 @@ function renderAbout(base) {
 <section class="card">
   <h2>Apoya ${app}</h2>
   <p class="body">${app} es gratuita y sin anuncios, pero su mantenimiento tiene un costo mensual. Si te ha sido de bendición, puedes apoyarla con el monto que tú elijas.</p>
-  <a class="button" href="${esc(links.donationUrl)}" rel="noopener" target="_blank">Donar con ${esc(links.donationProvider)}</a>
+  <div class="amounts">
+    ${links.donationOptions.map((o) => `<a class="button" href="${esc(o.url)}" rel="noopener" target="_blank">${esc(o.label)}</a>`).join('\n    ')}
+    <a class="button outline" href="${esc(links.donationUrl)}" rel="noopener" target="_blank">Otro monto</a>
+  </div>
   <p class="muted">El pago se hace en ${esc(links.donationProvider)}; ${app} no recibe ni guarda tus datos de pago.</p>
 </section>
 

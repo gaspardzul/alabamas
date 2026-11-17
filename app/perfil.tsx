@@ -5,6 +5,7 @@ import ScreenHeader from '@/components/ScreenHeader';
 import AccountCard from '@/components/AccountCard';
 import SettingsCard from '@/components/SettingsCard';
 import DonationCard from '@/components/DonationCard';
+import links from '@/constants/links.json';
 import FriendsCard from '@/components/FriendsCard';
 import { useToast } from '@/components/Toast';
 import { ThemedText } from '@/components/ThemedText';
@@ -63,16 +64,23 @@ export default function SettingsScreen() {
 
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
           <ThemedText type="label">Información</ThemedText>
-          <View style={styles.contactRow}>
-            <Ionicons name="mail-outline" size={18} color={theme.textMuted} />
-            <ThemedText>casper088@gmail.com</ThemedText>
-          </View>
           <TouchableOpacity
-            style={[styles.button, { borderColor: theme.primary }]}
-            onPress={() => Linking.openURL('https://wa.me/529991659403')}
+            style={styles.contactRow}
+            onPress={() => Linking.openURL(`mailto:${links.contactEmail}`)}
+            accessibilityRole="link"
+            accessibilityLabel={`Escribir un correo a ${links.contactEmail}`}
           >
-            <Ionicons name="logo-whatsapp" size={18} color={theme.primary} />
-            <ThemedText style={[styles.buttonText, { color: theme.primary }]}>Escribir por WhatsApp</ThemedText>
+            <Ionicons name="mail-outline" size={18} color={theme.textMuted} />
+            <ThemedText>{links.contactEmail}</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.contactRow}
+            onPress={() => Linking.openURL(links.whatsappUrl)}
+            accessibilityRole="link"
+            accessibilityLabel={`Escribir por WhatsApp al ${links.whatsappNumber}`}
+          >
+            <Ionicons name="logo-whatsapp" size={18} color={theme.textMuted} />
+            <ThemedText>{links.whatsappNumber}</ThemedText>
           </TouchableOpacity>
         </View>
 

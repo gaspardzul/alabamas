@@ -1,4 +1,12 @@
 {
+  "donationProvider": "Mercado Pago",
+  "donationOptions": [
+    { "label": "$50", "url": "https://mpago.la/2AC9GKr" },
+    { "label": "$100", "url": "https://mpago.la/32TE8uF" },
+    { "label": "$250", "url": "https://mpago.la/2C9AeaH" }
+  ],
   "donationUrl": "https://link.mercadopago.com.mx/almamiacoffe",
-  "donationProvider": "Mercado Pago"
+  "contactEmail": "casper088@gmail.com",
+  "whatsappNumber": "+52 999 165 9403",
+  "whatsappUrl": "https://wa.me/529991659403"
 }
