@@ -34,6 +34,8 @@ export default function SettingsScreen() {
             realizado con mucho cariño y dedicación para ti por:
           </ThemedText>
           <ThemedText style={styles.author}>Hno. Gaspar Dzul</ThemedText>
+          <ThemedText style={styles.author}>Colaboración. Hno. Julián Dzul</ThemedText>
+
         </View>
 
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
