@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { useTopInset } from '@/utils/safeArea';
 import ProfileButton from '@/components/ProfileButton';
+import ThemeToggle from '@/components/ThemeToggle';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
@@ -16,7 +17,8 @@ interface ScreenHeaderProps {
 
 /**
  * Encabezado de las pantallas principales: ícono de Alaba+, el nombre de la app en serif y la
- * sección en terracota debajo; a la derecha, acciones de la pantalla y el avatar de Perfil.
+ * sección en terracota debajo; a la derecha, acciones de la pantalla, el cambio rápido de tema
+ * (sol/luna) y el avatar de Perfil.
  */
 export default function ScreenHeader({ title, right, children, hideProfile = false }: ScreenHeaderProps) {
   const paddingTop = useTopInset(Spacing.sm);
@@ -39,6 +41,7 @@ export default function ScreenHeader({ title, right, children, hideProfile = fal
         {right || !hideProfile ? (
           <View style={styles.right}>
             {right}
+            {!hideProfile && <ThemeToggle />}
             {!hideProfile && <ProfileButton />}
           </View>
         ) : null}
