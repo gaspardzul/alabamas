@@ -25,7 +25,7 @@ export default function RootLayout() {
   const session = useSession();
   const pathname = usePathname();
   // Rutas que se pueden ver sin elegir Google/invitado (p. ej. la política de privacidad).
-  const isPublicRoute = pathname === '/privacidad';
+  const isPublicRoute = pathname === '/privacidad' || pathname.startsWith('/invitar/');
 
   useEffect(() => {
     // Si la sesión no puede iniciarse (p. ej. Firebase no responde), no dejar la app en blanco:
@@ -92,12 +92,13 @@ export default function RootLayout() {
         <Stack.Screen name="HimnoDetail" options={{ ...headerOptions, title: 'Himno' }} />
         <Stack.Screen
           name="ListDetail"
-          options={({ route }: { route: { params?: { lista?: { name: string } } } }) => ({
+          options={({ route }: { route: { params?: { name?: string } } }) => ({
             ...headerOptions,
-            title: route.params?.lista?.name || 'Lista',
+            title: route.params?.name || 'Lista',
           })}
         />
         <Stack.Screen name="privacidad" options={{ ...headerOptions, title: 'Privacidad' }} />
+        <Stack.Screen name="invitar/[code]" options={{ ...headerOptions, title: 'Invitación' }} />
         <Stack.Screen name="BibleReader" options={{ ...headerOptions, title: 'Biblia' }} />
         <Stack.Screen
           name="PresentationMode"

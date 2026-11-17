@@ -1,15 +1,109 @@
 rules_version = '2';
 
 // Reglas de Firestore para Alaba+ (pegar en Firebase Console → Firestore → Rules).
-// Cada usuario solo puede leer y escribir su propio documento users/{uid}.
-// Todo lo demás queda cerrado.
+// Pruebas: npm run test:rules (emuladores de Firebase; requiere Java).
+//
+// Colecciones:
+//   users/{uid}                     datos privados: ajustes, favoritos, Biblia, código de invitación
+//   users/{uid}/friends/{friendUid} amigos de {uid} (ficha con nombre y foto)
+//   invites/{code}                  enlace de invitación de amistad (código aleatorio)
+//   lists/{listId}                  listas de alabanzas, con dueño y miembros (compartidas)
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function me() {
+      return request.auth.uid;
+    }
+
+    // ---------- Datos privados del usuario ----------
     match /users/{uid} {
-      allow read, delete: if request.auth != null && request.auth.uid == uid;
-      allow create, update: if request.auth != null
-        && request.auth.uid == uid
-        && request.resource.data.keys().hasOnly(['settings', 'lists', 'favorites', 'bible', 'updatedAt']);
+      allow read, delete: if signedIn() && me() == uid;
+      allow create, update: if signedIn()
+        && me() == uid
+        && request.resource.data.keys().hasOnly(
+          ['settings', 'lists', 'favorites', 'bible', 'updatedAt', 'listsMigrated', 'inviteCode']
+        );
+
+      // ---------- Amigos ----------
+      // Al aceptar la invitación de {uid}, el invitado (friendUid) escribe su ficha en la lista de
+      // amigos de {uid}; solo puede hacerlo con un código de invitación vigente que pertenezca a {uid}.
+      match /friends/{friendUid} {
+        allow read: if signedIn() && me() == uid;
+        allow create: if signedIn() && friendUid != uid && (
+          me() == uid
+          || (
+            me() == friendUid
+            && request.resource.data.via is string
+            && exists(/databases/$(database)/documents/invites/$(request.resource.data.via))
+            && get(/databases/$(database)/documents/invites/$(request.resource.data.via)).data.uid == uid
+          )
+        );
+        // Cualquiera de los dos puede terminar la amistad.
+        allow delete: if signedIn() && (me() == uid || me() == friendUid);
+        // Cada quien puede actualizar su propio nombre/foto en la lista del otro.
+        allow update: if signedIn()
+          && me() == friendUid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name', 'photoURL']);
+      }
+    }
+
+    // ---------- Invitaciones de amistad ----------
+    // Solo se pueden leer conociendo el código (get), nunca listar.
+    match /invites/{code} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn() && request.resource.data.uid == me();
+      allow delete: if signedIn() && resource.data.uid == me();
+      allow update: if false;
+    }
+
+    // ---------- Listas (propias y compartidas) ----------
+    match /lists/{listId} {
+      function isOwner() {
+        return resource.data.ownerId == me();
+      }
+
+      function roleOf(uid) {
+        return resource.data.members.get(uid, null);
+      }
+
+      function changedOnly(keys) {
+        return request.resource.data.diff(resource.data).affectedKeys().hasOnly(keys);
+      }
+
+      allow read: if signedIn() && me() in resource.data.memberIds;
+
+      allow create: if signedIn()
+        && request.resource.data.ownerId == me()
+        && request.resource.data.members.get(me(), null) == 'owner'
+        && me() in request.resource.data.memberIds;
+
+      allow update: if signedIn() && (
+        // Dueño: puede cambiar todo menos el dueño, y sigue siendo dueño y miembro.
+        (
+          isOwner()
+          && request.resource.data.ownerId == me()
+          && request.resource.data.members.get(me(), null) == 'owner'
+          && me() in request.resource.data.memberIds
+        )
+        // Editor: solo los himnos (agregar, quitar, reordenar).
+        || (roleOf(me()) == 'editor' && changedOnly(['himnos', 'updatedAt']))
+        // Cualquier miembro que no sea dueño puede salirse de la lista (y solo quitarse a sí mismo).
+        || (
+          !isOwner()
+          && me() in resource.data.memberIds
+          && changedOnly(['members', 'memberIds', 'memberInfo'])
+          && request.resource.data.memberIds.toSet() == resource.data.memberIds.toSet().difference([me()].toSet())
+          && request.resource.data.members.diff(resource.data.members).affectedKeys() == [me()].toSet()
+          && !(me() in request.resource.data.members)
+        )
+      );
+
+      allow delete: if signedIn() && isOwner();
     }
   }
 }

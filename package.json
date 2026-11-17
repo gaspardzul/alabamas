@@ -15,7 +15,10 @@
     "build:apk:local": "eas build --platform android --profile preview --local",
     "build:apk:local:verbose": "EXPO_DEBUG=true eas build --platform android --profile preview --local",
     "build:web": "expo export --platform web && node scripts/build-pwa.mjs dist",
-    "preview:web": "npm run build:web && npx serve -s dist -l 4173"
+    "preview:web": "npm run build:web && npx serve -s dist -l 4173",
+    "test:rules": "PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH firebase emulators:exec --only firestore --project demo-alabamas \"node --test tests/firestore.rules.test.mjs\"",
+    "emulators": "PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH firebase emulators:start --only auth,firestore --project demo-alabamas",
+    "web:emulators": "EXPO_PUBLIC_FIREBASE_EMULATORS=1 expo start --web --port 8082"
   },
   "jest": {
     "preset": "jest-expo"
@@ -56,9 +59,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@types/jest": "30.0.0",
     "@types/react": "~19.3.0",
     "@types/react-test-renderer": "^18.0.7",
+    "firebase-tools": "^15.36.0",
     "jest": "~30.5.2",
     "jest-expo": "~58.0.14",
     "react-test-renderer": "19.0.0",

@@ -4,6 +4,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import ScreenHeader from '@/components/ScreenHeader';
 import AccountCard from '@/components/AccountCard';
 import SettingsCard from '@/components/SettingsCard';
+import FriendsCard from '@/components/FriendsCard';
+import { useToast } from '@/components/Toast';
 import { ThemedText } from '@/components/ThemedText';
 import { useTheme } from '@/hooks/useThemeColor';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
@@ -11,8 +13,10 @@ import { Fonts, Radius, Spacing } from '@/constants/Typography';
 export default function SettingsScreen() {
   const theme = useTheme();
   const router = useRouter();
+  const { show: showMessage, element: toast } = useToast();
 
   return (
+    <View style={{ flex: 1 }}>
     <ScrollView
       style={{ backgroundColor: theme.background }}
       contentContainerStyle={styles.content}
@@ -22,6 +26,7 @@ export default function SettingsScreen() {
 
       <View style={styles.body}>
         <AccountCard />
+        <FriendsCard onMessage={showMessage} />
 
         <ThemedText type="label" style={styles.sectionLabel}>Ajustes</ThemedText>
         <SettingsCard />
@@ -72,6 +77,8 @@ export default function SettingsScreen() {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    {toast}
+    </View>
   );
 }
 

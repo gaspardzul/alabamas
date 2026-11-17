@@ -6,9 +6,9 @@ import { ThemedText } from '@/components/ThemedText';
 import { toTitleCase } from '@/components/ListItem';
 import { useTheme } from '@/hooks/useThemeColor';
 import { useSettings } from '@/hooks/useSettings';
-import { addHymnToList, createListWithHymn, getUserLists, shareHymnPdf, shareHymnText } from '@/utils/hymnActions';
+import { shareHymnPdf, shareHymnText } from '@/utils/hymnActions';
+import { HymnList, listsApi, ownerName, useLists } from '@/utils/lists';
 import { formatHymnNumber, HymnNumber } from '@/utils/hymnNumber';
-import type { Lista } from '@/ts/interfaces';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 export interface HymnSummary {
@@ -35,7 +35,9 @@ export default function HymnActionsSheet({ hymn, isFavorite, onClose, onOpen, on
   const theme = useTheme();
   const { settings } = useSettings();
   const [step, setStep] = useState<'menu' | 'lists'>('menu');
-  const [lists, setLists] = useState<Lista[] | null>(null);
+  // Solo listas donde puedo agregar: propias y compartidas con permiso de edición.
+  const { lists: allLists, loading: listsLoading } = useLists();
+  const lists = listsLoading ? null : allLists.filter((l) => l.role !== 'viewer');
   const [newName, setNewName] = useState('');
   const [busy, setBusy] = useState(false);
 
@@ -43,7 +45,6 @@ export default function HymnActionsSheet({ hymn, isFavorite, onClose, onOpen, on
   useEffect(() => {
     setStep('menu');
     setNewName('');
-    setLists(null);
   }, [hymn?.number]);
 
   if (!hymn) return <Sheet visible={false} onClose={onClose}>{null}</Sheet>;
@@ -55,14 +56,11 @@ export default function HymnActionsSheet({ hymn, isFavorite, onClose, onOpen, on
     if (message) onMessage?.(message);
   };
 
-  const openLists = async () => {
-    setStep('lists');
-    setLists(await getUserLists());
-  };
+  const openLists = () => setStep('lists');
 
-  const handleAdd = async (list: Lista) => {
+  const handleAdd = async (list: HymnList) => {
     setBusy(true);
-    const added = await addHymnToList(list.id, hymn.number);
+    const added = await listsApi.addHymn(list.id, hymn.number);
     setBusy(false);
     done(added ? `Agregado a “${list.name}”` : `Ya estaba en “${list.name}”`);
   };
@@ -70,9 +68,10 @@ export default function HymnActionsSheet({ hymn, isFavorite, onClose, onOpen, on
   const handleCreate = async () => {
     if (!newName.trim()) return;
     setBusy(true);
-    const list = await createListWithHymn(newName, hymn.number);
+    const name = newName.trim();
+    await listsApi.create(name, [String(hymn.number)]);
     setBusy(false);
-    done(`Lista “${list.name}” creada con este himno`);
+    done(`Lista “${name}” creada con este himno`);
   };
 
   const handleShareText = async () => {
@@ -153,6 +152,7 @@ export default function HymnActionsSheet({ hymn, isFavorite, onClose, onOpen, on
                       <ThemedText style={styles.rowLabel}>{list.name}</ThemedText>
                       <ThemedText type="caption">
                         {list.himnos.length} {list.himnos.length === 1 ? 'himno' : 'himnos'}
+                        {list.role === 'editor' ? ` · Lista de ${ownerName(list)}` : ''}
                       </ThemedText>
                     </View>
                     <Ionicons

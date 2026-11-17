@@ -1,16 +1,17 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { initializeApp, type FirebaseApp } from 'firebase/app';
 import {
   GoogleAuthProvider,
-  getAuth,
   onAuthStateChanged,
+  signInWithCredential,
   signInWithPopup,
   signOut as firebaseSignOut,
   type Auth,
   type User,
 } from 'firebase/auth';
-import { doc, getFirestore, onSnapshot, serverTimestamp, setDoc, type Firestore } from 'firebase/firestore';
-import { firebaseConfig, isFirebaseConfigured } from '@/constants/firebaseConfig';
+import { doc, onSnapshot, serverTimestamp, setDoc, type Firestore } from 'firebase/firestore';
+import { isFirebaseConfigured } from '@/constants/firebaseConfig';
+import { initFirebase, USE_EMULATORS } from '@/utils/firebase';
+import { migrateLegacyLists } from '@/utils/lists/cloud';
 import { SESSION_MODE_KEY, SessionMode, setSession } from '@/utils/session';
 import { emitDataReloaded, onLocalChange, SyncedKey } from '@/utils/syncedStorage';
 import { CloudData, CloudField, FIELDS_BY_KEY, clearLocal, mergeData, pick, readLocal, writeLocal } from '@/utils/cloudData';
@@ -29,7 +30,6 @@ import { CloudData, CloudField, FIELDS_BY_KEY, clearLocal, mergeData, pick, read
 
 const PENDING_KEY = 'syncPendingFields';
 
-let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
 let db: Firestore | null = null;
 
@@ -59,13 +59,14 @@ async function upload(fields: CloudField[]) {
 }
 
 async function flushPending() {
-  const fields = await getPending();
+  // 'lists' ya no se sincroniza en users/{uid} (vive en lists/{id}); ignorar pendientes antiguos.
+  const fields: CloudField[] = (await getPending()).filter((f) => f !== 'lists');
   if (!initialSyncDone || fields.length === 0) return;
   try {
     await upload(fields);
     // Solo quitar lo que se subió (pudieron llegar cambios nuevos mientras tanto).
     const after = await getPending();
-    await setPending(after.filter((f) => !fields.includes(f)));
+    await setPending(after.filter((f) => f !== 'lists' && !fields.includes(f)));
     setSession({ sync: 'synced' });
   } catch (error) {
     console.error('Error al sincronizar:', error);
@@ -115,10 +116,10 @@ function startSync(uid: string, mergeWithLocal: boolean) {
 
         if (!cloud) {
           result = local;
-          toUpload = ['settings', 'lists', 'favorites', 'bible'];
+          toUpload = ['settings', 'favorites', 'bible'];
         } else if (mergeWithLocal) {
           result = mergeData(local, cloud);
-          toUpload = ['settings', 'lists', 'favorites', 'bible'];
+          toUpload = ['settings', 'favorites', 'bible'];
         } else {
           result = { ...cloud, ...pick(local, pending) };
           toUpload = pending;
@@ -130,7 +131,19 @@ function startSync(uid: string, mergeWithLocal: boolean) {
         await setPending(toUpload);
         await flushPending();
         setSession({ sync: 'synced' });
+
+        // Las listas ahora viven en lists/{id} (para poder compartirlas). Migrar las que estaban
+        // en users/{uid}.lists o, al venir de invitado, en el dispositivo.
+        const legacy = cloud && !mergeWithLocal ? cloud.lists ?? [] : result.lists ?? [];
+        migrateLegacyLists(uid, legacy, Array.isArray(cloud?.lists)).catch((error) =>
+          console.error('Error al migrar las listas:', error)
+        );
         return;
+      }
+
+      // Un dispositivo con una versión anterior de la app volvió a escribir listas en users/{uid}.
+      if (cloud?.lists?.length) {
+        migrateLegacyLists(uid, cloud.lists, true).catch((error) => console.error('Error al migrar las listas:', error));
       }
 
       // Cambios que vienen de otro dispositivo.
@@ -165,9 +178,18 @@ export async function initAuth() {
     return;
   }
 
-  app = initializeApp(firebaseConfig);
-  auth = getAuth(app);
-  db = getFirestore(app);
+  const firebase = initFirebase()!;
+  auth = firebase.auth;
+  db = firebase.db;
+
+  // Pruebas con emuladores: iniciar sesión como un usuario de Google ficticio desde la consola.
+  if (USE_EMULATORS && typeof window !== 'undefined') {
+    (window as unknown as Record<string, unknown>).__alabaTestSignIn = (uid: string, name: string) =>
+      signInWithCredential(
+        firebase.auth,
+        GoogleAuthProvider.credential(JSON.stringify({ sub: uid, email: `${uid}@prueba.dev`, name, email_verified: true }))
+      );
+  }
   setSession({ googleAvailable: true });
 
   onAuthStateChanged(auth, async (user) => {

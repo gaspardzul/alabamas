@@ -32,7 +32,8 @@ export type CloudField = keyof CloudData;
 
 /** Qué campos de la nube corresponden a cada clave local. */
 export const FIELDS_BY_KEY: Record<SyncedKey, CloudField[]> = {
-  [SYNCED_KEYS.settings]: ['settings', 'lists'],
+  // Las listas ya no se sincronizan aquí: viven en lists/{id} (utils/lists).
+  [SYNCED_KEYS.settings]: ['settings'],
   [SYNCED_KEYS.favorites]: ['favorites'],
   [SYNCED_KEYS.bible]: ['bible'],
 };

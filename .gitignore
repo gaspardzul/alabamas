@@ -18,3 +18,7 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
+# Firebase emulators
+firestore-debug.log
+firebase-debug.log
+ui-debug.log

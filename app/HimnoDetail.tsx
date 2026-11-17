@@ -7,7 +7,8 @@ import type { RouteProp } from '@react-navigation/native';
 import allHimnos from '@/assets/himnos/allHimnos.json';
 import { Ionicons } from '@expo/vector-icons';
 import useStorage from '@/hooks/useStorage';
-import { Himno, Lista } from '@/ts/interfaces';
+import { Himno } from '@/ts/interfaces';
+import { HymnList, listsApi, useLists } from '@/utils/lists';
 import himnario from '@/assets/himnos/lista.json';
 import Sheet from '@/components/Sheet';
 import Chip from '@/components/Chip';
@@ -48,7 +49,9 @@ const HimnoDetail: React.FC = () => {
 
   const { addFavorite, removeFavorite, getFavorites, favorites } = useStorage('favoritos');
   const [showListModal, setShowListModal] = useState(false);
-  const [userLists, setUserLists] = useState<Lista[]>([]);
+  // Listas donde puedo agregar (propias y compartidas conmigo con permiso de edición).
+  const { lists: allLists } = useLists();
+  const userLists = allLists.filter((l) => l.role !== 'viewer');
 
   useEffect(() => {
     if (route.params?.number) {
@@ -62,10 +65,6 @@ const HimnoDetail: React.FC = () => {
     }
   }, [route.params?.number]);
 
-  useEffect(() => {
-    loadUserLists();
-  }, []);
-
   const loadSettings = async () => {
     const fontSize = await getSettingValue('fontSize');
     if(fontSize){
@@ -73,35 +72,11 @@ const HimnoDetail: React.FC = () => {
     }
   }
 
-  const loadUserLists = async () => {
-    const lists = await getSettingValue('userLists');
-    if (lists) {
-      setUserLists(lists);
-    }
-  };
-
-  const addToList = async (lista: Lista) => {
+  const addToList = async (lista: HymnList) => {
     if (!himno?.number) return;
-
-    const updatedLists = userLists.map(l => {
-      if (l.id === lista.id) {
-        // Evitar duplicados
-        if (!l.himnos.includes(himno?.number?.toString() ?? '')) {
-          return {
-            ...l,
-            himnos: l.himnos.includes(himno.number?.toString() ?? '') 
-              ? l.himnos 
-              : [...l.himnos, himno.number?.toString() ?? ''],
-            updatedAt: new Date()
-          };
-        }
-      }
-      return l;
-    });
-
-    await updateSettingValue('userLists', updatedLists);
-    setUserLists(updatedLists);
+    const added = await listsApi.addHymn(lista.id, himno.number);
     setShowListModal(false);
+    showMessage(added ? `Agregado a “${lista.name}”` : `Ya estaba en “${lista.name}”`);
   };
 
   const cargarHimno = async (numberHimno: string) => {
