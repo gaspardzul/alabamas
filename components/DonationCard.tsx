@@ -7,56 +7,38 @@ import links from '@/constants/links.json';
 import { Fonts, Radius, Spacing } from '@/constants/Typography';
 
 /**
- * Invitación a donar. El enlace (constants/links.json) abre Mercado Pago fuera de la app:
+ * Invitación a donar, solo en Perfil (sección "Apoya").
+ * El enlace (constants/links.json) abre Mercado Pago fuera de la app:
  * Alaba+ no procesa ni guarda datos de pago (así lo dice la política de privacidad).
- *  - variant "full": tarjeta completa en Perfil.
- *  - variant "compact": recordatorio discreto al final de Inicio.
  * Montos fijos: un enlace de pago por monto (donationOptions); "Otro monto" usa el enlace libre.
  */
-export default function DonationCard({ variant = 'full' }: { variant?: 'full' | 'compact' }) {
+export default function DonationCard() {
   const theme = useTheme();
   const open = (url: string) => Linking.openURL(url);
 
-  const Amounts = ({ small = false }: { small?: boolean }) => (
+  const Amounts = () => (
     <View style={styles.amounts}>
       {links.donationOptions.map((option) => (
         <TouchableOpacity
           key={option.url}
           onPress={() => open(option.url)}
-          style={[styles.amount, small && styles.amountSmall, { backgroundColor: theme.primary }]}
+          style={[styles.amount, { backgroundColor: theme.primary }]}
           accessibilityRole="link"
           accessibilityLabel={`Donar ${option.label} pesos con ${links.donationProvider}`}
         >
-          <Text style={[styles.amountText, small && styles.amountTextSmall, { color: theme.onPrimary }]}>{option.label}</Text>
+          <Text style={[styles.amountText, { color: theme.onPrimary }]}>{option.label}</Text>
         </TouchableOpacity>
       ))}
       <TouchableOpacity
         onPress={() => open(links.donationUrl)}
-        style={[styles.amount, small && styles.amountSmall, { borderWidth: 1, borderColor: theme.primary }]}
+        style={[styles.amount, { borderWidth: 1, borderColor: theme.primary }]}
         accessibilityRole="link"
         accessibilityLabel={`Donar otro monto con ${links.donationProvider}`}
       >
-        <Text style={[styles.amountText, small && styles.amountTextSmall, { color: theme.primary }]}>Otro</Text>
+        <Text style={[styles.amountText, { color: theme.primary }]}>Otro</Text>
       </TouchableOpacity>
     </View>
   );
-
-  if (variant === 'compact') {
-    return (
-      <View style={[styles.compact, { backgroundColor: theme.card, borderColor: theme.border }]}>
-        <View style={styles.compactHeader}>
-          <View style={[styles.heart, { backgroundColor: theme.chorusSoft }]}>
-            <Ionicons name="heart" size={18} color={theme.chorus} />
-          </View>
-          <View style={{ flex: 1 }}>
-            <ThemedText style={styles.compactTitle}>¿Alaba+ es de bendición para ti?</ThemedText>
-            <ThemedText type="caption">Ayúdanos a mantenerla gratuita y sin anuncios.</ThemedText>
-          </View>
-        </View>
-        <Amounts small />
-      </View>
-    );
-  }
 
   return (
     <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
@@ -99,11 +81,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 10,
   },
-  amountSmall: { height: 40 },
   amountText: { fontFamily: Fonts.sansBold, fontSize: 16 },
-  amountTextSmall: { fontSize: 14 },
   noteRow: { flexDirection: 'row', gap: 6, alignItems: 'flex-start' },
-  compact: { borderWidth: 1, borderRadius: Radius.md, padding: Spacing.md, gap: Spacing.md },
-  compactHeader: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  compactTitle: { fontFamily: Fonts.serifBold, fontSize: 15, lineHeight: 21 },
 });
