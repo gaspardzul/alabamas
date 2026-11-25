@@ -1,12 +1,12 @@
 {
   "appName": "Alaba+",
-  "lastUpdated": "16 de noviembre de 2026",
+  "lastUpdated": "24 de noviembre de 2026",
   "contactEmail": "casper088@gmail.com",
   "sections": [
     {
       "title": "Quiénes somos",
       "body": [
-        "Alaba+ es una aplicación gratuita de himnario, listas para el culto y lectura de la Biblia, disponible en alabamas.org y como aplicación móvil. La desarrolla y mantiene el Hno. Gaspar Dzul.",
+        "Alaba+ es una aplicación gratuita de himnario, listas para el culto, prédicas y lectura de la Biblia, disponible en alabamas.org y como aplicación móvil. La desarrolla y mantiene el Hno. Gaspar Dzul.",
         "Esta política explica qué información usa la aplicación, para qué y cómo puedes eliminarla."
       ]
     },
@@ -32,6 +32,7 @@
           "bullets": [
             "Himnos marcados como favoritos.",
             "Listas de alabanzas que creas (nombre, himnos y fechas) y, si las compartes, con quién y con qué permiso.",
+            "Prédicas que creas (título, pasaje, bosquejo, himnos y fechas).",
             "Tus amigos en Alaba+ y tu enlace de invitación.",
             "Ajustes: tamaño de letra, tema (claro u oscuro) y orden de la lista.",
             "Traducción de la Biblia elegida y el último capítulo que leíste."
@@ -91,7 +92,7 @@
         {
           "bullets": [
             "Al cerrar sesión (Perfil → Cerrar sesión), tus datos se borran de ese dispositivo; siguen guardados en tu cuenta para cuando vuelvas a entrar.",
-            "Para eliminar tu cuenta y todos tus datos de nuestros servidores, usa Perfil → Eliminar mi cuenta. Se borran al momento tus favoritos, ajustes, listas (también para quienes las compartías), amistades y tu enlace de invitación, y sales de las listas que otros te compartieron.",
+            "Para eliminar tu cuenta y todos tus datos de nuestros servidores, usa Perfil → Eliminar mi cuenta. Se borran al momento tus favoritos, ajustes, listas (también para quienes las compartías), prédicas, amistades y tu enlace de invitación, y sales de las listas que otros te compartieron.",
             "Si no puedes entrar a tu cuenta, escríbenos a {{email}} desde el correo de tu cuenta de Google y eliminaremos tus datos en un plazo máximo de 30 días.",
             "También puedes retirar el acceso de Alaba+ a tu cuenta en myaccount.google.com/permissions."
           ]

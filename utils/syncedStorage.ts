@@ -11,6 +11,7 @@ export const SYNCED_KEYS = {
   settings: 'userSettings', // { fontSize, order, userLists }
   favorites: 'favoritos', // Himno[]
   bible: 'bibleState', // { translationId, lastRead }
+  predicas: 'predicas', // Predica[] (módulo Prédicas, solo con cuenta de Google)
 } as const;
 
 export type SyncedKey = (typeof SYNCED_KEYS)[keyof typeof SYNCED_KEYS];

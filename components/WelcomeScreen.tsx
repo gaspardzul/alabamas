@@ -86,7 +86,7 @@ export default function WelcomeScreen() {
             <Ionicons name="cloud-outline" size={16} color={theme.secondary} />
             <ThemedText type="caption" style={styles.noteText}>
               <Text style={{ fontFamily: Fonts.sansSemiBold, color: theme.text }}>Con Google</Text>, tus favoritos,
-              listas y ajustes se guardan en tu cuenta y los ves en todos tus dispositivos.
+              listas, prédicas y ajustes se guardan en tu cuenta y los ves en todos tus dispositivos.
             </ThemedText>
           </View>
           <View style={styles.noteRow}>

@@ -129,10 +129,10 @@ function startSync(uid: string, mergeWithLocal: boolean) {
 
         if (!cloud) {
           result = local;
-          toUpload = ['settings', 'favorites', 'bible'];
+          toUpload = ['settings', 'favorites', 'bible', 'predicas'];
         } else if (mergeWithLocal) {
           result = mergeData(local, cloud);
-          toUpload = ['settings', 'favorites', 'bible'];
+          toUpload = ['settings', 'favorites', 'bible', 'predicas'];
         } else {
           result = { ...cloud, ...pick(local, pending) };
           toUpload = pending;

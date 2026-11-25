@@ -116,6 +116,8 @@ export default function RootLayout() {
             title: route.params?.lista?.name || 'Presentación',
           })}
         />
+        <Stack.Screen name="PredicaDetail" options={{ ...headerOptions, title: 'Prédica' }} />
+        <Stack.Screen name="PredicaPulpito" options={{ ...headerOptions, title: 'Modo Púlpito' }} />
       </Stack>
       )}
       <DialogHost />

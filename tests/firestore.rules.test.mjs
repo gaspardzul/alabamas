@@ -46,6 +46,13 @@ describe('users/{uid}', () => {
     await assertSucceeds(setDoc(doc(as('A'), 'users/A'), { favorites: [], inviteCode: 'codeA' }));
     await assertSucceeds(getDoc(doc(as('A'), 'users/A')));
   });
+  test('puede guardar sus prédicas', async () => {
+    await assertSucceeds(
+      setDoc(doc(as('A'), 'users/A'), {
+        predicas: [{ id: 'p1', title: 'El Señor es mi pastor', passage: 'Salmo 23:1-6', blocks: [] }],
+      })
+    );
+  });
   test('nadie más puede leerlo ni escribirlo', async () => {
     await assertFails(getDoc(doc(as('B'), 'users/A')));
     await assertFails(setDoc(doc(as('B'), 'users/A'), { favorites: [] }));

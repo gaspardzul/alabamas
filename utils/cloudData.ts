@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SYNCED_KEYS, SyncedKey } from '@/utils/syncedStorage';
 import { sameHymn } from '@/utils/hymnNumber';
 import { FONT_SIZE_DEFAULT } from '@/hooks/useSettings';
+import { BloquePredica } from '@/ts/interfaces';
 
 /**
  * Forma de los datos del usuario en Firestore (documento users/{uid}) y su traducción
@@ -12,6 +13,7 @@ export interface CloudData {
   lists?: CloudList[];
   favorites?: CloudFavorite[];
   bible?: { translationId?: string; lastRead?: unknown };
+  predicas?: CloudPredica[];
 }
 
 interface CloudList {
@@ -28,6 +30,21 @@ interface CloudFavorite {
   group?: unknown;
 }
 
+interface CloudPredica {
+  id: string;
+  title: string;
+  passage: string;
+  passageText?: string;
+  date?: string;
+  series?: string;
+  blocks: BloquePredica[];
+  hymnApertura?: string;
+  hymnCierre?: string;
+  hymnIntermedios?: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
 export type CloudField = keyof CloudData;
 
 /** Qué campos de la nube corresponden a cada clave local. */
@@ -36,6 +53,7 @@ export const FIELDS_BY_KEY: Record<SyncedKey, CloudField[]> = {
   [SYNCED_KEYS.settings]: ['settings'],
   [SYNCED_KEYS.favorites]: ['favorites'],
   [SYNCED_KEYS.bible]: ['bible'],
+  [SYNCED_KEYS.predicas]: ['predicas'],
 };
 
 const parse = async <T>(key: string): Promise<T | null> => {
@@ -54,6 +72,7 @@ export async function readLocal(): Promise<CloudData> {
   const settings = await parse<{ fontSize?: number; order?: string; theme?: string; userLists?: CloudList[] }>(SYNCED_KEYS.settings);
   const favorites = await parse<CloudFavorite[]>(SYNCED_KEYS.favorites);
   const bible = await parse<CloudData['bible']>(SYNCED_KEYS.bible);
+  const predicas = await parse<CloudPredica[]>(SYNCED_KEYS.predicas);
   const data: CloudData = {};
   if (settings) {
     data.settings = { fontSize: settings.fontSize, order: settings.order, theme: settings.theme };
@@ -61,6 +80,7 @@ export async function readLocal(): Promise<CloudData> {
   }
   if (favorites) data.favorites = favorites;
   if (bible) data.bible = bible;
+  if (predicas) data.predicas = predicas;
   return clean(data);
 }
 
@@ -83,6 +103,7 @@ export async function writeLocal(data: CloudData) {
     const current = (await parse<Record<string, unknown>>(SYNCED_KEYS.bible)) ?? {};
     await AsyncStorage.setItem(SYNCED_KEYS.bible, JSON.stringify({ ...current, ...data.bible }));
   }
+  if (data.predicas) await AsyncStorage.setItem(SYNCED_KEYS.predicas, JSON.stringify(data.predicas));
 }
 
 export function pick(data: CloudData, fields: CloudField[]): CloudData {
@@ -95,7 +116,8 @@ const time = (value?: string) => (value ? new Date(value).getTime() || 0 : 0);
 
 /**
  * Fusión al pasar de invitado a cuenta de Google (primera vez en este dispositivo):
- * favoritos y listas se combinan sin duplicados; ajustes y Biblia: gana la cuenta si ya tiene.
+ * favoritos, listas y prédicas se combinan sin duplicados (en prédicas y listas gana
+ * la versión más reciente por id); ajustes y Biblia: gana la cuenta si ya tiene.
  */
 export function mergeData(local: CloudData, cloud: CloudData): CloudData {
   const favorites = [...(cloud.favorites ?? [])];
@@ -110,11 +132,19 @@ export function mergeData(local: CloudData, cloud: CloudData): CloudData {
     else if (time(list.updatedAt) > time(lists[i].updatedAt)) lists[i] = list;
   }
 
+  const predicas = [...(cloud.predicas ?? [])];
+  for (const predica of local.predicas ?? []) {
+    const i = predicas.findIndex((p) => p.id === predica.id);
+    if (i === -1) predicas.push(predica);
+    else if (time(predica.updatedAt) > time(predicas[i].updatedAt)) predicas[i] = predica;
+  }
+
   return clean({
     settings: { ...(local.settings ?? {}), ...(cloud.settings ?? {}) },
     lists,
     favorites,
     bible: { ...(local.bible ?? {}), ...(cloud.bible ?? {}) },
+    predicas,
   });
 }
 

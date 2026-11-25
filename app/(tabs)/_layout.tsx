@@ -15,6 +15,7 @@ import features from '@/constants/features.json';
 const TABS = [
   { name: 'index', title: 'Inicio', icon: 'home', hidden: false },
   { name: 'explore', title: 'Alabanzas', icon: 'musical-notes', hidden: false },
+  { name: 'predicas', title: 'Prédicas', icon: 'mic', hidden: false },
   { name: 'bible', title: 'Biblia', icon: 'book', hidden: !features.bible },
   { name: 'favorites', title: 'Favoritos', icon: 'star', hidden: false },
   { name: 'mylists', title: 'Mis Listas', icon: 'list', hidden: false },

@@ -4,7 +4,7 @@ rules_version = '2';
 // Pruebas: npm run test:rules (emuladores de Firebase; requiere Java).
 //
 // Colecciones:
-//   users/{uid}                     datos privados: ajustes, favoritos, Biblia, código de invitación
+//   users/{uid}                     datos privados: ajustes, favoritos, Biblia, prédicas, código de invitación
 //   users/{uid}/friends/{friendUid} amigos de {uid} (ficha con nombre y foto)
 //   invites/{code}                  enlace de invitación de amistad (código aleatorio)
 //   lists/{listId}                  listas de alabanzas, con dueño y miembros (compartidas)
@@ -25,7 +25,7 @@ service cloud.firestore {
       allow create, update: if signedIn()
         && me() == uid
         && request.resource.data.keys().hasOnly(
-          ['settings', 'lists', 'favorites', 'bible', 'updatedAt', 'listsMigrated', 'inviteCode']
+          ['settings', 'lists', 'favorites', 'bible', 'predicas', 'updatedAt', 'listsMigrated', 'inviteCode']
         );
 
       // ---------- Amigos ----------
