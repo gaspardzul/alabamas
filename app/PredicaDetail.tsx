@@ -45,6 +45,9 @@ const PredicaDetail: React.FC = () => {
   const [picker, setPicker] = useState<PickerSlot | null>(null);
   const [pickerQuery, setPickerQuery] = useState('');
   const [addSheetVisible, setAddSheetVisible] = useState(false);
+  // Reordenar es un modo aparte (igual que en ListDetail): con el gesto de
+  // arrastre siempre activo, el scroll del editor quedaba bloqueado en web.
+  const [isReordering, setIsReordering] = useState(false);
 
   useEffect(() => {
     if (loaded && predica && draft === null) setDraft(predica);
@@ -241,14 +244,16 @@ const PredicaDetail: React.FC = () => {
           ]}
         >
           <View style={styles.blockHead}>
-            <TouchableOpacity
-              onPressIn={drag}
-              onLongPress={drag}
-              style={styles.dragHandle}
-              accessibilityLabel="Arrastrar para reordenar"
-            >
-              <Ionicons name="reorder-three" size={24} color={theme.textMuted} />
-            </TouchableOpacity>
+            {isReordering && (
+              <TouchableOpacity
+                onPressIn={drag}
+                onLongPress={drag}
+                style={styles.dragHandle}
+                accessibilityLabel="Arrastrar para reordenar"
+              >
+                <Ionicons name="reorder-three" size={24} color={theme.textMuted} />
+              </TouchableOpacity>
+            )}
             <View style={[styles.typeTag, { backgroundColor: theme[meta.soft] }]}>
               <Text style={[styles.typeTagText, { color: theme[meta.color] }]}>{meta.label}</Text>
             </View>
@@ -309,7 +314,7 @@ const PredicaDetail: React.FC = () => {
           renderItem={renderBlock}
           keyExtractor={(item) => item.id}
           onDragEnd={({ data }) => setDraft({ ...draft, blocks: data })}
-          activationDistance={0}
+          activationDistance={isReordering ? 0 : 999999}
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={styles.listContent}
           ListHeaderComponent={
@@ -414,11 +419,29 @@ const PredicaDetail: React.FC = () => {
               </View>
               {renderHymnSlot('Himno de cierre', draft.hymnCierre, 'cierre')}
 
-              <ThemedText type="label" style={[{ color: theme.textMuted }, styles.sectionLabel]}>
-                Bosquejo
-              </ThemedText>
+              <View style={styles.bosquejoHead}>
+                <ThemedText type="label" style={[{ color: theme.textMuted }, styles.sectionLabel]}>
+                  Bosquejo
+                </ThemedText>
+                <TouchableOpacity
+                  onPress={() => setIsReordering(!isReordering)}
+                  style={[styles.reorderButton, { borderColor: theme.primary }]}
+                  accessibilityLabel={isReordering ? 'Terminar de reordenar' : 'Reordenar bloques'}
+                >
+                  <Ionicons
+                    name={isReordering ? 'checkmark' : 'reorder-three'}
+                    size={16}
+                    color={theme.primary}
+                  />
+                  <Text style={[styles.reorderButtonText, { color: theme.primary }]}>
+                    {isReordering ? 'Listo' : 'Reordenar'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
               <ThemedText type="caption">
-                Mantén presionado ☰ y arrastra para reordenar los bloques.
+                {isReordering
+                  ? 'Mantén presionado ☰ y arrastra para reordenar los bloques. Toca Listo para terminar.'
+                  : 'Toca Reordenar para cambiar el orden de los bloques.'}
               </ThemedText>
             </View>
           }
@@ -528,6 +551,17 @@ const styles = StyleSheet.create({
   listContent: { paddingHorizontal: Spacing.gutter, paddingTop: Spacing.md, paddingBottom: Spacing.xl * 2 },
   header: { gap: Spacing.sm, marginBottom: Spacing.md },
   sectionLabel: { marginTop: Spacing.sm },
+  bosquejoHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  reorderButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    height: 32,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderRadius: Radius.md,
+  },
+  reorderButtonText: { fontFamily: Fonts.sansSemiBold, fontSize: 13 },
   row: { flexDirection: 'row', gap: Spacing.sm },
   half: { flex: 1, gap: Spacing.sm },
   titleInput: {
