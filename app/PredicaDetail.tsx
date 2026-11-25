@@ -3,8 +3,6 @@ import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'r
 import { useNavigation, useRoute } from 'expo-router';
 import type { RouteProp } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
-import DraggableFlatList, { RenderItemParams, ScaleDecorator } from 'react-native-draggable-flatlist';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import himnario from '@/assets/himnos/lista.json';
 import ListItem, { toTitleCase } from '@/components/ListItem';
@@ -172,6 +170,16 @@ const PredicaDetail: React.FC = () => {
   const removeBlock = (id: string) =>
     setDraft({ ...draft, blocks: draft.blocks.filter((b) => b.id !== id) });
 
+  /** Mover un bloque una posición arriba o abajo (modo Reordenar). */
+  const moveBlock = (id: string, direction: -1 | 1) => {
+    const index = draft.blocks.findIndex((b) => b.id === id);
+    const target = index + direction;
+    if (index === -1 || target < 0 || target >= draft.blocks.length) return;
+    const blocks = [...draft.blocks];
+    [blocks[index], blocks[target]] = [blocks[target], blocks[index]];
+    setDraft({ ...draft, blocks });
+  };
+
   const selectHymn = (number: string) => {
     if (picker === 'apertura') {
       setDraft({ ...draft, hymnApertura: number });
@@ -229,34 +237,51 @@ const PredicaDetail: React.FC = () => {
     );
   };
 
-  const renderBlock = ({ item, drag, isActive }: RenderItemParams<BloquePredica>) => {
+  const renderBlock = (item: BloquePredica, index: number) => {
     const meta = BLOCK_TYPE_META[item.type];
     return (
-      <ScaleDecorator>
-        <View
-          style={[
-            styles.blockCard,
-            {
-              backgroundColor: theme.card,
-              borderColor: isActive ? theme.secondary : theme.border,
-              borderLeftColor: theme[meta.color],
-            },
-          ]}
-        >
-          <View style={styles.blockHead}>
-            {isReordering && (
+      <View
+        style={[
+          styles.blockCard,
+          {
+            backgroundColor: theme.card,
+            borderColor: theme.border,
+            borderLeftColor: theme[meta.color],
+          },
+        ]}
+      >
+        <View style={styles.blockHead}>
+          {isReordering && (
+            <View style={styles.moveButtons}>
               <TouchableOpacity
-                onPressIn={drag}
-                onLongPress={drag}
-                style={styles.dragHandle}
-                accessibilityLabel="Arrastrar para reordenar"
+                onPress={() => moveBlock(item.id, -1)}
+                disabled={index === 0}
+                style={styles.iconButton}
+                accessibilityLabel="Subir bloque"
               >
-                <Ionicons name="reorder-three" size={24} color={theme.textMuted} />
+                <Ionicons
+                  name="arrow-up"
+                  size={20}
+                  color={index === 0 ? theme.border : theme.textMuted}
+                />
               </TouchableOpacity>
-            )}
-            <View style={[styles.typeTag, { backgroundColor: theme[meta.soft] }]}>
-              <Text style={[styles.typeTagText, { color: theme[meta.color] }]}>{meta.label}</Text>
+              <TouchableOpacity
+                onPress={() => moveBlock(item.id, 1)}
+                disabled={index === draft.blocks.length - 1}
+                style={styles.iconButton}
+                accessibilityLabel="Bajar bloque"
+              >
+                <Ionicons
+                  name="arrow-down"
+                  size={20}
+                  color={index === draft.blocks.length - 1 ? theme.border : theme.textMuted}
+                />
+              </TouchableOpacity>
             </View>
+          )}
+          <View style={[styles.typeTag, { backgroundColor: theme[meta.soft] }]}>
+            <Text style={[styles.typeTagText, { color: theme[meta.color] }]}>{meta.label}</Text>
+          </View>
             <View style={styles.blockActions}>
               <TouchableOpacity
                 onPress={() => duplicateBlock(item.id)}
@@ -299,7 +324,6 @@ const PredicaDetail: React.FC = () => {
             style={[styles.blockTextInput, { color: theme.text }]}
           />
         </View>
-      </ScaleDecorator>
     );
   };
 
@@ -307,14 +331,13 @@ const PredicaDetail: React.FC = () => {
   const minutes = predicaEstimatedMinutes(draft);
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <DraggableFlatList
+        <FlatList
           data={draft.blocks}
-          renderItem={renderBlock}
+          renderItem={({ item, index }) => renderBlock(item, index)}
           keyExtractor={(item) => item.id}
-          onDragEnd={({ data }) => setDraft({ ...draft, blocks: data })}
-          activationDistance={isReordering ? 0 : 999999}
+          style={{ flex: 1 }}
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={styles.listContent}
           ListHeaderComponent={
@@ -440,7 +463,7 @@ const PredicaDetail: React.FC = () => {
               </View>
               <ThemedText type="caption">
                 {isReordering
-                  ? 'Mantén presionado ☰ y arrastra para reordenar los bloques. Toca Listo para terminar.'
+                  ? 'Usa ↑ y ↓ para cambiar el orden de los bloques. Toca Listo para terminar.'
                   : 'Toca Reordenar para cambiar el orden de los bloques.'}
               </ThemedText>
             </View>
@@ -541,7 +564,7 @@ const PredicaDetail: React.FC = () => {
           </TouchableOpacity>
         )}
       </Sheet>
-    </GestureHandlerRootView>
+    </View>
   );
 };
 
@@ -612,7 +635,7 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.md,
   },
   blockHead: { flexDirection: 'row', alignItems: 'center', gap: Spacing.sm },
-  dragHandle: { width: 32, height: 36, alignItems: 'center', justifyContent: 'center' },
+  moveButtons: { flexDirection: 'row', alignItems: 'center' },
   typeTag: { borderRadius: Radius.lg, paddingHorizontal: 10, paddingVertical: 4 },
   typeTagText: { fontFamily: Fonts.sansMedium, fontSize: 12, lineHeight: 16 },
   blockActions: { flex: 1, flexDirection: 'row', justifyContent: 'flex-end' },
