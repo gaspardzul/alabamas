@@ -50,10 +50,10 @@ export default function HomeScreen() {
             </ThemedText>
           </View>
           <ThemedText style={[styles.verseText, { color: theme.text }]}>
-            «Venid, aclamemos alegremente a Jehová; cantemos con júbilo a la roca de nuestra salvación.»
+            «Cantad alegres a Dios, habitantes de toda la tierra. Servid a Jehová con alegría; venid ante su presencia con regocijo.»
           </ThemedText>
           <View style={styles.citation}>
-            <ThemedText type="link">Salmo 95:1</ThemedText>
+            <ThemedText type="link">Salmo 100:1-2</ThemedText>
             <ThemedText type="caption">RVR1960</ThemedText>
           </View>
         </View>
